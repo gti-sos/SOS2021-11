@@ -268,8 +268,8 @@ app.get("info/smoking_stats", (request,response)=>{
 						 </br>
 						 <table class="default" style="width:100%">
 						<tr>
-							<td>countries</td>
-							<td>years</td>
+							<td>country</td>
+							<td>year</td>
 							<td>smoking_men</td>
 							<td>smoking_women</td>
 							<td>smoking_population</td>
