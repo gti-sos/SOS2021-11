@@ -264,7 +264,7 @@ app.get("/info/smoking_stats", (request,response)=>{
 						</style>
 					</head>
 					<body>
-						<h3> Colesterol alto - Datos en los países de Europa</h3>
+						<h3> Fumadores - Datos en los países de Europa</h3>
 						 </br>
 						 <table class="default" style="width:100%">
 						<tr>
@@ -275,46 +275,46 @@ app.get("/info/smoking_stats", (request,response)=>{
 							<td>smoking_population</td>
 						</tr>
 						<tr>
+							<td>Spain</td>
 							<td>2017</td>
-							<td>Spain-Andalucia</td>
-							<td>4,92</td>
-							<td>9,84</td>
-							<td>7,43</td>
+							<td>25,6</td>
+							<td>18,8</td>
+							<td>22,2</td>
 						</tr>
 						<tr>
+							<td>Netherlands</td>
 							<td>2017</td>
-							<td>Spain-Madrid</td>
-							<td>2,49</td>
-							<td>5,42</td>
-							<td>4,03</td>
+							<td>19,5</td>
+							<td>14,1</td>
+							<td>16,8</td>
 						</tr>
 						<tr>
+							<td>Italy</td>
 							<td>2017</td>
-							<td>Spain-Cataluña</td>
-							<td>4,09</td>
-							<td>9,12</td>
-							<td>6,67</td>
+							<td>25,1</td>
+							<td>14</td>
+							<td>19,6</td>
 						</tr>
 						<tr>
+							<td>Norway</td>
 							<td>2017</td>
-							<td>Spain-Comunidad Valenciana</td>
-							<td>4,24</td>
-							<td>9,64</td>
-							<td>7,00</td>
+							<td>12</td>
+							<td>10</td>
+							<td>11</td>
 						</tr>
 						<tr>
+							<td>Germany</td>
 							<td>2017</td>
-							<td>Spain-Galicia</td>
-							<td>5,99</td>
-							<td>14,35</td>
-							<td>10,35</td>
+							<td>22,3</td>
+							<td>15,3</td>
+							<td>18,8</td>
 						</tr>
 						<tr>
+							<td>Ireland</td>
 							<td>2017</td>
-							<td>Spain-Pais Vasco</td>
-							<td>4,54</td>
-							<td>7,42</td>
-							<td>6,03</td>
+							<td>20</td>
+							<td>17</td>
+							<td>18,5</td>
 						</tr>
 						</table>
 					</body>
