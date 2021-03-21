@@ -4,7 +4,8 @@
   "description": "- **Team**   - [Ana Romero Caceres](https://github.com/anaromero99)   - [Jose Pablo Carrasco Cobos](https://github.com/EsDeSepa)   - [Juan Diez Blanco](https://github.com/jdblanco)   - [Miriam Campano Crespo](https://github.com/Mirishya)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
