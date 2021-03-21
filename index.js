@@ -246,6 +246,84 @@ app.get("/info/stress_stats", (request,response)=>{
 					);
 
 });
+app.get("/info/smoking_stats", (request,response)=>{
+
+	response.send(`<!DOCTYPE html>
+				<html>
+					<head>
+						<title>smoking_stats</title>
+						<style>
+							table, tr, td {
+								border: 1px solid black;
+								border-collapse: collapse;
+							}
+							tr, td {
+								padding: 5px;
+								text-align: center;    
+							}
+						</style>
+					</head>
+					<body>
+						<h3> Colesterol alto - Datos en los países de Europa</h3>
+						 </br>
+						 <table class="default" style="width:100%">
+						<tr>
+							<td>countries</td>
+							<td>years</td>
+							<td>smoking_men</td>
+							<td>smoking_women</td>
+							<td>smoking_population</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Andalucia</td>
+							<td>4,92</td>
+							<td>9,84</td>
+							<td>7,43</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Madrid</td>
+							<td>2,49</td>
+							<td>5,42</td>
+							<td>4,03</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Cataluña</td>
+							<td>4,09</td>
+							<td>9,12</td>
+							<td>6,67</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Comunidad Valenciana</td>
+							<td>4,24</td>
+							<td>9,64</td>
+							<td>7,00</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Galicia</td>
+							<td>5,99</td>
+							<td>14,35</td>
+							<td>10,35</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Pais Vasco</td>
+							<td>4,54</td>
+							<td>7,42</td>
+							<td>6,03</td>
+						</tr>
+						</table>
+					</body>
+					</html>`
+					);
+
+});
+
+
 
 /*app.get("/cool", (request, response) => {
 		response.send(cool());
