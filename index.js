@@ -163,7 +163,7 @@ app.get("/info/depression_stats", (request,response)=>{
 					);
 
 });
-app.get("/info/stress_stats", (request,response)=>{
+app.get("info/stress_stats", (request,response)=>{
 
 	response.send(`<!DOCTYPE html>
 				<html>
