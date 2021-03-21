@@ -87,6 +87,90 @@ app.get("/info/anxiety_stats", (request,response)=>{
 
 });
 
+app.get("/info/stress_stats", (request,response)=>{
+
+	response.send(`<!DOCTYPE html>
+				<html>
+					<head>
+						<title>stress_stats</title>
+						<style>
+							table, tr, td {
+								border: 1px solid black;
+								border-collapse: collapse;
+							}
+							tr, td {
+								padding: 5px;
+								text-align: center;    
+							}
+						</style>
+					</head>
+					<body>
+						<h3>Estrés Laboral - Datos en las comunidades autónomas de España</h3>
+						 </br>
+						 <table class="default" style="width:100%">
+						<tr>
+							<td>country</td>
+							<td>year</td>
+							<td>stress_men</td>
+							<td>stress_women</td>
+							<td>stress_population</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Andalucia</td>
+							<td>4,61</td>
+							<td>4,42</td>
+							<td>4,53</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Aragón</td>
+							<td>4,31</td>
+							<td>4,02</td>
+							<td>4,18</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Cataluña</td>
+							<td>4,09</td>
+							<td>9,12</td>
+							<td>6,67</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Asturias</td>
+							<td>3,98</td>
+							<td>4,11</td>
+							<td>4,04</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Baleares</td>
+							<td>4,11</td>
+							<td>4,4</td>
+							<td>4,25</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Canarias</td>
+							<td>4,49</td>
+							<td>4,5</td>
+							<td>4,49</td>
+						</tr>
+						<tr>
+							<td>2017</td>
+							<td>Spain-Cantabria</td>
+							<td>4,13</td>
+							<td>4,14</td>
+							<td>4,13</td>
+						</tr>
+						</table>
+					</body>
+					</html>`
+					);
+
+});
+
 /*app.get("/cool", (request, response) => {
 		response.send(cool());
 		console.log("New request to /cool has arrived");
@@ -96,3 +180,4 @@ app.get("/info/anxiety_stats", (request,response)=>{
 app.listen(port, () => {
 	console.log("Server ready listening on port " + port);	
 })
+
