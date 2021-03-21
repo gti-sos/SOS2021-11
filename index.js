@@ -10,7 +10,7 @@ var port = (process.env.PORT || 10000);
 app.use("/", express.static(path.join(__dirname, "public")));
 
 
-app.get("/info/anxiety_stats", (request,response)=>{
+app.get("info/anxiety_stats", (request,response)=>{
 
 	response.send(`<!DOCTYPE html>
 				<html>
@@ -87,7 +87,7 @@ app.get("/info/anxiety_stats", (request,response)=>{
 
 });
 
-app.get("/info/depression_stats", (request,response)=>{
+app.get("info/depression_stats", (request,response)=>{
 
 	response.send(`<!DOCTYPE html>
 				<html>
@@ -246,7 +246,7 @@ app.get("info/stress_stats", (request,response)=>{
 					);
 
 });
-app.get("/info/smoking_stats", (request,response)=>{
+app.get("info/smoking_stats", (request,response)=>{
 
 	response.send(`<!DOCTYPE html>
 				<html>
