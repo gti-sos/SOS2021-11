@@ -14,4 +14,4 @@
     - [https://sos2021-11.herokuapp.com/api/v1/my-awesome-resource-1/docs](https://sos2021-11.herokuapp.com/api/v1/medical-conditions/docs) (developed by [Ana Romero Caceres](https://github.com/anaromero99))
     - [https://sos2021-11.herokuapp.com/api/v1/my-awesome-resource-2/docs](https://sos2021-11.herokuapp.com/api/v1/medical-conditions/docs) (developed by [Jose Pablo Carrasco Cobos](https://github.com/EsDeSepa))
     - [https://sos2021-11.herokuapp.com/api/v1/my-awesome-resource-3/docs](https://sos2021-11.herokuapp.com/api/v1/medical-conditions/docs) (developed by [Juan Diez Blanco](https://github.com/jdblanco))
-	 - [https://sos2021-11.herokuapp.com/api/v1/my-awesome-resource-3/docs](https://sos2021-11.herokuapp.com/api/v1/medical-conditions/docs) (developed by [Miriam Campano Crespo](https://github.com/Mirishya))
+	 - [https://sos2021-11.herokuapp.com/api/v1/my-awesome-resource-4/docs](https://sos2021-11.herokuapp.com/api/v1/medical-conditions/docs) (developed by [Miriam Campano Crespo](https://github.com/Mirishya))
