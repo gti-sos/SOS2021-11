@@ -264,7 +264,7 @@ app.get("info/smoking_stats", (request,response)=>{
 						</style>
 					</head>
 					<body>
-						<h3> Fumadores - Datos en los países de Europa</h3>
+						<h3>Fumadores - Datos en los países de Europa</h3>
 						 </br>
 						 <table class="default" style="width:100%">
 						<tr>
