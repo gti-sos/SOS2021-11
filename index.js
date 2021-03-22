@@ -71,7 +71,7 @@ app.get("/info/depression_stats", (request, response) => {
 
 app.get("/info/stress_stats", (request, response) => {
 	stress = stress_stats_data.slice();
-	response.send(smoking);
+	response.send(stress);
 });
 
 //Petición para smoking_stats	
