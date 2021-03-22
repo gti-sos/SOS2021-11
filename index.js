@@ -36,83 +36,22 @@ var smoking_stats_data = [
 app.get("/info/smoking_stats", (request,response)=>{
 	smoking = smoking_stats_data.slice();
 	response.send(smoking);
-});
+	});
+var depression_stats_data = [
+	{country:'Spain_Andalucia', year:2011, depression_men:4.00, depression_women:11.60, depression_population:7.80},
+	{country:'Spain_Castilla_la_mancha', year:2014, depression_men:3.50, depression_women:5.70, depression_population:4.60},
+	{country:'Spain_Extremadura', year:2011, depression_men:4.22, depression_women:24.33, depression_population:14.39},
+	{country:'Spain_Galicia', year:2009, depression_men:23.10, depression_women:20.20, depression_population:4.30},
+	{country:'Spain_Asturias', year:2014, depression_men:21.80, depression_women:78.2, depression_population:37.90},
+	{country:'Spain_Comunidad_Valenciana', year:2010, depression_men:6.13, depression_women:9.61, depression_population:58.3},
+];
+
+app.use("/", express.static(path.join(__dirname, "public")));
+
 
 app.get("/info/depression_stats", (request,response)=>{
-
-	response.send(`<!DOCTYPE html>
-				<html>
-					<head>
-						<title>depression_stats</title>
-						<style>
-							table, tr, td {
-								border: 1px solid black;
-								border-collapse: collapse;
-							}
-							tr, td {
-								padding: 5px;
-								text-align: center;    
-							}
-						</style>
-					</head>
-					<body>
-						<h3>Depresion Crónica - Datos en las comunidades autónomas de España</h3>
-						 </br>
-						 <table class="default" style="width:100%">
-						<tr>
-							<td>country</td>
-							<td>year</td>
-							<td>depres_men</td>
-							<td>depres_women</td>
-							<td>depres_population</td>
-						</tr>
-						<tr>
-							<td>Spain-Andalucia</td>
-							<td>2011</td>
-							<td>4,00</td>
-							<td>11,60</td>
-							<td>7,80</td>
-						</tr>
-						<tr>
-							<td>Spain-Castilla-la-mancha</td>
-							<td>2014</td>
-							<td>3,50</td>
-							<td>5,70</td>
-							<td>4,60</td>
-						</tr>
-						<tr>
-							<td>Spain-Extremadura</td>
-							<td>2011</td>
-							<td>4,22</td>
-							<td>24,33</td>
-							<td>14,39</td>
-						</tr>
-						<tr>
-							<td>Spain-Galicia</td>
-							<td>2009</td>
-							<td>23,10</td>
-							<td>20,20</td>
-							<td>37,90</td>
-						</tr>
-						<tr>
-							<td>Spain-Asturias</td>
-							<td>2014</td>
-							<td>21,80</td>
-							<td>78,20</td>
-							<td>37,90</td>
-						</tr>
-						<tr>
-							<td>Spain-Comunidad-valenciana</td>
-							<td>2010</td>
-							<td>6,13</td>
-							<td>9,61</td>
-							<td>58,30</td>
-						</tr>
-						</table>
-					</body>
-					</html>`
-					);
-
+	depression = depression_stats_data.slice();
+	response.send(depression);
 });
 app.get("/info/stress_stats", (request,response)=>{
 
