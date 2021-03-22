@@ -7,85 +7,23 @@ var app = express();
 
 var port = (process.env.PORT || 10000);
 
+var anxiety_stats_data = [
+	{country:'Spain_Andalucia', year:2017, anxiety_men:4.92, anxiety_women:9.84, anxiety_population:7.43},
+	{country:'Spain_Madrid', year:2017, anxiety_men:2.49, anxiety_women:5.42, anxiety_population:4.03},
+	{country:'Spain_Catalunna', year:2017, anxiety_men:4.09, anxiety_women:9.12, anxiety_population:6.67},
+	{country:'Spain_Comunidad_Valenciana', year:2017, anxiety_men:4.24, anxiety_women:9.64, anxiety_population:7.00},
+	{country:'Spain_Galicia', year:2017, anxiety_men:5.99, anxiety_women:14.35, anxiety_population:10.35},
+	{country:'Spain_Pais_Vasco', year:2017, anxiety_men:4.54, anxiety_women:7.42, anxiety_population:6.03},
+];
+
 app.use("/", express.static(path.join(__dirname, "public")));
 
 
 app.get("/info/anxiety_stats", (request,response)=>{
-
-	response.send(`<!DOCTYPE html>
-				<html>
-					<head>
-						<title>anxiety_stats</title>
-						<style>
-							table, tr, td {
-								border: 1px solid black;
-								border-collapse: collapse;
-							}
-							tr, td {
-								padding: 5px;
-								text-align: center;    
-							}
-						</style>
-					</head>
-					<body>
-						<h3>Ansiedad Crónica - Datos en las comunidades autónomas de España</h3>
-						 </br>
-						 <table class="default" style="width:100%">
-						<tr>
-							<td>country</td>
-							<td>year</td>
-							<td>anxiety_men</td>
-							<td>anxiety_women</td>
-							<td>anxiety_population</td>
-						</tr>
-						<tr>
-							<td>Spain-Andalucia</td>
-							<td>2017</td>
-							<td>4,92</td>
-							<td>9,84</td>
-							<td>7,43</td>
-						</tr>
-						<tr>
-							<td>Spain-Madrid</td>
-							<td>2017</td>
-							<td>2,49</td>
-							<td>5,42</td>
-							<td>4,03</td>
-						</tr>
-						<tr>
-							<td>Spain-Cataluña</td>
-							<td>2017</td>
-							<td>4,09</td>
-							<td>9,12</td>
-							<td>6,67</td>
-						</tr>
-						<tr>
-							<td>Spain-Comunidad Valenciana</td>
-							<td>2017</td>
-							<td>4,24</td>
-							<td>9,64</td>
-							<td>7,00</td>
-						</tr>
-						<tr>
-							<td>Spain-Galicia</td>
-							<td>2017</td>
-							<td>5,99</td>
-							<td>14,35</td>
-							<td>10,35</td>
-						</tr>
-						<tr>
-							<td>Spain-Pais Vasco</td>
-							<td>2017</td>
-							<td>4,54</td>
-							<td>7,42</td>
-							<td>6,03</td>
-						</tr>
-						</table>
-					</body>
-					</html>`
-					);
-
+	anxiety = anxiety_stats_data.slice();
+	response.send(anxiety);
 });
+
 
 app.get("/info/depression_stats", (request,response)=>{
 
