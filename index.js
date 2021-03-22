@@ -23,11 +23,7 @@ app.get("/info/anxiety_stats", (request,response)=>{
 	anxiety = anxiety_stats_data.slice();
 	response.send(anxiety);
 });
-
-
-			
-							
-					
+										
 var smoking_stats_data = [
 	{country:'Spain', year:2017, smoking_men:25.6, smoking_women:18.8, smoking_population:22.2},
 	{country:'Netherlands', year:2017, smoking_men:19.5, smoking_women:14.1, smoking_population:16.8},
