@@ -94,7 +94,7 @@ app.get("/info/anxiety_stats", (request,response)=>{
 					</body>
 					</html>`
 					);
-
+						});
 // Database breve de depresión - Juan Diez Blanco (@jdblanco)
 
 var depression_stats_data = [
