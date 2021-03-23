@@ -19,6 +19,7 @@ var port = (process.env.PORT || 10000);
 	{ country: 'Spain_Pais_Vasco', year: 2017, anxiety_men: 4.54, anxiety_women: 7.42, anxiety_population: 6.03 },
 ];
 */
+
 app.get("/info/anxiety_stats", (request,response)=>{
 
 	response.send(`<!DOCTYPE html>
