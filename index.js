@@ -119,7 +119,83 @@ var stress_stats_data = [
 
 // Database breve de tabaquismo - Miriam Campano Crespo (@Mirishya)
 
-var smoking_stats_data = [
+app.get("/info/smoking_stats", (request,response)=>{
+
+	response.send(`<!DOCTYPE html>
+				<html>
+					<head>
+						<title>smoking_stats</title>
+						<style>
+							table, tr, td {
+								border: 1px solid black;
+								border-collapse: collapse;
+							}
+							tr, td {
+								padding: 5px;
+								text-align: center;    
+							}
+						</style>
+					</head>
+					<body>
+						<h3>Fumadores - Datos en los países de Europa</h3>
+						 </br>
+						 <table class="default" style="width:100%">
+						<tr>
+							<td>country</td>
+							<td>year</td>
+							<td>smoking_men</td>
+							<td>smoking_women</td>
+							<td>smoking_population</td>
+						</tr>
+						<tr>
+							<td>Spain</td>
+							<td>2017</td>
+							<td>25,6</td>
+							<td>18,8</td>
+							<td>22,2</td>
+						</tr>
+						<tr>
+							<td>Netherlands</td>
+							<td>2017</td>
+							<td>19,5</td>
+							<td>14,1</td>
+							<td>16,8</td>
+						</tr>
+						<tr>
+							<td>Italy</td>
+							<td>2017</td>
+							<td>25,1</td>
+							<td>14</td>
+							<td>19,6</td>
+						</tr>
+						<tr>
+							<td>Norway</td>
+							<td>2017</td>
+							<td>12</td>
+							<td>10</td>
+							<td>11</td>
+						</tr>
+						<tr>
+							<td>Germany</td>
+							<td>2017</td>
+							<td>22,3</td>
+							<td>15,3</td>
+							<td>18,8</td>
+						</tr>
+						<tr>
+							<td>Ireland</td>
+							<td>2017</td>
+							<td>20</td>
+							<td>17</td>
+							<td>18,5</td>
+						</tr>
+						</table>
+					</body>
+					</html>`
+					);
+
+});
+/*var smoking_stats_data = [
 	{ country: 'Spain', year: 2017, smoking_men: 25.6, smoking_women: 18.8, smoking_population: 22.2 },
 	{ country: 'Netherlands', year: 2017, smoking_men: 19.5, smoking_women: 14.1, smoking_population: 16.8 },
 	{ country: 'Italy', year: 2017, smoking_men: 25.1, smoking_women: 14, smoking_population: 19.6 },
@@ -127,7 +203,7 @@ var smoking_stats_data = [
 	{ country: 'Germany', year: 2017, smoking_men: 22.3, smoking_women: 15.3, smoking_population: 18.8 },
 	{ country: 'Ireland', year: 2017, smoking_men: 20, smoking_women: 17, smoking_population: 18.5 },
 ];
-
+*/
 app.use("/", express.static(path.join(__dirname, "public")));
 
 //Petición para anxiety_stats
@@ -155,10 +231,10 @@ app.get("/info/stress_stats", (request, response) => {
 
 //Petición para smoking_stats	
 
-app.get("/info/smoking_stats", (request, response) => {
+/*app.get("/info/smoking_stats", (request, response) => {
 	smoking = smoking_stats_data.slice();
 	response.send(smoking);
-});
+});*/
 
 // App Listen (para todas las peticiones)
 
