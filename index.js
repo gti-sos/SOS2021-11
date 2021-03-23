@@ -214,13 +214,6 @@ app.get("/info/stress_stats", (request,response)=>{
 							<td>4,18</td>
 						</tr>
 						<tr>
-							<td>Spain-Cataluña</td>
-							<td>2017</td>
-							<td>4,09</td>
-							<td>9,12</td>
-							<td>6,67</td>
-						</tr>
-						<tr>
 							<td>Spain-Asturias</td>
 							<td>2017</td>
 							<td>3,98</td>
