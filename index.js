@@ -171,15 +171,97 @@ response.send(`<!DOCTYPE html>
 					);
 });
 // Database breve de estrés - Ana Romero Cáceres (@anaromero99)
+app.get("/info/stress_stats", (request,response)=>{
 
-var stress_stats_data = [
+	response.send(`<!DOCTYPE html>
+				<html>
+					<head>
+						<title>stress_stats</title>
+						<style>
+							table, tr, td {
+								border: 1px solid black;
+								border-collapse: collapse;
+							}
+							tr, td {
+								padding: 5px;
+								text-align: center;    
+							}
+						</style>
+					</head>
+					<body>
+						<h3>Estrés Laboral - Datos en las comunidades autónomas de España</h3>
+						 </br>
+						 <table class="default" style="width:100%">
+						<tr>
+							<td>country</td>
+							<td>year</td>
+							<td>stress_men</td>
+							<td>stress_women</td>
+							<td>stress_population</td>
+						</tr>
+						<tr>
+							<td>Spain-Andalucia</td>
+							<td>2017</td>
+							<td>4,61</td>
+							<td>4,42</td>
+							<td>4,53</td>
+						</tr>
+						<tr>
+							<td>Spain-Aragón</td>
+							<td>2017</td>
+							<td>4,31</td>
+							<td>4,02</td>
+							<td>4,18</td>
+						</tr>
+						<tr>
+							<td>Spain-Cataluña</td>
+							<td>2017</td>
+							<td>4,09</td>
+							<td>9,12</td>
+							<td>6,67</td>
+						</tr>
+						<tr>
+							<td>Spain-Asturias</td>
+							<td>2017</td>
+							<td>3,98</td>
+							<td>4,11</td>
+							<td>4,04</td>
+						</tr>
+						<tr>
+							<td>Spain-Baleares</td>
+							<td>2017</td>
+							<td>4,11</td>
+							<td>4,4</td>
+							<td>4,25</td>
+						</tr>
+						<tr>
+							<td>Spain-Canarias</td>
+							<td>2017</td>
+							<td>4,49</td>
+							<td>4,5</td>
+							<td>4,49</td>
+						</tr>
+						<tr>
+							<td>Spain-Cantabria</td>
+							<td>2017</td>
+							<td>4,13</td>
+							<td>4,14</td>
+							<td>4,13</td>
+						</tr>
+						</table>
+					</body>
+					</html>`
+					);
+
+});	
+/*var stress_stats_data = [
 	{ country: 'Spain-Andalucia', year: 2017, stress_men: 4.61, stress_women: 4.42, stress_population: 4.53 },
 	{ country: 'Spain-Aragón', year: 2017, stress_men: 4.31, stress_women: 4.02, stress_population: 4.18 },
 	{ country: 'Spain-Asturias', year: 2017, stress_men: 3.98, stress_women: 4.11, stress_population: 4.04 },
 	{ country: 'Spain-Baleares', year: 2017, stress_men: 4.11, stress_women: 4.4, stress_population: 4.25 },
 	{ country: 'Spain-Canarias', year: 2017, stress_men: 4.49, stress_women: 4.5, stress_population: 4.49 },
 	{ country: 'Spain-Cantabria', year: 2017, stress_men: 4.13, stress_women: 4.14, stress_population: 4.13 },
-];
+];*/
 
 // Database breve de tabaquismo - Miriam Campano Crespo (@Mirishya)
 
