@@ -354,12 +354,12 @@ app.get("/info/anxiety_stats", (request, response) => {
 */
 
 //Petición para depression_stats
-
+/*
 app.get("/info/depression_stats", (request, response) => {
 	depression = depression_stats_data.slice();
 	response.send(depression);
 });
-
+*/
 //Petición para stress_stats
 
 app.get("/info/stress_stats", (request, response) => {
