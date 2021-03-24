@@ -257,7 +257,6 @@ app.get("/info/stress_stats", (request,response)=>{
 ];*/
 
 // Database breve de tabaquismo - Miriam Campano Crespo (@Mirishya)
-
 app.get("/info/smoking_stats", (request,response)=>{
 
 	response.send(`<!DOCTYPE html>
