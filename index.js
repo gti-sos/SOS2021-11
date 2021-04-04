@@ -24,6 +24,44 @@ var port = (process.env.PORT || 10000);
 
 var anxiety_stats_data = [];
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.use("/", express.static(path.join(__dirname, "public")));
 
 
