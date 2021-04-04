@@ -185,9 +185,141 @@ app.delete(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// API_REST de smoking -> Miriam Campano Crespo (@Myrisha)
+// API_REST de smoking -> Miriam Campano Crespo (@Mirishya)
 
+var smoking_stats_data = [];
 
+// 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
+
+app.get(BASE_API_PATH + "/smoking_stats/loadInitialData", (req, res) => {
+	smoking_stats_data = [
+		{
+	   "country": "Spain",
+	   "year": 2017, 
+	   "smoking_men": 25.6, 
+	   "smoking_women": 18.8,
+	   "smoking_population": 22.2 
+		},
+		{
+
+	  "country": "Netherlands", 
+	  "year": 2017, 
+	  "smoking_men": 19.5, 
+	  "smoking_women": 14.1, 
+	  "smoking_population": 16.8
+		}
+	];
+
+	console.log(`Loaded Initial Data: <${JSON.stringify(smoking_stats_data, null, 2)}>`);
+	return res.sendStatus(200);
+});
+
+//
+
+// 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
+
+app.get(BASE_API_PATH + "/smoking_stats", (req, res) => {
+	if (smoking_stats_data.length != 0) {
+		console.log(`smoking_stats requested`);
+		return res.send(JSON.stringify(smoking_stats_data, null, 2));
+	} else {
+		console.log("Not found");
+		return res.sendStatus(404);
+	}
+	return res.sendStatus(200);
+});
+
+//6.2 POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
+
+app.post(BASE_API_PATH + "/smoking_stats", (req, res) => {
+	var data = req.body;
+	smoking_stats_data.push(data);
+	console.log(`new data pushed: <${JSON.stringify(smoking_stats_data, null, 2)}>`);
+	res.sendStatus(201);
+});
+
+//6.3 GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
+
+app.get(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
+	var country = req.params.country;
+	var year = parseInt(req.params.year);
+
+	console.log(`GET stat by country: <${country}> and year: <${year}>`);
+	for (var stat of smoking_stats_data) {
+		if (stat.country === country && stat.year === year) {
+			return res.status(200).json(stat);
+		}
+	}
+
+	return res.sendStatus(404);
+});
+
+//6.4 DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
+
+app.delete(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
+	var country = req.params.country;
+	var year = parseInt(req.body.year);
+
+	console.log(`DELETE by country <${country}> and year: <${year}>`);
+
+	for (var i = 0; i < smoking_stats_data.length; i++) {
+		if (smoking_stats_data[i]["country"] === country && smoking_stats_data[i]["year"] === year) {
+			smoking_stats_data.splice(i, 1);
+			return res.sendStatus(200);
+		}
+	}
+
+	return res.sendStatus(404);
+});
+
+//6.5 PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
+
+app.put(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
+	var country = req.params.country;
+	var year = parseInt(req.params.year);
+	var newDataSmoking = req.body;
+
+	console.log(`PUT ${newDataSmoking.country} OVER ${country} `);
+	console.log(`PUT ${newDataSmoking.year} OVER ${year} `);
+
+	if (smoking_stats_data.length == 0) {
+		console.log("No Valido")
+		return res.sendStatus(404);
+	} else {
+		for (var i = 0; i < smoking_stats_data.length; i++) {
+			var stat = smoking_stats_data[i];
+			if (stat.country === country && stat.year === year) {
+				smoking_stats_data[i] = newDataSmoking;
+				return res.send('PUT success');
+			}
+		}
+	}
+});
+
+//6.6 POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
+
+app.post(BASE_API_PATH + "/smoking_stats/:country/:date", (req, res) => {
+	console.log("POST no valido/encontrado");
+	return res.sendStatus(404);
+
+});
+
+//6.7 PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
+
+app.put(BASE_API_PATH + "/smoking_stats", (req, res) => {
+	console.log("PUT no valido/encontrado");
+	return res.sendStatus(404);
+
+});
+
+//6.8 DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos
+
+app.delete(BASE_API_PATH + "/smoking_stats", (req, res) => {
+	smoking_stats_data.length = 0;
+	console.log('smoking_stats deleted');
+	return res.sendStatus(200);
+
+})
 
 
 
