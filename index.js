@@ -99,7 +99,7 @@ app.get(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 	var year = parseInt(req.params.year);
   
 	console.log(`GET stat by country: <${country}> and year: <${year}>`);
-	for (var stat of natalityStatsDataSet) {
+	for (var stat of anxiety_stats_data) {
 	  if (stat.country === country && stat.year === year) {
 		return res.status(200).json(stat);
 	  }
