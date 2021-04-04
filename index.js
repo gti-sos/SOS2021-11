@@ -150,6 +150,14 @@ app.put(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 	}
 });
 
+//6.6 POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
+
+ app.post(BASE_API_PATH + "/anxiety-stats/:country/:date", (req, res) => {
+	console.log("POST no valido");
+	return res.sendStatus(405);
+  
+  })
+
 
 // API_REST de depression -> Juan Diez Blanco (@jdbaldno)
 
