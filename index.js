@@ -108,8 +108,23 @@ app.get(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 	return res.sendStatus(404);
   });
 
+//6.4 DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
 
-
+app.delete(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
+	var country = req.params.country;
+	var year = parseInt(req.body.year);
+  
+	console.log(`DELETE by country <${country}> and year: <${year}>`);
+  
+	for( var i = 0; i < anxiety_stats_data.length; i++){ 
+	  if(anxiety_stats_data[i]["country"]===country && anxiety_stats_data[i]["year"]===year){
+		anxiety_stats_data.splice(i,1);
+		return res.sendStatus(200);
+	  }
+	}
+  
+	return res.sendStatus(404);
+  });
 
 
 // API_REST de depression -> Juan Diez Blanco (@jdbaldno)
