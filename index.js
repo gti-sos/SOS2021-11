@@ -322,39 +322,6 @@ app.delete(BASE_API_PATH + "/smoking_stats", (req, res) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // App Listen (para todas las peticiones)
 
 app.listen(port, () => {
