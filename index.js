@@ -33,15 +33,6 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 var anxiety_stats_data = [];
 
-/*{
-	"country": 'Spain_Galicia',
-	"year": 2017,
-	"anxiety_men": 5.99,
-	"anxiety_women": 14.35,
-	"anxiety_population": 10.35
-}*/
-
-
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
 app.get(BASE_API_PATH + "/anxiety_stats/loadInitialData", (req, res) => {
@@ -90,7 +81,32 @@ app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 	res.sendStatus(201);
 });
 
-//6.3 
+// POST Alternativo para añadir - 6.2 - anxiety_stats
+
+/*{
+	"country": 'Spain_Galicia',
+	"year": 2017,
+	"anxiety_men": 5.99,
+	"anxiety_women": 14.35,
+	"anxiety_population": 10.35
+}*/
+
+
+//6.3 GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
+
+app.get(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
+	var country = req.params.country;
+	var year = parseInt(req.params.year);
+  
+	console.log(`GET stat by country: <${country}> and year: <${year}>`);
+	for (var stat of natalityStatsDataSet) {
+	  if (stat.country === country && stat.year === year) {
+		return res.status(200).json(stat);
+	  }
+	}
+  
+	return res.sendStatus(404);
+  });
 
 
 
