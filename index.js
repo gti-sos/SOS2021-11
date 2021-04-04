@@ -3,7 +3,7 @@ var express = require("express");
 
 var path = require("path");
 
-var bodyParser = requires("body-parser"); // M I L E S T O N E Nº 4
+var bodyParser = require("body-parser"); // M I L E S T O N E Nº 4
 
 var BASE_API_PATH = "/api/v1"; // M I L E S T O N E Nº 4
 
