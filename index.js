@@ -51,6 +51,8 @@ app.get(BASE_API_PATH + "/anxiety-stats/loadInitialData", (req, res) => {
 	return res.sendStatus(200);
 });
 
+// 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
+
 
 
 
