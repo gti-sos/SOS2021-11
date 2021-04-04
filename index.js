@@ -29,8 +29,27 @@ var anxiety_stats_data = [];
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
+app.get(BASE_API_PATH + "/anxiety-stats/loadInitialData", (req, res) => {
+	anxiety_stats_data = [
+		{
+			"country": 'Spain_Andalucia',
+			"year": 2017,
+			"anxiety_men": 4.92,
+			"anxiety_women": 9.84,
+			"anxiety_population": 7.43
+		},
+		{
+			"country": 'Spain_Madrid',
+			"year": 2017,
+			"anxiety_men": 2.49,
+			"anxiety_women": 5.42,
+			"anxiety_population": 4.03
+		}
+	];
 
-
+	console.log(`Loaded Initial Data: <${JSON.stringify(anxiety_stats_data, null, 2)}>`);
+	return res.sendStatus(200);
+});
 
 
 
