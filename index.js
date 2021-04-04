@@ -386,7 +386,7 @@ app.post(BASE_API_PATH + "/stress_stats", (req, res) => {
 
 //6.3 GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
 
-aapp.get(BASE_API_PATH + "/stress_stats/:country/:year", (req, res) => {
+app.get(BASE_API_PATH + "/stress_stats/:country/:year", (req, res) => {
 	var country = req.params.country;
 	var year = parseInt(req.params.year);
   
