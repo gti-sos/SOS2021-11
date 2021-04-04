@@ -152,18 +152,38 @@ app.put(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 
 //6.6 POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
 
- app.post(BASE_API_PATH + "/anxiety-stats/:country/:date", (req, res) => {
-	console.log("POST no valido");
-	return res.sendStatus(405);
-  
-  });
+app.post(BASE_API_PATH + "/anxiety-stats/:country/:date", (req, res) => {
+	console.log("POST no valido/encontrado");
+	return res.sendStatus(404);
 
+});
+
+//6.7 PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
+
+app.put(BASE_API_PATH + "/anxiety-stats", (req, res) => {
+	console.log("PUT no valido/encontrado");
+	return res.sendStatus(404);
+
+});
+
+//6.8 DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos
+
+app.delete(BASE_API_PATH + "/anxiety-stats", (req, res) => {
+	anxiety_stats_data.length = 0;
+	console.log('anxiety_stats deleted');
+	return res.sendStatus(200);
+
+})
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de depression -> Juan Diez Blanco (@jdbaldno)
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de stress -> Ana Romero Cáceres (@anaromero99)
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de smoking -> Miriam Campano Crespo (@Myrisha)
 
