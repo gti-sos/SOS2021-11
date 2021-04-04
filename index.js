@@ -107,7 +107,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 // App Listen (para todas las peticiones)
 
 app.listen(port, () => {
-	console.log(`Server ready listening on port ${PORT}!`);
+	console.log("Server ready listening on port " + port);
 })
 
 
