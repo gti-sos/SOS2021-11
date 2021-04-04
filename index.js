@@ -80,7 +80,7 @@ app.get(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 	var data = req.body;
 	anxiety_stats_data.push(data);
-	console.log(`new data pushed: <${JSON.stringify(data, null, 2)}>`);
+	console.log(`new data pushed: <${JSON.stringify(anxiety_stats_data, null, 2)}>`);
 	res.sendStatus(201);
 });
 
