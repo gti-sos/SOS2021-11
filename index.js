@@ -156,7 +156,7 @@ app.put(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 	console.log("POST no valido");
 	return res.sendStatus(405);
   
-  })
+  });
 
 
 // API_REST de depression -> Juan Diez Blanco (@jdbaldno)
