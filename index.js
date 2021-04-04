@@ -3,6 +3,10 @@ var express = require("express");
 
 var path = require("path");
 
+var bodyParser = requires("body-parser"); // M I L E S T O N E Nº 4
+
+var BASE_API_PATH = "/api/v1"; // M I L E S T O N E Nº 4
+
 var app = express();
 
 var port = (process.env.PORT || 10000);
@@ -16,6 +20,9 @@ var port = (process.env.PORT || 10000);
 	{ country: 'Spain_Pais_Vasco', year: 2017, anxiety_men: 4.54, anxiety_women: 7.42, anxiety_population: 6.03 },
 ];*/
 
+//--------------------------------- M I L E S T O N E Nº 4 (F04) ------------------------------------------------
+
+var anxiety_stats_data = [];
 
 app.use("/", express.static(path.join(__dirname, "public")));
 
