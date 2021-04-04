@@ -27,6 +27,14 @@ var port = (process.env.PORT || 10000);
 
 var anxiety_stats_data = [];
 
+/*{
+	"country": 'Spain_Galicia',
+	"year": 2017,
+	"anxiety_men": 5.99,
+	"anxiety_women": 14.35,
+	"anxiety_population": 10.35
+}*/
+
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
@@ -69,7 +77,14 @@ app.get(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 
 //6.2 POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
 
-app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => )
+app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => {
+	var data = req.body;
+	anxiety_stats_data.push(data);
+	console.log(`new data pushed: <${JSON.stringify(data, null, 2)}>`);
+	res.sendStatus(201);
+});
+
+//6.3 
 
 
 
