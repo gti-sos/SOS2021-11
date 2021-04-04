@@ -29,7 +29,7 @@ var anxiety_stats_data = [];
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
-app.get(BASE_API_PATH + "/anxiety-stats/loadInitialData", (req, res) => {
+app.get(BASE_API_PATH + "/anxiety_stats/loadInitialData", (req, res) => {
 	anxiety_stats_data = [
 		{
 			"country": 'Spain_Andalucia',
@@ -51,7 +51,20 @@ app.get(BASE_API_PATH + "/anxiety-stats/loadInitialData", (req, res) => {
 	return res.sendStatus(200);
 });
 
+//
+
 // 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
+
+app.get(BASE_API_PATH + "/anxiety_stats", (req, res) => {
+	if (anxiety_stats_data.length != 0) {
+		console.log(`anxiety_stats requested`);
+		return res.send(JSON.stringify(anxiety_stats_data, null, 2));
+	} else {
+		console.log("No data found");
+		return res.sendStatus(404);
+	}
+	return res.sendStatus(200);
+});
 
 
 
