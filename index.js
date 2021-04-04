@@ -97,34 +97,58 @@ app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 app.get(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 	var country = req.params.country;
 	var year = parseInt(req.params.year);
-  
+
 	console.log(`GET stat by country: <${country}> and year: <${year}>`);
 	for (var stat of anxiety_stats_data) {
-	  if (stat.country === country && stat.year === year) {
-		return res.status(200).json(stat);
-	  }
+		if (stat.country === country && stat.year === year) {
+			return res.status(200).json(stat);
+		}
 	}
-  
+
 	return res.sendStatus(404);
-  });
+});
 
 //6.4 DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
 
 app.delete(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 	var country = req.params.country;
 	var year = parseInt(req.body.year);
-  
+
 	console.log(`DELETE by country <${country}> and year: <${year}>`);
-  
-	for( var i = 0; i < anxiety_stats_data.length; i++){ 
-	  if(anxiety_stats_data[i]["country"]===country && anxiety_stats_data[i]["year"]===year){
-		anxiety_stats_data.splice(i,1);
-		return res.sendStatus(200);
-	  }
+
+	for (var i = 0; i < anxiety_stats_data.length; i++) {
+		if (anxiety_stats_data[i]["country"] === country && anxiety_stats_data[i]["year"] === year) {
+			anxiety_stats_data.splice(i, 1);
+			return res.sendStatus(200);
+		}
 	}
-  
+
 	return res.sendStatus(404);
-  });
+});
+
+//6.5 PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
+
+app.put(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
+	var country = req.params.country;
+	var year = parseInt(req.params.year);
+	var newDataAnxiety = req.body;
+
+	console.log(`PUT ${newDataAnxiety.country} OVER ${country} `);
+	console.log(`PUT ${newDataAnxiety.year} OVER ${year} `);
+
+	if (anxiety_stats_data.length == 0) {
+		console.log("No Valido")
+		return res.sendStatus(404);
+	} else {
+		for (var i = 0; i < anxiety_stats_data.length; i++) {
+			var stat = anxiety_stats_data[i];
+			if (stat.country === country && stat.year === year) {
+				anxiety_stats_data[i] = newDataAnxiety;
+				return res.send('PUT success');
+			}
+		}
+	}
+});
 
 
 // API_REST de depression -> Juan Diez Blanco (@jdbaldno)
