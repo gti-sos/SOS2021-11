@@ -24,6 +24,7 @@ var port = (process.env.PORT || 10000);
 
 
 // API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
+
 var anxiety_stats_data = [];
 
 
@@ -60,11 +61,16 @@ app.get(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 		console.log(`anxiety_stats requested`);
 		return res.send(JSON.stringify(anxiety_stats_data, null, 2));
 	} else {
-		console.log("No data found");
+		console.log("Not found");
 		return res.sendStatus(404);
 	}
 	return res.sendStatus(200);
 });
+
+//6.2 POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
+
+app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => )
+
 
 
 
