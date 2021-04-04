@@ -11,6 +11,12 @@ var app = express();
 
 var port = (process.env.PORT || 10000);
 
+app.use(bodyParser.json());
+
+app.use(express.json());
+
+app.use("/", express.static(path.join(__dirname, "public")));
+
 /*+var anxiety_stats_data = [
 	{ country: 'Spain_Andalucia', year: 2017, anxiety_men: 4.92, anxiety_women: 9.84, anxiety_population: 7.43 },
 	{ country: 'Spain_Madrid', year: 2017, anxiety_men: 2.49, anxiety_women: 5.42, anxiety_population: 4.03 },
@@ -130,10 +136,6 @@ app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 
 
 
-
-
-
-app.use("/", express.static(path.join(__dirname, "public")));
 
 
 
