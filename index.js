@@ -22,10 +22,26 @@ var port = (process.env.PORT || 10000);
 
 //--------------------------------- M I L E S T O N E Nº 4 (F04) ------------------------------------------------
 
+
+// API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
 var anxiety_stats_data = [];
 
 
+// 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
+
+
+
+
+
+
+// API_REST de depression -> Juan Diez Blanco (@jdbaldno)
+
+
+// API_REST de stress -> Ana Romero Cáceres (@anaromero99)
+
+
+// API_REST de smoking -> Miriam Campano Crespo (@Myrisha)
 
 
 
