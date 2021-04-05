@@ -84,7 +84,7 @@ app.post(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 // POST Alternativo para añadir - 6.2 - anxiety_stats
 
 /*{
-	"country": 'Spain_Galicia',
+	"country": "Spain_Galicia",
 	"year": 2017,
 	"anxiety_men": 5.99,
 	"anxiety_women": 14.35,
@@ -377,7 +377,7 @@ app.post(BASE_API_PATH + "/stress_stats", (req, res) => {
 // POST Alternativo para añadir - 6.2 - stress_stats
 
 /*{
-	"country": 'Spain_Asturias',
+	"country": "Spain_Asturias",
 	"year": 2017,
 	"stress_men": 3.98,
 	"stress_women": 4.11,
