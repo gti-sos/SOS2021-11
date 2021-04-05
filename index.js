@@ -174,7 +174,7 @@ app.delete(BASE_API_PATH + "/anxiety_stats", (req, res) => {
 	return res.sendStatus(200);
 
 })
-
+//patata
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de depression -> Juan Diez Blanco (@jdblanco)
