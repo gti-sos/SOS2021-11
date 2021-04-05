@@ -112,7 +112,7 @@ app.get(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 
 app.delete(BASE_API_PATH + "/anxiety_stats/:country/:year", (req, res) => {
 	var country = req.params.country;
-	var year = parseInt(req.body.year);
+	var year = parseInt(req.params.year);
 
 	console.log(`DELETE by country <${country}> and year: <${year}>`);
 
