@@ -27,7 +27,7 @@ var anxiety_stats_data = [];
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
-app.get(BASE_API_PATH + "/anxiety_stats/_loadInitialData", (req, res) => {
+app.get(BASE_API_PATH + "/anxiety_stats/loadInitialData", (req, res) => {
 	anxiety_stats_data = [
 		{
 			"country": 'Spain_Andalucia',
