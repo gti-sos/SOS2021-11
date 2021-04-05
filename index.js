@@ -322,7 +322,7 @@ var stress_stats_data = [];
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
-app.get(BASE_API_PATH + "/stress-stats/loadInitialData", (req, res) => {
+app.get(BASE_API_PATH + "/stress_stats/loadInitialData", (req, res) => {
 	stress_stats_data = [
 		{
 			"country": 'Spain_Andalucia',
@@ -332,7 +332,7 @@ app.get(BASE_API_PATH + "/stress-stats/loadInitialData", (req, res) => {
 			"stress_population": 4.53
 		},
 		{
-			"country": 'Spain-Aragón',
+			"country": 'Spain_Aragon',
 			"year": 2017,
 			"stress_men": 4.31,
 			"stress_women": 4.02,
