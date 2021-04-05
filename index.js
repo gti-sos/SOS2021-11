@@ -224,7 +224,7 @@ app.get(BASE_API_PATH + "/depression_stats", (req, res) => {
 
 app.post(BASE_API_PATH + "/depression_stats", (req, res) => {
 	var data = req.body;
-	depresssion_stats_data.push(data);
+	depression_stats_data.push(data);
 	console.log(`new data pushed: <${JSON.stringify(depression_stats_data, null, 2)}>`);
 	res.sendStatus(201);
 });
