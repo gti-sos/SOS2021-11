@@ -389,16 +389,16 @@ app.post(BASE_API_PATH + "/stress_stats", (req, res) => {
 app.get(BASE_API_PATH + "/stress_stats/:country/:year", (req, res) => {
 	var country = req.params.country;
 	var year = parseInt(req.params.year);
-  
+
 	console.log(`GET stat by country: <${country}> and year: <${year}>`);
 	for (var stat of stress_stats_data) {
-	  if (stat.country === country && stat.year === year) {
-		return res.status(200).json(stat);
-	  }
+		if (stat.country === country && stat.year === year) {
+			return res.status(200).json(stat);
+		}
 	}
-  
+
 	return res.sendStatus(404);
-  });
+});
 
 
 //6.4 DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
@@ -478,19 +478,19 @@ var smoking_stats_data = [];
 app.get(BASE_API_PATH + "/smoking_stats/loadInitialData", (req, res) => {
 	smoking_stats_data = [
 		{
-	   "country": "Spain",
-	   "year": 2017, 
-	   "smoking_men": 25.6, 
-	   "smoking_women": 18.8,
-	   "smoking_population": 22.2 
+			"country": "Spain",
+			"year": 2017,
+			"smoking_men": 25.6,
+			"smoking_women": 18.8,
+			"smoking_population": 22.2
 		},
 		{
 
-	  "country": "Netherlands", 
-	  "year": 2017, 
-	  "smoking_men": 19.5, 
-	  "smoking_women": 14.1, 
-	  "smoking_population": 16.8
+			"country": "Netherlands",
+			"year": 2017,
+			"smoking_men": 19.5,
+			"smoking_women": 14.1,
+			"smoking_population": 16.8
 		}
 	];
 
