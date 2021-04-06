@@ -439,7 +439,7 @@ app.put(BASE_API_PATH + "/stress_stats/:country/:year", (req, res) => {
 
 app.post(BASE_API_PATH + "/stress_stats/:country/:date", (req, res) => {
 	console.log("POST no valido/encontrado");
-	return res.sendStatus(404);
+	return res.sendStatus(405);
 
 });
 
@@ -447,7 +447,7 @@ app.post(BASE_API_PATH + "/stress_stats/:country/:date", (req, res) => {
 
 app.put(BASE_API_PATH + "/stress_stats", (req, res) => {
 	console.log("PUT no valido/encontrado");
-	return res.sendStatus(404);
+	return res.sendStatus(405);
 
 });
 
@@ -576,7 +576,7 @@ app.put(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
 
 app.post(BASE_API_PATH + "/smoking_stats/:country/:date", (req, res) => {
 	console.log("POST no valido/encontrado");
-	return res.sendStatus(404);
+	return res.sendStatus(405);
 
 });
 
@@ -584,7 +584,7 @@ app.post(BASE_API_PATH + "/smoking_stats/:country/:date", (req, res) => {
 
 app.put(BASE_API_PATH + "/smoking_stats", (req, res) => {
 	console.log("PUT no valido/encontrado");
-	return res.sendStatus(404);
+	return res.sendStatus(405);
 
 });
 
