@@ -2,10 +2,9 @@
 
 
 // API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
-module.exports.register = (app, BASE_API_PATH) => {
+module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E Nº 5
 
 var anxiety_stats_data = [];
-
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 	
