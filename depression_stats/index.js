@@ -17,17 +17,10 @@ app.use(express.json());
 
 app.use("/", express.static(path.join(__dirname, "public")));
 
+//A
+
 
 //--------------------------------- M I L E S T O N E Nº 4 (F04) ------------------------------------------------
-
-
-// API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
-
-var anxiety_stats_api = require("./anxiety_stats"); // M I L E S T O N E Nº 5
-
-anxiety_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de depression -> Juan Diez Blanco (@jdblanco)
 
