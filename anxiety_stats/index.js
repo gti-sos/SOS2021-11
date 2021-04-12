@@ -1,8 +1,8 @@
-//--------------------------------- M I L E S T O N E Nº 4 (F04) ------------------------------------------------
-
-
 // API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
 module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E Nº 5
+
+
+//--------------------------------- M I L E S T O N E Nº 4 (F04) ------------------------------------------------
 
 var anxiety_stats_data = [];
 
