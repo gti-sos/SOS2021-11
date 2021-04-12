@@ -24,7 +24,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 
 // API_REST de smoking -> Miriam Campano Crespo (@Mirishya)
-
+module.exports.register = (app, BASE_API_PATH) => { 
 var smoking_stats_data = [];
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
@@ -158,7 +158,7 @@ app.delete(BASE_API_PATH + "/smoking_stats", (req, res) => {
 	return res.sendStatus(200);
 
 })
-
+};
 
 // App Listen (para todas las peticiones)
 
