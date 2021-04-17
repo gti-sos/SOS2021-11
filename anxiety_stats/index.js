@@ -36,7 +36,22 @@ var anxiety_stats_data = [];
 			}
 		];
 	
-		
+		db.find({ $or: [{ country: "Spain_Andalucia" }, { country: "Spain_Madrid" }] }, { _id: 0 }, function (err, data) {
+            if (err) {
+                console.error("ERROR accesing DB in GET");
+                res.sendStatus(500);
+            } else {
+                if (data.length == 0) {
+                    db.insert(anxiety_stats_data);
+                    console.log(`Loaded initial data: <${JSON.stringify(natalityStatsDataSet, null, 2)}>`);
+                    res.sendStatus(201);
+                } else {
+                    console.error(`initial data already exists`);
+                    res.sendStatus(409);
+                }
+            }
+        });
+
 		//console.log(`Loaded Initial Data: <${JSON.stringify(anxiety_stats_data, null, 2)}>`);
 		//return res.sendStatus(200);
 	});
@@ -46,6 +61,12 @@ var anxiety_stats_data = [];
 	// 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 	
 	app.get(BASE_API_PATH + "/anxiety_stats", (req, res) => {
+
+		var query = req.query;
+
+		var limit = parseInt(query.limit);
+		var offset = parseInt(query.offset);
+
 		if (anxiety_stats_data.length != 0) {
 			console.log(`anxiety_stats requested`);
 			return res.send(JSON.stringify(anxiety_stats_data, null, 2));
