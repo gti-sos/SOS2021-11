@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "aa002dee-a0f9-45a7-96f8-86014fa16e6a",
-		"name": "SOS2021-11-anxiety_stats D01",
+		"_postman_id": "4bb6135c-9603-42c5-8aa9-2a26a9e4f290",
+		"name": "SOS2021-11-anxiety_stats D01-localhost",
 		"description": "A sample of an API from the boards about Anxiety_stats",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -61,7 +61,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/v1/anxiety_stats/loadInitialData",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats/loadInitialData",
 					"protocol": "https",
 					"host": [
 						"sos2021-11",
@@ -69,6 +69,7 @@
 						"com"
 					],
 					"path": [
+						"api",
 						"v1",
 						"anxiety_stats",
 						"loadInitialData"
@@ -700,8 +701,8 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats/Spain_Andalucia/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats/Spain_Andalucia/2017",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -737,8 +738,8 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -772,8 +773,8 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -808,8 +809,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
