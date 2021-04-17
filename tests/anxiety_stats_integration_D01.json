@@ -26,8 +26,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
