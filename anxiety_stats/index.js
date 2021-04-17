@@ -1,4 +1,14 @@
+// Variables necesarias por database - anxiety_stats
+
+var DataStore = require("nedb");
+
+//Database Generada - anxiety_stats
+
+var datafile = path.join(_dirname, 'anxiety_stats.db');
+var db = new DataStore({filename: datafile, autoload: true});
+
 // API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
+
 module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 
@@ -26,8 +36,9 @@ var anxiety_stats_data = [];
 			}
 		];
 	
-		console.log(`Loaded Initial Data: <${JSON.stringify(anxiety_stats_data, null, 2)}>`);
-		return res.sendStatus(200);
+		
+		//console.log(`Loaded Initial Data: <${JSON.stringify(anxiety_stats_data, null, 2)}>`);
+		//return res.sendStatus(200);
 	});
 	
 	//
