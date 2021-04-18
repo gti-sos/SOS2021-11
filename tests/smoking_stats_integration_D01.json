@@ -25,8 +25,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -60,8 +60,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats/loadInitialData",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/loadInitialData",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -97,8 +97,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=2",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=2",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -139,8 +139,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=1&offset=1&year=2017",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=1&offset=1&year=2017",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -189,8 +189,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=1&offset=0&year=2017",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=1&offset=0&year=2017",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -243,8 +243,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -278,8 +278,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats/Spain/2017",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/Spain/2017",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -324,8 +324,8 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -334,14 +334,14 @@
 					"path": [
 						"api",
 						"v1",
-						"anxiety_stats"
+						"smoking_stats"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET anxiety_stats (POST)",
+			"name": "GET smoking_stats (POST)",
 			"event": [
 				{
 					"listen": "test",
@@ -365,8 +365,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -401,8 +401,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_men=25.1",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_men=25.1",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -443,8 +443,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_women=18.8",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_women=18.8",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -485,8 +485,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_population=16.8",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_population=16.8",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -537,8 +537,8 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats/Netherlands/2017",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/Netherlands/2017",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -579,8 +579,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -623,8 +623,8 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats/Spain/2017",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/Spain/2017",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -665,8 +665,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
