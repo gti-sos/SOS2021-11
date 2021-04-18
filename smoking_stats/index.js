@@ -1,10 +1,10 @@
 
-var express = require("express");
+
 
 var path = require("path");
 var Datastore = require("nedb");
 
-var bodyParser = require("body-parser"); // M I L E S T O N E Nº 4
+
 
 //Database Generada - anxiety_stats
 
@@ -15,11 +15,9 @@ var smoking_stats_data = [];
 
 
 
-app.use(bodyParser.json());
 
-app.use(express.json());
 
-app.use("/", express.static(path.join(__dirname, "public")));
+
 
 
 //--------------------------------- M I L E S T O N E Nº 4 (F04) ------------------------------------------------
