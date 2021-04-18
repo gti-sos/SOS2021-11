@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+=======
+{"country":"Spain_Andalucia","year":2017,"stress_men":4.61,"stress_women":4.42,"stress_population":4.53,"_id":"46J9PUwe4pNz8Jz8"}
+{"country":"Spain_Aragon","year":2017,"stress_men":4.31,"stress_women":4.02,"stress_population":4.31,"_id":"EH0OcWQ3f3V2pu8l"}
+{"country":"Spain_Asturias","year":2017,"stress_men":3.98,"stress_women":4.11,"stress_population":4.04,"_id":"aTNYoL97iOhLD1on"}
+{"$$deleted":true,"_id":"EH0OcWQ3f3V2pu8l"}
+{"$$deleted":true,"_id":"46J9PUwe4pNz8Jz8"}
+{"$$deleted":true,"_id":"aTNYoL97iOhLD1on"}
+{"country":"Spain_Andalucia","year":2017,"stress_men":4.61,"stress_women":4.42,"stress_population":4.53,"_id":"W3Ozcbyqv1Sf9lTF"}
+{"country":"Spain_Aragon","year":2017,"stress_men":4.31,"stress_women":4.02,"stress_population":4.31,"_id":"22EO4C9N9uYyUuVh"}
+{"country":"Spain_Asturias","year":2017,"stress_men":3.98,"stress_women":4.11,"stress_population":4.04,"_id":"N87rJ6NM6Wljfigb"}
+{"$$deleted":true,"_id":"22EO4C9N9uYyUuVh"}
+{"$$deleted":true,"_id":"N87rJ6NM6Wljfigb"}
+{"$$deleted":true,"_id":"W3Ozcbyqv1Sf9lTF"}
+{"country":"Spain_Andalucia","year":2017,"stress_men":4.61,"stress_women":4.42,"stress_population":4.53,"_id":"IheL9uNZX3Ln6t5K"}
+{"country":"Spain_Aragon","year":2017,"stress_men":4.31,"stress_women":4.02,"stress_population":4.31,"_id":"O4KjLMzqyRlrow5T"}
+{"country":"Spain_Asturias","year":2017,"stress_men":3.98,"stress_women":4.11,"stress_population":4.04,"_id":"00wI0Sk8xSH0J3As"}
+{"$$deleted":true,"_id":"O4KjLMzqyRlrow5T"}
+{"country":"Spain_Andalucia","year":2017,"stress_men":41.61,"stress_women":24.42,"stress_population":6.53,"_id":"IheL9uNZX3Ln6t5K"}
+{"$$deleted":true,"_id":"00wI0Sk8xSH0J3As"}
+{"$$deleted":true,"_id":"IheL9uNZX3Ln6t5K"}
+>>>>>>> 2651e8a33a5b8eea9a237d5c6c566a12a39789fe
