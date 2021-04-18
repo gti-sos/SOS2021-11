@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "08918052-0e8a-489e-aedd-83f488df74ce",
-		"name": "SOS2021-11-stress_stats-D01",
+		"_postman_id": "20bbab52-1a87-42a2-a01d-14ca82dd5d62",
+		"name": "SOS2021-11-stress_stats-D01 Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -25,12 +25,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -59,12 +60,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats/loadInitialData",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats/loadInitialData",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -95,12 +97,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats?limit=2",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats?limit=2",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -136,12 +139,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats?limit=1&offset=1&year=2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats?limit=1&offset=1&year=2017",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -185,12 +189,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats?limit=1&offset=0&year=2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats?limit=1&offset=0&year=2017",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -238,12 +243,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -272,12 +278,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats/Spain_Andalucia/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats/Spain_Andalucia/2017",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -317,12 +324,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -357,12 +365,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -392,12 +401,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats?stress_men=3.98",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats?stress_men=3.98",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -433,12 +443,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats?stress_women=4.42",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats?stress_women=4.42",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -474,12 +485,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats?stress_population=4.31",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats?stress_population=4.31",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -525,12 +537,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats/Spain_Aragon/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats/Spain_Aragon/2017",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -566,12 +579,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -609,12 +623,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats/Spain_Andalucia/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats/Spain_Andalucia/2017",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -650,12 +665,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -684,12 +700,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats/Spain_Andalucia/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats/Spain_Andalucia/2017",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -720,12 +737,13 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -754,12 +772,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
@@ -789,12 +808,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:10000/api/v1/stress_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/stress_stats",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v1",
