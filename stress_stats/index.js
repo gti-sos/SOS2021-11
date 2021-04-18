@@ -57,7 +57,7 @@ module.exports.register = (app, BASE_API_PATH) => {
 				}
 			}
 		});
-	});
+});
 
 
 	// 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
