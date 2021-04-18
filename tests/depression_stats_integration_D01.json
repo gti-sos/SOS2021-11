@@ -1,12 +1,13 @@
 {
 	"info": {
-		"_postman_id": "f2882bdb-17bb-42e2-80de-26e03b13d344",
-		"name": "SOS2021-11-smoking_stats-D01",
+		"_postman_id": "0ed1a07a-626e-4535-b286-84e04c8c16f0",
+		"name": "SOS2021-11-depression_stats-D01",
+		"description": "A sample of an API from the boards about Anxiety_stats with the docs from the latest version: D01",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "GET smoking_stats (EMPTY)",
+			"name": "GET depression_stats (EMPTY)",
 			"event": [
 				{
 					"listen": "test",
@@ -25,8 +26,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -35,7 +36,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
@@ -60,8 +61,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/loadInitialData",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats/loadInitialData",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -70,7 +71,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats",
+						"depression_stats",
 						"loadInitialData"
 					]
 				}
@@ -97,8 +98,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=2",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats?limit=2",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -107,7 +108,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					],
 					"query": [
 						{
@@ -120,7 +121,7 @@
 			"response": []
 		},
 		{
-			"name": "GET Limit & Offset -> Spain",
+			"name": "GET Limit & Offset -> Spain_Andalucia",
 			"event": [
 				{
 					"listen": "test",
@@ -139,8 +140,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=1&offset=1&year=2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats?limit=1&offset=1&year=2011",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -149,7 +150,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					],
 					"query": [
 						{
@@ -162,7 +163,7 @@
 						},
 						{
 							"key": "year",
-							"value": "2017"
+							"value": "2011"
 						}
 					]
 				}
@@ -170,7 +171,7 @@
 			"response": []
 		},
 		{
-			"name": "GET Limit & Offset -> Netherlands",
+			"name": "GET Limit & Offset -> Spain_Madrid",
 			"event": [
 				{
 					"listen": "test",
@@ -189,8 +190,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?limit=1&offset=0&year=2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats?limit=1&offset=0&year=2011",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -199,7 +200,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					],
 					"query": [
 						{
@@ -212,7 +213,7 @@
 						},
 						{
 							"key": "year",
-							"value": "2017"
+							"value": "2011"
 						}
 					]
 				}
@@ -220,7 +221,7 @@
 			"response": []
 		},
 		{
-			"name": "Petición GET smoking_stats",
+			"name": "Petición GET anxiety_stats",
 			"event": [
 				{
 					"listen": "test",
@@ -230,7 +231,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 2 smoking_stats_boards\", function () {\r",
+							"pm.test(\"There are 2 anxiety_stats_boards\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(2);\r",
 							"});"
@@ -243,8 +244,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -253,7 +254,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
@@ -278,8 +279,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/Spain/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats/Spain_Andalucia/2011",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -288,9 +289,9 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats",
-						"Spain",
-						"2017"
+						"depression_stats",
+						"Spain_Andalucia",
+						"2011"
 					]
 				}
 			},
@@ -316,7 +317,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"country\": \"Italy\", \r\n\t  \"year\": 2017, \r\n\t  \"smoking_men\": 25.1, \r\n\t  \"smoking_women\": 14, \r\n\t  \"smoking_population\": 19.6\r\n}\r\n",
+					"raw": "{\r\n\t\"country\": \"Spain_Extremadura\",\r\n\t\"year\": 2011,\r\n\t\"depression_men\": 4.22,\r\n\t\"depression_women\": 24.33,\r\n\t\"depression_population\": 14.39\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -324,8 +325,8 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -334,14 +335,14 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET smoking_stats (POST)",
+			"name": "GET depression_stats (POST)",
 			"event": [
 				{
 					"listen": "test",
@@ -351,7 +352,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 3 smoking_stats_boards\", function () {\r",
+							"pm.test(\"There are 3 depression_stats_boards\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(3);\r",
 							"});\r",
@@ -365,8 +366,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -375,14 +376,14 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET Italy mdt smoking_men",
+			"name": "GET Spain_Extremadura mdt depression_men",
 			"event": [
 				{
 					"listen": "test",
@@ -401,8 +402,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_men=25.1",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats?depression_men=4.22",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -411,12 +412,12 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					],
 					"query": [
 						{
-							"key": "smoking_men",
-							"value": "25.1"
+							"key": "depression_men",
+							"value": "4.22"
 						}
 					]
 				}
@@ -424,7 +425,7 @@
 			"response": []
 		},
 		{
-			"name": "GET Spain mdt smoking_women",
+			"name": "GET Spain_Andalucia mdt depression_women",
 			"event": [
 				{
 					"listen": "test",
@@ -443,8 +444,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_women=18.8",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats?depression_women=11.60",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -453,12 +454,12 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					],
 					"query": [
 						{
-							"key": "smoking_women",
-							"value": "18.8"
+							"key": "depression_women",
+							"value": "11.60"
 						}
 					]
 				}
@@ -466,7 +467,7 @@
 			"response": []
 		},
 		{
-			"name": "GET Netherlands mdt smoking_population",
+			"name": "GET Spain_Castilla_la_mancha mdt depression_population",
 			"event": [
 				{
 					"listen": "test",
@@ -485,8 +486,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats?smoking_population=16.8",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats?depression_population=4.60",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -495,12 +496,12 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					],
 					"query": [
 						{
-							"key": "smoking_population",
-							"value": "16.8"
+							"key": "depression_population",
+							"value": "4.60"
 						}
 					]
 				}
@@ -537,8 +538,8 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/Netherlands/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats/Spain_Castilla_la_mancha/2014",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -547,16 +548,16 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats",
-						"Netherlands",
-						"2017"
+						"depression_stats",
+						"Spain_Castilla_la_mancha",
+						"2014"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET smoking_stats (DELETE)",
+			"name": "GET depression_stats (DELETE)",
 			"event": [
 				{
 					"listen": "test",
@@ -566,7 +567,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 2 smoking_stats_boards\", function () {\r",
+							"pm.test(\"There are 2 anxiety_stats_boards\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(2);\r",
 							"});"
@@ -579,8 +580,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -589,7 +590,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
@@ -615,7 +616,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"country\": \"Spain\",\r\n\t\"year\": 2017,\r\n\t\"anxiety_men\": 5.99,\r\n\t\"anxiety_women\": 14.35,\r\n\t\"anxiety_population\": 10.35\r\n}",
+					"raw": "{\r\n\t\"country\": \"Spain_Andalucia\",\r\n\t\"year\": 2011,\r\n\t\"anxiety_men\": 4.00,\r\n\t\"anxiety_women\": 11.60,\r\n\t\"anxiety_population\": 7.80\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -623,8 +624,8 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/Spain/2017",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats/Spain_Andalucia/2011",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -633,16 +634,16 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats",
-						"Spain",
-						"2017"
+						"depression_stats",
+						"Spain_Andalucia",
+						"2011"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET smoking_stats (PUT)",
+			"name": "GET depression_stats (PUT)",
 			"event": [
 				{
 					"listen": "test",
@@ -652,7 +653,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 2 smoking_stats_boards, one of them is updated\", function () {\r",
+							"pm.test(\"There are 2 depression_stats_boards, one of them is updated\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(2);\r",
 							"});"
@@ -665,8 +666,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
-					"protocol": "http",
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats",
+					"protocol": "https",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -675,7 +676,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
@@ -700,7 +701,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats/Spain/2017",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/depression_stats/Spain_Andalucia/2011",
 					"protocol": "http",
 					"host": [
 						"sos2021-11",
@@ -710,9 +711,9 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats",
-						"Spain",
-						"2017"
+						"depression_stats",
+						"Spain_Andalucia",
+						"2011"
 					]
 				}
 			},
@@ -737,7 +738,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/depression_stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-11",
@@ -747,14 +748,14 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Peticion DELETE smoking_stats",
+			"name": "Peticion DELETE depression_stats",
 			"event": [
 				{
 					"listen": "test",
@@ -772,7 +773,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/depression_stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-11",
@@ -782,14 +783,14 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET smoking_stats (DELETE ALL)",
+			"name": "GET depression_stats (DELETE ALL)",
 			"event": [
 				{
 					"listen": "test",
@@ -808,7 +809,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-11.herokuapp.com/api/v1/smoking_stats",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/depression_stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-11",
@@ -818,7 +819,7 @@
 					"path": [
 						"api",
 						"v1",
-						"smoking_stats"
+						"depression_stats"
 					]
 				}
 			},
