@@ -17,11 +17,9 @@ var anxiety_stats_data = [];
 module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 
-	//--------------------------------- M I L E S T O N E Nº 4 (F04) ------------------------------------------------
+	//--------------------------------- M I L E S T O N E Nº 6 (F06) ------------------------------------------------
 
 
-
-	// 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
 	app.get(BASE_API_PATH + "/anxiety_stats/loadInitialData", (req, res) => {
 		anxiety_stats_data = [
@@ -57,8 +55,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 			}
 		});
 
-		//console.log(`Loaded Initial Data: <${JSON.stringify(anxiety_stats_data, null, 2)}>`);
-		//return res.sendStatus(200);
+		
 	});
 
 	//
