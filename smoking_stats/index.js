@@ -2,14 +2,18 @@
 var express = require("express");
 
 var path = require("path");
+var Datastore = require("nedb");
 
 var bodyParser = require("body-parser"); // M I L E S T O N E Nº 4
 
-var BASE_API_PATH = "/api/v1"; // M I L E S T O N E Nº 4
+//Database Generada - anxiety_stats
 
-var app = express();
+var BASE_API_PATH = "/api/v1";
+var datafile = path.join(__dirname, 'smoking_stats.db');
+var db = new Datastore({ filename: datafile, autoload: true });
+var smoking_stats_data = [];
 
-var port = (process.env.PORT || 10000);
+
 
 app.use(bodyParser.json());
 
@@ -25,7 +29,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 // API_REST de smoking -> Miriam Campano Crespo (@Mirishya)
 module.exports.register = (app, BASE_API_PATH) => { 
-var smoking_stats_data = [];
+
 
 // 5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 
@@ -48,8 +52,21 @@ app.get(BASE_API_PATH + "/smoking_stats/loadInitialData", (req, res) => {
 		}
 	];
 
-	console.log(`Loaded Initial Data: <${JSON.stringify(smoking_stats_data, null, 2)}>`);
-	return res.sendStatus(200);
+	db.find({ $or: [{ country: "Spain" }, { country: "Netherlands" }] }, { _id: 0 }, function (err, data) {
+		if (err) {
+			console.error("ERROR accesing DB in GET");
+			res.sendStatus(500);
+		} else {
+			if (data.length == 0) {
+				db.insert(smoking_stats_data);
+				console.log(`Loaded initial data: <${JSON.stringify(smoking_stats_data, null, 2)}>`);
+				res.sendStatus(201);
+			} else {
+				console.error(`initial data already exists`);
+				res.sendStatus(409);
+			}
+		}
+	});
 });
 
 //
@@ -57,23 +74,84 @@ app.get(BASE_API_PATH + "/smoking_stats/loadInitialData", (req, res) => {
 // 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 
 app.get(BASE_API_PATH + "/smoking_stats", (req, res) => {
-	if (smoking_stats_data.length != 0) {
-		console.log(`smoking_stats requested`);
-		return res.send(JSON.stringify(smoking_stats_data, null, 2));
-	} else {
-		console.log("Not found");
-		return res.sendStatus(404);
-	}
-	return res.sendStatus(200);
-});
 
+	var query = req.query;
+
+//Aquí se obtienen offset y limit con query, si son null, le hacemos un delete y listo.
+var limit = parseInt(query.limit);
+var offset = parseInt(query.offset);
+
+//Deleteamos los offset y limit.
+delete query.offset;
+delete query.limit;
+
+//Parseamos el año a Integer, mis otras 3 propiedades numéricas también son necesarias.
+if (query.hasOwnProperty("year")) {
+	query.year = parseInt(query.year);
+	console.log(query.year);
+}
+if (query.hasOwnProperty("smoking_men")) {
+	query.smoking_men = parseFloat(query.smoking_men);
+	console.log(query.smoking_men);
+}
+if (query.hasOwnProperty("smoking_women")) {
+	query.smoking_women = parseFloat(query.smoking_women);
+	console.log(query.smoking_women);
+}
+if (query.hasOwnProperty("smoking_population")) {
+	query.smoking_population = parseFloat(query.smoking_population);
+	console.log(query.smoking_population);
+}
+
+console.log(query);
+
+db.find(query).skip(offset).limit(limit).exec((error, smoking_stats) => {
+	smoking_stats.forEach((n) => {
+		delete n._id;
+	});
+
+	if (smoking_stats.length < 0) {
+		res.sendStatus(400, "Bad request");
+		console.log("Requested data is INVALID");
+	}
+	else {
+		res.send(JSON.stringify(smoking_stats, null, 2));
+		console.log("Data sent:" + JSON.stringify(smoking_stats, null, 2));
+
+	}
+});
+});
 //6.2 POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
 
 app.post(BASE_API_PATH + "/smoking_stats", (req, res) => {
 	var data = req.body;
-	smoking_stats_data.push(data);
-	console.log(`new data pushed: <${JSON.stringify(smoking_stats_data, null, 2)}>`);
-	res.sendStatus(201);
+	var country = req.body.country;
+	var year = req.body.year;
+
+	db.find({ "country": country, "year": year }).exec((error, smoking_stats) => {
+		if (smoking_stats.length > 0) {
+			res.sendStatus(409);
+			console.log("There's an object with those primary keys");
+			return;
+		}
+		if ((data == null)
+				|| (data.country == null)
+				|| (data.year == null)
+				|| (data.smoking_men == null)
+				|| (data.smoking_women == null)
+				|| (data.smoking_population == null)
+				|| ((Object.keys(data).length != 5))) {
+
+				res.sendStatus(400, "Falta uno o más campos");
+				console.log(data);
+				console.log("POST not created");
+				return;
+			}
+			db.insert(data);
+
+			res.sendStatus(201, "Post created");
+			console.log(JSON.stringify(data, null, 2));
+		});
 });
 
 //6.3 GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
@@ -82,14 +160,17 @@ app.get(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
 	var country = req.params.country;
 	var year = parseInt(req.params.year);
 
-	console.log(`GET stat by country: <${country}> and year: <${year}>`);
-	for (var stat of smoking_stats_data) {
-		if (stat.country === country && stat.year === year) {
-			return res.status(200).json(stat);
-		}
-	}
+	db.find({ "country": country, "year": year }).exec((err, param) => {
+		if (param.length == 1) {
+			delete param[0]._id;
 
-	return res.sendStatus(404);
+			res.send(JSON.stringify(param[0], null, 2));
+			console.log("/GET - Recurso Específico /country/year: " + JSON.stringify(param[0]), null, 2);
+		}
+		else {
+			res.sendStatus(404, "Not found");
+		}
+	});
 });
 
 //6.4 DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
@@ -98,41 +179,42 @@ app.delete(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
 	var country = req.params.country;
 	var year = parseInt(req.body.year);
 
-	console.log(`DELETE by country <${country}> and year: <${year}>`);
-
-	for (var i = 0; i < smoking_stats_data.length; i++) {
-		if (smoking_stats_data[i]["country"] === country && smoking_stats_data[i]["year"] === year) {
-			smoking_stats_data.splice(i, 1);
-			return res.sendStatus(200);
+	db.remove({ "country": country, "year": year }, { multi: true }, (err, paramsDeleted) => {
+		if (paramsDeleted == 0) {
+			res.sendStatus(404, "Not found");
 		}
-	}
-
-	return res.sendStatus(404);
+		else {
+			res.sendStatus(200);
+		}
+	});
 });
-
 //6.5 PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
 
 app.put(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
-	var country = req.params.country;
-	var year = parseInt(req.params.year);
-	var newDataSmoking = req.body;
+	var countryData = req.params.country; //Pillar el contenido después de los dos puntos.
+		var countryD = req.body.country;
 
-	console.log(`PUT ${newDataSmoking.country} OVER ${country} `);
-	console.log(`PUT ${newDataSmoking.year} OVER ${year} `);
+		var yearData = parseInt(req.params.year);
+		var yearD = parseInt(req.body.year);
 
-	if (smoking_stats_data.length == 0) {
-		console.log("No Valido")
-		return res.sendStatus(404);
-	} else {
-		for (var i = 0; i < smoking_stats_data.length; i++) {
-			var stat = smoking_stats_data[i];
-			if (stat.country === country && stat.year === year) {
-				smoking_stats_data[i] = newDataSmoking;
-				return res.send('PUT success');
-			}
+		var body = req.body;
+		if (countryData != countryD || yearData != yearD) {
+			res.sendStatus(409);
+			console.warn("There is a conflict!");
 		}
-	}
-});
+		else {
+			db.update({ "country": countryData, "year": yearData }, body, (err, paramsUpdated) => {
+				if (paramsUpdated == 0) {
+					res.sendStatus(404, "Not found");
+				}
+				else {
+					res.sendStatus(200);
+					console.log("PUT Correcto");
+				}
+			});
+		}
+	});
+	
 
 //6.6 POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
 
@@ -151,59 +233,12 @@ app.put(BASE_API_PATH + "/smoking_stats", (req, res) => {
 });
 
 //6.8 DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos
-
 app.delete(BASE_API_PATH + "/smoking_stats", (req, res) => {
-	smoking_stats_data.length = 0;
-	console.log('smoking_stats deleted');
-	return res.sendStatus(200);
+	db.remove({}, { multi: true }, (error, smoking_stats_deleted) => {
+		console.log(smoking_stats_deleted + " smoking_stats deleted");
+	});
+	res.sendStatus(200, "OK");
 
 })
+
 };
-
-
-
-
-//--------------------------------- M I L E S T O N E Nº 3 (F03) ------------------------------------------------
-
-//Petición para anxiety_stats
-
-/*
-app.get("/info/anxiety_stats", (request, response) => {
-	anxiety = anxiety_stats_data.slice();
-	response.send(anxiety);
-});
-*/
-
-//Petición para depression_stats
-/*
-app.get("/info/depression_stats", (request, response) => {
-	depression = depression_stats_data.slice();
-	response.send(depression);
-});
-*/
-//Petición para stress_stats
-
-/*app.get("/info/stress_stats", (request, response) => {
-	stress = stress_stats_data.slice();
-	response.send(stress);
-});
-*/
-//Petición para smoking_stats	
-
-/*app.get("/info/smoking_stats", (request, response) => {
-	smoking = smoking_stats_data.slice();
-	response.send(smoking);
-});*/
-
-//--------------------------------- M I L E S T O N E Nº 2 (F02) ------------------------------------------------
-
-//var cool = require("cool-ascii-faces"); 
-
-/*app.get("/cool", (request, response) => {
-		response.send(cool());
-		console.log("New request to /cool has arrived");
-		});
-*/
-
-
-
