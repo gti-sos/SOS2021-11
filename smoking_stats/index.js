@@ -173,9 +173,12 @@ module.exports.register = (app, BASE_API_PATH) => {
 
 	//6.4 DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
 
+
 	app.delete(BASE_API_PATH + "/smoking_stats/:country/:year", (req, res) => {
 		var country = req.params.country;
 		var year = parseInt(req.params.year);
+
+
 
 		db.remove({ "country": country, "year": year }, { multi: true }, (err, paramsDeleted) => {
 			if (paramsDeleted == 0) {
