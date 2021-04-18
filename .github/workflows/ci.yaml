@@ -13,5 +13,5 @@ jobs:
       - run: npm start &
       - run: npx newman run tests/anxiety_stats_integration_D01.json
       - run: npx newman run tests/depression_stats_integration.json
-      - run: npx newman run tests/stress_stats_integration.json
-      - run: npx newman run tests/smoking_stats_integration.json
+      - run: npx newman run tests/stress_stats_integration_D01.json
+      - run: npx newman run tests/smoking_stats_integration_D01.json
