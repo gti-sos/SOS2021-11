@@ -58,14 +58,12 @@ module.exports.register = (app, BASE_API_PATH) => {
 			}
 		});
 	});
-<<<<<<< HEAD
-});
+
 
 // 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 
 app.get(BASE_API_PATH + "/stress_stats", (req, res) => {
-=======
->>>>>>> 97b6db0df1c5c559d2036766a62ad08061055ac6
+
 
 	// 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 
