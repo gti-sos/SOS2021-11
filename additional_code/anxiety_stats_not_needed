@@ -1,2 +1,11 @@
 //console.log(`Loaded Initial Data: <${JSON.stringify(anxiety_stats_data, null, 2)}>`);
 //return res.sendStatus(200);
+
+	/*if (anxiety_stats_data.length != 0) {
+			console.log(`anxiety_stats requested`);
+			return res.send(JSON.stringify(anxiety_stats_data, null, 2));
+		} else {
+			console.log("Not found");
+			return res.sendStatus(404);
+		}
+		return res.sendStatus(200);*/

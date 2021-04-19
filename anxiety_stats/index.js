@@ -55,7 +55,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 			}
 		});
 
-		
+
 	});
 
 	//
@@ -110,14 +110,6 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 			}
 		});
 
-		/*if (anxiety_stats_data.length != 0) {
-			console.log(`anxiety_stats requested`);
-			return res.send(JSON.stringify(anxiety_stats_data, null, 2));
-		} else {
-			console.log("Not found");
-			return res.sendStatus(404);
-		}
-		return res.sendStatus(200);*/
 	});
 
 	//6.2 POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
