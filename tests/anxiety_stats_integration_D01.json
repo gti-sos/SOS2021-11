@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "4bb6135c-9603-42c5-8aa9-2a26a9e4f290",
-		"name": "SOS2021-11-anxiety_stats D01-localhost",
-		"description": "A sample of an API from the boards about Anxiety_stats",
+		"_postman_id": "aa002dee-a0f9-45a7-96f8-86014fa16e6a",
+		"name": "SOS2021-11-anxiety_stats-D01",
+		"description": "A sample of an API from the boards about Anxiety_stats with the docs from the latest version: D01",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -121,7 +121,7 @@
 			"response": []
 		},
 		{
-			"name": "GET Limit & Offset -> Spain_Andalucia",
+			"name": "GET Limit & Offset -> Spain_Madrid",
 			"event": [
 				{
 					"listen": "test",
@@ -171,7 +171,7 @@
 			"response": []
 		},
 		{
-			"name": "GET Limit & Offset -> Spain_Madrid",
+			"name": "GET Limit & Offset -> Spain_Andalucia",
 			"event": [
 				{
 					"listen": "test",
@@ -261,6 +261,56 @@
 			"response": []
 		},
 		{
+			"name": "GET a Recurso - Not Found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats/Spain_Galicia/2017",
+					"protocol": "https",
+					"host": [
+						"sos2021-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"anxiety_stats",
+						"Spain_Galicia",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Peticion GET a Recurso",
 			"event": [
 				{
@@ -304,8 +354,55 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"\r",
 							"pm.test(\"Successful POST request\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"country\": \"Spain_Galicia\",\r\n\t\"year\": 2017,\r\n\t\"anxiety_men\": 5.99,\r\n\t\"anxiety_women\": 14.35,\r\n\t\"anxiety_population\": 10.35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "https",
+					"host": [
+						"sos2021-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"anxiety_stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post - Conflict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"     pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -701,8 +798,8 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats/Spain_Andalucia/2017",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats/Spain_Andalucia/2017",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -738,8 +835,8 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -773,8 +870,8 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
@@ -809,8 +906,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
-					"protocol": "https",
+					"raw": "http://sos2021-11.herokuapp.com/api/v1/anxiety_stats",
+					"protocol": "http",
 					"host": [
 						"sos2021-11",
 						"herokuapp",
