@@ -8,6 +8,12 @@
 	<input bind:value={name}>
 	<p>This is my first svelte app</p>
 	<MyTable></MyTable>
+
+	<table>
+        <tr>
+            <td>My cell 2</td>
+        </tr>
+    </table>
 </main>
 
 <style>
