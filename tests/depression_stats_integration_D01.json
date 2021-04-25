@@ -298,6 +298,42 @@
 			"response": []
 		},
 		{
+			"name": "Peticion GET not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404 not found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats/Spain_Andalucia",
+					"protocol": "https",
+					"host": [
+						"sos2021-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"depression_stats",
+						"Spain_Andalucia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Peticion POST",
 			"event": [
 				{
@@ -306,6 +342,51 @@
 						"exec": [
 							"pm.test(\"Successful POST request\", function () {\r",
 							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"country\": \"Spain_Extremadura\",\r\n\t\"year\": 2011,\r\n\t\"depression_men\": 4.22,\r\n\t\"depression_women\": 24.33,\r\n\t\"depression_population\": 14.39\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-11.herokuapp.com/api/v1/depression_stats",
+					"protocol": "https",
+					"host": [
+						"sos2021-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"depression_stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "peticion post conflictiva",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 409 conflict\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
