@@ -7,7 +7,7 @@
 	<h1>Hello {name}!</h1>
 	<input bind:value={name}>
 	<p>This is my first svelte app</p>
-	<MyTable><MyTable/>
+	<MyTable></MyTable>
 </main>
 
 <style>
