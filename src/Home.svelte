@@ -1,109 +1,264 @@
-<script>
-    import Box from "./utilities/Box.svelte";
-</script>
+<body>
+    <!-- Masthead-->
+    <br /><br />
+    <header class="masthead">
+        <div class="container h-100">
+            <div
+                class="row h-100 align-items-center justify-content-center text-center"
+            >
+                <div class="col-lg-10 align-self-end">
+                    <h1 class="text-uppercase text-black font-weight-bold">
+                        SOS2021-11
+                    </h1>
+                    <hr class="divider my-4" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <a href="https://github.com/gti-sos/SOS2021-11"
+                        ><button type="button" class="btn btn-primary"
+                            >Repositorio de GitHub</button
+                        ></a
+                    >
+                    <br /><br />
+                    <p class="text-white-75 font-weight-light mb-5">
+                        Lo que buscamos en estos datos es dar a conocer la
+                        situación actual y comparativa de España, en este caso,
+                        en lo referido a afectados por algunas patologías
+                        médicas, las cuáles hemos seleccionado y mostrado
+                        anteriormente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<main>
-    <h3 style="text-align: center;margin-bottom: 40px;">Proyecto</h3>
-    <h3 style="text-align: center;margin-bottom: 40px;">Grupo 11 SOS2021-11</h3>
-    <div class="row">
-        <div class="col-6">
-            <h2 style="text-align: center;margin-bottom: 40px;">Repository</h2>
-            <h4 style="text-align: center;margin-bottom: 40px;">
-                <a href="https://github.com/gti-sos/SOS2021-11"
-                    >gti-sos/SOS2021-11</a
-                >
-            </h4>
+    <!-- Información -->
+    <section class="page-section" id="informacion">
+        <div class="jumbotron bg-primary">
+            <div class="container">
+                <h2 class="text-center text-white mt-0">
+                    Información de las APIs
+                </h2>
+                <hr class="my-4" />
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i
+                                class="fas fa-4x fa-user-injured text-white mb-4"
+                            />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Ansiedad
+                            </h3>
+                            <p class="text-white-50 mb-0">Anxiety_Stats</p>
+                            <br /><a
+                                href="https://documenter.getpostman.com/view/14948159/TzJsexjn"
+                                ><button type="button" class="btn btn-light"
+                                    >Postman</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i
+                                class="fas fa-4x fa-user-injured text-white mb-4"
+                            />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Depresion
+                            </h3>
+                            <p class="text-white-50 mb-0">Depression_Stats</p>
+                            <br /><a
+                                href="https://documenter.getpostman.com/view/14948118/TzJu8ccc"
+                                ><button type="button" class="btn btn-light"
+                                    >Postman</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i
+                                class="fas fa-4x fa-user-injured text-white mb-4"
+                            />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Estres
+                            </h3>
+                            <p class="text-white-50 mb-0">Stress_Stats</p>
+                            <br /><a
+                                href="https://documenter.getpostman.com/view/14948110/TzJsheN4"
+                                ><button type="button" class="btn btn-light"
+                                    >Postman</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-id-card text-white mb-4" />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Tabaquismo
+                            </h3>
+                            <p class="text-white-50 mb-0">Smoking_Stats</p>
+                            <br /><a
+                                href="https://documenter.getpostman.com/view/14948136/TzJsgdzX"
+                                ><button type="button" class="btn btn-light"
+                                    >Postman</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-            <h2 style="text-align: center;margin-bottom: 40px;">URL</h2>
-            <h4 style="text-align: center;margin-bottom: 40px;">
-                <a href="http://sos2021-11.herokuapp.com" rel="nofollow"
-                    >sos2021-11.herokuapp.com</a
-                >
-            </h4>
+    </section>
+
+    <!-- Acceso a las APIs-->
+    <section class="page-section" id="apis">
+        <div class="jumbotron bg-dark">
+            <div class="container">
+                <h2 class="text-center text-white mt-0">Acceso a las APIs</h2>
+                <hr class="divider my-4" />
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i
+                                class="fas fa-4x fa-user-injured text-white mb-4"
+                            />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Ansiedad
+                            </h3>
+                            <p class="text-white-50 mb-0">Anxiety_Stats</p>
+                            <br /><a href="#/anxiety_stats"
+                                ><button type="button" class="btn btn-primary"
+                                    >ACÁ</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i
+                                class="fas fa-4x fa-user-injured text-white mb-4"
+                            />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Depresion
+                            </h3>
+                            <p class="text-white-50 mb-0">Depression_Stats</p>
+                            <br /><a href="#/depression_stats"
+                                ><button type="button" class="btn btn-primary"
+                                    >ACÁ</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i
+                                class="fas fa-4x fa-user-injured text-white mb-4"
+                            />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Estres
+                            </h3>
+                            <p class="text-white-50 mb-0">Stress_Stats</p>
+                            <br /><a href="#/stress_stats"
+                                ><button type="button" class="btn btn-primary"
+                                    >ACÁ</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i
+                                class="fas fa-4x fa-user-injured text-white mb-4"
+                            />
+                            <h3 class="h4 mb-2 text-white">
+                                Estadísticas de Taba
+                            </h3>
+                            <p class="text-white-50 mb-0">Smoking_Stats</p>
+                            <br /><a href="#/smoking_stats"
+                                ><button type="button" class="btn btn-primary"
+                                    >ACÁ</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div />
         </div>
-        <h2 style="text-align: center;margin-bottom: 40px;">Team</h2>
-        <div
-            style="display:flex;align-items:center;justify-content: center;margin-bottom: 40px;"
-        >
-            <Box>
-                <span slot="name"> Jose Pablo Carrasco Cobos </span>
-                <span slot="pmaddress">
-                    <a
-                        href="https://documenter.getpostman.com/view/14948159/TzJsexjn"
-                        rel="nofollow">POSTMAN anxiety_stats - joscarcob1</a
-                    >
-                </span>
-                <span slot="apiurl">
-                    <a
-                        href="https://sos2021-11.herokuapp.com/api/v1/anxiety_stats"
-                        rel="nofollow">APIv1 anxiety-stats</a
-                    >
-                </span>
-                <span slot="apibutton">
-                    <button
-                        type="button"
-                        style="background: white; color:black"
-                        class="btn btn-outline-success"
-                        onclick="window.location.href='#/anxiety_stats_API'"
-                    >
-                        API anxiety_stats</button
-                    >
-                </span>
-            </Box>
-            <!--	<Box>
-			<span slot="name">
-				Casto Rodríguez Díaz
-			</span>
-			<span slot="pmaddress">
-				<a href="https://documenter.getpostman.com/view/10826099/SzYUXfdy" rel="nofollow">POSTMAN DE
-					casroddia</a>
-			</span>
-			<span slot="apiurl">
-				<a href="https://sos1920-22.herokuapp.com/api/v1/og-basket-stats/" rel="nofollow">APIv1
-					og-basket-stats</a>
-			</span>
-			<span slot="apibutton">
-				<button type="button" style="background: white; color:black" class="btn btn-outline-info"
-					onclick="window.location.href='#/basketAPI'"><i class='fas fa-leaf'></i> API de Baloncesto</button>
-			</span>
-			<span slot="chartbuttons">
-				<div class="btn-group" role="group" aria-label="">
-					<button type="button" class="btn btn-outline-danger" style="background: white; color:black"
-						onclick="window.location.href='#/analytics/highcharts-og-basket-stats'"><i
-							class='fas fa-leaf'></i> HighChart</button>
-					<button type="button" class="btn btn-outline-success" style="background: white; color:black"
-						onclick="window.location.href='#/analytics/awesome-og-basket-stats'"><i
-							class='fas fa-leaf'></i>AwesomeChart</button>
-				</div>
-			</span>
-		</Box>
-		<Box>
-			<span slot="name">
-				Juan Antonio Aranda Triana
-			</span>
-			<span slot="pmaddress">
-				<a href="https://documenter.getpostman.com/view/10153510/SzYUXfiH" rel="nofollow">POSTMAN DE
-					juaaratri</a>
-			</span>
-			<span slot="apiurl">
-				<a href="http://sos1920-22.herokuapp.com/api/v1/swim-stats" rel="nofollow">APIv1 swim-stats</a>
-			</span>
-			<span slot="apibutton">
-				<button type="button" style="background: white; color:black" class="btn btn-outline-danger"
-					onclick="window.location.href='#/swimstatsAPI'"><i class='fas fa-leaf'></i> API de Natación</button>
-			</span>
-			<span slot="chartbuttons">
-				<div class="btn-group" role="group" aria-label="">
-					<button type="button" class="btn btn-outline-danger" style="background: white; color:black"
-						onclick="window.location.href='#/analytics/highcharts-swim-stats'"><i class='fas fa-leaf'></i>
-						HighChart</button>
-					<button type="button" class="btn btn-outline-success" style="background: white; color:black"
-						onclick="window.location.href='#/analytics/awesome-swim-stats'"><i
-							class='fas fa-leaf'></i>AwesomeChart</button>
-				</div>
-			</span>
-		</Box> -->
+    </section>
+
+    <!-- Equipo-->
+    <section class="page-section" id="equipo">
+        <div class="jumbotron bg-dark">
+            <div class="container">
+                <h2 class="text-center text-white mt-0">Equipo</h2>
+                <hr class="divider dark my-4" />
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-user text-white mb-4" />
+                            <h3 class="h4 mb-2 text-white">
+                                Jose Pablo Carrasco Cobos
+                            </h3>
+                            <p class="text-muted mb-0">
+                                Creador de la API anxiety_stats
+                            </p>
+                            <br /><a href="https://github.com/EsDeSepa"
+                                ><button type="button" class="btn btn-primary"
+                                    >Github</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-user text-white mb-4" />
+                            <h3 class="h4 mb-2 text-white">Juan Diez Blanco</h3>
+                            <p class="text-muted mb-0">
+                                Creador de la API depression_stats
+                            </p>
+                            <br /><a href="https://github.com/jdblanco"
+                                ><button type="button" class="btn btn-primary"
+                                    >Github</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-user text-white mb-4" />
+                            <h3 class="h4 mb-2 text-white">
+                                Ana Romero Caceres
+                            </h3>
+                            <p class="text-muted mb-0">
+                                Creador de la API stress_stats
+                            </p>
+                            <br /><a href="https://github.com/anaromero99"
+                                ><button type="button" class="btn btn-primary"
+                                    >Github</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-user text-white mb-4" />
+                            <h3 class="h4 mb-2 text-white">
+                                Miriam Campano Crespo
+                            </h3>
+                            <p class="text-muted mb-0 ">
+                                Creador de la API smoking_stats
+                            </p>
+                            <br /><a href="https://github.com/Mirishya"
+                                ><button type="button" class="btn btn-primary"
+                                    >Github</button
+                                ></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</main>
+    </section>
+</body>

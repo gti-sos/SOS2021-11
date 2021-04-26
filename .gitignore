@@ -1,4 +1,7 @@
 node_modules
 public/build
 public/old_index.html
-src/anxiety_stats_API/APIEXAMPLE.svelte
+anxiety_stats/anxiety_stats.db
+depression_stats/depression_stats.db
+stress_stats/stress_stats.db
+smoking_stats/smoking_stats.db
