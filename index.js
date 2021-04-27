@@ -10,8 +10,6 @@ var BASE_API_PATH = "/api/v1"; // M I L E S T O N E Nº 4
 
 var app = express();
 
-console.log("a");
-
 var port = (process.env.PORT || 10000);
 
 app.use(bodyParser.json());
@@ -59,6 +57,8 @@ smoking_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 
 
 // App Listen (para todas las peticiones)
+
+console.log("iniciando servidor");
 
 app.listen(port, () => {
 	console.log("Server ready listening on port " + port);
