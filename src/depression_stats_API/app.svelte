@@ -1,5 +1,5 @@
 <script>
-	import DepressionStatsTable from './DepressionStatsAPIs.svelte';
+	import DepressionStatsTable from './DepressionStatsAPI.svelte';
 </script>
 
 <main>
