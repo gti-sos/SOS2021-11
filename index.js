@@ -1,3 +1,4 @@
+console.log("iniciando la aplicacion");
 
 var express = require("express");
 
@@ -9,6 +10,8 @@ var BASE_API_PATH = "/api/v1"; // M I L E S T O N E Nº 4
 
 var app = express();
 
+console.log("a");
+
 var port = (process.env.PORT || 10000);
 
 app.use(bodyParser.json());
@@ -16,6 +19,8 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 app.use("/", express.static(path.join(__dirname, "public")));
+
+
 
 
 //--------------------------------- M I L E S T O N E Nº 5 (F05) ------------------------------------------------
@@ -48,6 +53,7 @@ stress_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 // API_REST de smoking -> Miriam Campano Crespo (@Mirishya)
 
 var smoking_stats_api = require("./smoking_stats"); // M I L E S T O N E Nº 5
+const { Console } = require("console");
 
 smoking_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 
