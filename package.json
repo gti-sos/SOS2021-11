@@ -7,7 +7,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index & npm install"
+    "start": "node index"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
