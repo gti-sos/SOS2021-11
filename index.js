@@ -1,4 +1,4 @@
-console.log("iniciando la aplicacion");
+console.log("primer mensaje");
 
 var express = require("express");
 
