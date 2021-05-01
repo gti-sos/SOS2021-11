@@ -18,15 +18,11 @@ app.use(express.json());
 
 app.use("/", express.static(path.join(__dirname, "public")));
 
+//--------------------------------- M I L E S T O N E Nº 8 (F08) ------------------------------------------------
 
+// BACK_API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
 
-
-//--------------------------------- M I L E S T O N E Nº 5 (F05) ------------------------------------------------
-
-
-// API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
-
-var anxiety_stats_api = require("./anxiety_stats"); // M I L E S T O N E Nº 5
+var anxiety_stats_api = require("./src/back/anxiety_stats_API"); // M I L E S T O N E Nº 5
 
 anxiety_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -37,7 +33,6 @@ var depression_stats_api = require("./depression_stats"); // M I L E S T O N E N
 
 depression_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //API_REST de stress -> Ana Romero Cáceres (@anaromero99)
