@@ -29,7 +29,7 @@ anxiety_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 
 // API_REST de depression -> Juan Diez Blanco (@jdblanco)
 
-var depression_stats_api = require("./depression_stats"); // M I L E S T O N E Nº 5
+var depression_stats_api = require("./src/back/depression_stats_API"); // M I L E S T O N E Nº 5
 
 depression_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
