@@ -12,7 +12,7 @@
 	import stress_stats from "./front/stress_stats_API/StressStatsAPI.svelte";
 	import edit_stress_stats from "./front/stress_stats_API/StressStatsEdit.svelte";
 
-	import smoking_stats from "./front/smoking_stats_API/App.svelte";
+	import smoking_stats from "./front/smoking_stats_API/SmokingStatsAPI.svelte";
 	import edit_smoking_stats from "./front/smoking_stats_API/SmokingStatsEdit.svelte";
 	
 	import info from "./Pages/Info.svelte";
@@ -26,6 +26,7 @@
 		"/stress_stats": stress_stats,
 		"/stress_stats/:country/:year": edit_stress_stats,
 		"/smoking_stats": smoking_stats,
+		"/smoking_stats/:country/:year": edit_smoking_stats,
 		"*": NotFound,
 	};
 </script>
