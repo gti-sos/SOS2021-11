@@ -1,6 +1,5 @@
-<script lang="ts">
+<script>
     import { onMount } from "svelte";
-
     import { pop } from "svelte-spa-router";
     import { Button, Table } from "sveltestrap";
 
@@ -17,9 +16,9 @@
     let errorMsg = "";
     let correctMsg = "";
 
-    onMount(getAnxietyStat);
+    onMount(getanxietyStat);
 
-    async function getAnxietyStat() {
+    async function getanxietyStat() {
         console.log("Fetching data...");
         const res = await fetch(
             API_ANXIETY_STATS + "/" + params.country + "/" + params.year
@@ -51,7 +50,7 @@
                 method: "PUT",
                 body: JSON.stringify({
                     country: params.country,
-                    date: parseInt(params.year),
+                    year: parseInt(params.year),
                     anxiety_men: updatedAnxietyMen,
                     anxiety_women: updatedAnxietyWomen,
                     anxiety_population: updatedAnxietyPopulation,
@@ -65,7 +64,7 @@
                 console.log("Ok. ");
                 errorMsg = "";
                 correctMsg = `El dato con país: ${params.country} y año: ${params.year} ha sido actualizado correctamente.`;
-                getAnxietyStat();
+                getanxietyStat();
             } else if (res.status == 404) {
                 errorMsg = "El dato que intenta editar no existe.";
             } else if (res.status == 500) {
