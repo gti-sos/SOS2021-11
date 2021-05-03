@@ -13,6 +13,8 @@
 	import edit_stress_stats from "./front/stress_stats_API/StressStatsEdit.svelte";
 
 	import smoking_stats from "./front/smoking_stats_API/App.svelte";
+	import edit_smoking_stats from "./front/smoking_stats_API/SmokingStatsEdit.svelte";
+	
 	import info from "./Pages/Info.svelte";
 
 	const routes = {
