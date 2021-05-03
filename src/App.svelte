@@ -23,7 +23,7 @@
 		"/anxiety_stats": anxiety_stats,
 		"/anxiety_stats/:country/:year": edit_anxiety_stats,
 		"/depression_stats": depression_stats,
-		"/stress_stats": stress_stats,
+		"/stress_stats": edit_stress_stats,
 		"/smoking_stats": smoking_stats,
 		"*": NotFound,
 	};
