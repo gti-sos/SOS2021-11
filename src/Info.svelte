@@ -113,7 +113,7 @@
                 </CardBody>
                 <CardFooter
                     >realizado por
-                    <a href="https://github.com/EsDeSepa"
+                    <a href="https://github.com/jdblanco"
                         >Juan Diez Blanco</a
                     ></CardFooter
                 >
@@ -122,32 +122,31 @@
         <Col xs="auto">
             <Card class="mb-3">
                 <CardHeader>
-                    <CardTitle><h5>life-stats</h5></CardTitle>
+                    <CardTitle><h5>stress_stats</h5></CardTitle>
                 </CardHeader>
                 <CardBody>
                     <CardSubtitle />
                     <CardText
-                        >Fuente de datos del índice de calidad de vida por país,
-                        que está vinculado a el índice de poder adquisitivo y el
-                        índice de seguridad.</CardText
+                        >Estadísticas acerca de los datos recogidos por estrés
+                        en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="https://sos2021-01.herokuapp.com/api/v1/life-stats"
+                        href="https://sos2021-01.herokuapp.com/api/v1/stress_stats"
                     >
                         <Button color="primary">API v1</Button>
                     </a>
-                    <a href="/#/life-stats">
-                        <Button color="primary">Interfaz</Button>
+                    <a href="/#/stress_stats">
+                        <Button color="primary">Interfaz de Estrés</Button>
                     </a>
                     <a
-                        href="https://documenter.getpostman.com/view/14961437/TzJoDg1P"
+                        href="https://documenter.getpostman.com/view/14948110/TzJsheN4"
                     >
                         <Button color="info">Documentación v1</Button>
                     </a>
                 </CardBody>
                 <CardFooter
                     >desarrollado por
-                    <a href="https://github.com/Lucia2712">Lucia Castro Perez</a
+                    <a href="https://github.com/anaromero99">Ana Romero Cáceres</a
                     >
                 </CardFooter>
             </Card>
@@ -155,29 +154,29 @@
         <Col xs="auto">
             <Card class="mb-3">
                 <CardHeader>
-                    <CardTitle><h5>natality-stats</h5></CardTitle>
+                    <CardTitle><h5>smoking_stats</h5></CardTitle>
                 </CardHeader>
                 <CardBody>
                     <CardSubtitle />
                     <CardText>
-                        Ratios de natalidad y fertlidad de hombres y mujeres
-                        nacidos por año y país.
+                        Estadísticas acerca de los datos recogidos por tabaquismo
+                        en los países Europeos.
                     </CardText>
-                    <a href="/api/v1/natality-stats"
+                    <a href="/api/v1/smoking_stats"
                         ><Button color="primary">API v1</Button></a
                     >
-                    <a href="/#/natality-stats"
-                        ><Button color="primary">Interfaz</Button></a
+                    <a href="/#/smoking_stats"
+                        ><Button color="primary">Interfaz de Tabaquismo</Button></a
                     >
                     <a
-                        href="https://documenter.getpostman.com/view/14932491/TzJrCzRM"
+                        href="https://documenter.getpostman.com/view/14948136/TzJsgdzX"
                         ><Button color="info">Documentación v1</Button></a
                     >
                 </CardBody>
                 <CardFooter
                     >desarrollado por
-                    <a href="https://github.com/AbramsM1A2"
-                        >Abraham Corta Ramírez</a
+                    <a href="https://github.com/Mirishya"
+                        >Miriam Campano Crespo</a
                     ></CardFooter
                 >
             </Card>
