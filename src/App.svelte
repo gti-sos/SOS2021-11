@@ -5,7 +5,6 @@
 	import Home from "./Pages/Home.svelte";
 
 	import anxiety_stats from "./front/anxiety_stats_API/AnxietyStatsAPI.svelte";
-
 	import edit_anxiety_stats from "./front/anxiety_stats_API/AnxietyStatsEdit.svelte";
 
 	import depression_stats from "./front/depression_stats_API/App.svelte";
