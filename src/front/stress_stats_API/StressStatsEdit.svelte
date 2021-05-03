@@ -82,9 +82,9 @@
                 <tr>
                     <th>País</th>
                     <th>Año</th>
-                    <th>Índice de ansiedad por hombre</th>
-                    <th>Índice de ansiedad por mujer</th>
-                    <th>Índice de ansiedad en población</th>
+                    <th>Índice de estrés por hombre</th>
+                    <th>Índice de estrés por mujer</th>
+                    <th>Índice de estrés en población</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
