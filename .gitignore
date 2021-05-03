@@ -5,4 +5,7 @@ src/back/anxiety_stats_API/anxiety_stats.db
 src/back/depression_stats_API/depression_stats.db
 src/back/stress_stats_API/stress_stats.db
 src/back/smoking_stats_API/smoking_stats.db
+
+src/front/anxiety_stats_API/AnxietyStatsEdit.svelte
+
 srcaUX
