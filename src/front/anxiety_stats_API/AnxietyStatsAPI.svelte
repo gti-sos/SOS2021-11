@@ -1,4 +1,5 @@
 <script>
+
     import { onMount } from "svelte";
     import { pop } from "svelte-spa-router";
     import { Button, Table } from "sveltestrap";
@@ -232,7 +233,7 @@
                                 style="margin-right: 10px;"
                                 color="danger"
                                 on:click={() =>
-                                    deleteanxietyStats(stat.country, stat.year)}
+                                    deleteanxietyStatsPerYear(stat.country, stat.year)}
                             >
                                 Borrar
                             </Button>
