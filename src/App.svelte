@@ -9,7 +9,7 @@
 
 	import depression_stats from "./front/depression_stats_API/App.svelte";
 
-	import stress_stats from "./front/stress_stats_API/App.svelte";
+	import stress_stats from "./front/stress_stats_API/StressStatsAPI.svelte";
 	import edit_stress_stats from "./front/stress_stats_API/StressStatsEdit.svelte";
 
 	import smoking_stats from "./front/smoking_stats_API/App.svelte";
