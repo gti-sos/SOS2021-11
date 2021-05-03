@@ -90,31 +90,31 @@
         <Col xs="auto">
             <Card class="mb-3">
                 <CardHeader>
-                    <CardTitle><h5>anxiety_stats</h5></CardTitle>
+                    <CardTitle><h5>depression_stats</h5></CardTitle>
                 </CardHeader>
                 <CardBody>
                     <CardSubtitle />
                     <CardText
-                        >Estadísticas acerca de los datos recogidos por ansiedad
+                        >Estadísticas acerca de los datos recogidos por depresion
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="https://sos2021-11.herokuapp.com/api/v1/anxiety_stats"
+                        href="https://sos2021-11.herokuapp.com/api/v1/depression_stats"
                     >
                         <Button color="primary">API (v1)</Button></a
                     >
                     <a href="/#/anxiety_stats">
-                        <Button color="primary">Interfaz de Ansiedad</Button>
+                        <Button color="primary">Interfaz de Depresion</Button>
                     </a>
                     <a
-                        href="https://documenter.getpostman.com/view/14948045/TzJoDg1Q"
+                        href="https://documenter.getpostman.com/view/14948118/TzJu8ccc"
                         ><Button color="info">Documentación v1</Button></a
                     >
                 </CardBody>
                 <CardFooter
                     >realizado por
                     <a href="https://github.com/EsDeSepa"
-                        >Jose Pablo Carrasco Cobos</a
+                        >Juan Diez Blanco</a
                     ></CardFooter
                 >
             </Card>
