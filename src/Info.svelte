@@ -131,7 +131,7 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="https://sos2021-01.herokuapp.com/api/v1/stress_stats"
+                        href="https://sos2021-11.herokuapp.com/api/v1/stress_stats"
                     >
                         <Button color="primary">API v1</Button>
                     </a>
@@ -162,7 +162,7 @@
                         Estadísticas acerca de los datos recogidos por tabaquismo
                         en los países Europeos.
                     </CardText>
-                    <a href="/api/v1/smoking_stats"
+                    <a href="https://sos2021-11.herokuapp.com/api/v1/smoking_stats"
                         ><Button color="primary">API v1</Button></a
                     >
                     <a href="/#/smoking_stats"
