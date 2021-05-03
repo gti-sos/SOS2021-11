@@ -1,8 +1,8 @@
 node_modules
 public/build
 public/old_index.html
-anxiety_stats/anxiety_stats.db
-depression_stats/depression_stats.db
-stress_stats/stress_stats.db
-smoking_stats/smoking_stats.db
+src/back/anxiety_stats_API/anxiety_stats.db
+src/back/depression_stats_API/depression_stats.db
+src/back/stress_stats_API/stress_stats.db
+src/back/smoking_stats_API/smoking_stats.db
 srcaUX
