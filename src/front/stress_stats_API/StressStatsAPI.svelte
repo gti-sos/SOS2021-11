@@ -232,7 +232,7 @@
                                 style="margin-right: 10px;"
                                 color="danger"
                                 on:click={() =>
-                                    deletestressStats(stat.country, stat.year)}
+                                    deletestressStatsPerYear(stat.country, stat.year)}
                             >
                                 Borrar
                             </Button>
