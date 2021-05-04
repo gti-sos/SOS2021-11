@@ -103,7 +103,7 @@
                     >
                         <Button color="primary">API (v1)</Button></a
                     >
-                    <a href="/#/anxiety_stats">
+                    <a href="/#/depression_stats">
                         <Button color="primary">Interfaz de Depresion</Button>
                     </a>
                     <a
