@@ -74,7 +74,7 @@
             }).then(function (res) {
                 if (res.ok) {
                     console.log("OK");
-                    getanxietyStats();
+                    getsmokingStats();
                     errorMsg = "";
                     correctMsg = "Se ha insertado correctamente.";
                 } else if (res.status == 409) {
