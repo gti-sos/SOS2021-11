@@ -16,27 +16,8 @@
 
     let errorMsg = "";
     let correctMsg = "";
-    let currentCountry = "-";
-    let currentYear = "-";
 
-    onMount(getsmokingStat(currentCountry, currentYear));
-
-    function changePage(page, offset) {
-    console.log("------Change page------");
-    console.log("Params page: " + page + " offset: " + offset);
-    last_page = Math.ceil(total / 10);
-    console.log("new last page: " + last_page);
-    if (page !== current_page) {
-      console.log("enter if");
-      current_offset = offset;
-      current_page = page;
-      console.log("page: " + page);
-      console.log("current_offset: " + current_offset);
-      console.log("current_page: " + current_page);
-      getStats();
-    }
-    console.log("---------Exit change page-------");
-  }
+    onMount(getsmokingStat);
 
     async function getsmokingStat() {
         console.log("Fetching data...");
@@ -56,14 +37,12 @@
         } else if (res.status == 404) {
             errorMsg = "No se encuentra el dato a editar.";
             console.log("ERROR. " + errorMsg);
-            changePage(current_page, current_offset);
         } else {
             //res.status ===500)
             errorMsg = "No se ha podido acceder a la base de datos";
             console.log("ERROR. " + errorMsg);
         }
     }
-  
     async function updatesmokingStat() {
         console.log("Updating data..." + params.country + " " + params.year);
         const res = await fetch(
@@ -93,10 +72,6 @@
                 errorMsg = "Error accediendo a la base de datos.";
             }
         });
-        function search(country, year) {
-        setOffset(0);
-        getsmokingStats(country, year);
-    }
     }
 </script>
 
@@ -148,17 +123,8 @@
                             on:click={() => updatesmokingStat()}
                         >
                             Actualizar
-                        </Button>
-                        </td
+                        </Button></td
                     >
-                    <Button
-                    outline
-                    color="secondary"
-                    on:click={search(currentCountry, currentYear)}
-                    class="button-search"
-                >
-                    <i class="fas fa-search" /> Buscar
-                </Button>
                 </tr>
             </tbody>
         </Table>
