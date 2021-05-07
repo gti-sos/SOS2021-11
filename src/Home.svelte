@@ -7,7 +7,7 @@
                 class="row h-100 align-items-center justify-content-center text-center"
             >
                 <div class="col-lg-10 align-self-end">
-                    <h1 class="text-uppercase text-black font-weight-bold">
+                    <h1 class="text-uppercase text-danger font-weight-bold">
                         SOS2021-11
                     </h1>
                     <hr class="divider my-4" />

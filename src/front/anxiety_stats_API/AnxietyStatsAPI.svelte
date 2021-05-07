@@ -1,239 +1,338 @@
 <script>
-
     import { onMount } from "svelte";
     import { pop } from "svelte-spa-router";
-    import { Button, Table } from "sveltestrap";
-    
-    const API_ANXIETY_STATS = "/api/v1/anxiety_stats"; //tiene que llamar a la API para tratar los datos
+    import Table from "sveltestrap/src/Table.svelte";
+    import Button from "sveltestrap/src/Button.svelte";
+    import Input from "sveltestrap/src/Input.svelte";
+    import Label from "sveltestrap/src/Label.svelte";
+    import FormGroup from "sveltestrap/src/FormGroup.svelte";
 
-    let chargedData = false;
-    let anxietyStats = [];
-    let errorMsg = "";
-    let correctMsg = "";
+    import { Pagination, PaginationItem, PaginationLink } from "sveltestrap";
 
-    let newData = {
+    let anxiety = [];
+    let newAnxiety = {
+        
         country: "",
         year: "",
-        anxiety_men: "",
-        anxiety_women: "",
-        anxiety_population: "",
+        anxietyMen: 0.0,
+        anxietyWomen: 0.0,
+        anxietyPopulation: 0.0,
     };
 
-    onMount(getanxietyStats);
+    //===========IDENTIFICADORES===========\\
 
-    async function loadanxietyStats() {
-        console.log("Loading data...");
-        const res = await fetch(API_ANXIETY_STATS + "/loadInitialData");
-        chargedData = true;
+    let countries = [];
+    let years = [];
+    
+    //===========CamposVaciosParaLaBusqueda===========\\
+    
+    let actualCountry = "";
+    let actualYear = "";
+
+    //===========Paginacion===========\\
+    let elementPage = 10;
+    let offset = 0;
+    let actualPage = 1;
+    let moreData = true;
+
+    //===========MensajesDesactivados===========\\
+    let okMsg = false;
+    let errorMsg = false;
+    
+    onMount(getanxietyCountryYear);
+    onMount(getanxiety);
+
+    //=======================GET=======================\\
+    async function getanxietyCountryYear() {
+        const res = await fetch("/api/v1/anxiety_stats");
+
         if (res.ok) {
-            console.log("Ok.");
-            getanxietyStats();
-            errorMsg = "";
-            correctMsg = "Los datos se han cargado correctamente.";
-        } else {
-            console.log("Error loading data.");
-        }
-    }
-    async function getanxietyStats() {
-        console.log("Fetching anxiety stats...");
-        const res = await fetch(API_ANXIETY_STATS);
-        if (res.ok) {
-            chargedData = true;
-            console.log("Ok. Obtaining data...");
+            //===========PAIS===========\\
             const json = await res.json();
-            anxietyStats = json;
-            console.log(`Received ${anxietyStats.length} anxiety stats.`);
-        } else if (res.status == 500) {
-            errorMsg = "No se ha podido acceder la base de datos.";
-            console.log(errorMsg);
-        } else if (res.status == 404) {
-            errorMsg = "No se encuentran datos. Tiene que cargarlos.";
-            console.log("Error. " + errorMsg);
+            countries = json.map((c) => {
+                return c.country;
+            });
+            countries = Array.from(new Set(countries));
+
+            //===========ANYOS===========\\
+            years = json.map((c) => {
+                return c.year;
+            });
+            years = Array.from(new Set(years));
         } else {
-            //este realmente no va a ser otro caso que el status = 500
-            errorMsg = res.status + ": " + res.statusText;
-            console.log(errorMsg);
+            console.log("ERROR");
         }
     }
-    async function insertanxietyStats() {
-        console.log("Inserting data" + JSON.stringify(newData) + "...");
-        if (
-            !newData.country ||
-            !newData.year ||
-            !newData["anxiety_men"] ||
-            !newData["anxiety_women"] ||
-            !newData["anxiety_population"]
-        ) {
-            alert("Todos los campos son obligatorios.");
+
+    async function getanxiety() {
+        console.log("Fetching anxiety_stats...");
+        const res = await fetch(
+            "/api/v1/anxiety_stats?offset=" +
+                elementPage * offset +
+                "&limit=" +
+                elementPage
+        );
+        const nextPage = await fetch(
+            "/api/v1/anxiety_stats?offset=" +
+                elementPage * (offset + 1) +
+                "&limit=" +
+                elementPage
+        );
+        if (res.ok && nextPage.ok) {
+            console.log("Ok");
+            const json = await res.json();
+            const jsonNext = await nextPage.json();
+            anxiety = json;
+            if (jsonNext.length == 0) {
+                moreData = false;
+            } else {
+                moreData = true;
+            }
         } else {
-            const res = await fetch(API_ANXIETY_STATS, {
+            console.log("ERROR");
+        }
+    }
+    //=======================POST=======================\\
+    async function insertanxiety() {
+        console.log(
+            "Insertando anxiety_stats..." + JSON.stringify(newAnxiety)
+        );
+        if (
+            isNaN(newAnxiety.year) ||
+            isNaN(newAnxiety.anxietyMen) ||
+            isNaN(newAnxiety.anxietyWomen) ||
+            isNaN(newAnxiety.anxietyPopulation) ||
+            newAnxiety.country === "" ||
+            newAnxiety.year === ""
+        ) {
+            console.log("Uno o más datos NO son numéricos");
+            okMsg = false;
+            errorMsg =
+                "No puede introducir campos en blanco o campos que no sean numéricos";
+        } else {
+            const res = await fetch("/api/v1/anxiety_stats", {
                 method: "POST",
-                body: JSON.stringify(newData),
+                body: JSON.stringify(newAnxiety),
                 headers: {
                     "Content-Type": "application/json",
                 },
             }).then(function (res) {
                 if (res.ok) {
-                    console.log("OK");
-                    getanxietyStats();
-                    errorMsg = "";
-                    correctMsg = "Se ha insertado correctamente.";
-                } else if (res.status == 409) {
-                    errorMsg = "Ya existe un recurso con el mismo país y año.";
-                    console.log("ERROR. " + errorMsg);
+                    getanxiety();
+                    okMsg = "Dato introducido de forma exitosa";
+                    errorMsg = false;
                 } else {
-                    //status == 500
-                    errorMsg = "No se ha podido acceder la base de datos.";
-                    console.log("Error inserting data in DB");
+                    okMsg = false;
+                    errorMsg =
+                        "No puede introducirse un dato con mismo año y país debido a que ya existe uno en la base de datos";
                 }
             });
         }
     }
+    //=======================DELETE=======================\\
+    async function deleteanxiety(country, year) {
+        const res = await fetch(
+            "/api/v1/anxiety_stats/" + country + "/" + year,
+            {
+                method: "DELETE",
+            }
+        ).then(function (res) {
+            getanxiety();
+            getanxietyCountryYear();
+        });
+        okMsg = "Dato borrado de forma exitosa";
+        errorMsg = false;
+    }
 
-    async function deleteanxietyStats() {
-        console.log("Deleting anxiety stats...");
-        chargedData = false;
-        const res = await fetch(API_ANXIETY_STATS, {
+    async function deleteanxietyData() {
+        const res = await fetch("/api/v1/anxiety_stats", {
             method: "DELETE",
         }).then(function (res) {
-            if (res.ok) {
-                console.log("Ok. " + correctMsg);
-                anxietyStats = [];
-                errorMsg = "";
-                correctMsg = "Se han eliminado todo los datos correctamente.";
-            } else if (res.status == 404) {
-                //no data found
-                errorMsg = "No hay datos para borrar.";
-                console.log("ERROR. " + errorMsg);
-            } else {
-                //status == 500
-                errorMsg = "No se ha podido acceder a la base de datos.";
-                console.log("ERROR. " + errorMsg);
-            }
+            getanxiety();
+            getanxietyCountryYear();
         });
+        okMsg = "Todos los datos han sido borrados de forma exitosa";
+        errorMsg = false;
     }
-    async function deleteanxietyStatsPerYear(country, year) {
-        //borra un recurso concreto
-        console.log(`Deleting the resource with ${country} and year ${year}`);
-        const res = await fetch(
-            API_ANXIETY_STATS + "/" + country + "/" + year,
-            { method: "DELETE" }
-        ).then(function (res) {
-            if (res.ok) {
-                correctMsg = `El dato con país: ${country} y año: ${year} se ha eliminado correctamente.`;
-                errorMsg = "";
-                console.log("Ok. " + correctMsg);
-                getanxietyStats(); /*para que el usuario no tenga que recargar la página */
-            } else if (res.status == 404) {
-                //no data found
-                errorMsg = `No se encuentra el dato con país:  ${country} y año: ${year}.`;
-                console.log("ERROR. " + errorMsg);
-            } else {
-                //status == 500
-                errorMsg = "No se ha podido acceder a la base de datos.";
-                console.log("ERROR. " + errorMsg);
+
+    //=======================LOADINITIALDATA=======================\\
+    async function loadInitialDataanxiety() {
+        const res = await fetch("/api/v1/anxiety_stats/loadInitialData").then(
+            function (res) {
+                getanxiety();
             }
-        });
+        );
+        okMsg = "Los datos iniciales han sido cargados de forma exitosa";
+        errorMsg = false;
     }
+
+    //=======================BUSQUEDA=======================\\
+
+    async function searchanxiety(country, year) {
+        var url = "/api/v1/anxiety_stats";
+
+        if (country != "" && year != "") {
+            url = url + "?year=" + year + "&country=" + country;
+        } else if (country != "" && year == "") {
+            url = url + "?country=" + country;
+        } else if (country == "" && year != "") {
+            url = url + "?year=" + year;
+        }
+
+        const res = await fetch(url);
+
+        if (res.ok) {
+            const json = await res.json();
+            anxiety = json;
+
+            if (anxiety.length > 0) {
+                okMsg = "Se ha encontrado uno o varios resultados";
+                errorMsg = false;
+            } else {
+                okMsg = false;
+                errorMsg = "No se ha obtenido ningún resultado";
+            }
+        } else {
+            console.log("ERROR");
+        }
+    }
+    async function addOffSet(inc) {
+        offset += inc;
+        actualPage += inc;
+        getanxiety();
+    }
+    //=======================FIN=======================\\
+    //=======================FIN=======================\\
+    //=======================FIN=======================\\
+    //=======================FIN=======================\\
 </script>
 
 <main>
-    <div>
-        {#if chargedData}
-            <Button style="background-color: crimson;" disabled>
-                Cargar datos iniciales
-            </Button>
-        {:else}
-            <Button style="background-color: crimson;" on:click={loadanxietyStats}>
-                Cargar datos iniciales</Button
-            >
-        {/if}
-        <Button style="background-color: darkgray" on:click={deleteanxietyStats}>
-            Eliminar datos</Button
+    {#await anxiety}
+        Loading anxiety stats...
+    {:then anxiety}
+        <Button
+            outline
+            style="font-size: 16px;border-radius: 4px;background-color: white;"
+            color="secondary"
+            on:click={searchanxiety(actualCountry, actualYear)}
+            class="button-search"
         >
-    </div>
+            Buscar
+        </Button>
 
-    {#if anxietyStats.length != 0}
-        <br />
-        <Table bordered style="text-align: center;">
-            <thead>
+        <FormGroup>
+            <Label for="selectCountry">Búsqueda por país</Label>
+            <Input
+                name="selectCountry"
+                id="selectCountry"
+                bind:value={actualCountry}
+            >
+                {#each countries as country}
+                    <option>{country}</option>
+                {/each}
+                <option>-</option>
+            </Input>
+        </FormGroup>
+
+        <FormGroup>
+            <Label for="selectYear">Búsqueda por año</Label>
+            <Input name="selectYear" id="selectYear" bind:value={actualYear}>
+                {#each years as year}
+                    <option>{year}</option>
+                {/each}
+                <option>-</option>
+            </Input>
+        </FormGroup>
+        <h6 style="color:rgb(187, 0, 0)">
+            Atención: si intenta insertar los datos de un país que contenga más
+            de una palabra, debe insertar una "_" en lugar de " ".
+        </h6>
+        <p style="color:rgb(6, 100, 6)">
+            Por ejemplo: si quiere insertar los datos del país "Spain Murcia" debe
+            poner "Spain_Murcia".
+        </p>
+        <Table bordered>
+            <thead style="background:black;color:white;text-align:center;">
                 <tr>
-                    <th>País</th>
+                    <th>País (Comund. Autónoma)</th>
                     <th>Año</th>
-                    <th>Índice de ansiedad por hombre</th>
-                    <th>Índice de ansiedad por mujer</th>
-                    <th>Índice de ansiedad en población</th>
+                    <th>Datos de Ansiedad por Hombre</th>
+                    <th>Datos de Ansiedad por Mujer</th>
+                    <th>Datos de Ansiedad en Población</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="background:white;color:black;text-align:center;">
                 <tr>
-                    <td
-                        ><input
-                            placeholder="Ej. Spain_Murcia"
-                            bind:value={newData.country}
+                    <td>
+                        <Input
+                            type="text"
+                            placeholder="Introduzca un país"
+                            bind:value={newAnxiety.country}
                         /></td
                     >
-                    <td
-                        ><input
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="Ej. 2033"
-                            bind:value={newData.year}
+                            placeholder="Introduzca un año"
+                            bind:value={newAnxiety.year}
                         /></td
                     >
-                    <td
-                        ><input
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["anxiety_men"]}
-                        /></td
-                    >
-                    <td
-                        ><input
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newAnxiety.anxietyMen}
+                        />
+                    </td>
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["anxiety_women"]}
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newAnxiety.anxietyWomen}
                         /></td
                     >
-                    <td
-                        ><input
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["anxiety_population"]}
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newAnxiety.anxietyPopulation}
                         /></td
                     >
-                    <td
-                        ><Button
-                            outline
-                            color="primary"
-                            on:click={insertanxietyStats}
-                        >
-                            Insertar</Button
-                        ></td
-                    >
+                    <td>
+                        <Button outline color="primary" on:click={insertanxiety}>
+                            Insertar
+                        </Button>
+                    </td>
                 </tr>
-                {#each anxietyStats as stat}
+                {#each anxiety as anxietyStat}
                     <tr>
-                        <td>{stat.country}</td>
-                        <td>{stat.year}</td>
-                        <td>{stat["anxiety_men"]}</td>
-                        <td>{stat["anxiety_women"]}</td>
-                        <td>{stat["anxiety_population"]}</td>
                         <td>
-                            <a href="#/anxiety_stats/{stat.country}/{stat.year}">
-                                <Button style="background-color: yellowgreen;">
-                                    Editar
-                                </Button>
+                            <a
+                                href="#/anxiety_stats/{anxietyStat.country}/{anxietyStat.year}"
+                            >
+                                {anxietyStat.country}
                             </a>
+                        </td>
+                        <td> {anxietyStat.year} </td>
+                        <td> {anxietyStat.anxietyMen} </td>
+                        <td> {anxietyStat.anxietyWomen} </td>
+                        <td> {anxietyStat.anxietyPopulation} </td>
+                        <td>
                             <Button
                                 outline
-                                style="margin-right: 10px;"
                                 color="danger"
-                                on:click={() =>
-                                    deleteanxietyStatsPerYear(stat.country, stat.year)}
+                                on:click={deleteanxiety(
+                                    anxietyStat.country,
+                                    anxietyStat.year
+                                )}
                             >
                                 Borrar
                             </Button>
@@ -242,41 +341,73 @@
                 {/each}
             </tbody>
         </Table>
-        <Button style="background-color:darkgray " on:click={pop}>
-            Volver
-        </Button>
-    {:else}
-        <br />
-        <p style="text-align: center; background-color: antiquewhite;">
-            Para ver los datos pulse el botón.
-        </p>
+    {/await}
 
-        <Button style="background-color:darkgray" on:click={pop}>Volver</Button>
-    {/if}
+    <Pagination style="float:right;" ariaLabel="Cambio de página">
+        <PaginationItem class={actualPage === 1 ? "disabled" : ""}>
+            <PaginationLink
+                previous
+                href="#/anxiety_stats"
+                on:click={() => addOffSet(-1)}
+            />
+        </PaginationItem>
 
+        {#if actualPage != 1}
+            <PaginationItem>
+                <PaginationLink
+                    href="#/anxiety_stats"
+                    on:click={() => addOffSet(-1)}
+                    >{actualPage - 1}</PaginationLink
+                >
+            </PaginationItem>
+        {/if}
+        <PaginationItem active>
+            <PaginationLink href="#/anxiety_stats">{actualPage}</PaginationLink>
+        </PaginationItem>
+
+        {#if moreData}
+            <PaginationItem>
+                <PaginationLink href="#/anxiety_stats" on:click={() => addOffSet(1)}
+                    >{actualPage + 1}</PaginationLink
+                >
+            </PaginationItem>
+        {/if}
+
+        <PaginationItem class={moreData ? "" : "disabled"}>
+            <PaginationLink
+                next
+                href="#/anxiety_stats"
+                on:click={() => addOffSet(1)}
+            />
+        </PaginationItem>
+    </Pagination>
     {#if errorMsg}
-        <p style="color: red; text-align:center; font-size: 20px;">
-            ERROR: {errorMsg}
-        </p>
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
+    {#if okMsg}
+        <p style="color: green">ÉXITO: {okMsg}</p>
     {/if}
 
-    {#if correctMsg}
-        <p style="color: green; text-align:center; font-size: 20px;">
-            {correctMsg}
-        </p>
-    {/if}
+    <Button
+        style="font-size: 16px;border-radius: 4px;background-color: white;"
+        outline
+        color="secondary"
+        on:click={pop}
+    >
+        Atrás
+    </Button>
+    <Button
+        style="font-size: 16px;border-radius: 4px;background-color: white;"
+        outline
+        color="primary"
+        on:click={loadInitialDataanxiety}>Cargar datos iniciales</Button
+    >
+    <Button
+        style="font-size: 16px;border-radius: 4px;background-color: white;"
+        outline
+        on:click={deleteanxietyData}
+        color="danger"
+    >
+        Borrar todo
+    </Button>
 </main>
-
-<style>
-    a {
-        font-size: 18px;
-        background-color: rgb(74, 98, 248);
-        color: white;
-        border-radius: 6px;
-        border: 1px solid rgb(32, 31, 31);
-        padding: 4px;
-    }
-    a:hover {
-        color: white;
-    }
-</style>
