@@ -1,238 +1,312 @@
 <script>
     import { onMount } from "svelte";
     import { pop } from "svelte-spa-router";
-    import { Button, Table } from "sveltestrap";
-    
-    const API_STRESS_STATS = "/api/v1/stress_stats"; //tiene que llamar a la API para tratar los datos
+    import Table from "sveltestrap/src/Table.svelte";
+    import Button from "sveltestrap/src/Button.svelte";
+    import Input from "sveltestrap/src/Input.svelte";
+    import Label from "sveltestrap/src/Label.svelte";
+    import FormGroup from "sveltestrap/src/FormGroup.svelte";
+    import { Pagination, PaginationItem, PaginationLink } from "sveltestrap";
 
-    let chargedData = false;
-    let stressStats = [];
-    let errorMsg = "";
-    let correctMsg = "";
-
-    let newData = {
+    let stress = [];
+    let newStress = {
+        
         country: "",
         year: "",
-        stress_men: "",
-        stress_women: "",
-        stress_population: "",
+        stressMen: 0.0,
+        stressWomen: 0.0,
+        stressPopulation: 0.0,
     };
 
-    onMount(getstressStats);
 
-    async function loadstressStats() {
-        console.log("Loading data...");
-        const res = await fetch(API_STRESS_STATS + "/loadInitialData");
-        chargedData = true;
+    let countries = [];
+    let years = [];
+    
+    //CAMPOS VACIOS
+    
+    let actualCountry = "";
+    let actualYear = "";
+
+    //PAGINACION
+    let elementPage = 10;
+    let offset = 0;
+    let actualPage = 1;
+    let moreData = true;
+
+    let okMsg = false;
+    let errorMsg = false;
+    
+    onMount(getstressCountryYear);
+    onMount(getstress);
+
+    //GET
+    async function getstressCountryYear() {
+        const res = await fetch("/api/v1/stress_stats");
+
         if (res.ok) {
-            console.log("Ok.");
-            getstressStats();
-            errorMsg = "";
-            correctMsg = "Los datos se han cargado correctamente.";
-        } else {
-            console.log("Error loading data.");
-        }
-    }
-    async function getstressStats() {
-        console.log("Fetching stress stats...");
-        const res = await fetch(API_STRESS_STATS);
-        if (res.ok) {
-            chargedData = true;
-            console.log("Ok. Obtaining data...");
+            //PAIS
             const json = await res.json();
-            stressStats = json;
-            console.log(`Received ${stressStats.length} stress stats.`);
-        } else if (res.status == 500) {
-            errorMsg = "No se ha podido acceder la base de datos.";
-            console.log(errorMsg);
-        } else if (res.status == 404) {
-            errorMsg = "No se encuentran datos. Tiene que cargarlos.";
-            console.log("Error. " + errorMsg);
+            countries = json.map((c) => {
+                return c.country;
+            });
+            countries = Array.from(new Set(countries));
+
+            //AÑO
+            years = json.map((c) => {
+                return c.year;
+            });
+            years = Array.from(new Set(years));
         } else {
-            //este realmente no va a ser otro caso que el status = 500
-            errorMsg = res.status + ": " + res.statusText;
-            console.log(errorMsg);
+            console.log("ERROR");
         }
     }
-    async function insertstressStats() {
-        console.log("Inserting data" + JSON.stringify(newData) + "...");
-        if (
-            !newData.country ||
-            !newData.year ||
-            !newData["stress_men"] ||
-            !newData["stress_women"] ||
-            !newData["stress_population"]
-        ) {
-            alert("Todos los campos son obligatorios.");
+
+    async function getstress() {
+        console.log("Fetching stress_stats...");
+        const res = await fetch(
+            "/api/v1/stress_stats?offset=" +
+                elementPage * offset +
+                "&limit=" +
+                elementPage
+        );
+        const nextPage = await fetch(
+            "/api/v1/stress_stats?offset=" +
+                elementPage * (offset + 1) +
+                "&limit=" +
+                elementPage
+        );
+        if (res.ok && nextPage.ok) {
+            console.log("Ok");
+            const json = await res.json();
+            const jsonNext = await nextPage.json();
+            stress = json;
+            if (jsonNext.length == 0) {
+                moreData = false;
+            } else {
+                moreData = true;
+            }
         } else {
-            const res = await fetch(API_STRESS_STATS, {
+            console.log("ERROR");
+        }
+    }
+    //POST
+    async function insertstress() {
+        console.log(
+            "Insertando stress_stats..." + JSON.stringify(newStress)
+        );
+        if (
+            isNaN(newStress.year) ||
+            isNaN(newStress.stressMen) ||
+            isNaN(newStress.stressWomen) ||
+            isNaN(newStress.stressPopulation) ||
+            newStress.country === "" ||
+            newStress.year === ""
+        ) {
+            console.log("Uno o más datos NO son numéricos");
+            okMsg = false;
+            errorMsg =
+                "No puede introducir campos en blanco o campos que no sean numéricos";
+        } else {
+            const res = await fetch("/api/v1/stress_stats", {
                 method: "POST",
-                body: JSON.stringify(newData),
+                body: JSON.stringify(newStress),
                 headers: {
                     "Content-Type": "application/json",
                 },
             }).then(function (res) {
                 if (res.ok) {
-                    console.log("OK");
-                    getstressStats();
-                    errorMsg = "";
-                    correctMsg = "Se ha insertado correctamente.";
-                } else if (res.status == 409) {
-                    errorMsg = "Ya existe un recurso con el mismo país y año.";
-                    console.log("ERROR. " + errorMsg);
+                    getstress();
+                    okMsg = "Dato introducido de forma exitosa";
+                    errorMsg = false;
                 } else {
-                    //status == 500
-                    errorMsg = "No se ha podido acceder la base de datos.";
-                    console.log("Error inserting data in DB");
+                    okMsg = false;
+                    errorMsg =
+                        "No puede introducirse un dato con mismo año y país debido a que ya existe uno en la base de datos";
                 }
             });
         }
     }
+    //DELETE
+    async function deletestress(country, year) {
+        const res = await fetch(
+            "/api/v1/stress_stats/" + country + "/" + year,
+            {
+                method: "DELETE",
+            }
+        ).then(function (res) {
+            getstress();
+            getstressCountryYear();
+        });
+        okMsg = "Dato borrado de forma exitosa";
+        errorMsg = false;
+    }
 
-    async function deletestressStats() {
-        console.log("Deleting stress stats...");
-        chargedData = false;
-        const res = await fetch(API_STRESS_STATS, {
+    async function deletestressData() {
+        const res = await fetch("/api/v1/stress_stats", {
             method: "DELETE",
         }).then(function (res) {
-            if (res.ok) {
-                console.log("Ok. " + correctMsg);
-                stressStats = [];
-                errorMsg = "";
-                correctMsg = "Se han eliminado todo los datos correctamente.";
-            } else if (res.status == 404) {
-                //no data found
-                errorMsg = "No hay datos para borrar.";
-                console.log("ERROR. " + errorMsg);
-            } else {
-                //status == 500
-                errorMsg = "No se ha podido acceder a la base de datos.";
-                console.log("ERROR. " + errorMsg);
-            }
+            getstress();
+            getstressCountryYear();
         });
+        okMsg = "Todos los datos han sido borrados de forma exitosa";
+        errorMsg = false;
     }
-    async function deletestressStatsPerYear(country, year) {
-        //borra un recurso concreto
-        console.log(`Deleting the resource with ${country} and year ${year}`);
-        const res = await fetch(
-            API_STRESS_STATS + "/" + country + "/" + year,
-            { method: "DELETE" }
-        ).then(function (res) {
-            if (res.ok) {
-                correctMsg = `El dato con país: ${country} y año: ${year} se ha eliminado correctamente.`;
-                errorMsg = "";
-                console.log("Ok. " + correctMsg);
-                getstressStats(); /*para que el usuario no tenga que recargar la página */
-            } else if (res.status == 404) {
-                //no data found
-                errorMsg = `No se encuentra el dato con país:  ${country} y año: ${year}.`;
-                console.log("ERROR. " + errorMsg);
-            } else {
-                //status == 500
-                errorMsg = "No se ha podido acceder a la base de datos.";
-                console.log("ERROR. " + errorMsg);
+
+    //LOAD INITIAL DATA
+    async function loadInitialDatastress() {
+        const res = await fetch("/api/v1/stress_stats/loadInitialData").then(
+            function (res) {
+                getstress();
             }
-        });
+        );
+        okMsg = "Los datos iniciales han sido cargados de forma exitosa";
+        errorMsg = false;
+    }
+
+    //=======================BUSQUEDA=======================\\
+
+    async function searchstress(country, year) {
+        var url = "/api/v1/stress_stats";
+
+        if (country != "" && year != "") {
+            url = url + "?year=" + year + "&country=" + country;
+        } else if (country != "" && year == "") {
+            url = url + "?country=" + country;
+        } else if (country == "" && year != "") {
+            url = url + "?year=" + year;
+        }
+
+        const res = await fetch(url);
+
+        if (res.ok) {
+            const json = await res.json();
+            stress = json;
+
+            if (stress.length > 0) {
+                okMsg = "Se ha encontrado uno o varios resultados";
+                errorMsg = false;
+            } else {
+                okMsg = false;
+                errorMsg = "No se ha obtenido ningún resultado";
+            }
+        } else {
+            console.log("ERROR");
+        }
+    }
+    async function addOffSet(inc) {
+        offset += inc;
+        actualPage += inc;
+        getstress();
     }
 </script>
-
 <main>
-    <div>
-        {#if chargedData}
-            <Button style="background-color: crimson;" disabled>
-                Cargar datos iniciales
+    <h1 style="text-align: center">Datos de ansiedad.  </h1>
+    {#await stress}
+        Loading stress stats...
+    {:then stress}
+        <div style="text-align:right; width:1500px">
+        <Button
+                style="font-size: 16px;border-radius: 4px;background-color: info;"
+                outline
+                color="btn btn-info"
+                on:click={loadInitialDatastress}>Cargar datos iniciales
             </Button>
-        {:else}
-            <Button style="background-color: crimson;" on:click={loadstressStats}>
-                Cargar datos iniciales</Button
-            >
-        {/if}
-        <Button style="background-color: darkgray" on:click={deletestressStats}>
-            Eliminar datos</Button
-        >
-    </div>
+            <Button
+        style="font-size: 16px;border-radius: 4px;background-color: danger;"
+        outline
+        on:click={deletestressData}
+        color="btn btn-danger"
+    >
+        Borrar todo
+    </Button>
+        </div>
+        <br/>
 
-    {#if stressStats.length != 0}
-        <br />
-        <Table bordered style="text-align: center;">
-            <thead>
+        <Table bordered>
+            <thead style="background:white;color:black;text-align:center;">
                 <tr>
                     <th>País</th>
                     <th>Año</th>
-                    <th>Índice de estrés por hombre</th>
-                    <th>Índice de estrés por mujer</th>
-                    <th>Índice de estrés en población</th>
+                    <th>Datos de Estrés por Hombre</th>
+                    <th>Datos de Estrés por Mujer</th>
+                    <th>Datos de Estrés en Población</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="background:white;color:black;text-align:center;">
                 <tr>
-                    <td
-                        ><input
-                            placeholder="Ej. Spain_Murcia"
-                            bind:value={newData.country}
+                    <td>
+                        <Input
+                            type="text"
+                            placeholder="Introduzca un país"
+                            bind:value={newStress.country}
                         /></td
                     >
-                    <td
-                        ><input
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="Ej. 2033"
-                            bind:value={newData.year}
+                            placeholder="Introduzca un año"
+                            bind:value={newStress.year}
                         /></td
                     >
-                    <td
-                        ><input
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["stress_men"]}
-                        /></td
-                    >
-                    <td
-                        ><input
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newStress.stressMen}
+                        />
+                    </td>
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["stress_women"]}
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newStress.stressWomen}
                         /></td
                     >
-                    <td
-                        ><input
+                    <td>
+                        <Input
                             type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["stress_population"]}
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newStress.stressPopulation}
                         /></td
                     >
-                    <td
-                        ><Button
-                            outline
-                            color="primary"
-                            on:click={insertstressStats}
-                        >
-                            Insertar</Button
-                        ></td
-                    >
+                    <td>
+                        <Button outline color="primary" on:click={insertstress}>
+                            Insertar
+                        </Button>
+                    </td>
+                    
                 </tr>
-                {#each stressStats as stat}
+                
+                
+                {#each stress as stressStat}
                     <tr>
-                        <td>{stat.country}</td>
-                        <td>{stat.year}</td>
-                        <td>{stat["stress_men"]}</td>
-                        <td>{stat["stress_women"]}</td>
-                        <td>{stat["stress_population"]}</td>
                         <td>
-                            <a href="#/stress_stats/{stat.country}/{stat.year}">
-                                <Button style="background-color: yellowgreen;">
-                                    Editar
-                                </Button>
+                            <a
+                                href="#/stress_stats/{stressStat.country}/{stressStat.year}"
+                            >
+                                {stressStat.country}
                             </a>
+                        </td>
+                        <td> {stressStat.year} </td>
+                        <td> {stressStat.stressMen} </td>
+                        <td> {stressStat.stressWomen} </td>
+                        <td> {stressStat.stressPopulation} </td>
+                        <td>
+                            
                             <Button
                                 outline
-                                style="margin-right: 10px;"
                                 color="danger"
-                                on:click={() =>
-                                    deletestressStatsPerYear(stat.country, stat.year)}
+                                on:click={deletestress(
+                                    stressStat.country,
+                                    stressStat.year
+                                )}
                             >
                                 Borrar
                             </Button>
@@ -241,41 +315,110 @@
                 {/each}
             </tbody>
         </Table>
-        <Button style="background-color:darkgray " on:click={pop}>
-            Volver
+    {/await}
+
+    
+
+    <div>
+        <br/>
+    <Button
+            outline
+            style="font-size: 16px;border-radius: 4px;background-color: secondary;"
+            color="secondary"
+            on:click={searchstress(actualCountry, actualYear)}
+            class="btn btn-outline-secondary"
+        >
+            Buscar
         </Button>
-    {:else}
-        <br />
-        <p style="text-align: center; background-color: antiquewhite;">
-            Para ver los datos pulse el botón.
+        
+    </div>
+    <br/>
+        
+    <div class="col-md-2">
+        <FormGroup>
+            <Label for="selectCountry">Búsqueda por país</Label>
+            <Input name="selectCountry" id="selectCountry" bind:value={actualCountry}>
+                {#each countries as country}
+                    <option>{country}</option>
+                {/each}
+                <option>-</option>
+            </Input>
+        </FormGroup>
+    </div>
+        <div class="col-md-2">
+        <FormGroup>
+            <Label for="selectYear">Búsqueda por año</Label>
+            <Input name="selectYear" id="selectYear" bind:value={actualYear}>
+                {#each years as year}
+                    <option>{year}</option>
+                {/each}
+                <option>-</option>
+            </Input>
+        </FormGroup>
+    </div>    
+        
+        <div class="alert alert-danger" role="alert">
+            Atención: si intenta insertar los datos de un país que contenga más
+            de una palabra, debe insertar una "_" en lugar de " ".
+          </div>
+        <p style="color:rgb(6, 100, 6)">
+            Por ejemplo: si quiere insertar los datos del país "Spain Murcia" debe
+            poner "Spain_Murcia".
         </p>
 
-        <Button style="background-color:darkgray" on:click={pop}>Volver</Button>
-    {/if}
+    <Pagination style="float:right;" ariaLabel="Cambio de página">
+        <PaginationItem class={actualPage === 1 ? "disabled" : ""}>
+            <PaginationLink
+                previous
+                href="#/stress_stats"
+                on:click={() => addOffSet(-1)}
+            />
+        </PaginationItem>
 
+        {#if actualPage != 1}
+            <PaginationItem>
+                <PaginationLink
+                    href="#/stress_stats"
+                    on:click={() => addOffSet(-1)}
+                    >{actualPage - 1}</PaginationLink
+                >
+            </PaginationItem>
+        {/if}
+        <PaginationItem active>
+            <PaginationLink href="#/stress_stats">{actualPage}</PaginationLink>
+        </PaginationItem>
+
+        {#if moreData}
+            <PaginationItem>
+                <PaginationLink href="#/stress_stats" on:click={() => addOffSet(1)}
+                    >{actualPage + 1}</PaginationLink
+                >
+            </PaginationItem>
+        {/if}
+
+        <PaginationItem class={moreData ? "" : "disabled"}>
+            <PaginationLink
+                next
+                href="#/stress_stats"
+                on:click={() => addOffSet(1)}
+            />
+        </PaginationItem>
+    </Pagination>
     {#if errorMsg}
-        <p style="color: red; text-align:center; font-size: 20px;">
-            ERROR: {errorMsg}
-        </p>
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
+    {#if okMsg}
+        <p style="color: green">ÉXITO: {okMsg}</p>
     {/if}
 
-    {#if correctMsg}
-        <p style="color: green; text-align:center; font-size: 20px;">
-            {correctMsg}
-        </p>
-    {/if}
+    <Button
+        style="font-size: 16px;border-radius: 4px;"
+        outline
+        color="secondary"
+        on:click={pop}
+    >
+        Atrás
+    </Button>
+   
+    
 </main>
-
-<style>
-    a {
-        font-size: 18px;
-        background-color: rgb(74, 98, 248);
-        color: white;
-        border-radius: 6px;
-        border: 1px solid rgb(32, 31, 31);
-        padding: 4px;
-    }
-    a:hover {
-        color: white;
-    }
-</style>
