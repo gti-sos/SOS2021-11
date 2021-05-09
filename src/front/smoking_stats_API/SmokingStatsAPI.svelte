@@ -274,7 +274,7 @@
             poner "Spain_Murcia".
         </p>
         <Table bordered>
-            <thead style="background:purple;color:white;text-align:center;">
+            <thead style="background:linear-gradient(to right, rgba(106, 17, 203, 0.7), rgba(37, 117, 252, 0.7));color:white;text-align:center;">
                 <tr>
                     <th>País</th>
                     <th>Año</th>
@@ -416,7 +416,7 @@
    
         style="font-size: 16px;border-radius: 4px;background-color: secondary;"
         outline
-        color="secondary"
+        color="btn btn-secondary"
         on:click={pop}
         
     >
