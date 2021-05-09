@@ -42,11 +42,11 @@ module.exports.register = (app, BASE_API_PATH) => {
 			},
 			{
 
-				"country": "Netherlands",
-				"year": 2017,
-				"smoking_men": 19.5,
-				"smoking_women": 14.1,
-				"smoking_population": 16.8
+				country: "Netherlands",
+				year: 2017,
+				smoking_men: 19.5,
+				smoking_women: 14.1,
+				smoking_population: 16.8
 			}
 		];
 
