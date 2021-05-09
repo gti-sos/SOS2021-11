@@ -78,7 +78,7 @@
 <main>
     <h2>Editar datos de Tabaquismo</h2>
     <div id="update">
-        <Table bordered style="text-align: center; linear-gradient(to right, rgba(106, 17, 203, 0.7), rgba(37, 117, 252, 0.7));">
+        <Table bordered style="text-align: center; background: linear-gradient(to right, rgba(106, 17, 203, 0.7), rgba(37, 117, 252, 0.7));">
             <thead>
                 <tr>
                     <th>País</th>
