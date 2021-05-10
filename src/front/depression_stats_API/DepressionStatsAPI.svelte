@@ -131,6 +131,288 @@ async function getDepressionCountryYear() {
         }
     }
 
-   
+     //================Metodo DELETE=======================\\
+     async function deleteDepression(country, year) {
+        const res = await fetch(
+            "/api/v1/depression_stats/" + country + "/" + year,
+            {
+                method: "DELETE",
+            }
+        ).then(function (res) {
+            getDepression();
+            getDepressionCountryYear();
+        });
+        okMsg = "Dato borrado de forma exitosa";
+        errorMsg = false;
+    }
+
+    async function deleteDepressionData() {
+        const res = await fetch("/api/v1/depression_stats", {
+            method: "DELETE",
+        }).then(function (res) {
+            getDepression();
+            getDepressionCountryYear();
+        });
+        okMsg = "Todos los datos han sido borrados de forma exitosa";
+        errorMsg = false;
+    }
+    //=======================LOADINITIALDATA=======================\\
+    async function loadInitialDataDepression() {
+        const res = await fetch("/api/v1/depression_stats/loadInitialData").then(
+            function (res) {
+                getDepression();
+            }
+        );
+        okMsg = "Los datos iniciales han sido cargados de forma exitosa";
+        errorMsg = false;
+    }
+      //=======================BUSQUEDA=======================\\
+
+      async function searchDepression(country, year) {
+        var url = "/api/v1/depression_stats";
+
+        if (country != "" && year != "") {
+            url = url + "?year=" + year + "&country=" + country;
+        } else if (country != "" && year == "") {
+            url = url + "?country=" + country;
+        } else if (country == "" && year != "") {
+            url = url + "?year=" + year;
+        }
+
+        const res = await fetch(url);
+
+        if (res.ok) {
+            const json = await res.json();
+            depression = json;
+
+            if (anxiety.length > 0) {
+                okMsg = "Se ha encontrado uno o varios resultados";
+                errorMsg = false;
+            } else {
+                okMsg = false;
+                errorMsg = "No se ha obtenido ningún resultado";
+            }
+        } else {
+            console.log("ERROR");
+        }
+    }
+    async function addOffSet(inc) {
+        offset += inc;
+        actualPage += inc;
+        getDepression();
+    }
+    //=======================FIN=======================\\
+    </script>
+    <main>
+    {#await depression}
+        Loading depression stats...
+    {:then depression}
+        <Button
+            outline
+            style="font-size: 16px;border-radius: 4px;background-color: white;"
+            color="danger"
+            on:click={searchdepression(actualCountry, actualYear)}
+            class="button-search"
+        >
+            Buscar
+        </Button>
+
+        <FormGroup>
+            <Label for="selectCountry">Búsqueda por país</Label>
+            <Input
+                name="selectCountry"
+                id="selectCountry"
+                bind:value={actualCountry}
+            >
+                {#each countries as country}
+                    <option>{country}</option>
+                {/each}
+                <option>-</option>
+            </Input>
+        </FormGroup>
+
+
+
+
+        <FormGroup>
+            <Label for="selectYear">Búsqueda por año</Label>
+            <Input name="selectYear" id="selectYear" bind:value={actualYear}>
+                {#each years as year}
+                    <option>{year}</option>
+                {/each}
+                <option>-</option>
+            </Input>
+        </FormGroup>
+        <h6 style="color:rgb(187, 0, 0)">
+            Atención: si intenta insertar los datos de un país que contenga más
+            de una palabra, debe insertar una "_" en lugar de " ".
+        </h6>
+        <p style="color:rgb(6, 100, 6)">
+            Por ejemplo: si quiere insertar los datos del país "Spain Murcia" debe
+            poner "Spain_Murcia".
+        </p>
+        <Table bordered>
+            <thead style="background:black;color:white;text-align:center;">
+                <tr>
+                    <th>País (Comund. Autónoma)</th>
+                    <th>Año</th>
+                    <th>Datos de Depresion por Hombre</th>
+                    <th>Datos de Depresion por Mujer</th>
+                    <th>Datos de Depresion en Población</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody style="background:white;color:black;text-align:center;">
+                <tr>
+                    <td>
+                        <Input
+                            type="text"
+                            placeholder="Introduzca un país"
+                            bind:value={newDepression.country}
+                        /></td
+                    >
+                    <td>
+                        <Input
+                            type="number"
+                            placeholder="Introduzca un año"
+                            bind:value={newDepression.year}
+                        /></td
+                    >
+                    <td>
+                        <Input
+                            type="number"
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newDepression.depressionMen}
+                        />
+                    </td>
+                    <td>
+                        <Input
+                            type="number"
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newDepression.depressionWomen}
+                        /></td
+                    >
+                    <td>
+                        <Input
+                            type="number"
+                            placeholder="Sólo caracteres numéricos"
+                            step="1"
+                            min="1.0"
+                            bind:value={newDepression.depressionPopulation}
+                        /></td
+                    >
+                    <td>
+                        <Button outline color="primary" on:click={insertDepression}>
+                            Insertar
+                        </Button>
+                    </td>
+                </tr>
+                
+                {#each depression as depressionStat}
+                    <tr>
+                        <td>
+                            <a
+                                href="#/depression_stats/{depressionStat.country}/{depressionStat.year}"
+                            >
+                                {depressionStat.country}
+                            </a>
+                        </td>
+                        <td> {depressionStat.year} </td>
+                        <td> {depressionStat.depressionMen} </td>
+                        <td> {depressionStat.depressionWomen} </td>
+                        <td> {depressionStat.depressionPopulation} </td>
+                        <td>
+                            <Button
+                                outline
+                                color="danger"
+                                on:click={deleteDepression(
+                                    depressionStat.country,
+                                    depressionStat.year
+                                )}
+                            >
+                                Borrar
+                            </Button>
+                        </td>
+                    </tr>
+                {/each}
+            </tbody>
+        </Table>
+    {/await}
+
+
+
+
+
+    <Pagination style="float:right;" ariaLabel="Cambio de página">
+        <PaginationItem class={actualPage === 1 ? "disabled" : ""}>
+            <PaginationLink
+                previous
+                href="#/depression_stats"
+                on:click={() => addOffSet(-1)}
+            />
+        </PaginationItem>
+
+        {#if actualPage != 1}
+            <PaginationItem>
+                <PaginationLink
+                    href="#/depression_stats"
+                    on:click={() => addOffSet(-1)}
+                    >{actualPage - 1}</PaginationLink
+                >
+            </PaginationItem>
+        {/if}
+        <PaginationItem active>
+            <PaginationLink href="#/depression_stats">{actualPage}</PaginationLink>
+        </PaginationItem>
+
+        {#if moreData}
+            <PaginationItem>
+                <PaginationLink href="#/depression_stats" on:click={() => addOffSet(1)}
+                    >{actualPage + 1}</PaginationLink
+                >
+            </PaginationItem>
+        {/if}
+
+        <PaginationItem class={moreData ? "" : "disabled"}>
+            <PaginationLink
+                next
+                href="#/depression_stats"
+                on:click={() => addOffSet(1)}
+            />
+        </PaginationItem>
+    </Pagination>
+    {#if errorMsg}
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
+    {#if okMsg}
+        <p style="color: green">ÉXITO: {okMsg}</p>
+    {/if}
+
+    <Button
+        style="font-size: 16px;border-radius: 4px;background-color: white;"
+        outline
+        color="secondary"
+        on:click={pop}
+    >
+        Atrás
+    </Button>
+    <Button
+        style="font-size: 16px;border-radius: 4px;background-color: white;"
+        outline
+        color="primary"
+        on:click={loadInitialDataDepression}>Cargar datos iniciales</Button
+    >
+    <Button
+        style="font-size: 16px;border-radius: 4px;background-color: white;"
+        outline
+        on:click={deleteDepressionData}
+        color="danger"
+    >
+        Borrar todo
+    </Button>
 </main>
 
