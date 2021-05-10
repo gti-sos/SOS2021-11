@@ -38,9 +38,11 @@
                 <h2 class="text-center text-white mt-0">
                     Información de las APIs
                 </h2>
-                <a href="/#/info">
-                    <button color="primary">Información</button>
-                  </a>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="/#/info">
+                        <button color="primary">Información</button>
+                    </a>
+                </div>
                 <hr class="my-4" />
                 <div class="row">
                     <div class="col-lg-3 col-md-6 text-center">
