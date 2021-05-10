@@ -34,7 +34,7 @@ module.exports.register = (app, BASE_API_PATH) => {
 	app.get(BASE_API_PATH + "/smoking_stats/loadInitialData", (req, res) => {
 		smoking_stats_data = [
 			{
-				"country": "Spain",
+				"country": 'Spain',
 				"year": 2017,
 				"smoking_men": 25.6,
 				"smoking_women": 18.8,
@@ -42,7 +42,7 @@ module.exports.register = (app, BASE_API_PATH) => {
 			},
 			{
 
-				"country": "Netherlands",
+				"country": 'Netherlands',
 				"year": 2017,
 				"smoking_men": 19.5,
 				"smoking_women": 14.1,
