@@ -83,7 +83,7 @@ async function getDepressionCountryYear() {
             console.log("Ok");
             const json = await res.json();
             const jsonNext = await nextPage.json();
-            anxiety = json;
+            depression = json;
             if (jsonNext.length == 0) {
                 moreData = false;
             } else {
@@ -96,7 +96,7 @@ async function getDepressionCountryYear() {
      //==============Metodo POST=======================\\
      async function insertDepression() {
         console.log(
-            "Insertando depression_stats..." + JSON.stringify(newAnxiety)
+            "Insertando depression_stats..." + JSON.stringify(newDepression)
         );
         if (
             isNaN(newDepression.year) ||
@@ -119,7 +119,7 @@ async function getDepressionCountryYear() {
                 },
             }).then(function (res) {
                 if (res.ok) {
-                    getanxiety();
+                    getDepression();
                     okMsg = "Dato introducido de forma exitosa";
                     errorMsg = false;
                 } else {
@@ -185,7 +185,7 @@ async function getDepressionCountryYear() {
             const json = await res.json();
             depression = json;
 
-            if (anxiety.length > 0) {
+            if (depression.length > 0) {
                 okMsg = "Se ha encontrado uno o varios resultados";
                 errorMsg = false;
             } else {
