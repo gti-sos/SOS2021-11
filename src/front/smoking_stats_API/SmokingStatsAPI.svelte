@@ -14,9 +14,9 @@
         
         country: "",
         year: "",
-        smokingMen: 0.0,
-        smokingWomen: 0.0,
-        smokingPopulation: 0.0,
+        smoking_men: 0.0,
+        smoking_women: 0.0,
+        smoking_population: 0.0,
     };
 
     //===========IDENTIFICADORES===========\\
@@ -99,9 +99,9 @@
         );
         if (
             isNaN(newSmoking.year) ||
-            isNaN(newSmoking.smokingMen) ||
-            isNaN(newSmoking.smokingWomen) ||
-            isNaN(newSmoking.smokingPopulation) ||
+            isNaN(newSmoking.smoking_men) ||
+            isNaN(newSmoking.smoking_women) ||
+            isNaN(newSmoking.smoking_population) ||
             newSmoking.country === "" ||
             newSmoking.year === ""
         ) {
@@ -306,7 +306,7 @@
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newSmoking.smokingMen}
+                            bind:value={newSmoking.smoking_men}
                         />
                     </td>
                     <td>
@@ -315,7 +315,7 @@
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newSmoking.smokingWomen}
+                            bind:value={newSmoking.smoking_women}
                         /></td
                     >
                     <td>
@@ -324,7 +324,7 @@
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newSmoking.smokingPopulation}
+                            bind:value={newSmoking.smoking_population}
                         /></td
                     >
                     <td>
@@ -343,9 +343,9 @@
                             </a>
                         </td>
                         <td> {smokingStat.year} </td>
-                        <td> {smokingStat.smokingMen} </td>
-                        <td> {smokingStat.smokingWomen} </td>
-                        <td> {smokingStat.smokingPopulation} </td>
+                        <td> {smokingStat.smoking_men} </td>
+                        <td> {smokingStat.smoking_women} </td>
+                        <td> {smokingStat.smoking_population} </td>
                         <td>
                             <Button
                                 outline
