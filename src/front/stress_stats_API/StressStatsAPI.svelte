@@ -200,7 +200,7 @@
     }
 </script>
 <main>
-    <h1 style="text-align: center">Datos de ansiedad.  </h1>
+    <h1 style="text-align: center">Datos de estrés.  </h1>
     {#await stress}
         Loading stress stats...
     {:then stress}
