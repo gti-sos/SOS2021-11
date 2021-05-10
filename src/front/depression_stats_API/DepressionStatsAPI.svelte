@@ -102,7 +102,7 @@ async function getDepressionCountryYear() {
             isNaN(newDepression.year) ||
             isNaN(newDepression.depression_men) ||
             isNaN(newDepression.depression_women) ||
-            isNaN(newDepression.depressionPopulation) ||
+            isNaN(newDepression.depression_population) ||
             newDepression.country === "" ||
             newDepression.year === ""
         ) {
@@ -302,7 +302,7 @@ async function getDepressionCountryYear() {
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newDepression.depressionPopulation}
+                            bind:value={newDepression.depression_population}
                         /></td
                     >
                     <td>
@@ -324,7 +324,7 @@ async function getDepressionCountryYear() {
                         <td> {depressionStat.year} </td>
                         <td> {depressionStat.depression_men} </td>
                         <td> {depressionStat.depression_women} </td>
-                        <td> {depressionStat.depressionPopulation} </td>
+                        <td> {depressionStat.depression_population} </td>
                         <td>
                             <Button
                                 outline
