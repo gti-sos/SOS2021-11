@@ -2,6 +2,7 @@
 	import Router from "svelte-spa-router";
 
 	import NotFound from "./NotFound.svelte";
+	
 	import Home from "./Home.svelte";
 	import Info from "./Info.svelte";
 
