@@ -13,9 +13,9 @@
         
         country: "",
         year: "",
-        stressMen: 0.0,
-        stressWomen: 0.0,
-        stressPopulation: 0.0,
+        stress_men: 0.0,
+        stress_women: 0.0,
+        stress_population: 0.0,
     };
 
 
@@ -96,9 +96,9 @@
         );
         if (
             isNaN(newStress.year) ||
-            isNaN(newStress.stressMen) ||
-            isNaN(newStress.stressWomen) ||
-            isNaN(newStress.stressPopulation) ||
+            isNaN(newStress.stress_men) ||
+            isNaN(newStress.stress_women) ||
+            isNaN(newStress.stress_population) ||
             newStress.country === "" ||
             newStress.year === ""
         ) {
@@ -255,7 +255,7 @@
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newStress.stressMen}
+                            bind:value={newStress.stress_men}
                         />
                     </td>
                     <td>
@@ -264,7 +264,7 @@
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newStress.stressWomen}
+                            bind:value={newStress.stress_women}
                         /></td
                     >
                     <td>
@@ -273,7 +273,7 @@
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newStress.stressPopulation}
+                            bind:value={newStress.stress_population}
                         /></td
                     >
                     <td>
@@ -295,9 +295,9 @@
                             </a>
                         </td>
                         <td> {stressStat.year} </td>
-                        <td> {stressStat.stressMen} </td>
-                        <td> {stressStat.stressWomen} </td>
-                        <td> {stressStat.stressPopulation} </td>
+                        <td> {stressStat.stress_men} </td>
+                        <td> {stressStat.stress_women} </td>
+                        <td> {stressStat.stress_population} </td>
                         <td>
                             
                             <Button
