@@ -93,6 +93,44 @@ async function getDepressionCountryYear() {
             console.log("ERROR");
         }
     }
+     //==============Metodo POST=======================\\
+     async function insertDepression() {
+        console.log(
+            "Insertando depression_stats..." + JSON.stringify(newAnxiety)
+        );
+        if (
+            isNaN(newDepression.year) ||
+            isNaN(newDepression.depressionMen) ||
+            isNaN(newDepression.depressionWomen) ||
+            isNaN(newDepression.depressionPopulation) ||
+            newDepression.country === "" ||
+            newDepression.year === ""
+        ) {
+            console.log("Uno o más datos NO son numéricos");
+            okMsg = false;
+            errorMsg =
+                "No puede introducir campos en blanco o campos que no sean numéricos";
+        } else {
+            const res = await fetch("/api/v1/depression_stats", {
+                method: "POST",
+                body: JSON.stringify(newDepression),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then(function (res) {
+                if (res.ok) {
+                    getanxiety();
+                    okMsg = "Dato introducido de forma exitosa";
+                    errorMsg = false;
+                } else {
+                    okMsg = false;
+                    errorMsg =
+                        "No puede introducirse un dato con mismo año y país debido a que ya existe uno en la base de datos";
+                }
+            });
+        }
+    }
+
    
 </main>
 
