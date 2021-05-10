@@ -211,7 +211,7 @@ async function getDepressionCountryYear() {
             outline
             style="font-size: 16px;border-radius: 4px;background-color: white;"
             color="danger"
-            on:click={searchdepression(actualCountry, actualYear)}
+            on:click={searchDepression(actualCountry, actualYear)}
             class="button-search"
         >
             Buscar
