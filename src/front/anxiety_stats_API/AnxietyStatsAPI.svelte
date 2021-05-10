@@ -11,21 +11,20 @@
 
     let anxiety = [];
     let newAnxiety = {
-        
         country: "",
         year: "",
-        anxietyMen: 0.0,
-        anxietyWomen: 0.0,
-        anxietyPopulation: 0.0,
+        anxiety_men: 0,
+        anxiety_women: 0.0,
+        anxiety_population: 0.0,
     };
 
     //===========IDENTIFICADORES===========\\
 
     let countries = [];
     let years = [];
-    
+
     //===========CamposVaciosParaLaBusqueda===========\\
-    
+
     let actualCountry = "";
     let actualYear = "";
 
@@ -38,7 +37,7 @@
     //===========MensajesDesactivados===========\\
     let okMsg = false;
     let errorMsg = false;
-    
+
     onMount(getanxietyCountryYear);
     onMount(getanxiety);
 
@@ -83,6 +82,7 @@
             const json = await res.json();
             const jsonNext = await nextPage.json();
             anxiety = json;
+            console.log(anxiety);
             if (jsonNext.length == 0) {
                 moreData = false;
             } else {
@@ -94,14 +94,12 @@
     }
     //=======================POST=======================\\
     async function insertanxiety() {
-        console.log(
-            "Insertando anxiety_stats..." + JSON.stringify(newAnxiety)
-        );
+        console.log("Insertando anxiety_stats..." + JSON.stringify(newAnxiety));
         if (
             isNaN(newAnxiety.year) ||
-            isNaN(newAnxiety.anxietyMen) ||
-            isNaN(newAnxiety.anxietyWomen) ||
-            isNaN(newAnxiety.anxietyPopulation) ||
+            isNaN(newAnxiety.anxiety_men) ||
+            isNaN(newAnxiety.anxiety_women) ||
+            isNaN(newAnxiety.anxiety_population) ||
             newAnxiety.country === "" ||
             newAnxiety.year === ""
         ) {
@@ -201,6 +199,7 @@
         actualPage += inc;
         getanxiety();
     }
+    
     //=======================FIN=======================\\
     //=======================FIN=======================\\
     //=======================FIN=======================\\
@@ -249,8 +248,8 @@
             de una palabra, debe insertar una "_" en lugar de " ".
         </h6>
         <p style="color:rgb(6, 100, 6)">
-            Por ejemplo: si quiere insertar los datos del país "Spain Murcia" debe
-            poner "Spain_Murcia".
+            Por ejemplo: si quiere insertar los datos del país "Spain Murcia"
+            debe poner "Spain_Murcia".
         </p>
         <Table bordered>
             <thead style="background:black;color:white;text-align:center;">
@@ -283,31 +282,32 @@
                         <Input
                             type="number"
                             placeholder="Sólo caracteres numéricos"
-                            step="1"
                             min="1.0"
-                            bind:value={newAnxiety.anxietyMen}
+                            bind:value={newAnxiety["anxiety_men"]}
                         />
                     </td>
                     <td>
                         <Input
                             type="number"
                             placeholder="Sólo caracteres numéricos"
-                            step="1"
                             min="1.0"
-                            bind:value={newAnxiety.anxietyWomen}
+                            bind:value={newAnxiety["anxiety_women"]}
                         /></td
                     >
                     <td>
                         <Input
                             type="number"
                             placeholder="Sólo caracteres numéricos"
-                            step="1"
                             min="1.0"
-                            bind:value={newAnxiety.anxietyPopulation}
+                            bind:value={newAnxiety["anxiety_population"]}
                         /></td
                     >
                     <td>
-                        <Button outline color="primary" on:click={insertanxiety}>
+                        <Button
+                            outline
+                            color="primary"
+                            on:click={insertanxiety}
+                        >
                             Insertar
                         </Button>
                     </td>
@@ -322,9 +322,9 @@
                             </a>
                         </td>
                         <td> {anxietyStat.year} </td>
-                        <td> {anxietyStat.anxietyMen} </td>
-                        <td> {anxietyStat.anxietyWomen} </td>
-                        <td> {anxietyStat.anxietyPopulation} </td>
+                        <td> {anxietyStat.anxiety_men} </td>
+                        <td> {anxietyStat.anxiety_women} </td>
+                        <td> {anxietyStat.anxiety_population} </td>
                         <td>
                             <Button
                                 outline
@@ -367,7 +367,9 @@
 
         {#if moreData}
             <PaginationItem>
-                <PaginationLink href="#/anxiety_stats" on:click={() => addOffSet(1)}
+                <PaginationLink
+                    href="#/anxiety_stats"
+                    on:click={() => addOffSet(1)}
                     >{actualPage + 1}</PaginationLink
                 >
             </PaginationItem>
