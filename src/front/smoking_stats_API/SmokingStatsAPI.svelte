@@ -14,9 +14,9 @@
         
         country: "",
         year: "",
-        smokingMen: 0.0,
-        smokingWomen: 0.0,
-        smokingPopulation: 0.0,
+        smoking_men: 0.0,
+        smoking_women: 0.0,
+        smoking_population: 0.0,
     };
 
     //===========IDENTIFICADORES===========\\
