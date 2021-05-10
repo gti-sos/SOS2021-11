@@ -14,9 +14,9 @@ import { onMount } from "svelte";
     let newDepression = { 
         country: "",
         year: "",
-        depressionMen: 0.0,
-        depressionWomen: 0.0,
-        depressionPopulation: 0.0,
+        depression_men: 0.0,
+        depression_women: 0.0,
+        depression_population: 0.0,
 
     };
 
@@ -100,8 +100,8 @@ async function getDepressionCountryYear() {
         );
         if (
             isNaN(newDepression.year) ||
-            isNaN(newDepression.depressionMen) ||
-            isNaN(newDepression.depressionWomen) ||
+            isNaN(newDepression.depression_men) ||
+            isNaN(newDepression.depression_women) ||
             isNaN(newDepression.depressionPopulation) ||
             newDepression.country === "" ||
             newDepression.year === ""
@@ -284,7 +284,7 @@ async function getDepressionCountryYear() {
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newDepression.depressionMen}
+                            bind:value={newDepression.depression_men}
                         />
                     </td>
                     <td>
@@ -293,7 +293,7 @@ async function getDepressionCountryYear() {
                             placeholder="Sólo caracteres numéricos"
                             step="1"
                             min="1.0"
-                            bind:value={newDepression.depressionWomen}
+                            bind:value={newDepression.depression_women}
                         /></td
                     >
                     <td>
@@ -322,8 +322,8 @@ async function getDepressionCountryYear() {
                             </a>
                         </td>
                         <td> {depressionStat.year} </td>
-                        <td> {depressionStat.depressionMen} </td>
-                        <td> {depressionStat.depressionWomen} </td>
+                        <td> {depressionStat.depression_men} </td>
+                        <td> {depressionStat.depression_women} </td>
                         <td> {depressionStat.depressionPopulation} </td>
                         <td>
                             <Button
