@@ -1,282 +1,98 @@
 <script>
 
-    import { onMount } from "svelte";
+import { onMount } from "svelte";
     import { pop } from "svelte-spa-router";
-    import { Button, Table } from "sveltestrap";
-    
-    const API_DEPRESSION_STATS = "/api/v1/depression_stats"; //tiene que llamar a la API para tratar los datos
+    import Table from "sveltestrap/src/Table.svelte";
+    import Button from "sveltestrap/src/Button.svelte";
+    import Input from "sveltestrap/src/Input.svelte";
+    import Label from "sveltestrap/src/Label.svelte";
+    import FormGroup from "sveltestrap/src/FormGroup.svelte";
 
-    let chargedData = false;
-    let depressionStats = [];
-    let errorMsg = "";
-    let correctMsg = "";
+    import { Pagination, PaginationItem, PaginationLink } from "sveltestrap";
 
-    let newData = {
+    let depression =[];
+    let newDepression = { 
         country: "",
         year: "",
-        depression_men: "",
-        depression_women: "",
-        depression_population: "",
+        depressionMen: 0.0,
+        depressionWomen: 0.0,
+        depressionPopulation: 0.0,
+
     };
 
-    onMount(getdepressionStats);
+    //======VARIABLES IDENTIFICADORES=====//
 
-    async function loaddepressionStats() {
-        console.log("Loading data...");
-        const res = await fetch(API_DEPRESSION_STATS + "/loadInitialData");
-        chargedData = true;
-        if (res.ok) {
-            console.log("Ok.");
-            getdepressionStats();
-            errorMsg = "";
-            correctMsg = "Los datos se han cargado correctamente.";
-        } else {
-            console.log("Error loading data.");
-        }
-    }
-    async function getdepressionStats() {
-        console.log("Fetching depression stats...");
-        const res = await fetch(API_DEPRESSION_STATS);
-        if (res.ok) {
-            chargedData = true;
-            console.log("Ok. Obtaining data...");
+    let countries = [];
+    let years = []; 
+    
+    //===========CamposVaciosParaLaBusqueda===========\\
+    
+    let actualCountry = "";
+    let actualYear = "";
+
+    //===========Paginacion===========\\
+    let elementPage = 10;
+    let offset = 0;
+    let actualPage = 1;
+    let moreData = true;
+
+//===========MensajesDesactivados===========\\
+    let okMsg = false;
+    let errorMsg = false;
+    
+    onMount(getDepressionCountryYear);
+    onMount(getDepression);
+    
+
+//=======================GET=======================\\
+async function getDepressionCountryYear() {
+    const res = await fetch("/api/v1/depression_stats");
+
+    if (res.ok) {
+            //===========Country===========\\
             const json = await res.json();
-            depressionStats = json;
-            console.log(`Received ${depressionStats.length} depression stats.`);
-        } else if (res.status == 500) {
-            errorMsg = "No se ha podido acceder la base de datos.";
-            console.log(errorMsg);
-        } else if (res.status == 404) {
-            errorMsg = "No se encuentran datos. Tiene que cargarlos.";
-            console.log("Error. " + errorMsg);
-        } else {
-            //este realmente no va a ser otro caso que el status = 500
-            errorMsg = res.status + ": " + res.statusText;
-            console.log(errorMsg);
-        }
-    }
-    async function insertdepressionStats() {
-        console.log("Inserting data" + JSON.stringify(newData) + "...");
-        if (
-            !newData.country ||
-            !newData.year ||
-            !newData["depression_men"] ||
-            !newData["depression_women"] ||
-            !newData["depression_population"]
-        ) {
-            alert("Todos los campos son obligatorios.");
-        } else {
-            const res = await fetch(API_DEPRESSION_STATS, {
-                method: "POST",
-                body: JSON.stringify(newData),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }).then(function (res) {
-                if (res.ok) {
-                    console.log("OK");
-                    getdepressionStats();
-                    errorMsg = "";
-                    correctMsg = "Se ha insertado correctamente.";
-                } else if (res.status == 409) {
-                    errorMsg = "Ya existe un recurso con el mismo país y año.";
-                    console.log("ERROR. " + errorMsg);
-                } else {
-                    //status == 500
-                    errorMsg = "No se ha podido acceder la base de datos.";
-                    console.log("Error inserting data in DB");
-                }
+            countries = json.map((c) => {
+                return c.country;
             });
+            countries = Array.from(new Set(countries));
+
+            //===========years===========\\
+            years = json.map((c) => {
+                return c.year;
+            });
+            years = Array.from(new Set(years));
+        } else {
+            console.log("ERROR");
         }
     }
-
-    async function deletedepressionStats() {
-        console.log("Deleting depression stats...");
-        chargedData = false;
-        const res = await fetch(API_DEPRESSION_STATS, {
-            method: "DELETE",
-        }).then(function (res) {
-            if (res.ok) {
-                console.log("Ok. " + correctMsg);
-                depressionStats = [];
-                errorMsg = "";
-                correctMsg = "Se han eliminado todo los datos correctamente.";
-            } else if (res.status == 404) {
-                //no data found
-                errorMsg = "No hay datos para borrar.";
-                console.log("ERROR. " + errorMsg);
-            } else {
-                //status == 500
-                errorMsg = "No se ha podido acceder a la base de datos.";
-                console.log("ERROR. " + errorMsg);
-            }
-        });
-    }
-    async function deletedepressionStatsPerYear(country, year) {
-        //borra un recurso concreto
-        console.log(`Deleting the resource with ${country} and year ${year}`);
+    async function getDepression() {
+        console.log("Fetching depression_stats...");
         const res = await fetch(
-            API_DEPRESSION_STATS + "/" + country + "/" + year,
-            { method: "DELETE" }
-        ).then(function (res) {
-            if (res.ok) {
-                correctMsg = `El dato con país: ${country} y año: ${year} se ha eliminado correctamente.`;
-                errorMsg = "";
-                console.log("Ok. " + correctMsg);
-                getdepressionStats(); /*para que el usuario no tenga que recargar la página */
-            } else if (res.status == 404) {
-                //no data found
-                errorMsg = `No se encuentra el dato con país:  ${country} y año: ${year}.`;
-                console.log("ERROR. " + errorMsg);
+            "/api/v1/depression_stats?offset=" +
+                elementPage * offset +
+                "&limit=" +
+                elementPage
+        );
+        const nextPage = await fetch(
+            "/api/v1/depression_stats?offset=" +
+                elementPage * (offset + 1) +
+                "&limit=" +
+                elementPage
+        );
+        if (res.ok && nextPage.ok) {
+            console.log("Ok");
+            const json = await res.json();
+            const jsonNext = await nextPage.json();
+            anxiety = json;
+            if (jsonNext.length == 0) {
+                moreData = false;
             } else {
-                //status == 500
-                errorMsg = "No se ha podido acceder a la base de datos.";
-                console.log("ERROR. " + errorMsg);
+                moreData = true;
             }
-        });
+        } else {
+            console.log("ERROR");
+        }
     }
-</script>
-
-<main>
-    <div>
-        {#if chargedData}
-            <Button style="background-color: crimson;" disabled>
-                Cargar datos iniciales
-            </Button>
-        {:else}
-            <Button style="background-color: crimson;" on:click={loaddepressionStats}>
-                Cargar datos iniciales</Button
-            >
-        {/if}
-        <Button style="background-color: darkgray" on:click={deletedepressionStats}>
-            Eliminar datos</Button
-        >
-    </div>
-
-    {#if depressionStats.length != 0}
-        <br />
-        <Table bordered style="text-align: center;">
-            <thead>
-                <tr>
-                    <th>País</th>
-                    <th>Año</th>
-                    <th>Índice de depresion por hombre</th>
-                    <th>Índice de depresion por mujer</th>
-                    <th>Índice de depresion en población</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td
-                        ><input
-                            placeholder="Ej. Spain_Murcia"
-                            bind:value={newData.country}
-                        /></td
-                    >
-                    <td
-                        ><input
-                            type="number"
-                            placeholder="Ej. 2033"
-                            bind:value={newData.year}
-                        /></td
-                    >
-                    <td
-                        ><input
-                            type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["depression_men"]}
-                        /></td
-                    >
-                    <td
-                        ><input
-                            type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["depression_women"]}
-                        /></td
-                    >
-                    <td
-                        ><input
-                            type="number"
-                            placeholder="0.00"
-                            min="0"
-                            bind:value={newData["depression_population"]}
-                        /></td
-                    >
-                    <td
-                        ><Button
-                            outline
-                            color="primary"
-                            on:click={insertdepressionStats}
-                        >
-                            Insertar</Button
-                        ></td
-                    >
-                </tr>
-                {#each depressionStats as stat}
-                    <tr>
-                        <td>{stat.country}</td>
-                        <td>{stat.year}</td>
-                        <td>{stat["depression_men"]}</td>
-                        <td>{stat["depression_women"]}</td>
-                        <td>{stat["depression_population"]}</td>
-                        <td>
-                            <a href="#/depression_stats/{stat.country}/{stat.year}">
-                                <Button style="background-color: yellowgreen;">
-                                    Editar
-                                </Button>
-                            </a>
-                            <Button
-                                outline
-                                style="margin-right: 10px;"
-                                color="danger"
-                                on:click={() =>
-                                    deletedepressionStatsPerYear(stat.country, stat.year)}
-                            >
-                                Borrar
-                            </Button>
-                        </td>
-                    </tr>
-                {/each}
-            </tbody>
-        </Table>
-        <Button style="background-color:darkgray " on:click={pop}>
-            Volver
-        </Button>
-    {:else}
-        <br />
-        <p style="text-align: center; background-color: antiquewhite;">
-            Para ver los datos pulse el botón.
-        </p>
-
-        <Button style="background-color:darkgray" on:click={pop}>Volver</Button>
-    {/if}
-
-    {#if errorMsg}
-        <p style="color: red; text-align:center; font-size: 20px;">
-            ERROR: {errorMsg}
-        </p>
-    {/if}
-
-    {#if correctMsg}
-        <p style="color: green; text-align:center; font-size: 20px;">
-            {correctMsg}
-        </p>
-    {/if}
+   
 </main>
 
-<style>
-    a {
-        font-size: 18px;
-        background-color: rgb(74, 98, 248);
-        color: white;
-        border-radius: 6px;
-        border: 1px solid rgb(32, 31, 31);
-        padding: 4px;
-    }
-    a:hover {
-        color: white;
-    }
-    </style>
