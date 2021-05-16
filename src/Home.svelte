@@ -43,6 +43,8 @@
                         <button color="primary">Información</button>
                     </a>
                 </div>
+            
+                <div>
                 <hr class="my-4" />
                 <div class="row">
                     <div class="col-lg-3 col-md-6 text-center">
@@ -122,6 +124,33 @@
             <div class="container">
                 <h2 class="text-center text-white mt-0">Acceso a las APIs</h2>
                 <hr class="divider my-4" />
+                    <!-- Tablas analiticas -->
+                    <div>
+                    
+                        <h2 class="text-center text-white mt-0">
+                            vistas analaiticas
+                        </h2>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            
+                        <a href="/#/info">
+                            <button type="button" class="btn btn-info">General</button>
+                        </a>
+                        <a href="/#/info">
+                            <button type="button" class="btn btn-primary">Ansiedad</button>
+                        </a>
+                        <a href="/#/info">
+                            <button type="button" class="btn btn-success">Depresion</button>
+                        </a>
+                        <a href="/#/info">
+                            <button type="button" class="btn btn-warning">Tabaquismo</button>
+                        </a>
+                        <a href="/#/info">
+                            <button type="button" class="btn btn-danger">Estres</button>
+                        </a>
+                        
+                    </div>
+                        </div>
+    
                 <div class="row">
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
