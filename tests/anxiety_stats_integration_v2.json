@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "c36ce9be-a1bf-46ed-9262-5035e3eec302",
 		"name": "SOS2021-11-anxiety_stats V2",
-		"description": "A sample of an API from the boards about Anxiety_stats with the docs from the latest version: D01",
+		"description": "A sample of an API from the boards about Anxiety_stats with the docs from the latest version: v2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -798,12 +798,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:10000/api/v2/anxiety_stats/Spain_Andalucia/2017",
+					"raw": "https://sos2021-11.herokuapp.com/api/v2/anxiety_stats/Spain_Andalucia/2017",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-11",
+						"herokuapp",
+						"com"
 					],
-					"port": "10000",
 					"path": [
 						"api",
 						"v2",
