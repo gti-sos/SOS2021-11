@@ -128,7 +128,7 @@
                     <div>
                     
                         <h2 class="text-center text-white mt-0">
-                            vistas analiticas
+                            Vistas Analíticas
                         </h2>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             
