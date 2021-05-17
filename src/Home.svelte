@@ -128,7 +128,7 @@
                     <div>
                     
                         <h2 class="text-center text-white mt-0">
-                            vistas analaiticas
+                            vistas analiticas
                         </h2>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             
@@ -149,7 +149,7 @@
                         </a>
                         
                     </div>
-                        </div>
+                    
     
                 <div class="row">
                     <div class="col-lg-3 col-md-6 text-center">
