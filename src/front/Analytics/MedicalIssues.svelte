@@ -129,9 +129,9 @@
     <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
-            Gráfica que muestra los datos de las 3 APIs. Son los número de
-            puntos totales en Fórmula 1 por nacionalidad, el tiempo que se tarda
-            en natación y el número de puntos por partido de baloncesto.
+            Gráfica que muestra los datos de las 4 APIs. Son los siguientes datos: datos de ansiedad de hombre en las CC.AA de España, 
+            datos de depresión de mujer en las CC.AA de España, datos de la población afectada por estrés en las CC.AA de España, y por último, 
+            y no menos importante, los datos de mujeres afectadas por el tabaquismo en países de Europa
         </p>
     </figure>
 </main>
