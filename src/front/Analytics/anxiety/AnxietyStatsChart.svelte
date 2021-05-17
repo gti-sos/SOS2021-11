@@ -1,6 +1,7 @@
 <script>
     import Button from "sveltestrap/src/Button.svelte";
     import { pop } from "svelte-spa-router";
+
     async function loadGraph() {
         let AnxietyData = [];
         let AnxietyDataGraph = [];
