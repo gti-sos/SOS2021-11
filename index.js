@@ -8,6 +8,8 @@ var bodyParser = require("body-parser"); // M I L E S T O N E Nº 4
 
 var BASE_API_PATH = "/api/v1"; // M I L E S T O N E Nº 4
 
+var BASE_API_PATH_v2 = "/api/v2"; //M I L E S T O N E Nº 10
+
 var app = express();
 
 var port = (process.env.PORT || 10000);
@@ -22,9 +24,9 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 // BACK_API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
 
-var anxiety_stats_api = require("./src/back/anxiety_stats_API"); // M I L E S T O N E Nº 5
+var anxiety_stats_api = require("./src/back/anxiety_stats_API/v2"); // M I L E S T O N E Nº 5
 
-anxiety_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
+anxiety_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de depression -> Juan Diez Blanco (@jdblanco)

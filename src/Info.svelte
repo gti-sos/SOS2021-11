@@ -66,16 +66,16 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="https://sos2021-11.herokuapp.com/api/v1/anxiety_stats"
+                        href="https://sos2021-11.herokuapp.com/api/v2/anxiety_stats"
                     >
-                        <Button color="primary">API (v1)</Button></a
+                        <Button color="primary">API (v2)</Button></a
                     >
                     <a href="/#/anxiety_stats">
                         <Button color="primary">Interfaz de Ansiedad</Button>
                     </a>
                     <a
                         href="https://documenter.getpostman.com/view/14948159/TzJsexjn"
-                        ><Button color="info">Documentación v1</Button></a
+                        ><Button color="info">Documentación v2</Button></a
                     >
                 </CardBody>
                 <CardFooter
