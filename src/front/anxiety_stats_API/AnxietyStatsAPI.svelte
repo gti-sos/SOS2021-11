@@ -43,7 +43,7 @@
 
     //=======================GET=======================\\
     async function getanxietyCountryYear() {
-        const res = await fetch("/api/v1/anxiety_stats");
+        const res = await fetch("/api/v2/anxiety_stats");
 
         if (res.ok) {
             //===========PAIS===========\\
@@ -66,13 +66,13 @@
     async function getanxiety() {
         console.log("Fetching anxiety_stats...");
         const res = await fetch(
-            "/api/v1/anxiety_stats?offset=" +
+            "/api/v2/anxiety_stats?offset=" +
                 elementPage * offset +
                 "&limit=" +
                 elementPage
         );
         const nextPage = await fetch(
-            "/api/v1/anxiety_stats?offset=" +
+            "/api/v2/anxiety_stats?offset=" +
                 elementPage * (offset + 1) +
                 "&limit=" +
                 elementPage
@@ -108,7 +108,7 @@
             errorMsg =
                 "No puede introducir campos en blanco o campos que no sean numéricos";
         } else {
-            const res = await fetch("/api/v1/anxiety_stats", {
+            const res = await fetch("/api/v2/anxiety_stats", {
                 method: "POST",
                 body: JSON.stringify(newAnxiety),
                 headers: {
@@ -130,7 +130,7 @@
     //=======================DELETE=======================\\
     async function deleteanxiety(country, year) {
         const res = await fetch(
-            "/api/v1/anxiety_stats/" + country + "/" + year,
+            "/api/v2/anxiety_stats/" + country + "/" + year,
             {
                 method: "DELETE",
             }
@@ -143,7 +143,7 @@
     }
 
     async function deleteanxietyData() {
-        const res = await fetch("/api/v1/anxiety_stats", {
+        const res = await fetch("/api/v2/anxiety_stats", {
             method: "DELETE",
         }).then(function (res) {
             getanxiety();
@@ -155,7 +155,7 @@
 
     //=======================LOADINITIALDATA=======================\\
     async function loadInitialDataanxiety() {
-        const res = await fetch("/api/v1/anxiety_stats/loadInitialData").then(
+        const res = await fetch("/api/v2/anxiety_stats/loadInitialData").then(
             function (res) {
                 getanxiety();
             }
@@ -167,7 +167,7 @@
     //=======================BUSQUEDA=======================\\
 
     async function searchanxiety(country, year) {
-        var url = "/api/v1/anxiety_stats";
+        var url = "/api/v2/anxiety_stats";
 
         if (country != "" && year != "") {
             url = url + "?year=" + year + "&country=" + country;

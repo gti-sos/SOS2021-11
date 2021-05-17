@@ -57,7 +57,7 @@
                             </h3>
                             <p class="text-white-50 mb-0">Anxiety_Stats</p>
                             <br /><a
-                                href="https://documenter.getpostman.com/view/14948159/TzJsexjn"
+                                href="https://documenter.getpostman.com/view/14948159/TzRXA6TK"
                                 ><button type="button" class="btn btn-light"
                                     >Postman</button
                                 ></a
@@ -132,10 +132,10 @@
                         </h2>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             
-                        <a href="/#/info">
+                        <a href="/#/analytics">
                             <button type="button" class="btn btn-info">General</button>
                         </a>
-                        <a href="/#/info">
+                        <a href="/#/analytics/anxiety_stats_graph">
                             <button type="button" class="btn btn-primary">Ansiedad</button>
                         </a>
                         <a href="/#/info">

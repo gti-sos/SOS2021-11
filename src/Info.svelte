@@ -74,7 +74,7 @@
                         <Button color="primary">Interfaz de Ansiedad</Button>
                     </a>
                     <a
-                        href="https://documenter.getpostman.com/view/14948159/TzJsexjn"
+                        href="https://documenter.getpostman.com/view/14948159/TzRXA6TK"
                         ><Button color="info">Documentación v2</Button></a
                     >
                 </CardBody>

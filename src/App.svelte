@@ -1,8 +1,7 @@
-<script lang="ts">
+<script>
 	import Router from "svelte-spa-router";
-
 	import NotFound from "./NotFound.svelte";
-	
+
 	import Home from "./Home.svelte";
 	import Info from "./Info.svelte";
 
@@ -17,8 +16,10 @@
 
 	import smoking_stats from "./front/smoking_stats_API/SmokingStatsAPI.svelte";
 	import edit_smoking_stats from "./front/smoking_stats_API/SmokingStatsEdit.svelte";
-	
-	
+
+	import analytics from "./front/Analytics/MedicalIssues.svelte";
+
+	import anxiety_stats_g from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte"
 
 	const routes = {
 		"/": Home,
@@ -31,6 +32,19 @@
 		"/stress_stats/:country/:year": edit_stress_stats,
 		"/smoking_stats": smoking_stats,
 		"/smoking_stats/:country/:year": edit_smoking_stats,
+
+		"/analytics/anxiety_stats_graph": anxiety_stats_g,
+
+
+		"/analytics": analytics,
+
+
+
+
+
+
+
+
 		"*": NotFound,
 	};
 </script>
