@@ -135,7 +135,7 @@
                         <a href="/#/analytics">
                             <button type="button" class="btn btn-info">General</button>
                         </a>
-                        <a href="/#/analytics/anxiety_stats_graph">
+                        <a href="/#/analytics/anxiety_stats_chart">
                             <button type="button" class="btn btn-primary">Ansiedad</button>
                         </a>
                         <a href="/#/info">

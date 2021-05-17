@@ -18,8 +18,10 @@
 	import edit_smoking_stats from "./front/smoking_stats_API/SmokingStatsEdit.svelte";
 
 	import analytics from "./front/Analytics/MedicalIssues.svelte";
+	import analytics_chart from "./front/Analytics/MedicalIssuesChart.svelte";
 
 	import anxiety_stats_graph from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte"
+	import anxiety_stats_chart from "./front/Analytics/anxiety/AnxietyStatsChart.svelte"
 
 	const routes = {
 		"/": Home,
@@ -34,14 +36,10 @@
 		"/smoking_stats/:country/:year": edit_smoking_stats,
 
 		"/analytics/anxiety_stats_graph": anxiety_stats_graph,
-
+		"/analytics/anxiety_stats_chart": anxiety_stats_chart,
 
 		"/analytics": analytics,
-
-
-
-
-
+		"/analytics_chart": analytics_chart,
 
 
 
