@@ -1,7 +1,6 @@
 <script>
-
     import Button from "sveltestrap/src/Button.svelte";
-    
+
     async function loadGraph() {
         //Esta es la gráfica común del grupo.
 
@@ -63,7 +62,7 @@
             {
                 name: "Datos de Tabaquismo de mujeres en el caso de estar afectados por tabaquismo",
                 data: smoking_stats_data,
-            }
+            },
         ];
 
         Highcharts.chart("container", {
@@ -129,9 +128,10 @@
     <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
-            Gráfica que muestra los datos de las 4 APIs. Son los siguientes datos: datos de ansiedad de hombre en las CC.AA de España, 
-            datos de depresión de mujer en las CC.AA de España, datos de la población afectada por estrés en las CC.AA de España, y por último, 
-            y no menos importante, los datos de mujeres afectadas por el tabaquismo en países de Europa
+            Gráfica que muestra los datos de las 4 APIs: Datos de Ansiedad de
+            Hombre (CC.AA, España), Datos de Depresión de Mujer (CC.AA, España),
+            Datos de Estrés por población (CC.AA, España) y Datos de Tabaquismo
+            de Mujer (Países de Europa).
         </p>
     </figure>
 </main>
