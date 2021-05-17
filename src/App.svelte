@@ -19,7 +19,7 @@
 
 	import analytics from "./front/Analytics/MedicalIssues.svelte";
 
-	import anxiety_stats_g from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte"
+	import anxiety_stats_graph from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte"
 
 	const routes = {
 		"/": Home,
@@ -33,7 +33,7 @@
 		"/smoking_stats": smoking_stats,
 		"/smoking_stats/:country/:year": edit_smoking_stats,
 
-		"/analytics/anxiety_stats_graph": anxiety_stats_g,
+		"/analytics/anxiety_stats_graph": anxiety_stats_graph,
 
 
 		"/analytics": analytics,
