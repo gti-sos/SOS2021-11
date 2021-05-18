@@ -41,7 +41,7 @@
 
     //GET
     async function getstressCountryYear() {
-        const res = await fetch("/api/v1/stress_stats");
+        const res = await fetch("/api/v2/stress_stats");
 
         if (res.ok) {
             //PAIS
@@ -64,13 +64,13 @@
     async function getstress() {
         console.log("Fetching stress_stats...");
         const res = await fetch(
-            "/api/v1/stress_stats?offset=" +
+            "/api/v2/stress_stats?offset=" +
                 elementPage * offset +
                 "&limit=" +
                 elementPage
         );
         const nextPage = await fetch(
-            "/api/v1/stress_stats?offset=" +
+            "/api/v2/stress_stats?offset=" +
                 elementPage * (offset + 1) +
                 "&limit=" +
                 elementPage
@@ -107,7 +107,7 @@
             errorMsg =
                 "No puede introducir campos en blanco o campos que no sean numéricos";
         } else {
-            const res = await fetch("/api/v1/stress_stats", {
+            const res = await fetch("/api/v2/stress_stats", {
                 method: "POST",
                 body: JSON.stringify(newStress),
                 headers: {
@@ -129,7 +129,7 @@
     //DELETE
     async function deletestress(country, year) {
         const res = await fetch(
-            "/api/v1/stress_stats/" + country + "/" + year,
+            "/api/v2/stress_stats/" + country + "/" + year,
             {
                 method: "DELETE",
             }
@@ -142,7 +142,7 @@
     }
 
     async function deletestressData() {
-        const res = await fetch("/api/v1/stress_stats", {
+        const res = await fetch("/api/v2/stress_stats", {
             method: "DELETE",
         }).then(function (res) {
             getstress();
@@ -154,7 +154,7 @@
 
     //LOAD INITIAL DATA
     async function loadInitialDatastress() {
-        const res = await fetch("/api/v1/stress_stats/loadInitialData").then(
+        const res = await fetch("/api/v2/stress_stats/loadInitialData").then(
             function (res) {
                 getstress();
             }
@@ -166,7 +166,7 @@
     //=======================BUSQUEDA=======================\\
 
     async function searchstress(country, year) {
-        var url = "/api/v1/stress_stats";
+        var url = "/api/v2/stress_stats";
 
         if (country != "" && year != "") {
             url = url + "?year=" + year + "&country=" + country;

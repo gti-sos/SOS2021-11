@@ -141,10 +141,10 @@
                         <a href="/#/analytics/depression_stats_chart">
                             <button type="button" class="btn btn-success">Depresion</button>
                         </a>
-                        <a href="/#/info">
+                        <a href="/#/analytics/smoking_stats_chart"></a>
                             <button type="button" class="btn btn-warning">Tabaquismo</button>
                         </a>
-                        <a href="/#/info">
+                        <a href="/#/analytics/stress_stats_chart"></a>
                             <button type="button" class="btn btn-danger">Estres</button>
                         </a>
                         

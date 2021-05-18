@@ -39,7 +39,7 @@ depression_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //API_REST de stress -> Ana Romero Cáceres (@anaromero99)
 
-var stress_stats_api = require("./src/back/stress_stats_API"); // M I L E S T O N E Nº 5
+var stress_stats_api = require("./src/back/stress_stats_API/v2"); // M I L E S T O N E Nº 5
 
 stress_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 
@@ -47,7 +47,7 @@ stress_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 
 // API_REST de smoking -> Miriam Campano Crespo (@Mirishya)
 
-var smoking_stats_api = require("./src/back/smoking_stats_API"); // M I L E S T O N E Nº 5
+var smoking_stats_api = require("./src/back/smoking_stats_API/v2"); // M I L E S T O N E Nº 5
 const { Console } = require("console");
 
 smoking_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5

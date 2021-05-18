@@ -26,6 +26,12 @@
 	import depression_stats_graph from "./front/Analytics/depression/DepressionStatsGraph.svelte"
 	import depression_stats_chart from "./front/Analytics/depression/DepressionStatsChart.svelte"
 
+	import stress_stats_graph from "./front/Analytics/stress/StressStatsGraph.svelte"
+	import stress_stats_chart from "./front/Analytics/stress/StressStatsChart.svelte"
+
+	import smoking_stats_graph from "./front/Analytics/smoking/SmokingStatsGraph.svelte"
+	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
+
 
 	const routes = {
 		"/": Home,
@@ -44,6 +50,12 @@
 
 		"/analytics/depression_stats_graph": depression_stats_graph,
 		"/analytics/depression_stats_chart": depression_stats_chart,
+
+		"/analytics/stress_stats_graph": stress_stats_graph,
+		"/analytics/stress_stats_chart": stress_stats_chart,
+
+		"/analytics/smoking_stats_graph": smoking_stats_graph,
+		"/analytics/smoking_stats_chart": smoking_stats_chart,
 
 		"/analytics": analytics,
 		

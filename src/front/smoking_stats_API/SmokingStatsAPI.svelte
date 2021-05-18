@@ -44,7 +44,7 @@
 
     //=======================GET=======================\\
     async function getsmokingCountryYear() {
-        const res = await fetch("/api/v1/smoking_stats");
+        const res = await fetch("/api/v2/smoking_stats");
 
         if (res.ok) {
             //===========PAIS===========\\
@@ -67,13 +67,13 @@
     async function getsmoking() {
         console.log("Fetching smoking_stats...");
         const res = await fetch(
-            "/api/v1/smoking_stats?offset=" +
+            "/api/v2/smoking_stats?offset=" +
                 elementPage * offset +
                 "&limit=" +
                 elementPage
         );
         const nextPage = await fetch(
-            "/api/v1/smoking_stats?offset=" +
+            "/api/v2/smoking_stats?offset=" +
                 elementPage * (offset + 1) +
                 "&limit=" +
                 elementPage
@@ -110,7 +110,7 @@
             errorMsg =
                 "No puede introducir campos en blanco o campos que no sean numéricos";
         } else {
-            const res = await fetch("/api/v1/smoking_stats", {
+            const res = await fetch("/api/v2/smoking_stats", {
                 method: "POST",
                 body: JSON.stringify(newSmoking),
                 headers: {
@@ -132,7 +132,7 @@
     //=======================DELETE=======================\\
     async function deletesmoking(country, year) {
         const res = await fetch(
-            "/api/v1/smoking_stats/" + country + "/" + year,
+            "/api/v2/smoking_stats/" + country + "/" + year,
             {
                 method: "DELETE",
             }
@@ -145,7 +145,7 @@
     }
 
     async function deletesmokingData() {
-        const res = await fetch("/api/v1/smoking_stats", {
+        const res = await fetch("/api/v2/smoking_stats", {
             method: "DELETE",
         }).then(function (res) {
             getsmoking();
@@ -157,7 +157,7 @@
 
     //=======================LOADINITIALDATA=======================\\
     async function loadInitialDatasmoking() {
-        const res = await fetch("/api/v1/smoking_stats/loadInitialData").then(
+        const res = await fetch("/api/v2/smoking_stats/loadInitialData").then(
             function (res) {
                 getsmoking();
             }
@@ -169,7 +169,7 @@
     //=======================BUSQUEDA=======================\\
 
     async function searchsmoking(country, year) {
-        var url = "/api/v1/smoking_stats";
+        var url = "/api/v2/smoking_stats";
 
         if (country != "" && year != "") {
             url = url + "?year=" + year + "&country=" + country;

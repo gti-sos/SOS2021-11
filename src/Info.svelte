@@ -108,7 +108,7 @@
                     </a>
                     <a
                         href="https://documenter.getpostman.com/view/14948118/TzJu8ccc"
-                        ><Button color="info">Documentación v1</Button></a
+                        ><Button color="info">Documentación v2</Button></a
                     > <a
                     href="https://documenter.getpostman.com/view/14948118/TzRXAS6B"
                     ><Button color="info">Documentación v2</Button></a
@@ -134,9 +134,9 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="https://sos2021-11.herokuapp.com/api/v1/stress_stats"
+                        href="https://sos2021-11.herokuapp.com/api/v2/stress_stats"
                     >
-                        <Button color="primary">API v1</Button>
+                        <Button color="primary">API v2</Button>
                     </a>
                     <a href="/#/stress_stats">
                         <Button color="primary">Interfaz de Estrés</Button>
@@ -144,7 +144,7 @@
                     <a
                         href="https://documenter.getpostman.com/view/14948110/TzJsheN4"
                     >
-                        <Button color="info">Documentación v1</Button>
+                        <Button color="info">Documentación v2</Button>
                     </a>
                 </CardBody>
                 <CardFooter
@@ -165,15 +165,15 @@
                         Estadísticas acerca de los datos recogidos por tabaquismo
                         en los países Europeos.
                     </CardText>
-                    <a href="https://sos2021-11.herokuapp.com/api/v1/smoking_stats"
-                        ><Button color="primary">API v1</Button></a
+                    <a href="https://sos2021-11.herokuapp.com/api/v2/smoking_stats"
+                        ><Button color="primary">API v2</Button></a
                     >
                     <a href="/#/smoking_stats"
                         ><Button color="primary">Interfaz de Tabaquismo</Button></a
                     >
                     <a
                         href="https://documenter.getpostman.com/view/14948136/TzJsgdzX"
-                        ><Button color="info">Documentación v1</Button></a
+                        ><Button color="info">Documentación v2</Button></a
                     >
                 </CardBody>
                 <CardFooter

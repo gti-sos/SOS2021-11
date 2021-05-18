@@ -4,7 +4,7 @@
     import { pop } from "svelte-spa-router";
     import { Button, Table } from "sveltestrap";
 
-    const API_SMOKING_STATS = "/api/v1/smoking_stats"; //tiene que llamar a la API para tratar los datos
+    const API_SMOKING_STATS = "/api/v2/smoking_stats"; //tiene que llamar a la API para tratar los datos
     export let params = {};
 
     let smokingStat = {};

@@ -3,7 +3,7 @@
     import { pop } from "svelte-spa-router";
     import { Button, Table } from "sveltestrap";
 
-    const API_STRESS_STATS = "/api/v1/stress_stats"; //tiene que llamar a la API para tratar los datos
+    const API_STRESS_STATS = "/api/v2/stress_stats"; //tiene que llamar a la API para tratar los datos
     export let params = {};
 
     let stressStat = {};
