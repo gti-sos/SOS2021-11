@@ -27,15 +27,15 @@
                 type: "bar",
             },
             title: {
-                text: "Datos de Ansiedad",
+                text: "Datos de Depresion",
             },
 
             xAxis: {
                 categories: [
                     "",
-                    "Datos de Ansiedad de Hombre (radio/media)",
-                    "Datos de Ansiedad de Mujer (radio/media)",
-                    "Datos de Ansiedad de Poblacion (radio/media)",
+                    "Datos de Depresion de Hombre (radio/media)",
+                    "Datos de Depresion de Mujer (radio/media)",
+                    "Datos de Depresion de Poblacion (radio/media)",
                     "",
                 ],
                 title: {
@@ -98,7 +98,7 @@
         <p class="highcharts-description">
             <i>
                 En esta simple gráfica de lineas podemos observar los datos de
-                Ansiedad en las CC.AA en España en el año 2017.</i
+                depresion en las CC.AA en España en el año 2009 a 2014.</i
             >
         </p>
     </figure>
