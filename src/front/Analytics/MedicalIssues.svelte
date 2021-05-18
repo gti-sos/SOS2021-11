@@ -5,7 +5,7 @@
         //Esta es la gráfica común del grupo.
 
         const anxiety_stats = await fetch("/api/v2/anxiety_stats");
-        const depression_stats = await fetch("/api/v1/depression_stats");
+        const depression_stats = await fetch("/api/v2/depression_stats");
         const stress_stats = await fetch("/api/v1/stress_stats");
         const smoking_stats = await fetch("/api/v1/smoking_stats");
 

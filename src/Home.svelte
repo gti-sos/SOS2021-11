@@ -138,7 +138,7 @@
                         <a href="/#/analytics/anxiety_stats_chart">
                             <button type="button" class="btn btn-primary">Ansiedad</button>
                         </a>
-                        <a href="/#/info">
+                        <a href="/#/analytics/depression_stats_chart">
                             <button type="button" class="btn btn-success">Depresion</button>
                         </a>
                         <a href="/#/info">

@@ -18,10 +18,14 @@
 	import edit_smoking_stats from "./front/smoking_stats_API/SmokingStatsEdit.svelte";
 
 	import analytics from "./front/Analytics/MedicalIssues.svelte";
-	import analytics_chart from "./front/Analytics/MedicalIssuesChart.svelte";
+	
 
 	import anxiety_stats_graph from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte"
 	import anxiety_stats_chart from "./front/Analytics/anxiety/AnxietyStatsChart.svelte"
+
+	import depression_stats_graph from "./front/Analytics/depression/DepressionStatsGraph.svelte"
+	import depression_stats_chart from "./front/Analytics/depression/DepressionStatsChart.svelte"
+
 
 	const routes = {
 		"/": Home,
@@ -38,8 +42,11 @@
 		"/analytics/anxiety_stats_graph": anxiety_stats_graph,
 		"/analytics/anxiety_stats_chart": anxiety_stats_chart,
 
+		"/analytics/depression_stats_graph": depression_stats_graph,
+		"/analytics/depression_stats_chart": depression_stats_chart,
+
 		"/analytics": analytics,
-		"/analytics_chart": analytics_chart,
+		
 
 
 

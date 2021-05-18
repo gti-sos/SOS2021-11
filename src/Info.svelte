@@ -99,9 +99,9 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="https://sos2021-11.herokuapp.com/api/v1/depression_stats"
+                        href="https://sos2021-11.herokuapp.com/api/v2/depression_stats"
                     >
-                        <Button color="primary">API (v1)</Button></a
+                        <Button color="primary">API (v2)</Button></a
                     >
                     <a href="/#/depression_stats">
                         <Button color="primary">Interfaz de Depresion</Button>
@@ -109,7 +109,10 @@
                     <a
                         href="https://documenter.getpostman.com/view/14948118/TzJu8ccc"
                         ><Button color="info">Documentación v1</Button></a
-                    >
+                    > <a
+                    href="https://documenter.getpostman.com/view/14948118/TzRXAS6B"
+                    ><Button color="info">Documentación v2</Button></a
+                >
                 </CardBody>
                 <CardFooter
                     >realizado por
