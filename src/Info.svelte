@@ -108,7 +108,7 @@
                     </a>
                     <a
                         href="https://documenter.getpostman.com/view/14948118/TzJu8ccc"
-                        ><Button color="info">Documentación v2</Button></a
+                        ><Button color="info">Documentación v1</Button></a
                     > <a
                     href="https://documenter.getpostman.com/view/14948118/TzRXAS6B"
                     ><Button color="info">Documentación v2</Button></a

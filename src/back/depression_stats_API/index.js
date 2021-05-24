@@ -20,53 +20,53 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 	//--------------------------------- M I L E S T O N E Nº 6 (F06) ------------------------------------------------
 
-
+	var depression_stats_data = [
+		{
+			"country": 'Spain_Andalucia',
+			"year": 2011,
+			"depression_men": 4.00,
+			"depression_women":11.60,
+			"depression_population": 7.80
+		},
+		{
+			"country": 'Spain_Castilla_la_mancha',
+			"year": 2014,
+			"depression_men": 3.50,
+			"depression_women": 5.70,
+			"depression_population": 4.60
+		},
+		{
+			"country": 'Spain_Extremadura',
+			"year": 2011,
+			"depression_men": 4.22,
+			"depression_women": 24.33,
+			"depression_population": 14.39
+		},
+		{
+			"country": 'Spain_Galicia',
+			"year": 2009,
+			"depression_men": 23.10,
+			"depression_women": 20.20,
+			"depression_population": 4.30
+		},
+		{
+			"country": 'Spain_Asturias',
+			"year": 2014,
+			"depression_men": 21.80,
+			"depression_women": 78.20,
+			"depression_population": 37.90
+		},
+		{
+			"country": 'Spain_Comunidad_valenciana',
+			"year": 2010,
+			"depression_men": 6.13,
+			"depression_women": 9.61,
+			"depression_population": 58.30
+		}
+	];
 
 	app.get(BASE_API_PATH + "/depression_stats/loadInitialData", (req, res) => {
-		depression_stats_data = [
-			{
-				"country": 'Spain_Andalucia',
-				"year": 2011,
-				"depression_men": 4.00,
-				"depression_women":11.60,
-				"depression_population": 7.80
-			},
-			{
-				"country": 'Spain_Castilla_la_mancha',
-				"year": 2014,
-				"depression_men": 3.50,
-				"depression_women": 5.70,
-				"depression_population": 4.60
-			},
-			{
-				"country": 'Spain_Extremadura',
-				"year": 2011,
-				"depression_men": 4.22,
-				"depression_women": 24.33,
-				"depression_population": 14.39
-			},
-			{
-				"country": 'Spain_Galicia',
-				"year": 2009,
-				"depression_men": 23.10,
-				"depression_women": 20.20,
-				"depression_population": 4.30
-			},
-			{
-				"country": 'Spain_Asturias',
-				"year": 2014,
-				"depression_men": 21.80,
-				"depression_women": 78.20,
-				"depression_population": 37.90
-			},
-			{
-				"country": 'Spain_Comunidad_valenciana',
-				"year": 2010,
-				"depression_men": 6.13,
-				"depression_women": 9.61,
-				"depression_population": 58.30
-			}
-		];
+		
 
 		db.find({ $or: [{ country: "Spain_Andalucia" }, { country: "Spain_Castilla_la_mancha" }] }, { _id: 0 }, function (err, data) {
 			if (err) {

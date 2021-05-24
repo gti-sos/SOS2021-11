@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "cfcb51c3-6c13-4ce8-80f1-bcb0aa401149",
-		"name": "SOS2021-11-depression_stats-H-v2",
+		"name": "SOS2021-11-depression_stats-v2",
 		"description": "A sample of an API from the boards about Anxiety_stats with the docs from the latest version: D01",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -231,7 +231,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 2 anxiety_stats_boards\", function () {\r",
+							"pm.test(\"There are 6 anxiety_stats_boards\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(6);\r",
 							"});"
@@ -353,7 +353,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"country\": \"Spain_Extremadura\",\r\n\t\"year\": 2011,\r\n\t\"depression_men\": 4.22,\r\n\t\"depression_women\": 24.33,\r\n\t\"depression_population\": 14.39\r\n}",
+					"raw": "{\r\n\t\"country\": \"Spain_Madrid\",\r\n\t\"year\": 2011,\r\n\t\"depression_men\": 4.22,\r\n\t\"depression_women\": 24.33,\r\n\t\"depression_population\": 14.39\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -398,7 +398,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"country\": \"Spain_Extremadura\",\r\n\t\"year\": 2011,\r\n\t\"depression_men\": 4.22,\r\n\t\"depression_women\": 24.33,\r\n\t\"depression_population\": 14.39\r\n}",
+					"raw": "{\r\n\t\"country\": \"Spain_Madrid\",\r\n\t\"year\": 2011,\r\n\t\"depression_men\": 4.22,\r\n\t\"depression_women\": 24.33,\r\n\t\"depression_population\": 14.39\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -433,9 +433,9 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 3 depression_stats_boards\", function () {\r",
+							"pm.test(\"There are 7 depression_stats_boards\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(6);\r",
+							"    pm.expect(jsonData.length).to.eql(7);\r",
 							"});\r",
 							""
 						],
@@ -648,7 +648,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 2 anxiety_stats_boards\", function () {\r",
+							"pm.test(\"There are 6 anxiety_stats_boards\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(6);\r",
 							"});"
@@ -734,7 +734,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 2 depression_stats_boards, one of them is updated\", function () {\r",
+							"pm.test(\"There are 6 depression_stats_boards, one of them is updated\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(6);\r",
 							"});"
