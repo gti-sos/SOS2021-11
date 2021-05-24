@@ -9,66 +9,66 @@ var Datastore = require("nedb");
 var BASE_API_PATH = "/api/v2";
 var datafile = path.join(__dirname, 'depression_stats.db');
 var db = new Datastore({ filename: datafile, autoload: true });
-var depression_stats_data = [];
 
-//var depression_stats = db.getAllData();
+//Variables Iniciales de Ansiedad (depression_data)
 
-// API_REST de depression -> Juan Diez Blanco (@jdblanco)
+var depression_stats_data = [
+	{
+		"country": 'Spain_Andalucia',
+		"year": 2011,
+		"depression_men": 4.00,
+		"depression_women":11.60,
+		"depression_population": 7.80
+	},
+	{
+		"country": 'Spain_Castilla_la_mancha',
+		"year": 2014,
+		"depression_men": 3.50,
+		"depression_women": 5.70,
+		"depression_population": 4.60
+	},
+	{
+		"country": 'Spain_Extremadura',
+		"year": 2011,
+		"depression_men": 4.22,
+		"depression_women": 24.33,
+		"depression_population": 14.39
+	},
+	{
+		"country": 'Spain_Galicia',
+		"year": 2009,
+		"depression_men": 23.10,
+		"depression_women": 20.20,
+		"depression_population": 4.30
+	},
+	{
+		"country": 'Spain_Asturias',
+		"year": 2014,
+		"depression_men": 21.80,
+		"depression_women": 78.20,
+		"depression_population": 37.90
+	},
+	{
+		"country": 'Spain_Comunidad_valenciana',
+		"year": 2010,
+		"depression_men": 6.13,
+		"depression_women": 9.61,
+		"depression_population": 58.30
+	}
+];
+
+// API_REST de depression -> Jose Pablo Carrasco (@EsDeSepa)
 
 module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 
 	//--------------------------------- M I L E S T O N E Nº 6 (F06) ------------------------------------------------
 
-	var depression_stats_data = [
-		{
-			"country": 'Spain_Andalucia',
-			"year": 2011,
-			"depression_men": 4.00,
-			"depression_women":11.60,
-			"depression_population": 7.80
-		},
-		{
-			"country": 'Spain_Castilla_la_mancha',
-			"year": 2014,
-			"depression_men": 3.50,
-			"depression_women": 5.70,
-			"depression_population": 4.60
-		},
-		{
-			"country": 'Spain_Extremadura',
-			"year": 2011,
-			"depression_men": 4.22,
-			"depression_women": 24.33,
-			"depression_population": 14.39
-		},
-		{
-			"country": 'Spain_Galicia',
-			"year": 2009,
-			"depression_men": 23.10,
-			"depression_women": 20.20,
-			"depression_population": 4.30
-		},
-		{
-			"country": 'Spain_Asturias',
-			"year": 2014,
-			"depression_men": 21.80,
-			"depression_women": 78.20,
-			"depression_population": 37.90
-		},
-		{
-			"country": 'Spain_Comunidad_valenciana',
-			"year": 2010,
-			"depression_men": 6.13,
-			"depression_women": 9.61,
-			"depression_population": 58.30
-		}
-	];
+
 
 	app.get(BASE_API_PATH + "/depression_stats/loadInitialData", (req, res) => {
-		
 
-		db.find({ $or: [{ country: "Spain_Andalucia" }, { country: "Spain_Castilla_la_mancha" }] }, { _id: 0 }, function (err, data) {
+		db.find({ $or: [{ country: "Spain_Andalucia" }, { country: "Spain_Madrid" }] }, { _id: 0 }, function (err, data) {
 			if (err) {
 				console.error("ERROR accesing DB in GET");
 				res.sendStatus(500);
@@ -84,7 +84,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 			}
 		});
 
-		
+
 	});
 
 	//
@@ -139,14 +139,6 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 			}
 		});
 
-		/*if (depression_stats_data.length != 0) {
-			console.log(`depression_stats requested`);
-			return res.send(JSON.stringify(depression_stats_data, null, 2));
-		} else {
-			console.log("Not found");
-			return res.sendStatus(404);
-		}
-		return res.sendStatus(200);*/
 	});
 
 	//6.2 POST a la lista de recursos (p.e. “/api/v2/stats”) crea un nuevo recurso.
@@ -190,11 +182,11 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 	// POST Alternativo para añadir - 6.2 - depression_stats //M I L E S T O N E Fº 4
 
 	/*{
-		"country": "Spain_Extremadura",
-		"year": 2011,
-		"depression_men": 4.22,
-		"depression_women": 24.33,
-		"depression_population": 14.39
+		"country": "Spain_Galicia",
+		"year": 2017,
+		"depression_men": 5.99,
+		"depression_women": 14.35,
+		"depression_population": 10.35
 	}*/
 
 
@@ -230,7 +222,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 		return res.sendStatus(404); */
 	});
 
-	//6.4 DELETE a un recurso (p.e. “/api/v2/stats/Andalucia/2011”) borra ese recurso (un objeto en JSON).
+	//6.4 DELETE a un recurso (p.e. “/api/v2/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
 
 	app.delete(BASE_API_PATH + "/depression_stats/:country/:year", (req, res) => {
 
@@ -261,7 +253,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 		return res.sendStatus(404);*/
 	});
 
-	//6.5 PUT a un recurso (p.e. “/api/v2/stats/Andalucia/2011”) actualiza ese recurso. 
+	//6.5 PUT a un recurso (p.e. “/api/v2/stats/sevilla/2013”) actualiza ese recurso. 
 
 	app.put(BASE_API_PATH + "/depression_stats/:country/:year", (req, res) => {
 
@@ -292,10 +284,10 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 	/*var country = req.params.country;
 	var year = parseInt(req.params.year);
-	var newDataDepression = req.body;
+	var newDatadepression = req.body;
 
-	console.log(`PUT ${newDataDepression.country} OVER ${country} `);
-	console.log(`PUT ${newDataDepression.year} OVER ${year} `);
+	console.log(`PUT ${newDatadepression.country} OVER ${country} `);
+	console.log(`PUT ${newDatadepression.year} OVER ${year} `);
 
 	if (depression_stats_data.length == 0) {
 		console.log("No Valido")
@@ -304,14 +296,14 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 		for (var i = 0; i < depression_stats_data.length; i++) {
 			var stat = depression_stats_data[i];
 			if (stat.country === country && stat.year === year) {
-				depression_stats_data[i] = newDataDepression;
+				depression_stats_data[i] = newDatadepression;
 				return res.send('PUT success');
 			}
 		}
 	}
 });*/
 
-	//6.6 POST a un recurso (p.e. “/api/v2/stats/Andalucia/2011”) debe dar un error de método no permitido.
+	//6.6 POST a un recurso (p.e. “/api/v2/stats/sevilla/2013”) debe dar un error de método no permitido.
 
 	app.post(BASE_API_PATH + "/depression_stats/:country/:date", (req, res) => {
 		console.log("POST no valido/encontrado");
