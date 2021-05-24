@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6a9caa17-2053-4b35-a970-ac8cfd5d175a",
+		"_postman_id": "d7b99092-e164-41a5-9248-e75c1b4b8f19",
 		"name": "SOS2021-11-stress_stats-D01 v2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -278,7 +278,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v2/stress_stats/Spain_Asturias/2017",
+					"raw": "https://sos2021-11.herokuapp.com/api/v2/stress_stats/Spain_Asturias/2018",
 					"protocol": "https",
 					"host": [
 						"sos2021-11",
@@ -290,7 +290,7 @@
 						"v2",
 						"stress_stats",
 						"Spain_Asturias",
-						"2017"
+						"2018"
 					]
 				}
 			},
@@ -353,7 +353,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"country\": \"Spain_Asturias\",\r\n\t\"year\": 2017,\r\n\t\"stress_men\": 3.98,\r\n\t\"stress_women\": 4.11,\r\n\t\"stress_population\": 4.04\r\n}",
+					"raw": "{\r\n\t\"country\": \"Spain_Asturias\",\r\n\t\"year\": 2020,\r\n\t\"stress_men\": 3.98,\r\n\t\"stress_women\": 4.11,\r\n\t\"stress_population\": 4.04\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -397,7 +397,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"country\": \"Spain_Andalucia\",\r\n    \"year\": 2017,\r\n    \"stress_men\": 4.61,\r\n    \"stress_women\": 4.42,\r\n    \"stress_population\": 4.53\r\n}",
+					"raw": "{\r\n\t\"country\": \"Spain_Asturias\",\r\n\t\"year\": 2020,\r\n\t\"stress_men\": 3.98,\r\n\t\"stress_women\": 4.11,\r\n\t\"stress_population\": 4.04\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

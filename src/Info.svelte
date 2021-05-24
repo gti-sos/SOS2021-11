@@ -142,7 +142,7 @@
                         <Button color="primary">Interfaz de Estrés</Button>
                     </a>
                     <a
-                        href="https://documenter.getpostman.com/view/14948110/TzJsheN4"
+                        href="https://documenter.getpostman.com/view/14948110/TzXunKiV"
                     >
                         <Button color="info">Documentación v2</Button>
                     </a>
