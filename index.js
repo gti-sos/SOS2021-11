@@ -41,7 +41,7 @@ depression_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
 
 var stress_stats_api = require("./src/back/stress_stats_API/v2"); // M I L E S T O N E Nº 5
 
-stress_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
+stress_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ stress_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
 var smoking_stats_api = require("./src/back/smoking_stats_API/v2"); // M I L E S T O N E Nº 5
 const { Console } = require("console");
 
-smoking_stats_api.register(app, BASE_API_PATH); // M I L E S T O N E Nº 5
+smoking_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
 
 
 // App Listen (para todas las peticiones)
