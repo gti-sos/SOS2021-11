@@ -6,7 +6,7 @@ var Datastore = require("nedb");
 
 //Database Generada - depression_stats
 
-var BASE_API_PATH = "/api/v1";
+var BASE_API_PATH = "/api/v2";
 var datafile = path.join(__dirname, 'depression_stats.db');
 var db = new Datastore({ filename: datafile, autoload: true });
 var depression_stats_data = [];
@@ -37,6 +37,34 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 				"depression_men": 3.50,
 				"depression_women": 5.70,
 				"depression_population": 4.60
+			},
+			{
+				"country": 'Spain_Extremadura',
+				"year": 2011,
+				"depression_men": 4.22,
+				"depression_women": 24.33,
+				"depression_population": 14.39
+			},
+			{
+				"country": 'Spain_Galicia',
+				"year": 2009,
+				"depression_men": 23.10,
+				"depression_women": 20.20,
+				"depression_population": 4.30
+			},
+			{
+				"country": 'Spain_Asturias',
+				"year": 2014,
+				"depression_men": 21.80,
+				"depression_women": 78.20,
+				"depression_population": 37.90
+			},
+			{
+				"country": 'Spain_Comunidad_valenciana',
+				"year": 2010,
+				"depression_men": 6.13,
+				"depression_women": 9.61,
+				"depression_population": 58.30
 			}
 		];
 
@@ -61,7 +89,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 	//
 
-	// 6.1 GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
+	// 6.1 GET a la lista de recursos (p.e. “/api/v2/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 
 	app.get(BASE_API_PATH + "/depression_stats", (req, res) => {
 
@@ -121,7 +149,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 		return res.sendStatus(200);*/
 	});
 
-	//6.2 POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
+	//6.2 POST a la lista de recursos (p.e. “/api/v2/stats”) crea un nuevo recurso.
 
 	app.post(BASE_API_PATH + "/depression_stats", (req, res) => {
 
@@ -170,7 +198,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 	}*/
 
 
-	//6.3 GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
+	//6.3 GET a un recurso (p.e. “/api/v2/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
 
 	app.get(BASE_API_PATH + "/depression_stats/:country/:year", (req, res) => {
 
@@ -202,7 +230,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 		return res.sendStatus(404); */
 	});
 
-	//6.4 DELETE a un recurso (p.e. “/api/v1/stats/Andalucia/2011”) borra ese recurso (un objeto en JSON).
+	//6.4 DELETE a un recurso (p.e. “/api/v2/stats/Andalucia/2011”) borra ese recurso (un objeto en JSON).
 
 	app.delete(BASE_API_PATH + "/depression_stats/:country/:year", (req, res) => {
 
@@ -233,7 +261,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 		return res.sendStatus(404);*/
 	});
 
-	//6.5 PUT a un recurso (p.e. “/api/v1/stats/Andalucia/2011”) actualiza ese recurso. 
+	//6.5 PUT a un recurso (p.e. “/api/v2/stats/Andalucia/2011”) actualiza ese recurso. 
 
 	app.put(BASE_API_PATH + "/depression_stats/:country/:year", (req, res) => {
 
@@ -283,7 +311,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 	}
 });*/
 
-	//6.6 POST a un recurso (p.e. “/api/v1/stats/Andalucia/2011”) debe dar un error de método no permitido.
+	//6.6 POST a un recurso (p.e. “/api/v2/stats/Andalucia/2011”) debe dar un error de método no permitido.
 
 	app.post(BASE_API_PATH + "/depression_stats/:country/:date", (req, res) => {
 		console.log("POST no valido/encontrado");
@@ -291,7 +319,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 	});
 
-	//6.7 PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
+	//6.7 PUT a la lista de recursos (p.e. “/api/v2/stats”) debe dar un error de método no permitido.
 
 	app.put(BASE_API_PATH + "/depression_stats", (req, res) => {
 		console.log("PUT no valido/encontrado");
@@ -299,7 +327,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 	});
 
-	//6.8 DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos
+	//6.8 DELETE a la lista de recursos (p.e. “/api/v2/stats”) borra todos los recursos
 
 	app.delete(BASE_API_PATH + "/depression_stats", (req, res) => {
 		db.remove({}, { multi: true }, (error, depression_stats_deleted) => {
