@@ -57,7 +57,7 @@ var depression_stats_data = [
 	}
 ];
 
-// API_REST de depression -> Jose Pablo Carrasco (@EsDeSepa)
+// API_REST de depression -> Juan Díez Blanco (@)
 
 module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
@@ -68,7 +68,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 	app.get(BASE_API_PATH + "/depression_stats/loadInitialData", (req, res) => {
 
-		db.find({ $or: [{ country: "Spain_Andalucia" }, { country: "Spain_Madrid" }] }, { _id: 0 }, function (err, data) {
+		db.find({ $or: [{ country: "Spain_Andalucia" }, { country: "Spain_Comunidad_valenciana" }] }, { _id: 0 }, function (err, data) {
 			if (err) {
 				console.error("ERROR accesing DB in GET");
 				res.sendStatus(500);
