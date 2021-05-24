@@ -173,8 +173,13 @@
                     >
                     <a
                         href="https://documenter.getpostman.com/view/14948136/TzJsgdzX"
-                        ><Button color="info">Documentación v2</Button></a
+                        ><Button color="info">Documentación v1</Button></a
                     >
+                    <a
+                    href="https://documenter.getpostman.com/view/14948136/TzXunKiP"
+                    ><Button color="info">Documentación v2</Button></a
+                >
+
                 </CardBody>
                 <CardFooter
                     >desarrollado por
