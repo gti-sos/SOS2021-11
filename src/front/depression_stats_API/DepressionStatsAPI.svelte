@@ -46,7 +46,7 @@ import { onMount } from "svelte";
 
 //=======================GET=======================\\
 async function getDepressionCountryYear() {
-    const res = await fetch("/api/v1/depression_stats");
+    const res = await fetch("/api/v2/depression_stats");
 
     if (res.ok) {
             //===========Country===========\\
@@ -68,13 +68,13 @@ async function getDepressionCountryYear() {
     async function getDepression() {
         console.log("Fetching depression_stats...");
         const res = await fetch(
-            "/api/v1/depression_stats?offset=" +
+            "/api/v2/depression_stats?offset=" +
                 elementPage * offset +
                 "&limit=" +
                 elementPage
         );
         const nextPage = await fetch(
-            "/api/v1/depression_stats?offset=" +
+            "/api/v2/depression_stats?offset=" +
                 elementPage * (offset + 1) +
                 "&limit=" +
                 elementPage
@@ -111,7 +111,7 @@ async function getDepressionCountryYear() {
             errorMsg =
                 "No puede introducir campos en blanco o campos que no sean numéricos";
         } else {
-            const res = await fetch("/api/v1/depression_stats", {
+            const res = await fetch("/api/v2/depression_stats", {
                 method: "POST",
                 body: JSON.stringify(newDepression),
                 headers: {
@@ -134,7 +134,7 @@ async function getDepressionCountryYear() {
      //================Metodo DELETE=======================\\
      async function deleteDepression(country, year) {
         const res = await fetch(
-            "/api/v1/depression_stats/" + country + "/" + year,
+            "/api/v2/depression_stats/" + country + "/" + year,
             {
                 method: "DELETE",
             }
@@ -147,7 +147,7 @@ async function getDepressionCountryYear() {
     }
 
     async function deleteDepressionData() {
-        const res = await fetch("/api/v1/depression_stats", {
+        const res = await fetch("/api/v2/depression_stats", {
             method: "DELETE",
         }).then(function (res) {
             getDepression();
@@ -158,7 +158,7 @@ async function getDepressionCountryYear() {
     }
     //=======================LOADINITIALDATA=======================\\
     async function loadInitialDataDepression() {
-        const res = await fetch("/api/v1/depression_stats/loadInitialData").then(
+        const res = await fetch("/api/v2/depression_stats/loadInitialData").then(
             function (res) {
                 getDepression();
             }
@@ -169,7 +169,7 @@ async function getDepressionCountryYear() {
       //=======================BUSQUEDA=======================\\
 
       async function searchDepression(country, year) {
-        var url = "/api/v1/depression_stats";
+        var url = "/api/v2/depression_stats";
 
         if (country != "" && year != "") {
             url = url + "?year=" + year + "&country=" + country;
