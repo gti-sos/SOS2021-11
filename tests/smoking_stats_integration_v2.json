@@ -291,7 +291,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-11.herokuapp.com/api/v2/smoking_stats/Italy/2017",
+					"raw": "https://sos2021-11.herokuapp.com/api/v2/smoking_stats/Croatia/2017",
 					"protocol": "https",
 					"host": [
 						"sos2021-11",
@@ -302,7 +302,7 @@
 						"api",
 						"v2",
 						"smoking_stats",
-						"Italy",
+						"Croatia",
 						"2017"
 					]
 				}
@@ -366,7 +366,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"country\": \"Italy\", \r\n\t  \"year\": 2017, \r\n\t  \"smoking_men\": 25.1, \r\n\t  \"smoking_women\": 14, \r\n\t  \"smoking_population\": 19.6\r\n}\r\n",
+					"raw": "{ \"country\": \"Croatia\", \r\n\t  \"year\": 2017, \r\n\t  \"smoking_men\": 25.1, \r\n\t  \"smoking_women\": 14, \r\n\t  \"smoking_population\": 19.6\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -410,7 +410,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"country\": \"Italy\", \r\n\t  \"year\": 2017, \r\n\t  \"smoking_men\": 25.1, \r\n\t  \"smoking_women\": 14, \r\n\t  \"smoking_population\": 19.6\r\n}",
+					"raw": "{ \"country\": \"Croatia\", \r\n\t  \"year\": 2017, \r\n\t  \"smoking_men\": 25.1, \r\n\t  \"smoking_women\": 14, \r\n\t  \"smoking_population\": 19.6\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
