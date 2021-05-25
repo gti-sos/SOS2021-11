@@ -306,5 +306,5 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 	  var url = apiServerHost + req.url;
 	  console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
 	  req.pipe(request(url)).pipe(res);
-	});
+	});*/
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
