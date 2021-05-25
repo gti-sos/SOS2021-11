@@ -2,7 +2,7 @@
 
 var path = require("path");
 var Datastore = require("nedb");
-const request = require("request");
+//const request = require("request");
 //Database Generada - smoking_stats
 
 var BASE_API_PATH = "/api/v2";
@@ -297,7 +297,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 };
 
-app.use("/proxyHeroku", function(req, res) {
+/*app.use("/proxyHeroku", function(req, res) {
 	var apiServerHost = "https://2021-11.herokuapp.com"
 	
 	console.log(`apiServerHost= <${apiServerHost}>`);
@@ -308,4 +308,3 @@ app.use("/proxyHeroku", function(req, res) {
 	  req.pipe(request(url)).pipe(res);
 	});
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
