@@ -37,6 +37,10 @@ anxiety_stats_api_INT.register(app, "/api/integration");
 var stress_stats_api_INT = require("./src/back/stress_stats_API/integration");
 
 stress_stats_api_INT.register(app, "/api/integration");
+
+var smoking_stats_api_INT = require("./src/back/smoking_stats_API/integration");
+
+smoking_stats_api_INT.register(app, "/api/integration");
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de depression -> Juan Diez Blanco (@jdblanco)
