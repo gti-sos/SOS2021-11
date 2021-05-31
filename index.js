@@ -27,6 +27,12 @@ app.use("/", express.static(path.join(__dirname, "public")));
 var anxiety_stats_api = require("./src/back/anxiety_stats_API/v2"); // M I L E S T O N E Nº 5
 
 anxiety_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
+
+//--------------------------------- M I L E S T O N E D03 ------------------------------------------------
+
+var anxiety_stats_api_INT = require("./src/back/anxiety_stats_API/integration");
+
+anxiety_stats_api_INT.register(app, "/api/integration");
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de depression -> Juan Diez Blanco (@jdblanco)
