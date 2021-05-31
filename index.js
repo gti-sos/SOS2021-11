@@ -33,6 +33,10 @@ anxiety_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
 var anxiety_stats_api_INT = require("./src/back/anxiety_stats_API/integration");
 
 anxiety_stats_api_INT.register(app, "/api/integration");
+
+var stress_stats_api_INT = require("./src/back/stress_stats_API/integration");
+
+stress_stats_api_INT.register(app, "/api/integration");
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // API_REST de depression -> Juan Diez Blanco (@jdblanco)
@@ -44,6 +48,7 @@ depression_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //API_REST de stress -> Ana Romero Cáceres (@anaromero99)
+
 
 var stress_stats_api = require("./src/back/stress_stats_API/v2"); // M I L E S T O N E Nº 5
 
