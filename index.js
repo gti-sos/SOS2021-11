@@ -4,6 +4,8 @@ var express = require("express");
 
 var path = require("path");
 
+var cors = require("cors");
+
 var bodyParser = require("body-parser"); // M I L E S T O N E Nº 4
 
 var BASE_API_PATH = "/api/v1"; // M I L E S T O N E Nº 4
@@ -19,6 +21,8 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 app.use("/", express.static(path.join(__dirname, "public")));
+
+app.use(cors());
 
 //--------------------------------- M I L E S T O N E Nº 8 (F08) ------------------------------------------------
 
