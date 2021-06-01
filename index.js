@@ -38,6 +38,10 @@ var anxiety_stats_api_INT = require("./src/back/anxiety_stats_API/integration");
 
 anxiety_stats_api_INT.register(app, "/api/integration");
 
+var depression_stats_api_INT = require("./src/back/depression_stats_API/integration");
+
+depression_stats_api_INT.register(app, "/api/integration");
+
 var stress_stats_api_INT = require("./src/back/stress_stats_API/integration");
 
 stress_stats_api_INT.register(app, "/api/integration");
