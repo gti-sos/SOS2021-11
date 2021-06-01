@@ -295,7 +295,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 	})
 
-};
+
 
 app.use("/proxyHeroku", function(req, res) {
 	var apiServerHost = "https://2021-11.herokuapp.com"
@@ -303,8 +303,9 @@ app.use("/proxyHeroku", function(req, res) {
 	console.log(`apiServerHost= <${apiServerHost}>`);
 	console.log(`baseURL = <${req.baseUrl}>`);
 	console.log(`url = <${req.url}>`);
-	  var url = apiServerHost + req.url;
-	  console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
-	  req.pipe(request(url)).pipe(res);
+	var url = apiServerHost + req.url;
+	console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
+	req.pipe(request(url)).pipe(res);
 	});
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+};
