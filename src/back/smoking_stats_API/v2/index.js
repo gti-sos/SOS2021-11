@@ -297,7 +297,7 @@ module.exports.register = (app, BASE_API_PATH) => { // M I L E S T O N E  Nº 5
 
 
 
-app.use("/proxyHeroku", function(req, res) {
+app.use("/proxySmoking", function(req, res) {
 	var apiServerHost = "https://2021-11.herokuapp.com"
 	
 	console.log(`apiServerHost= <${apiServerHost}>`);
