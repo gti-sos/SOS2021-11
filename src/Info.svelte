@@ -22,6 +22,14 @@
         <NavItem>
             <NavLink href="/">Volver a la página principal</NavLink>
         </NavItem>
+
+        <NavItem>
+            <NavLink href="/integrations">Integraciones</NavLink>
+        </NavItem>
+
+        <NavItem>
+            <NavLink href="/analytics">Analiticas</NavLink>
+        </NavItem>
     </Nav>
 
     <h1>SOS2021-11</h1>
