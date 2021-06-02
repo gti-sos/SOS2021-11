@@ -24,11 +24,11 @@
         </NavItem>
 
         <NavItem>
-            <NavLink href="/integrations">Integraciones</NavLink>
+            <NavLink href="/#/integrations">Integraciones</NavLink>
         </NavItem>
 
         <NavItem>
-            <NavLink href="/analytics">Analiticas</NavLink>
+            <NavLink href="/#/analytics">Analiticas</NavLink>
         </NavItem>
     </Nav>
 
