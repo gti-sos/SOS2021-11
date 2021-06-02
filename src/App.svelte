@@ -34,7 +34,7 @@
 	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
 
 	import SportVigo from "./front/smoking_stats_API/Sport.svelte"
-	import Psychology from "./front/smoking_stats_API/Psychology.Psychology.svelte"
+	import Psychology from "./front/smoking_stats_API/Psychology.svelte"
 
 	const routes = {
 		"/": Home,
