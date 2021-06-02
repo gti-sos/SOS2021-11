@@ -147,11 +147,11 @@
                 <CardBody>
                     <CardSubtitle />
                     
-                    <a href="https://sos2021-11.herokuapp.com/api/v2/smoking_stats"
-                        ><Button color="primary">API v2</Button></a
+                    <a href="/#/integration/Sports"
+                        ><Button color="primary">Sports</Button></a
                     >
-                    <a href="/#/smoking_stats"
-                        ><Button color="primary">Interfaz de Tabaquismo</Button></a
+                    <a href="/#/integration/Psychology"
+                        ><Button color="primary">Psychology</Button></a
                     >
                     <a
                         href="https://documenter.getpostman.com/view/14948136/TzJsgdzX"
