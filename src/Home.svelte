@@ -41,13 +41,13 @@
                 </h2>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                     <a href="/#/info">
-                        <button type="button" class="btn-btn primary">Información</button>
-                    </a>
-                    <a href="/#/integrations">
-                    <button type="button" class="btn-btn primary">Integraciones</button>
+                        <button type="button" class="btn btn-primary">Información</button>
                     </a>
                     <a href="/#/analytics">
-                        <button type="button" class="btn-btn primary">Analíticas</button>
+                    <button type="button" class="btn btn-primary">Analíticas</button>
+                    </a>
+                    <a href="/#/integrations">
+                        <button type="button" class="btn btn-primary">Integraciones</button>
                     </a>
                 </div>
             
