@@ -123,11 +123,11 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="https://sos2021-11.herokuapp.com/api/v2/stress_stats"
+                        href="/#/integration/SportCenter"
                     >
                         <Button color="primary">Sport Center</Button>
                     </a>
-                    <a href="/#/stress_stats">
+                    <a href="/#/integration/Optometrists">
                         <Button color="primary">Optometrists</Button>
                     </a>
                     <a
