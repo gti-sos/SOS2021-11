@@ -35,10 +35,11 @@
     <section class="page-section" id="informacion">
         <div class="jumbotron bg-primary">
             <div class="container">
+                
                 <h2 class="text-center text-white mt-0">
                     Información de las APIs
                 </h2>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <div class="col-lg-3 col-md-6 text-center">
                     <a href="/#/info">
                         <button color="primary">Información</button>
                     </a>
