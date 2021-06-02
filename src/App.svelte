@@ -4,6 +4,7 @@
 
 	import Home from "./Home.svelte";
 	import Info from "./Info.svelte";
+	import Integrations from "./Integrations.svelte";
 
 	import anxiety_stats from "./front/anxiety_stats_API/AnxietyStatsAPI.svelte";
 	import edit_anxiety_stats from "./front/anxiety_stats_API/AnxietyStatsEdit.svelte";
@@ -36,6 +37,7 @@
 	const routes = {
 		"/": Home,
 		"/info": Info,
+		"/integrations": Integrations,
 		"/anxiety_stats": anxiety_stats,
 		"/anxiety_stats/:country/:year": edit_anxiety_stats,
 		"/depression_stats": depression_stats,
