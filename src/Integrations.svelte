@@ -24,10 +24,6 @@
         </NavItem>
 
         <NavItem>
-            <NavLink href="/">Volver a la página principal</NavLink>
-        </NavItem>
-
-        <NavItem>
                 <NavLink href="/">Info</NavLink>
         </NavItem>
 
@@ -40,10 +36,8 @@
         </NavItem>
     </Nav>
 
-    <h1>Integraciones-11</h1>
+    <h1>Integraciones</h1>
 
-
-    <h2>APIs</h2>
     <Container>
         <Col xs="auto">
             <Card class="mb-3">

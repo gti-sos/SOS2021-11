@@ -41,7 +41,6 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                     <a href="/#/info">
                         <button color="primary">Información</button>
-                        
                     </a>
                     <a href="/#/integrations">
                     <button color="primary">Integraciones</button>
