@@ -6,8 +6,8 @@
 
         const anxiety_stats = await fetch("/api/v2/anxiety_stats");
         const depression_stats = await fetch("/api/v2/depression_stats");
-        const stress_stats = await fetch("/api/v1/stress_stats");
-        const smoking_stats = await fetch("/api/v1/smoking_stats");
+        const stress_stats = await fetch("/api/v2/stress_stats");
+        const smoking_stats = await fetch("/api/v2/smoking_stats");
 
         let anxiety = await anxiety_stats.json();
         let depression = await depression_stats.json();
