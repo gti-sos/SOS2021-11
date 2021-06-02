@@ -118,13 +118,17 @@
                 </CardHeader>
                 <CardBody>
                     <CardSubtitle />
+                    <CardText
+                        >Estadísticas acerca de los datos recogidos por estrés
+                        en las comunidades autónomas de España.</CardText
+                    >
                     <a
                         href="https://sos2021-11.herokuapp.com/api/v2/stress_stats"
                     >
-                        <Button color="primary">Sport1</Button>
+                        <Button color="primary">Sport Center</Button>
                     </a>
                     <a href="/#/stress_stats">
-                        <Button color="primary">Interfaz de Estrés</Button>
+                        <Button color="primary">Optometrists</Button>
                     </a>
                     <a
                         href="https://documenter.getpostman.com/view/14948110/TzXunKiV"
@@ -146,6 +150,10 @@
                 </CardHeader>
                 <CardBody>
                     <CardSubtitle />
+                    <CardText>
+                        Estadísticas acerca de los datos recogidos por tabaquismo
+                        en los países Europeos.
+                    </CardText>
                     
                     <a href="/#/integration/Sports"
                         ><Button color="primary">Sports</Button></a

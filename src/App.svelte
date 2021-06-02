@@ -33,6 +33,9 @@
 	import smoking_stats_graph from "./front/Analytics/smoking/SmokingStatsGraph.svelte"
 	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
 
+	import SportCenter from "./front/stress_stats_API/SportCenter.svelte"
+	import Optometrists from "./front/stress_stats_API/Optometrists.svelte"
+
 	import SportVigo from "./front/smoking_stats_API/Sport.svelte"
 	import Psychology from "./front/smoking_stats_API/Psychology.svelte"
 
@@ -63,6 +66,8 @@
 
 		"/analytics": analytics,
 		
+		"/integrations/SportCenter":SportCenter,
+		"/integrations/Optometrists":Optometrists,
 		"/integrations/Sports":SportVigo,
 		"/integrations/Psychology":Psychology,
 
