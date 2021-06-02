@@ -34,6 +34,10 @@
         <NavItem>
                 <NavLink href="/">Integraciones</NavLink>
         </NavItem>
+
+        <NavItem>
+            <NavLink href="/">Vídeos</NavLink>
+    </NavItem>
     </Nav>
 
     <h1>Integraciones</h1>
