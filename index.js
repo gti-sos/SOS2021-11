@@ -24,6 +24,49 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
+//-------------------------------- INTEGRACIONES -----------------------------------------------------
+
+//Integración Ana Romero Cáceres
+
+var pathSportCenter='/data/dataset/73088621-45b9-41a0-9060-c90ab20daf76/resource/1d9e38a7-4ff1-4eb6-a018-ddd71bb52b08/download/deporte.geojson';
+var apiServerHostSportCenter = 'https://opendata.alcoi.org/';
+
+app.use(pathSportCenter, function(req, res) {
+  var url = apiServerHostSportCenter = 'https://servicios.ine.es/';
+  + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+var pathOptometrists='/wstempus/js/es/DATOS_TABLA/30729?tip=AM';
+var apiServerHostOptometrists = 'https://servicios.ine.es/';
+
+app.use(pathOptometrists, function(req, res) {
+  var url = apiServerHostOptometrists + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+//Integración Miriam Campano Crespo
+var pathPsychologystats='/wstempus/js/es/DATOS_TABLA/t15/p416/a2018/s05001.px?tip=AM';
+var apiServerHostPsychologystats = 'https://servicios.ine.es/';
+
+app.use(pathPsychologystats, function(req, res) {
+  var url = apiServerHostPsychologystats + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
+var pathSportVigostats='/data/deportes/ins-complejos.json';
+var apiServerHostSportVigostats = 'https://datos.vigo.org/';
+
+app.use(pathSportVigostats, function(req, res) {
+  var url = apiServerHostSportVigostats + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 //--------------------------------- M I L E S T O N E Nº 8 (F08) ------------------------------------------------
 
 // BACK_API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
