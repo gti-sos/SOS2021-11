@@ -121,7 +121,7 @@
                     <a
                         href="https://sos2021-11.herokuapp.com/api/v2/stress_stats"
                     >
-                        <Button color="primary">API v2</Button>
+                        <Button color="primary">Sport1</Button>
                     </a>
                     <a href="/#/stress_stats">
                         <Button color="primary">Interfaz de Estrés</Button>
