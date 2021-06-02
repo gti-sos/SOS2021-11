@@ -1,1 +1,5 @@
-let prueba ="";
+<script>
+
+
+    let prueba ="";
+    </script>
