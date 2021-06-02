@@ -35,12 +35,19 @@
     <section class="page-section" id="informacion">
         <div class="jumbotron bg-primary">
             <div class="container">
+                
                 <h2 class="text-center text-white mt-0">
                     Información de las APIs
                 </h2>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                     <a href="/#/info">
-                        <button color="primary">Información</button>
+                        <button type="button" class="btn btn-primary">Información</button>
+                    </a>
+                    <a href="/#/analytics">
+                    <button type="button" class="btn btn-primary">Analíticas</button>
+                    </a>
+                    <a href="/#/integrations">
+                        <button type="button" class="btn btn-primary">Integraciones</button>
                     </a>
                 </div>
             
