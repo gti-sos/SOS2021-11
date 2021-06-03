@@ -49,11 +49,11 @@ app.use(pathOptometrists, function(req, res) {
 });
 
 //Integración Miriam Campano Crespo
-var pathPsychologystats='/wstempus/js/es/DATOS_TABLA/t15/p416/a2018/s05001.px?tip=AM';
-var apiServerHostPsychologystats = 'https://servicios.ine.es/';
+var pathAreastats='/rest/v2/?fields=name;subregion;area';
+var apiServerHostAreastats = 'https://restcountries.eu/';
 
-app.use(pathPsychologystats, function(req, res) {
-  var url = apiServerHostPsychologystats + req.url;
+app.use(pathAreastats, function(req, res) {
+  var url = apiServerHostAreastats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });

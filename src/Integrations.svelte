@@ -158,8 +158,8 @@
                     <a href="/#/integrations/Sport"
                         ><Button color="primary">Sports</Button></a
                     >
-                    <a href="/#/integrations/Psychology"
-                        ><Button color="primary">Psychology</Button></a
+                    <a href="/#/integrations/Area"
+                        ><Button color="primary">Area</Button></a
                     >
                     <a
                         href="https://documenter.getpostman.com/view/14948136/TzJsgdzX"

@@ -37,7 +37,7 @@
 	import Optometrists from "./front/stress_stats_API/Optometrists.svelte"
 
 	import Sport from "./front/smoking_stats_API/Sport.svelte"
-	import Psychology from "./front/smoking_stats_API/Psychology.svelte"
+	import Area from "./front/smoking_stats_API/Area.svelte"
 
 	const routes = {
 		"/": Home,
@@ -69,7 +69,7 @@
 		"/integrations/Covid":COVID_19,
 		"/integrations/Optometrists":Optometrists,
 		"/integrations/Sport":Sport,
-		"/integrations/Psychology":Psychology,
+		"/integrations/Area":Area,
 
 
 		"*": NotFound,
