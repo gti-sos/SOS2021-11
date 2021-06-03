@@ -42,11 +42,13 @@
         var nombre = [];
         var longitud = [] ;
         var latitud = [];
+        var id= [];
        
         datos.forEach((dato_api) => {
             nombre.push(dato_api.nombre);
             longitud.push(dato_api.lon);
             latitud.push(dato_api.lat);
+            id.push(dato_api.id);
     
         });
         
@@ -95,6 +97,8 @@
                   name: 'Coordenada de la latitud',
                   data: latitud
               }, {
+                name: 'Identificador',
+                  data: id
               }]
           });
              
