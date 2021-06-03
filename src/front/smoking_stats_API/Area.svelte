@@ -82,9 +82,9 @@
     },
     yAxis: {
         title: {
-            text: 'Number of units'
+            text: 'N'
         },
-        allowDecimals: false,
+        allowDecimals: true,
         min: 0
     },
     plotOptions: {
