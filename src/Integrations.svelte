@@ -155,7 +155,7 @@
                         en los países Europeos.
                     </CardText>
                     
-                    <a href="/#/integration/Sports"
+                    <a href="/#/integration/Sport"
                         ><Button color="primary">Sports</Button></a
                     >
                     <a href="/#/integration/Psychology"
