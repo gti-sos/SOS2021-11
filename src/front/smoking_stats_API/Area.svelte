@@ -1,10 +1,10 @@
 <script>
     import { Nav, NavItem, NavLink } from "sveltestrap";
     var errorMsg = "";
-    var datos = [];
+    var datosArea = [];
     const BASE_API_AREA = "https://restcountries.eu/rest/v2/?fields=name;subregion;area"
     
-    async function loadSport() {
+    async function loadArea() {
         console.log("Loading data...");
       
         const res = await fetch(BASE_API_AREA).then(
@@ -22,15 +22,15 @@
         );
       }
       
-      async function getDatos() {
+      async function getDatosArea() {
         console.log("Fetching data...");
-        await loadSport();
+        await loadArea();
         const res = await fetch(BASE_API_AREA);
         if (res.ok) {
           const json = await res.json();
-          datos = json;
+          datosArea = json;
       
-          console.log(`We have received ${datos.length} stats.`);
+          console.log(`We have received ${datosArea.length} stats.`);
           console.log("Ok");
         } else {
           errorMsg = "Error recuperando datos";
@@ -38,7 +38,7 @@
         }
       }
       async function loadChart(){
-        await getDatos();
+        await getDatosArea();
         var nombre = [];
         var area = [] ;
 
@@ -49,7 +49,7 @@
            
     
         });
-    }
+    
           
               Highcharts.setOptions({
     colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
@@ -107,7 +107,7 @@ Highcharts.chart('container', {
     }]
 });    
             
-    
+}
       
     </script>
     
