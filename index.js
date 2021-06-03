@@ -30,12 +30,11 @@ app.use(cors());
 
 //Integración Ana Romero Cáceres
 
-var pathSportCenter='/data/dataset/73088621-45b9-41a0-9060-c90ab20daf76/resource/1d9e38a7-4ff1-4eb6-a018-ddd71bb52b08/download/deporte.geojson';
-var apiServerHostSportCenter = 'https://opendata.alcoi.org/';
+var pathFarmacia='/OpenCitiesAPI/local-comercial/local-comercial.json?codigoCNAE=4773&srId=EPSG%3A4326';
+var apiServerHostFarmacia = 'https://lord.alcobendas.org/';
 
-app.use(pathSportCenter, function(req, res) {
-  var url = apiServerHostSportCenter = 'https://servicios.ine.es/';
-  + req.url;
+app.use(pathFarmacia, function(req, res) {
+  var url = apiServerHostFarmacia + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });

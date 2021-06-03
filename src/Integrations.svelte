@@ -123,9 +123,9 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="/#/integrations/SportCenter"
+                        href="/#/integrations/Farmacia"
                     >
-                        <Button color="primary">Sport Center</Button>
+                        <Button color="primary">Farmacia</Button>
                     </a>
                     <a href="/#/integrations/Optometrists">
                         <Button color="primary">Optometrists</Button>
