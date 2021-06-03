@@ -123,11 +123,11 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="/#/integration/SportCenter"
+                        href="/#/integrations/SportCenter"
                     >
                         <Button color="primary">Sport Center</Button>
                     </a>
-                    <a href="/#/integration/Optometrists">
+                    <a href="/#/integrations/Optometrists">
                         <Button color="primary">Optometrists</Button>
                     </a>
                     <a
@@ -155,10 +155,10 @@
                         en los países Europeos.
                     </CardText>
                     
-                    <a href="/#/integration/Sport"
+                    <a href="/#/integrations/Sport"
                         ><Button color="primary">Sports</Button></a
                     >
-                    <a href="/#/integration/Psychology"
+                    <a href="/#/integrations/Psychology"
                         ><Button color="primary">Psychology</Button></a
                     >
                     <a
