@@ -49,11 +49,11 @@ app.use(pathOptometrists, function(req, res) {
 });
 
 //Integración Miriam Campano Crespo
-var pathAreastats='/rest/v2/?fields=name;subregion;area';
-var apiServerHostAreastats = 'https://restcountries.eu/';
+var pathEnfermostats='/v2/gov/Germany';
+var apiServerHostEnfermostats = 'https://disease.sh/';
 
-app.use(pathAreastats, function(req, res) {
-  var url = apiServerHostAreastats + req.url;
+app.use(pathEnfermostats, function(req, res) {
+  var url = apiServerHostEnfermostats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
