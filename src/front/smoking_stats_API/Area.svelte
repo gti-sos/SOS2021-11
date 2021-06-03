@@ -43,7 +43,7 @@
         var area = [] ;
 
        
-        datos.forEach((dato_api) => {
+        datosArea.forEach((dato_api) => {
             nombre.push(dato_api.name);
             area.push(dato_api.area);
            
