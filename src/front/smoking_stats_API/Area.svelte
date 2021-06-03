@@ -98,16 +98,18 @@ Highcharts.chart('container', {
         }
     },
     series: [{
-        name: 'Share',
-        data: [
-            { nombre, area },
+        name: 'Área',
+        data: area,
+
+        name: 'Nombre del país',
+        data: nombre 
             
-            
-        ]
     }]
-});    
+          });
+             
+      }
             
-}
+
       
     </script>
     
