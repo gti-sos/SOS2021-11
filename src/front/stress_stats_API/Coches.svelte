@@ -65,11 +65,9 @@
         }
     },
     series: [{
+        data: codigo,
         name: 'Codigo',
-        data: codigo   
-    }, {
-        name: 'Modelo',
-        data: modelo
+        showInLegend: false
         
     }]
 });
