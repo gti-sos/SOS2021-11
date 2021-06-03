@@ -34,7 +34,7 @@
 	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
 
 	import COVID_19 from "./front/stress_stats_API/Covid.svelte"
-	import Coches from "./front/stress_stats_API/Coches.svelte"
+	import Bicicletas from "./front/stress_stats_API/Bicicleta.svelte"
 
 	import Sport from "./front/smoking_stats_API/Sport.svelte"
 	import Enfermo from "./front/smoking_stats_API/Enfermo.svelte"
@@ -67,7 +67,7 @@
 		"/analytics": analytics,
 		
 		"/integrations/Covid":COVID_19,
-		"/integrations/Coches":Coches,
+		"/integrations/Bicicletas":Bicicletas,
 		"/integrations/Sport":Sport,
 		"/integrations/Enfermo":Enfermo,
 

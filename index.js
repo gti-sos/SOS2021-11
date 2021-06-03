@@ -39,11 +39,11 @@ app.use(pathCovid, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
-var pathCoches='/fipe/api/v1/carros/marcas';
-var apiServerHostCoches = 'https://parallelum.com.br/';
+var pathBicicletas='/vls/v1/stations/?contract=Seville&apiKey=6fa39265431480ca0b5f3393cd78f29e2d436882';
+var apiServerHostBicicletas = 'https://api.jcdecaux.com/';
 
-app.use(pathCoches, function(req, res) {
-  var url = apiServerHostCoches + req.url;
+app.use(pathBicicletas, function(req, res) {
+  var url = apiServerHostBicicletas + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });

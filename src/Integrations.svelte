@@ -127,8 +127,8 @@
                     >
                         <Button color="primary">COVID-19</Button>
                     </a>
-                    <a href="/#/integrations/Coches">
-                        <Button color="primary">Coches</Button>
+                    <a href="/#/integrations/Bicicletas">
+                        <Button color="primary">Bicicletas</Button>
                     </a>
                     <a
                         href="https://documenter.getpostman.com/view/14948110/TzXunKiV"

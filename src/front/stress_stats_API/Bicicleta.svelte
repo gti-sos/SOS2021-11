@@ -2,11 +2,11 @@
     import { Nav, NavItem, NavLink } from "sveltestrap";
     var errorMsg = "";
     var datos = [];
-    const BASE_API_COCHES = "https://parallelum.com.br/fipe/api/v1/carros/marcas"
+    const BASE_API_BICICLETAS = "https://api.jcdecaux.com/vls/v1/stations/?contract=Seville&apiKey=6fa39265431480ca0b5f3393cd78f29e2d436882"
     //INTEGRACION API EXTERNA
-    async function loadCoches() {
+    async function loadBicicletas() {
         console.log("Loading data...");
-        const res = await fetch(BASE_API_COCHES).then(
+        const res = await fetch(BASE_API_BICICLETAS).then(
           function (res) {
             if (res.ok) {
               errorMsg = "";
@@ -23,8 +23,8 @@
     
       async function getDatos() {
         console.log("Fetching data...");
-        await loadCoches();
-        const res = await fetch(BASE_API_COCHES);
+        await loadBicicletas();
+        const res = await fetch(BASE_API_BICICLETAS);
         if (res.ok) {
           const json = await res.json();
           datos = json;
@@ -37,11 +37,13 @@
       }
       async function loadChart(){
         await getDatos();
-        var modelo = [];
-        var codigo = [] ;
-        datos.forEach((dato_coches) => {
-            modelo.push(dato_coches.nome);
-            codigo.push(dato_coches.codigo);
+        var id = [];
+        var nombre = [] ;
+        var bicicletas = [] ;
+        datos.forEach((dato_bicicletas) => {
+            id.push(dato_bicicletas.number);
+            nombre.push(dato_bicicletas.name);
+            bicicletas.push(dato_bicicletas.bike_stands);
         });
         
         Highcharts.chart('container', {
@@ -56,7 +58,7 @@
         }
     },
     title: {
-        text: 'Modelos de coches'
+        text: 'Número de bicicletas'
     },
     plotOptions: {
         series: {
@@ -65,8 +67,8 @@
         }
     },
     series: [{
-        data: codigo,
-        name: 'Codigo',
+        data: bicicletas,
+        name: 'Bicicletas',
         showInLegend: false
         
     }]
