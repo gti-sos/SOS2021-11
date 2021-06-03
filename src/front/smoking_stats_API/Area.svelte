@@ -50,46 +50,46 @@
     
         });
 		
+		
 		Highcharts.chart('container', {
     chart: {
-        type: 'area'
+        type: 'area',
+        inverted: true
     },
     title: {
         text: 'Extensión de área mundial'
     },
-    subtitle: {
-        text: ' '
+    accessibility: {
+        keyboardNavigation: {
+            seriesNavigation: {
+                mode: 'serialize'
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -150,
+        y: 100,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
     },
     xAxis: {
         categories: nombre,
-        tickmarkPlacement: 'on',
-        title: {
-            enabled: false
-        }
     },
     yAxis: {
-        labels: {
-            format: '{value}%'
-        },
         title: {
-            enabled: false
-        }
-    },
-    tooltip: {
-        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f} millions)<br/>',
-        split: true
+            text: 'Number of units'
+        },
+        allowDecimals: false,
+        min: 0
     },
     plotOptions: {
         area: {
-            stacking: 'percent',
-            lineColor: '#ffffff',
-            lineWidth: 1,
-            marker: {
-                lineWidth: 1,
-                lineColor: '#ffffff'
-            
-            
-            }
+            fillOpacity: 0.5
         }
     },
     series: [{
@@ -98,19 +98,18 @@
     
     }]
 });
-      }
-		
-		</script>
+}
+
+</script>
     
     <svelte:head>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"  on:load={loadChart}></script>
-
-  </svelte:head>
-  
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}>
+</script>
+ </svelte:head>
+ 
   <main> 
       <Nav>
           <NavItem>
@@ -141,24 +140,25 @@
         padding: 1em;
         margin: 0 auto;
       }
-	  .highcharts-figure, .highcharts-data-table table {
-    min-width: 310px; 
+	  
+	  #container {
+    height: 410px; 
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 320px; 
     max-width: 800px;
     margin: 1em auto;
 }
 
-#container {
-    height: 420px;
-}
-
 .highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 .highcharts-data-table caption {
     padding: 1em 0;
