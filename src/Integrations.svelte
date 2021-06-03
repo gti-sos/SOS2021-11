@@ -123,9 +123,9 @@
                         en las comunidades autónomas de España.</CardText
                     >
                     <a
-                        href="/#/integrations/Farmacia"
+                        href="/#/integrations/Covid"
                     >
-                        <Button color="primary">Farmacia</Button>
+                        <Button color="primary">COVID-19</Button>
                     </a>
                     <a href="/#/integrations/Optometrists">
                         <Button color="primary">Optometrists</Button>

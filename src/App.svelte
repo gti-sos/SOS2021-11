@@ -33,7 +33,7 @@
 	import smoking_stats_graph from "./front/Analytics/smoking/SmokingStatsGraph.svelte"
 	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
 
-	import Farmacia from "./front/stress_stats_API/Farmacia.svelte"
+	import COVID_19 from "./front/stress_stats_API/Covid.svelte"
 	import Optometrists from "./front/stress_stats_API/Optometrists.svelte"
 
 	import Sport from "./front/smoking_stats_API/Sport.svelte"
@@ -66,7 +66,7 @@
 
 		"/analytics": analytics,
 		
-		"/integrations/Farmacia":Farmacia,
+		"/integrations/Covid":COVID_19,
 		"/integrations/Optometrists":Optometrists,
 		"/integrations/Sport":Sport,
 		"/integrations/Psychology":Psychology,

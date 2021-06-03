@@ -2,11 +2,11 @@
     import { Nav, NavItem, NavLink } from "sveltestrap";
     var errorMsg = "";
     var datos = [];
-    const BASE_API_FARMACIA = "https://opendata.alcoi.org/data/dataset/73088621-45b9-41a0-9060-c90ab20daf76/resource/1d9e38a7-4ff1-4eb6-a018-ddd71bb52b08/download/deporte.geojson"
+    const BASE_API_MUERTES = "https://disease.sh/v2/countries?yesterday=false&sort=deaths&allowNull=true"
     //INTEGRACION API EXTERNA
-    async function loadFarmacia() {
+    async function loadCOVID() {
         console.log("Loading data...");
-        const res = await fetch(BASE_API_FARMACIA).then(
+        const res = await fetch(BASE_API_MUERTES).then(
           function (res) {
             if (res.ok) {
               errorMsg = "";
@@ -23,8 +23,8 @@
     
       async function getDatos() {
         console.log("Fetching data...");
-        await loadFarmacia();
-        const res = await fetch(BASE_API_FARMACIA);
+        await loadCOVID();
+        const res = await fetch(BASE_API_MUERTES);
         if (res.ok) {
           const json = await res.json();
           datos = json;
@@ -37,15 +37,13 @@
       }
       async function loadChart(){
         await getDatos();
-        var calle = [];
-        var idComunidad = [] ;
-        var latitud = [] ;
-        var longitud = [] ;
-        datos.forEach((dato_Farmacia) => {
-            calle.push(dato_Farmacia.streetAddress);
-            idComunidad.push(dato_Farmacia.idComunidad);
-            latitud.push(dato_Farmacia.latitud);
-            longitud.push(dato_Farmacia.longitud);
+        var pais = [];
+        var casos = [] ;
+        var muertes = [] ;
+        datos.forEach((dato_muertes) => {
+            pais.push(dato_muertes.country);
+            casos.push(dato_muertes.cases);
+            muertes.push(dato_muertes.deaths);
         });
         
         Highcharts.chart('container', {
@@ -53,15 +51,15 @@
         type: 'column'
     },
     title: {
-        text: 'Farmacias dadas de alta en registros municipal y autonómico'
+        text: 'Casos de infectados de COVID-19'
     },
     xAxis: {
-        categories: calle,
+        categories: pais,
     },
     yAxis: {
         min: 0,
         title: {
-            text: 'Coordenadas'
+            text: 'País'
         },
         stackLabels: {
             enabled: true,
@@ -99,14 +97,11 @@
         }
     },
     series: [{
-        name: 'Coordenada de la longitud',
-        data: longitud   
+        name: 'Casos',
+        data: casos   
     }, {
-        name: 'Coordenada de la latitud',
-        data: latitud
-    }, {
-        name: 'Identificador de Comunidad',
-        data: idComunidad
+        name: 'Muertes',
+        data: muertes
     }]
 });
 }

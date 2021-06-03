@@ -30,11 +30,11 @@ app.use(cors());
 
 //Integración Ana Romero Cáceres
 
-var pathFarmacia='/OpenCitiesAPI/local-comercial/local-comercial.json?codigoCNAE=4773&srId=EPSG%3A4326';
-var apiServerHostFarmacia = 'https://lord.alcobendas.org/';
+var pathCovid='/v2/countries?yesterday=false&sort=deaths&allowNull=true';
+var apiServerHostCovid = 'https://disease.sh/';
 
-app.use(pathFarmacia, function(req, res) {
-  var url = apiServerHostFarmacia + req.url;
+app.use(pathCovid, function(req, res) {
+  var url = apiServerHostCovid + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
