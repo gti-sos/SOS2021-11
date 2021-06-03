@@ -61,7 +61,7 @@
         text: ' '
     },
     xAxis: {
-        categories: area,
+        categories: nombre,
         tickmarkPlacement: 'on',
         title: {
             enabled: false
@@ -101,8 +101,8 @@
         }
     },
     series: [{
-        name: 'Nombre del país',
-        data: nombre
+        name: 'Área mundial',
+        data: area
     
     }]
 });
