@@ -36,7 +36,7 @@
 	import SportCenter from "./front/stress_stats_API/SportCenter.svelte"
 	import Optometrists from "./front/stress_stats_API/Optometrists.svelte"
 
-	import SportVigo from "./front/smoking_stats_API/Sport.svelte"
+	import Sport from "./front/smoking_stats_API/Sport.svelte"
 	import Psychology from "./front/smoking_stats_API/Psychology.svelte"
 
 	const routes = {
@@ -68,7 +68,7 @@
 		
 		"/integrations/SportCenter":SportCenter,
 		"/integrations/Optometrists":Optometrists,
-		"/integrations/Sports":SportVigo,
+		"/integrations/Sport":Sport,
 		"/integrations/Psychology":Psychology,
 
 
