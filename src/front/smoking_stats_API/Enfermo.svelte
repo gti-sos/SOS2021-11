@@ -1,13 +1,13 @@
 <script>
     import { Nav, NavItem, NavLink } from "sveltestrap";
     var errorMsg = "";
-    var datosArea = [];
-    const BASE_API_AREA = "https://restcountries.eu/rest/v2/?fields=name;subregion;area"
+    var datos = [];
+    const BASE_API_ENFERMOS = "https://disease.sh/v2/gov/Germany"
     
-    async function loadArea() {
+    async function loadEnfermo() {
         console.log("Loading data...");
       
-        const res = await fetch(BASE_API_AREA).then(
+        const res = await fetch(BASE_API_ENFERMOS).then(
           function (res) {
             if (res.ok) {
               errorMsg = "";
@@ -22,15 +22,15 @@
         );
       }
       
-      async function getDatosArea() {
+      async function getdatos() {
         console.log("Fetching data...");
-        await loadArea();
-        const res = await fetch(BASE_API_AREA);
+        await loadEnfermo();
+        const res = await fetch(BASE_API_ENFERMOS);
         if (res.ok) {
           const json = await res.json();
-          datosArea = json;
+          datos = json;
       
-          console.log(`We have received ${datosArea.length} stats.`);
+          console.log(`We have received ${datos.length} stats.`);
           console.log("Ok");
         } else {
           errorMsg = "Error recuperando datos";
@@ -38,14 +38,16 @@
         }
       }
       async function loadChart(){
-        await getDatosArea();
-        var nombre = [];
-        var area = [] ;
+        await getdatos();
+        var provincia = [];
+        var casos = [] ;
+		var muertes = [] ;
 
        
-        datosArea.forEach((dato_api) => {
-            nombre.push(dato_api.name);
-            area.push(dato_api.area);
+        datos.forEach((dato_api) => {
+            provincia.push(dato_api.province);
+            casos.push(dato_api.cases);
+			muertes.push(dato_api.deaths);
            
     
         });
@@ -57,7 +59,7 @@
         inverted: true
     },
     title: {
-        text: 'Extensión de área mundial'
+        text: 'Enfermos por provincia'
     },
     accessibility: {
         keyboardNavigation: {
@@ -78,13 +80,13 @@
             Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
     },
     xAxis: {
-        categories: nombre,
+        categories: provincia,
     },
     yAxis: {
         title: {
-            text: 'N'
+            text: 'Número de casos y muertes'
         },
-        allowDecimals: true,
+        allowDecimals: false,
         min: 0
     },
     plotOptions: {
@@ -92,9 +94,16 @@
             fillOpacity: 0.5
         }
     },
-    series: [{
-        name: 'Área mundial',
-        data: area
+	
+	
+	series: [{
+        name: 'Casos',
+        data: casos
+    }, {
+        name: 'Muertes',
+        data: muertes
+ 
+    
     
     }]
 });
@@ -106,7 +115,8 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}>
+</script>
  </svelte:head>
  
   <main> 

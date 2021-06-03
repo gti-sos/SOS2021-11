@@ -37,7 +37,7 @@
 	import Coches from "./front/stress_stats_API/Coches.svelte"
 
 	import Sport from "./front/smoking_stats_API/Sport.svelte"
-	import Area from "./front/smoking_stats_API/Area.svelte"
+	import Enfermo from "./front/smoking_stats_API/Enfermo.svelte"
 
 	const routes = {
 		"/": Home,
@@ -69,7 +69,7 @@
 		"/integrations/Covid":COVID_19,
 		"/integrations/Coches":Coches,
 		"/integrations/Sport":Sport,
-		"/integrations/Area":Area,
+		"/integrations/Enfermo":Enfermo,
 
 
 		"*": NotFound,
