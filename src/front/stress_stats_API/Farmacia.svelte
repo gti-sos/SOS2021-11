@@ -84,7 +84,7 @@
                   data: latitud
               }, {
                 name: 'Identificador de Comunidad',
-                  data: id
+                  data: idComunidad
                 }]  
             });
         };
