@@ -28,7 +28,7 @@
         if (res.ok) {
           const json = await res.json();
           datos = json;
-          console.log('We have received ${datos.length} stats.');
+          console.log(`We have received ${datos.length} stats.`);
           console.log("Ok");
         } else {
           errorMsg = "Error recuperando datos";
@@ -44,115 +44,114 @@
             codigo.push(dato_coches.codigo);
         });
         
-                Highcharts.chart('container', {
-    
-        chart: {
-            type: 'item'
-        },
-    
-        title: {
-            text: 'Modelos de coches'
-        },
-    
-        legend: {
-            labelFormat: '{name} <span style="opacity: 0.4">{y}</span>'
-        },
-    
-        series: [{
-            name: 'Representatives',
-            keys: ['modelo', 'codigo'],
-            data:[{
-        name: 'Modelo',
-        data: modelo   
-    }, {
+        Highcharts.chart('container', {
+    chart: {
+        type: 'cylinder',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            depth: 50,
+            viewDistance: 25
+        }
+    },
+    title: {
+        text: 'Modelos de coches'
+    },
+    plotOptions: {
+        series: {
+            depth: 25,
+            colorByPoint: true
+        }
+    },
+    series: [{
         name: 'Codigo',
-        data: codigo
-    }],
-            dataLabels: {
-                enabled: true,
-                format: '{point.label}'
-            },
-    
-            // Circular options
-            center: ['50%', '88%'],
-            size: '170%',
-            startAngle: -100,
-            endAngle: 100
-        }]
-    });
+        data: codigo   
+    }, {
+        name: 'Modelo',
+        data: modelo
+        
+    }]
+});
 }
-    
-    </script>
-    
-    
-    <svelte:head>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/item-series.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
-    </svelte:head>
+</script>
 
-    <main> 
-        <Nav>
-            <NavItem>
-            <NavLink href="/">Página Principal</NavLink>
-            </NavItem>
-            <NavItem>
-            <NavLink href="#/integrations">Integraciones</NavLink>
-            </NavItem>
-            </Nav>    
+<svelte:head>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/cylinder.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+</svelte:head>
 
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            En esta gráfica podemos ver la integración con una API Externa
-        </p>
-        <Button outline color="secondary" on:click="{pop}">Atrás</Button>
-    </figure>
+<main> 
+    <Nav>
+        <NavItem>
+        <NavLink href="/">Página Principal</NavLink>
+        </NavItem>
+        <NavItem>
+        <NavLink href="#/integrations">Integraciones</NavLink>
+        </NavItem>
+        </Nav> 
 
-    {#if errorMsg}
-      <p>{errorMsg}</p>
-      {/if}
-    </main>
-    
-    <style>
-        .highcharts-figure, .highcharts-data-table table {
-        min-width: 320px; 
-        max-width: 800px;
-        margin: 1em auto;
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+    </p>
+</figure>
+
+
+{#if errorMsg}
+<p>{errorMsg}</p>
+{/if}
+</main>
+
+
+<style>
+    main {
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
     }
     
-    .highcharts-data-table table {
-        font-family: Verdana, sans-serif;
-        border-collapse: collapse;
-        border: 1px solid #EBEBEB;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-    }
-    .highcharts-data-table caption {
-        padding: 1em 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-    .highcharts-data-table th {
-        font-weight: 600;
-        padding: 0.5em;
-    }
-    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-        padding: 0.5em;
-    }
-    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-        background: #f8f8f8;
-    }
-    .highcharts-data-table tr:hover {
-        background: #f1f7ff;
-    }
-    
-    
-    input[type="number"] {
-        min-width: 50px;
-    }
-    </style>
+#container {
+    height: 400px; 
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+
+</style>
