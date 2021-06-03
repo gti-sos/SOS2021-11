@@ -28,7 +28,7 @@
         if (res.ok) {
           const json = await res.json();
           datos = json;
-          console.log('We have received ${datos.length} stats.');
+          console.log(`We have received ${datos.length} stats.`);
           console.log("Ok");
         } else {
           errorMsg = "Error recuperando datos";
@@ -76,9 +76,16 @@
                         }
                     }
                 },
-                series: idComunidad,
-                series: latitud,
-                series: longitud
+                series: [{
+                  name: 'Coordenada de la longitud',
+                  data: longitud   
+              }, {
+                  name: 'Coordenada de la latitud',
+                  data: latitud
+              }, {
+                name: 'Identificador de Comunidad',
+                  data: id
+                }]  
             });
         };
     </script>
@@ -88,7 +95,7 @@
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadChart}"></script>
     </svelte:head>
     <figure class="highcharts-figure">
         <div id="container"></div>
