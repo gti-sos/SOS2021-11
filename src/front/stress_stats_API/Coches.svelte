@@ -92,6 +92,17 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
     </svelte:head>
+
+    <main> 
+        <Nav>
+            <NavItem>
+            <NavLink href="/">Página Principal</NavLink>
+            </NavItem>
+            <NavItem>
+            <NavLink href="#/integrations">Integraciones</NavLink>
+            </NavItem>
+            </Nav>    
+
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
@@ -99,6 +110,11 @@
         </p>
         <Button outline color="secondary" on:click="{pop}">Atrás</Button>
     </figure>
+
+    {#if errorMsg}
+      <p>{errorMsg}</p>
+      {/if}
+    </main>
     
     <style>
         .highcharts-figure, .highcharts-data-table table {
