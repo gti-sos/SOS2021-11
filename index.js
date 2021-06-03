@@ -39,11 +39,11 @@ app.use(pathCovid, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
-var pathOptometrists='/wstempus/js/es/DATOS_TABLA/30729?tip=AM';
-var apiServerHostOptometrists = 'https://servicios.ine.es/';
+var pathCoches='/fipe/api/v1/carros/marcas';
+var apiServerHostCoches = 'https://parallelum.com.br/';
 
-app.use(pathOptometrists, function(req, res) {
-  var url = apiServerHostOptometrists + req.url;
+app.use(pathCoches, function(req, res) {
+  var url = apiServerHostCoches + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
