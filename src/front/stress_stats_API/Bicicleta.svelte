@@ -54,7 +54,7 @@
             alpha: 15,
             beta: 15,
             depth: 50,
-            viewDistance: 25
+            viewDistance: 40
         }
     },
     title: {
