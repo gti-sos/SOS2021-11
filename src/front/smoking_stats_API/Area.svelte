@@ -49,81 +49,77 @@
            
     
         });
-    
-          
-              Highcharts.setOptions({
-    colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-        return {
-            radialGradient: {
-                cx: 0.5,
-                cy: 0.3,
-                r: 0.7
-            },
-            stops: [
-                [0, color],
-                [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-            ]
-        };
-    })
-});
-
-
-Highcharts.chart('container', {
+		
+		Highcharts.chart('container', {
     chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
+        type: 'area'
     },
     title: {
         text: 'Extensión de área mundial'
     },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    subtitle: {
+        text: ' '
     },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
+    xAxis: {
+        categories: area,
+        tickmarkPlacement: 'on',
+        title: {
+            enabled: false
         }
     },
+    yAxis: {
+        labels: {
+            format: '{value}%'
+        },
+        title: {
+            enabled: false
+        }
+    },
+    tooltip: {
+        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f} millions)<br/>',
+        split: true
+    },
     plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                connectorColor: 'silver'
+        area: {
+            stacking: 'percent',
+            lineColor: '#ffffff',
+            lineWidth: 1,
+            marker: {
+                lineWidth: 1,
+                lineColor: '#ffffff'
+            },
+            accessibility: {
+                pointDescriptionFormatter: function (point) {
+                    function round(x) {
+                        return Math.round(x * 100) / 100;
+                    }
+                    return (point.index + 1) + ', ' + point.category + ', ' +
+                        point.y + ' millions, ' + round(point.percentage) + '%, ' +
+                        point.series.name;
+                }
             }
         }
     },
     series: [{
-        name: 'Área',
-        data: area,
-
         name: 'Nombre del país',
-        data: nombre 
-            
+        data: nombre
+    
     }]
-          });
-             
+});
       }
-            
-
-      
-    </script>
+		
+		</script>
     
     <svelte:head>
-        
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/modules/export-data.js"></script>
-	<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
-	
-    </svelte:head>
-    
-     
-    <main> 
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"  on:load={loadChart}></script>
+
+  </svelte:head>
+  
+  <main> 
       <Nav>
           <NavItem>
           <NavLink href="/">Página Principal</NavLink>
@@ -133,16 +129,15 @@ Highcharts.chart('container', {
           </NavItem>
           </Nav>          
           
-      <h3>Uso de la API externa Extensión de Área Mundial</h3>
+      <h3>Uso de la API externa Area</h3>
       
     
       <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">    </p>
       </figure>
-    
-    
-      {#if errorMsg}
+	  
+	   {#if errorMsg}
       <p>{errorMsg}</p>
       {/if}
     </main>
@@ -154,10 +149,14 @@ Highcharts.chart('container', {
         padding: 1em;
         margin: 0 auto;
       }
-     .highcharts-figure, .highcharts-data-table table {
-    min-width: 320px; 
-    max-width: 660px;
+	  .highcharts-figure, .highcharts-data-table table {
+    min-width: 310px; 
+    max-width: 800px;
     margin: 1em auto;
+}
+
+#container {
+    height: 420px;
 }
 
 .highcharts-data-table table {
@@ -187,6 +186,4 @@ Highcharts.chart('container', {
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
-
-    
-    </style>
+</style>
