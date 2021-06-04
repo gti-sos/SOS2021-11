@@ -60,12 +60,8 @@ legend: {
     enabled: false
 },
 
-subtitle: {
-    text: '2018'
-},
-
 title: {
-    text: 'Top 10 Countries by Population'
+    text: 'Education Expenditure per millions'
 },
 
 tooltip: {
