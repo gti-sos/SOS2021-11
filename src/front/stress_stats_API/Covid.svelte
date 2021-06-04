@@ -71,9 +71,9 @@
         verticalAlign: 'middle'
     },
     series: [{
-        name: 'Casos',
+        name: 'Pais',
         type: 'polygon',
-        data: [casos],
+        data: pais,
         color: Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get(),
         enableMouseTracking: false,
         accessibility: {
@@ -84,7 +84,7 @@
         name: 'Muertes',
         type: 'scatter',
         color: Highcharts.getOptions().colors[1],
-        data: [muertes],
+        data: muertes,
     }],
     tooltip: {
         headerFormat: '<b>{series.name}</b><br>',
