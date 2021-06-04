@@ -84,12 +84,8 @@ yAxis: {
 },
 
 series: [{
-        name: 'Pais',
-        data: pais,
-      
-},{
-        name: 'Expedición de educación',
-        data: education_expenditure_per_millions,
+      name: 'Expedición de educación',
+      data: education_expenditure_per_millions,
     
 }]
 
