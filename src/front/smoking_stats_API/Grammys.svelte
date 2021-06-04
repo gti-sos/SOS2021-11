@@ -171,7 +171,7 @@ Highcharts.chart('container', {
     }, {
         name: "Año",
         data: anyo
-    }, 
+    }
     
      
     ],
@@ -207,7 +207,7 @@ Highcharts.chart('container', {
           </NavItem>
           </Nav>          
           
-      <h3>Uso de la API externa Deportes Vigo</h3>
+      <h3>Uso de la API interna del Grupo 22 de SOS Grammys</h3>
       
     
       <figure class="highcharts-figure">
