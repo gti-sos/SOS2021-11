@@ -162,7 +162,7 @@ Highcharts.chart('container', {
     
     series: [{
         name: "Premios",
-        data: award
+        data: premios,
     }, {
         name: "Año",
         data: anyo,
