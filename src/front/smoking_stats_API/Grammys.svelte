@@ -52,17 +52,10 @@
            
     
         });
-        var defData = [{
-    pais
-  }, {
-    premios
-  },
+        var defData = [
    {
-    anyo
-  },
-  {
-   nombre
-  },
+    premios
+  }
 ];
 var chart = new Taucharts.Chart({
   data: defData,
