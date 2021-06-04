@@ -45,51 +45,40 @@
         });
         
         Highcharts.chart('container', {
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: 'Tasa de ocupación por año'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            accessibility: {
-                point: {
-                    valueSuffix: '%'
-                }
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                    }
-                }
-            },
-            series: [{
-                name: 'ayo',
-                colorByPoint: true,
-                data: [{
-                    name: 'anyo',
-                    y: anyo,
-                }, {
-                    name: 'ocupacion',
-                    y: ocupacion
-                }, 
-            ]
-            }]
-        });
+    chart: {
+        type: 'variablepie'
+    },
+    title: {
+        text: 'Countries compared by population density and total area.'
+    },
+    tooltip: {
+        headerFormat: '',
+        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
+            'Area (square km): <b>{point.y}</b><br/>' +
+            'Population density (people per square km): <b>{point.z}</b><br/>'
+    },
+    series: [{
+        minPointSize: 10,
+        innerSize: '20%',
+        zMin: 0,
+        name: 'anyo',
+        data: [{
+            name: 'anyo',
+            y: anyo,
+            z: anyo
+        }, {
+            name: 'ocupacion',
+            y: ocupacion,
+            z: ocupacion
+        }]
+    }]
+});
     }
 </script>
 
 <svelte:head>
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/variable-pie.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
@@ -125,22 +114,13 @@
       margin: 0 auto;
     }
     
-
-    @import 'https://code.highcharts.com/css/highcharts.css';
-
-.highcharts-pie-series .highcharts-point {
-	stroke: #EDE;
-	stroke-width: 2px;
-}
-.highcharts-pie-series .highcharts-data-label-connector {
-	stroke: silver;
-	stroke-dasharray: 2, 2;
-	stroke-width: 2px;
+    #container {
+	height: 500px;
 }
 
 .highcharts-figure, .highcharts-data-table table {
     min-width: 320px; 
-    max-width: 600px;
+    max-width: 700px;
     margin: 1em auto;
 }
 
@@ -171,6 +151,5 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
-
 
 </style>
