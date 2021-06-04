@@ -40,43 +40,44 @@
       async function loadChart(){
         await getDatos();
         var nombre = [];
-       // var pais = [] ;
+        var pais = [] ;
         var premios = [];
         var anyo= [];
        
         datos.forEach((dato_grammy) => {
             nombre.push(dato_grammy.name);
-          //  pais.push(dato_grammy.country);
+            pais.push(dato_grammy.country);
             premios.push(dato_grammy.award);
 			anyo.push(dato_grammy.year);
            
     
         });
-        var chart = new tauCharts.Chart({
-
-data:premios,
-type:'scatterplot',
-x: anyo,
-y: nombre,
-color:'isWinner',
-size:null,
-plugins:
-[
-
-tauCharts.api.plugins.get('tooltip')(),
-tauCharts.api.plugins.get('legend')(),
-tauCharts.api.plugins.get('quick-filter')(),
-tauCharts.api.plugins.get('trendline')(),
-]
-
+        var defData = [{
+    pais
+  }, {
+    premios
+  },
+   {
+    anyo
+  },
+  {
+   nombre
+  },
+];
+var chart = new Taucharts.Chart({
+  data: defData,
+  type: 'bar',
+  x: 'País',
+  y: 'Premio'
 });
-
-chart.renderTo('#container'); 
-}
+chart.renderTo('#bar');
+      }
     </script>
+    <svelte:head>
+    <script src="https://cdn.jsdelivr.net/npm/d3@4.13.0/build/d3.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/taucharts@2/dist/taucharts.min.js on:load={loadChart}" type="text/javascript"></script>
     
-    
-    
+</svelte:head>
      
     <main> 
       <Nav>
@@ -103,10 +104,7 @@ chart.renderTo('#container');
         padding: 1em;
         margin: 0 auto;
       }
-      #container {
-	height: 600px;
-}
-
+    
 
 
     </style>
