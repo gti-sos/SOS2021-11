@@ -40,13 +40,13 @@
       async function loadChart(){
         await getDatos();
         var nombre = [];
-        var pais = [] ;
+       // var pais = [] ;
         var premios = [];
         var anyo= [];
        
         datos.forEach((dato_grammy) => {
             nombre.push(dato_grammy.name);
-            pais.push(dato_grammy.country);
+          //  pais.push(dato_grammy.country);
             premios.push(dato_grammy.award);
 			anyo.push(dato_grammy.year);
            
@@ -164,10 +164,6 @@ Highcharts.chart('container', {
     series: [{
         name: "Premios",
         data: premios
-    }, {
-        name: "País",
-        data: pais
-        
     }, {
         name: "Año",
         data: anyo
