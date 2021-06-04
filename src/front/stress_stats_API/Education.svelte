@@ -37,45 +37,68 @@
       }
       async function loadChart(){
         await getDatos();
-        var comunidad_autonoma = [] ;
-        var youth_unemployment_rate = [] ;
-        datos.forEach((dato_desempleo) => {
-            comunidad_autonoma.push(dato_desempleo.autonomous_community);
-            youth_unemployment_rate.push(dato_desempleo.youth_unemployment_rate);
+        var education_expenditure_per_millions = [] ;
+        var pais = [] ;
+        datos.forEach((dato_educacion) => {
+          education_expenditure_per_millions.push(dato_educacion.education_expenditure_per_millions);
+            pais.push(dato_educacion.country);
         });
         
         Highcharts.chart('container', {
-    chart: {
-        type: 'variablepie'
-    },
+
+chart: {
+    type: 'lollipop'
+},
+
+accessibility: {
+    point: {
+        valueDescriptionFormat: '{index}. {xDescription}, {point.y}.'
+    }
+},
+
+legend: {
+    enabled: false
+},
+
+subtitle: {
+    text: '2018'
+},
+
+title: {
+    text: 'Top 10 Countries by Population'
+},
+
+tooltip: {
+    shared: true
+},
+
+xAxis: {
+    type: 'Expedición de educación'
+},
+
+yAxis: {
     title: {
-        text: 'Countries compared by population density and total area.'
-    },
-    tooltip: {
-        headerFormat: '',
-        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-            
-            'Population density (people per square km): <b>{point.z}</b><br/>'
-    },
-    series: [{
-        minPointSize: 10,
-        innerSize: '20%',
-        zMin: 0,
-        name: 'countries',
-        data: [{
-            name: 'Comunidad_autonoma',
-            z: youth_unemployment_rate
-        }]
+        text: 'Pais'
+    }
+},
+
+series: [{
+    name: 'Pais',
+    data: [{
+        name: 'Pais'
     }]
+}]
+
 });
     }
 </script>
 
 <svelte:head>
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+<script src="https://code.highcharts.com/modules/lollipop.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
 </svelte:head>
 
@@ -109,13 +132,9 @@
       margin: 0 auto;
     }
     
-    #container {
-	height: 500px;
-}
-
-.highcharts-figure, .highcharts-data-table table {
+    .highcharts-figure, .highcharts-data-table table {
     min-width: 320px; 
-    max-width: 700px;
+    max-width: 800px;
     margin: 1em auto;
 }
 
@@ -146,4 +165,18 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
+
+.ld-label {
+	width:200px;
+	display: inline-block;
+}
+
+.ld-url-input {
+	width: 500px; 
+}
+
+.ld-time-input {
+	width: 40px;
+}
+
 </style>
