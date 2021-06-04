@@ -54,8 +54,7 @@
     xAxis: {
         gridLineWidth: 1,
         title: {
-            enabled: true,
-            text: 'Height (cm)'
+            enabled: true
         },
         startOnTick: true,
         endOnTick: true,
@@ -63,7 +62,7 @@
     },
     yAxis: {
         title: {
-            text: 'Weight (kg)'
+            
         }
     },
     legend: {
