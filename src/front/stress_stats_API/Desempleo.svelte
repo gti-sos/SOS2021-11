@@ -72,8 +72,9 @@ yAxis: {
 },
 
 series: [{
-    data: [anyo
-    ],
+    data: {
+        anyo
+    },
     marker: {
         fillColor: {
             radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
@@ -84,8 +85,9 @@ series: [{
         }
     }
 }, {
-    data: [ocupacion
-    ],
+    data: {
+        ocupacion
+    },
     marker: {
         fillColor: {
             radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
