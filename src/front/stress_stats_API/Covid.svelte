@@ -87,7 +87,7 @@
     }],
     tooltip: {
         headerFormat: '<b>{series.name}</b><br>',
-        pointFormat: '{point.x} cm, {point.y} kg'
+        pointFormat: '{point.x} muertes, {point.y} casos'
     },
     responsive: {
         rules: [{
