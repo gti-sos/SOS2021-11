@@ -48,10 +48,10 @@
         
         Highcharts.chart('container', {
     chart: {
-        type: 'column'
+        type: 'bar'
     },
     title: {
-        text: 'Casos de infectados de COVID-19'
+        text: 'Stacked bar chart'
     },
     xAxis: {
         categories: pais,
@@ -59,41 +59,15 @@
     yAxis: {
         min: 0,
         title: {
-            text: 'País'
-        },
-        stackLabels: {
-            enabled: true,
-            style: {
-                fontWeight: 'bold',
-                color: ( // theme
-                    Highcharts.defaultOptions.title.style &&
-                    Highcharts.defaultOptions.title.style.color
-                ) || 'gray'
-            }
+            text: 'Casos de infectados de COVID-19'
         }
     },
     legend: {
-        align: 'right',
-        x: -30,
-        verticalAlign: 'top',
-        y: 25,
-        floating: true,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || 'white',
-        borderColor: '#CCC',
-        borderWidth: 1,
-        shadow: false
-    },
-    tooltip: {
-        headerFormat: '<b>{point.x}</b><br/>',
-        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        reversed: true
     },
     plotOptions: {
-        column: {
-            stacking: 'normal',
-            dataLabels: {
-                enabled: true
-            }
+        series: {
+            stacking: 'normal'
         }
     },
     series: [{
@@ -145,24 +119,24 @@
       margin: 0 auto;
     }
     
-#container {
-    height: 400px; 
-}
-
-.highcharts-figure, .highcharts-data-table table {
+    .highcharts-figure, .highcharts-data-table table {
     min-width: 310px; 
     max-width: 800px;
     margin: 1em auto;
 }
 
+#container {
+    height: 400px;
+}
+
 .highcharts-data-table table {
-    font-family: Verdana, sans-serif;
-    border-collapse: collapse;
-    border: 1px solid #EBEBEB;
-    margin: 10px auto;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
 }
 .highcharts-data-table caption {
     padding: 1em 0;
@@ -182,5 +156,6 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
+
 
 </style>
