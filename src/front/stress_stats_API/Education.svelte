@@ -70,8 +70,7 @@ tooltip: {
 
 xAxis: {
     type: 'Expedición de educación',
-    categories: pais,
-    text: 'Países'
+    categories: pais
 },
 
 yAxis: {
