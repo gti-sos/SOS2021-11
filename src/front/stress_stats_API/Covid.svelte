@@ -71,20 +71,19 @@
         verticalAlign: 'middle'
     },
     series: [{
-        name: 'Pais',
+        name: 'Muertes',
         type: 'polygon',
-        data: pais,
+        data: muertes,
         color: Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get(),
         enableMouseTracking: false,
         accessibility: {
-            exposeAsGroupOnly: true,
-            description: 'Target ranges in an upwards trending diagonal from 149 to 180 on the x axis, and 42 to 77 on the y axis.'
+            exposeAsGroupOnly: true
         }
     }, {
-        name: 'Muertes',
+        name: 'Casos',
         type: 'scatter',
         color: Highcharts.getOptions().colors[1],
-        data: muertes,
+        data: casos,
     }],
     tooltip: {
         headerFormat: '<b>{series.name}</b><br>',
