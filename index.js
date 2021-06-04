@@ -48,6 +48,46 @@ app.use(pathBicicletas, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//Integración Interna Ana Romero Cáceres
+
+var pathUnemployment='/api/v2/unemployment-stats';
+var apiServerHostUnemployment= 'https://sos2021-23.herokuapp.com/';
+
+app.use(pathUnemployment, function(req, res) {
+  var url = apiServerHostUnemployment + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+var pathEvictions='/api/v1/evictions';
+var apiServerHostEvictions = 'https://sos2021-25.herokuapp.com/';
+
+app.use(pathEvictions, function(req, res) {
+  var url = apiServerHostEvictions + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+var pathInversion='api/v2/province-budget-and-investment-in-social-promotion';
+var apiServerHostInversion = 'https://sos2021-27.herokuapp.com/';
+
+app.use(pathInversion, function(req, res) {
+  var url = apiServerHostInversion + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+var pathDesempleo='/api/v2/unemployment';
+var apiServerHostDesempleo = 'https://sos2021-07.herokuapp.com/';
+
+app.use(pathDesempleo, function(req, res) {
+  var url = apiServerHostDesempleo + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+  
+  
+
 //Integración Miriam Campano Crespo
 var pathEnfermostats='/v2/gov/Germany';
 var apiServerHostEnfermostats = 'https://disease.sh/';
@@ -68,7 +108,8 @@ app.use(pathSportVigostats, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
-////////////INTEGRACIONES INTERNA
+////////////INTEGRACIONES INTERNA MIRIAM CAMPANO CRESPO
+
 //GRUPO 10 FOOD
 var pathFoodstats='/api/integration/foodconsumption-stats';
 var apiServerHostFoodstats = 'https://sos2021-10.herokuapp.com/';
@@ -205,4 +246,4 @@ app.get("/info/depression_stats", (request, response) => {
 */
 
 
-
+  

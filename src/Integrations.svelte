@@ -122,18 +122,23 @@
                         >Estadísticas acerca de los datos recogidos por estrés
                         en las comunidades autónomas de España.</CardText
                     >
-                    <a
-                        href="/#/integrations/Covid"
-                    >
+                    <a href="/#/integrations/Covid">
                         <Button color="primary">COVID-19</Button>
                     </a>
                     <a href="/#/integrations/Bicicletas">
                         <Button color="primary">Bicicletas</Button>
                     </a>
-                    <a
-                        href="https://documenter.getpostman.com/view/14948110/TzXunKiV"
-                    >
-                        <Button color="info">Documentación v2</Button>
+                    <a href="/#/integrations/Unemployment">
+                        <Button color="info">Unemployment</Button>
+                    </a>
+                    <a href="/#/integrations/Evictions">
+                        <Button color="info">Evictions</Button>
+                    </a>
+                    <a href="/#/integrations/Inversion">
+                        <Button color="info">Inversion</Button>
+                    </a>    
+                    <a href="/#/integrations/Desempleo">
+                        <Button color="info">Desempleo</Button>
                     </a>
                 </CardBody>
                 <CardFooter
