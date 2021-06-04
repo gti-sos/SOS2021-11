@@ -40,13 +40,13 @@
     async function loadChart(){
       await getDatos();
       var nombre = [];
-    //  var pais = [] ;
+      var pais = [] ;
       var premios = [];
       var anyo= [];
      
       datos.forEach((dato_grammy) => {
           nombre.push(dato_grammy.name);
-         // pais.push(dato_grammy.country);
+         pais.push(dato_grammy.country);
           premios.push(parseInt(dato_grammy.award));
     anyo.push(parseInt(dato_grammy.year));
          
