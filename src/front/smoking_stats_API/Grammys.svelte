@@ -103,7 +103,7 @@ series: [{
     type: 'scatter',
     data: premios,
     marker: {
-        fillColor: 'white',
+        fillColor: 'red',
         lineWidth: 1,
         lineColor: Highcharts.getOptions().colors[0]
     },
