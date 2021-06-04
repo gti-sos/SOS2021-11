@@ -77,7 +77,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'anyo',
-                    y: year,
+                    y: anyo,
                 }, {
                     name: 'ocupacion',
                     y: ocupacion
