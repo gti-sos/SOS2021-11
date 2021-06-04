@@ -174,7 +174,7 @@ Highcharts.chart('container', {
     }, 
     
      
-    }],
+    ],
 
     exporting: {
         sourceWidth: 800,
@@ -182,7 +182,7 @@ Highcharts.chart('container', {
     }
 
 });
-
+      }
     </script>
     
     <svelte:head>
