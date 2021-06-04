@@ -65,10 +65,6 @@
         data: [{
             name: 'anyo',
             y: anyo,
-            z: anyo
-        }, {
-            name: 'ocupacion',
-            y: ocupacion,
             z: ocupacion
         }]
     }]
