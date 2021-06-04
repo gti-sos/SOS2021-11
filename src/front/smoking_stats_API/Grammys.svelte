@@ -47,8 +47,8 @@
         datos.forEach((dato_grammy) => {
             nombre.push(dato_grammy.name);
            // pais.push(dato_grammy.country);
-            premios.push(dato_grammy.award);
-			anyo.push(dato_grammy.year);
+            premios.push(parseInt(dato_grammy.award));
+			anyo.push(parseInt(dato_grammy.year));
            
     
         });
