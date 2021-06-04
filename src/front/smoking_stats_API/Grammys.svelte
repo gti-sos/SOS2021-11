@@ -54,13 +54,11 @@
       });
       var colors = Highcharts.getOptions().colors;
 Highcharts.chart('container', {
-
     chart: {
         type: 'streamgraph',
         marginBottom: 30,
         zoomType: 'x'
     },
-
     // Make sure connected countries have similar colors
     colors: [
         colors[0],
@@ -71,7 +69,6 @@ Highcharts.chart('container', {
         // East Germany, West Germany and Germany
         Highcharts.color(colors[5]).brighten(0.2).get(),
         Highcharts.color(colors[5]).brighten(0.1).get(),
-
         colors[5],
         colors[6],
         colors[7],
@@ -85,11 +82,10 @@ Highcharts.chart('container', {
         Highcharts.color(colors[2]).brighten(-0.2).get(),
         Highcharts.color(colors[2]).brighten(-0.3).get()
     ],
-
     title: {
         floating: true,
         align: 'left',
-        text: 'Premios de grammys por año'
+        text: 'Premios de grammys por artista y año'
     },
     subtitle: {
         floating: true,
@@ -97,7 +93,6 @@ Highcharts.chart('container', {
         y: 30,
         text: ''
     },
-
     xAxis: {
         maxPadding: 0,
         type: 'category',
@@ -112,17 +107,14 @@ Highcharts.chart('container', {
         margin: 20,
         tickWidth: 0
     },
-
     yAxis: {
         visible: false,
         startOnTick: false,
         endOnTick: false
     },
-
     legend: {
         enabled: false
     },
-
     annotations: [{
         labels: [{
             point: {
@@ -131,7 +123,7 @@ Highcharts.chart('container', {
                 y: 30,
                 yAxis: 0
             },
-            text: ''
+            text: 'Premios'
         }, {
             point: {
                 x: 18,
@@ -146,7 +138,6 @@ Highcharts.chart('container', {
             borderColor: 'silver'
         }
     }],
-
     plotOptions: {
         series: {
             label: {
@@ -158,82 +149,78 @@ Highcharts.chart('container', {
             }
         }
     },
-
     
     series: [{
         name: "Premios",
         data: premios
     }, {
+        name: "País",
+        data: pais
+        
+    }, {
         name: "Año",
         data: anyo
-    }
     
     
-    ],
 
-    exporting: {
-        sourceWidth: 800,
-        sourceHeight: 600
-    }
-
+    
+  }],
 });
-
     }
-  </script>
-  <svelte:head>
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/streamgraph.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
-<script src="https://code.highcharts.com/modules/annotations.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
-
-
-</svelte:head>
-   
-  <main> 
-    <Nav>
-        <NavItem>
-        <NavLink href="/">Página Principal</NavLink>
-        </NavItem>
-        <NavItem>
-        <NavLink href="#/integrations">Integraciones</NavLink>
-        </NavItem>
-        </Nav>          
+    </script>
+    
+    <svelte:head>
         
-    <h3>Uso de la API interna del Grupo 22 de SOS Grammys</h3>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/streamgraph.js"></script>
+	<script src="https://code.highcharts.com/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com/modules/annotations.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+    </svelte:head>
     
-    <figure class="highcharts-figure">
-      <div id="container"></div>
-      <p class="highcharts-description">  </p>
-    </figure>
-  
-    {#if errorMsg}
-    <p>{errorMsg}</p>
-    {/if}
-  </main>
-  
+     
+    <main> 
+      <Nav>
+          <NavItem>
+          <NavLink href="/">Página Principal</NavLink>
+          </NavItem>
+          <NavItem>
+          <NavLink href="#/integrations">Integraciones</NavLink>
+          </NavItem>
+          </Nav>          
+          
+      <h3>Uso de la API externa Deportes Vigo</h3>
+      
     
-  <style>
-    main {
-      text-align: center;
-      padding: 1em;
-      margin: 0 auto;
-    }
- 
-    #container {
+      <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">    </p>
+      </figure>
+    
+    
+      {#if errorMsg}
+      <p>{errorMsg}</p>
+      {/if}
+    </main>
+    
+      
+    <style>
+      main {
+        text-align: center;
+        padding: 1em;
+        margin: 0 auto;
+      }
+      #container {
 	height: 600px;
 }
-
 .highcharts-figure, .highcharts-data-table table {
     min-width: 310px; 
 	max-width: 800px;
 	overflow: auto;
     margin: 1em auto;
 }
-
 .highcharts-data-table table {
 	font-family: Verdana, sans-serif;
 	border-collapse: collapse;
@@ -261,5 +248,4 @@ Highcharts.chart('container', {
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
-
-  </style>
+    </style>
