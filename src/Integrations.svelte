@@ -137,8 +137,8 @@
                     <a href="/#/integrations/Inversion">
                         <Button color="info">Inversion</Button>
                     </a>    
-                    <a href="/#/integrations/Desempleo">
-                        <Button color="info">Desempleo</Button>
+                    <a href="/#/integrations/Education">
+                        <Button color="info">Education</Button>
                     </a>
                 </CardBody>
                 <CardFooter

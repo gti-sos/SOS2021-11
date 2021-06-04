@@ -77,11 +77,11 @@ app.use(pathInversion, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
-var pathDesempleo='/api/v2/unemployment';
-var apiServerHostDesempleo = 'https://sos2021-07.herokuapp.com/';
+var pathEducacion='/api/v1/';
+var apiServerHostEducacion = 'https://education-expenditures.herokuapp.com/';
 
-app.use(pathDesempleo, function(req, res) {
-  var url = apiServerHostDesempleo + req.url;
+app.use(pathEducacion, function(req, res) {
+  var url = apiServerHostEducacion + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });

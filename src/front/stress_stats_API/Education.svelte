@@ -2,11 +2,11 @@
     import { Nav, NavItem, NavLink } from "sveltestrap";
     var errorMsg = "";
     var datos = [];
-    const BASE_API_DESEMPLEO = "https://sos2021-07.herokuapp.com/api/v2/unemployment"
+    const BASE_API_EDUCACION = "https://education-expenditures.herokuapp.com/api/v1"
     //INTEGRACION API INTERNA
-    async function loadDesempleo() {
+    async function loadEducacion() {
         console.log("Loading data...");
-        const res = await fetch(BASE_API_DESEMPLEO).then(
+        const res = await fetch(BASE_API_EDUCACION).then(
           function (res) {
             if (res.ok) {
               errorMsg = "";
@@ -23,8 +23,8 @@
     
       async function getDatos() {
         console.log("Fetching data...");
-        await loadDesempleo();
-        const res = await fetch(BASE_API_DESEMPLEO);
+        await loadEducacion();
+        const res = await fetch(BASE_API_EDUCACION);
         if (res.ok) {
           const json = await res.json();
           datos = json;

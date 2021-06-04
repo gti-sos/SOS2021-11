@@ -38,7 +38,7 @@
 	import Unemployment from "./front/stress_stats_API/Unemployment.svelte"
 	import Evictions from "./front/stress_stats_API/Evictions.svelte"
 	import Inversion from "./front/stress_stats_API/Inversion.svelte"
-	import Desempleo from "./front/stress_stats_API/Desempleo.svelte"
+	import Education from "./front/stress_stats_API/Education.svelte"
 
 
 	import Sport from "./front/smoking_stats_API/Sport.svelte"
@@ -82,7 +82,7 @@
 		"/integrations/Unemployment":Unemployment,
 		"/integrations/Evictions":Evictions,
 		"/integrations/Inversion":Inversion,
-		"/integrations/Desempleo":Desempleo,
+		"/integrations/Education":Education,
 		"/integrations/Sport":Sport,
 		"/integrations/Enfermo":Enfermo,
 		"/integrations/Life":Life,
