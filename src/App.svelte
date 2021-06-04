@@ -39,6 +39,12 @@
 	import Sport from "./front/smoking_stats_API/Sport.svelte"
 	import Enfermo from "./front/smoking_stats_API/Enfermo.svelte"
 
+	import Food from "./front/smoking_stats_API/Food.svelte"
+	import Life from "./front/smoking_stats_API/Life.svelte"
+
+	import Grammys from "./front/smoking_stats_API/Grammys.svelte"
+	
+
 	const routes = {
 		"/": Home,
 		"/info": Info,
@@ -70,6 +76,9 @@
 		"/integrations/Bicicletas":Bicicletas,
 		"/integrations/Sport":Sport,
 		"/integrations/Enfermo":Enfermo,
+		"/integrations/Life":Life,
+		"/integrations/Grammys":Grammys,
+		"/integrations/Food":Food,
 
 
 		"*": NotFound,

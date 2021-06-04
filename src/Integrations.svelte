@@ -162,12 +162,16 @@
                         ><Button color="primary">Enfermo</Button></a
                     >
                     <a
-                        href="https://documenter.getpostman.com/view/14948136/TzJsgdzX"
-                        ><Button color="info">Documentación v1</Button></a
+                        href="/#/integrations/Life"
+                        ><Button color="info">Life</Button></a
                     >
                     <a
-                    href="https://documenter.getpostman.com/view/14948136/TzXunKiP"
-                    ><Button color="info">Documentación v2</Button></a
+                        href="/#/integrations/Grammys"
+                        ><Button color="info">Grammys</Button></a
+                    >
+                    <a
+                    href="/#/integrations/Food"
+                    ><Button color="info">Food</Button></a
                 >
 
                 </CardBody>

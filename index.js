@@ -68,6 +68,38 @@ app.use(pathSportVigostats, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+////////////INTEGRACIONES INTERNA
+//GRUPO 10 FOOD
+var pathFoodstats='/api/integration/foodconsumption-stats';
+var apiServerHostFoodstats = 'https://sos2021-10.herokuapp.com/';
+
+app.use(pathFoodstats, function(req, res) {
+  var url = apiServerHostFoodstats + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+//GRUPO 01 LIFE
+var pathLifestats='/api/v2/life-stats';
+var apiServerHostLifestats = 'https://sos2021-01-life-stats.herokuapp.com/';
+
+app.use(pathLifestats, function(req, res) {
+  var url = apiServerHostLifestats + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+//GRUPO 22 GRAMMYS
+var pathGrammystats='/api/v2/grmys';
+var apiServerHostGrammystats = 'https://sos2021-22.herokuapp.com/';
+
+app.use(pathGrammystats, function(req, res) {
+  var url = apiServerHostGrammystats + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
 //--------------------------------- M I L E S T O N E Nº 8 (F08) ------------------------------------------------
 
 // BACK_API_REST de anxiety -> Jose Pablo Carrasco (@EsDeSepa)
