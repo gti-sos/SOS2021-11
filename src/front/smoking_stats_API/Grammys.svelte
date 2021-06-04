@@ -100,7 +100,7 @@ series: [{
 }, {
     name: 'Outliers',
     color: Highcharts.getOptions().colors[0],
-    type: 'scatter',
+    type: 'boxplot',
     data: premios,
     marker: {
         fillColor: 'red',
