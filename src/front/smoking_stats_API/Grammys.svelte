@@ -40,35 +40,89 @@
       async function loadChart(){
         await getDatos();
         var nombre = [];
-        var pais = [] ;
+      //  var pais = [] ;
         var premios = [];
         var anyo= [];
        
         datos.forEach((dato_grammy) => {
             nombre.push(dato_grammy.name);
-            pais.push(dato_grammy.country);
+           // pais.push(dato_grammy.country);
             premios.push(dato_grammy.award);
 			anyo.push(dato_grammy.year);
            
     
         });
-        var defData = [
-   {
-    premios
-  }
-];
-var chart = new Taucharts.Chart({
-  data: defData,
-  type: 'bar',
-  x: 'País',
-  y: 'Premio'
+        Highcharts.chart('container', {
+
+chart: {
+    type: 'boxplot'
+},
+
+title: {
+    text: 'Hi'
+},
+
+legend: {
+    enabled: false
+},
+
+xAxis: {
+    categories: nombre,
+    title: {
+        text: 'Experiment No.'
+    }
+},
+
+yAxis: {
+    title: {
+        text: 'Observations'
+    },
+    plotLines: [{
+        value: 932,
+        color: 'red',
+        width: 1,
+        label: {
+            text: 'Theoretical mean: 932',
+            align: 'center',
+            style: {
+                color: 'gray'
+            }
+        }
+    }]
+},
+
+series: [{
+    name: 'Observations',
+    data: anyo,
+    tooltip: {
+        headerFormat: '<em>Experiment No {point.key}</em><br/>'
+    }
+}, {
+    name: 'Outliers',
+    color: Highcharts.getOptions().colors[0],
+    type: 'scatter',
+    data: premios,
+    marker: {
+        fillColor: 'white',
+        lineWidth: 1,
+        lineColor: Highcharts.getOptions().colors[0]
+    },
+    tooltip: {
+        pointFormat: 'Observation: {point.y}'
+    }
+}]
+
 });
-chart.renderTo('#bar');
       }
     </script>
     <svelte:head>
-    <script src="https://cdn.jsdelivr.net/npm/d3@4.13.0/build/d3.min.js" charset="utf-8"></script>
-<script src="https://cdn.jsdelivr.net/npm/taucharts@2/dist/taucharts.min.js on:load={loadChart}" type="text/javascript"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+
+
     
 </svelte:head>
      
@@ -84,6 +138,10 @@ chart.renderTo('#bar');
           
       <h3>Uso de la API interna del Grupo 22 de SOS Grammys</h3>
       
+      <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">  </p>
+      </figure>
     
       {#if errorMsg}
       <p>{errorMsg}</p>
@@ -97,7 +155,44 @@ chart.renderTo('#bar');
         padding: 1em;
         margin: 0 auto;
       }
-    
+      #container {
+    height: 400px; 
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 310px; 
+    max-width: 700px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
 
 
     </style>
