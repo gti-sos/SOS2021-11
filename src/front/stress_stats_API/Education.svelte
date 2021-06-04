@@ -73,7 +73,8 @@ tooltip: {
 },
 
 xAxis: {
-    type: 'Expedición de educación'
+    type: 'Expedición de educación',
+    categories: pais,
 },
 
 yAxis: {
