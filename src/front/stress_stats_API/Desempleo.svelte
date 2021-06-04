@@ -37,11 +37,11 @@
       }
       async function loadChart(){
         await getDatos();
-        var ocupacion = [] ;
-        var anyo = [] ;
+        var comunidad_autonoma = [] ;
+        var youth_unemployment_rate = [] ;
         datos.forEach((dato_desempleo) => {
-            ocupacion.push(dato_desempleo.occupation_variation);
-            anyo.push(dato_desempleo.year);
+            comunidad_autonoma.push(dato_desempleo.autonomous_community);
+            youth_unemployment_rate.push(dato_desempleo.youth_unemployment_rate);
         });
         
         Highcharts.chart('container', {
@@ -54,18 +54,17 @@
     tooltip: {
         headerFormat: '',
         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-            'Area (square km): <b>{point.y}</b><br/>' +
+            
             'Population density (people per square km): <b>{point.z}</b><br/>'
     },
     series: [{
         minPointSize: 10,
         innerSize: '20%',
         zMin: 0,
-        name: 'anyo',
+        name: 'countries',
         data: [{
-            name: 'anyo',
-            y: anyo,
-            z: ocupacion
+            name: 'Comunidad_autonoma',
+            z: youth_unemployment_rate
         }]
     }]
 });
@@ -147,5 +146,4 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
-
 </style>
