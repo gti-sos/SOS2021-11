@@ -37,46 +37,66 @@
       }
       async function loadChart(){
         await getDatos();
-        var tasa = [];
         var ocupacion = [] ;
         var anyo = [] ;
         datos.forEach((dato_desempleo) => {
-            tasa.push(dato_desempleo.unemployment_rate);
             ocupacion.push(dato_desempleo.occupation_variation);
             anyo.push(dato_desempleo.year);
         });
         
         Highcharts.chart('container', {
-    chart: {
-        type: 'bar'
-    },
-    title: {
-        text: 'Tasa de ocupación por año'
-    },
-    xAxis: {
-        categories: anyo
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Tasa'
+
+chart: {
+    type: 'bubble',
+    plotBorderWidth: 1,
+    zoomType: 'xy'
+},
+
+title: {
+    text: 'Tasa de ocupación por año'
+},
+
+xAxis: {
+    gridLineWidth: 1,
+    accessibility: {
+        rangeDescription: 'Range: 0 to 100.'
+    }
+},
+
+yAxis: {
+    startOnTick: false,
+    endOnTick: false,
+    accessibility: {
+        rangeDescription: 'Range: 0 to 100.'
+    }
+},
+
+series: [{
+    data: [anyo
+    ],
+    marker: {
+        fillColor: {
+            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, 'rgba(255,255,255,0.5)'],
+                [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+            ]
         }
-    },
-    legend: {
-        reversed: true
-    },
-    plotOptions: {
-        series: {
-            stacking: 'normal'
+    }
+}, {
+    data: [ocupacion
+    ],
+    marker: {
+        fillColor: {
+            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, 'rgba(255,255,255,0.5)'],
+                [1, Highcharts.color(Highcharts.getOptions().colors[1]).setOpacity(0.5).get('rgba')]
+            ]
         }
-    },
-    series: [{
-        name: 'Tasa',
-        data: tasa
-    }, {
-        name: 'Ocupación',
-        data: ocupacion
-    }]
+    }
+}]
+
 });
 }
 </script>
@@ -119,24 +139,24 @@
     }
     
 
-    .highcharts-figure, .highcharts-data-table table {
+    #container {
+    height: 400px; 
+}
+
+.highcharts-figure, .highcharts-data-table table {
     min-width: 310px; 
     max-width: 800px;
     margin: 1em auto;
 }
 
-#container {
-    height: 400px;
-}
-
 .highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 .highcharts-data-table caption {
     padding: 1em 0;
