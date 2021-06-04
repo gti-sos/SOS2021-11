@@ -47,43 +47,73 @@
         });
         
         Highcharts.chart('container', {
-    chart: {
-        type: 'bar'
-    },
     title: {
-        text: 'Stacked bar chart'
+        text: 'Casos infectados de Covid-19'
     },
+    
     xAxis: {
-        categories: pais,
+        gridLineWidth: 1,
+        title: {
+            enabled: true,
+            text: 'Height (cm)'
+        },
+        startOnTick: true,
+        endOnTick: true,
+        showLastLabel: true
     },
     yAxis: {
-        min: 0,
         title: {
-            text: 'Casos de infectados de COVID-19'
+            text: 'Weight (kg)'
         }
     },
     legend: {
-        reversed: true
-    },
-    plotOptions: {
-        series: {
-            stacking: 'normal'
-        }
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
     },
     series: [{
         name: 'Casos',
-        data: casos   
+        type: 'polygon',
+        data: [casos],
+        color: Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get(),
+        enableMouseTracking: false,
+        accessibility: {
+            exposeAsGroupOnly: true,
+            description: 'Target ranges in an upwards trending diagonal from 149 to 180 on the x axis, and 42 to 77 on the y axis.'
+        }
     }, {
         name: 'Muertes',
-        data: muertes
-    }]
+        type: 'scatter',
+        color: Highcharts.getOptions().colors[1],
+        data: [muertes],
+    }],
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br>',
+        pointFormat: '{point.x} cm, {point.y} kg'
+    },
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    align: 'center',
+                    layout: 'horizontal',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
 });
+
 }
 </script>
 
 <svelte:head>
-
+    
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"  on:load={loadChart}></script>
@@ -120,13 +150,9 @@
     }
     
     .highcharts-figure, .highcharts-data-table table {
-    min-width: 310px; 
+    min-width: 360px; 
     max-width: 800px;
     margin: 1em auto;
-}
-
-#container {
-    height: 400px;
 }
 
 .highcharts-data-table table {
@@ -156,6 +182,7 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
+
 
 
 </style>
