@@ -45,60 +45,47 @@
         });
         
         Highcharts.chart('container', {
-
-chart: {
-    type: 'bubble',
-    plotBorderWidth: 1,
-    zoomType: 'xy'
-},
-
-title: {
-    text: 'Tasa de ocupación por año'
-},
-
-xAxis: {
-    gridLineWidth: 1,
-    accessibility: {
-        rangeDescription: 'Range: 0 to 100.'
-    }
-},
-
-yAxis: {
-    startOnTick: false,
-    endOnTick: false,
-    accessibility: {
-        rangeDescription: 'Range: 0 to 100.'
-    }
-},
-
-series: [{
-    data: 
-        anyo,
-    marker: {
-        fillColor: {
-            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
-            stops: [
-                [0, 'rgba(255,255,255,0.5)'],
-                [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Tasa de ocupación por año'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: 'ayo',
+                colorByPoint: true,
+                data: [{
+                    name: 'anyo',
+                    y: year,
+                }, {
+                    name: 'ocupacion',
+                    y: ocupacion
+                }, 
             ]
-        }
+            }]
+        });
     }
-}, {
-    data: 
-        ocupacion,
-    marker: {
-        fillColor: {
-            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
-            stops: [
-                [0, 'rgba(255,255,255,0.5)'],
-                [1, Highcharts.color(Highcharts.getOptions().colors[1]).setOpacity(0.5).get('rgba')]
-            ]
-        }
-    }
-}]
-
-});
-}
 </script>
 
 <svelte:head>
@@ -139,24 +126,32 @@ series: [{
     }
     
 
-    #container {
-    height: 400px; 
+    @import 'https://code.highcharts.com/css/highcharts.css';
+
+.highcharts-pie-series .highcharts-point {
+	stroke: #EDE;
+	stroke-width: 2px;
+}
+.highcharts-pie-series .highcharts-data-label-connector {
+	stroke: silver;
+	stroke-dasharray: 2, 2;
+	stroke-width: 2px;
 }
 
 .highcharts-figure, .highcharts-data-table table {
-    min-width: 310px; 
-    max-width: 800px;
+    min-width: 320px; 
+    max-width: 600px;
     margin: 1em auto;
 }
 
 .highcharts-data-table table {
-    font-family: Verdana, sans-serif;
-    border-collapse: collapse;
-    border: 1px solid #EBEBEB;
-    margin: 10px auto;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
 }
 .highcharts-data-table caption {
     padding: 1em 0;
