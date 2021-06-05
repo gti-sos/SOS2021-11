@@ -140,6 +140,16 @@ app.use(pathGrammystats, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//GRUPO 3 POLLUTION
+var pathPollutionstats='api/integrations/air-pollution/';
+var apiServerHostPollutionstats = 'https://sos2021-03.herokuapp.com/';
+
+app.use(pathPollutionstats, function(req, res) {
+  var url = apiServerHostPollutionstats + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 
 //--------------------------------- M I L E S T O N E Nº 8 (F08) ------------------------------------------------
 

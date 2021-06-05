@@ -86,7 +86,7 @@
         datos.filter(datos => datos.year == 2017 ).forEach(d => { 
            
             stress.forEach((data) => {               
-                if(data.date=="Spain"){
+                if(data.date==2017 ){
                     localizacion.push(d.location);
                     totalDesalojos.push(parseInt(d.total));
                     stress_pop.push(data.stress_population);

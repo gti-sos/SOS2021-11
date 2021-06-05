@@ -175,6 +175,10 @@
                         ><Button color="info">Grammys</Button></a
                     >
                     <a
+                    href="/#/integrations/Pollution"
+                    ><Button color="info">Pollution</Button></a
+                >
+                    <a
                     href="/#/integrations/Food"
                     ><Button color="info">Food</Button></a
                 >

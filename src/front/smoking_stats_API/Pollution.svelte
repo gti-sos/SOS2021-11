@@ -3,15 +3,15 @@
     var errorMsg = "";    
     let correctMsg = "";
     var datos = [];
-    var stress = [];
-    const BASE_API_URL_STRESS = "/api/v2/stress_stats";
-    const BASE_API_URL_INVERSION = "/api/v2/province-budget-and-investment-in-social-promotion";
+    var smoking = [];
+    const BASE_API_URL_SMOKING = "/api/v2/smoking_stats";
+    const BASE_API_URL_POLLUTION = "/api/integrations/air-pollution";
     
-    //INTEGRACION GRUPO 27
-  async function loadInversion() {
+    //INTEGRACION GRUPO 10
+  async function loadPollution() {
     console.log("Loading data...");
     const res = await fetch(
-      BASE_API_URL_STRESS + "/loadInitialData"
+      BASE_API_URL_SMOKING + "/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
         errorMsg = "";
@@ -26,23 +26,23 @@
       }
     });
   }
-  async function getInversion() {
+  async function getPollution() {
     console.log("Fetching data...");
-    await loadInversion();
-    const res = await fetch(BASE_API_URL_STRESS);
+    await loadPollution();
+    const res = await fetch(BASE_API_URL_SMOKING);
     if (res.ok) {
       console.log("OK");
-      stress = await res.json();
+      smoking = await res.json();
       correctMsg = "";
-      console.log(`We have received ${stress.length} stress-stats.`);
+      console.log(`We have received ${smoking.length} smoking-stats.`);
     } else {
       console.log("Error");
       errorMsg = "Error al cargar los datos de la API";
     }
   }
-    async function loadAPIInversion() {
+    async function LoadAPIPollution() {
         console.log("Loading data...");
-        const res = await fetch(BASE_API_URL_INVERSION).then(
+        const res = await fetch(BASE_API_URL_POLLUTION).then(
           function (res) {
             if (res.ok) {
               errorMsg = "";
@@ -60,8 +60,8 @@
       
       async function getDatos() {
         console.log("Fetching data...");
-        await loadAPIInversion();
-        const res = await fetch(BASE_API_URL_INVERSION);
+        await LoadAPIPollution();
+        const res = await fetch(BASE_API_URL_POLLUTION);
     
         if (res.ok) {
           const json = await res.json();
@@ -75,21 +75,24 @@
       }
     
       async function loadChart(){
-        await getInversion();
+        await getPollution();
         await getDatos();
     
        
-        var presupuestos =[];
-        var porcentaje = [];
-        var stress_pop=[];
+        var muertesPolucion =[];
+        var muertesCombustible =[];
+        var smoking_pop=[];
        
+
         datos.filter(datos => datos.year == 2017 ).forEach(d => { 
-           
-            stress.forEach((data) => {               
-                if(data.date==2017){
-                    presupuestos.push(parseInt(d.budget));
-                    porcentaje.push(d.percentage);
-                    stress_pop.push(data.stress_population);
+
+            smoking.forEach((data) => {  
+                if(data.date==2017 ){
+            
+                    muertesPolucion.push(d.deaths_air_pollution);
+                    muertesCombustible.push(d.deaths_household_air_pollution_from_solid_fuels);
+                    smoking_pop.push(data.smoking_population);
+                   
                 }
             })
         });
