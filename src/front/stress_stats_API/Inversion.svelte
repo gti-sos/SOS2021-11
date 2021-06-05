@@ -5,7 +5,7 @@
     var datos = [];
     var stress = [];
     const BASE_API_URL_STRESS = "/api/v2/stress_stats";
-    const BASE_API_URL_DESALOJOS = "/api/v1/evictions";
+    const BASE_API_URL_INVERSION = "/api/v1/evictions";
     
     //INTEGRACION GRUPO 25
   async function loadInversion() {
