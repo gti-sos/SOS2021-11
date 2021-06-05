@@ -111,11 +111,11 @@
   series: [
     {
       name: 'Muertes por polución',
-      data: deaths_air_pollution
+      data: muertesPolucion
     },
     {
       name: 'Muertes por combustible',
-      data: deaths_household_air_pollution_from_solid_fuels
+      data: muertesCombustible
     }
   ],
   xaxis: {
