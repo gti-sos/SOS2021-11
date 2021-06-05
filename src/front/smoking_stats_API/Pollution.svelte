@@ -1,5 +1,5 @@
 <script>
-  import ApexCharts from 'apexcharts';
+ 
     import { Nav, NavItem, NavLink } from "sveltestrap";
     var errorMsg = "";    
     let correctMsg = "";
