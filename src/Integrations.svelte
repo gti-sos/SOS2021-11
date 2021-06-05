@@ -66,6 +66,8 @@
                         href="https://documenter.getpostman.com/view/14948159/TzRXA6TK"
                         ><Button color="info">Documentación v2</Button></a
                     >
+                    <a href="/#/integrations/India">
+                        <Button color="primary">India</Button></a>
                 </CardBody>
                 <CardFooter
                     >realizado por

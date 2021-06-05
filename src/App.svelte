@@ -33,6 +33,9 @@
 	import smoking_stats_graph from "./front/Analytics/smoking/SmokingStatsGraph.svelte"
 	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
 
+	//INTEGRACIONES JOSE PABLO CARRASCO COBOS
+	import India from "./front/anxiety_stats_API/India.svelte"
+
 
 	//INTEGRACIONES ANA ROMERO CÁCERES
 	import COVID_19 from "./front/stress_stats_API/Covid.svelte"
@@ -78,6 +81,9 @@
 		"/analytics/smoking_stats_chart": smoking_stats_chart,
 
 		"/analytics": analytics,
+
+		//INTEGRACIONES JOSE PABLO CARRASCO COBOS
+		"/integrations/India": India,
 		
 		//INTEGRACIONES ANA ROMERO CÁCERES
 		"/integrations/Covid":COVID_19,
