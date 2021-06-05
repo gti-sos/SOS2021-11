@@ -94,6 +94,137 @@
             })
         });
 
+        var data =pais;
+
+Highcharts.chart('container', {
+    title: {
+        text: 'Highcharts Histogram'
+    },
+
+    xAxis: [{
+        title: { text: 'Data' },
+        alignTicks: false
+    }, {
+        title: { text: 'Histogram' },
+        alignTicks: false,
+        opposite: true
+    }],
+
+    yAxis: [{
+        title: { text: 'Data' }
+    }, {
+        title: { text: 'Histogram' },
+        opposite: true
+    }],
+
+    plotOptions: {
+        histogram: {
+            accessibility: {
+                pointDescriptionFormatter: function (point) {
+                    var ix = point.index + 1,
+                        x1 = point.x.toFixed(3),
+                        x2 = point.x2.toFixed(3),
+                        val = point.y;
+                    return ix + '. ' + x1 + ' to ' + x2 + ', ' + val + '.';
+                }
+            }
+        }
+    },
+
+    series: [{
+        name: 'Histogram',
+        type: 'histogram',
+        xAxis: 1,
+        yAxis: 1,
+        data: stress_pop,
+        baseSeries: 's1',
+        zIndex: -1
+    }, {
+        name: 'Data',
+        type: 'histogram',
+        data: porcentaje,
+        id: 's1',
+        marker: {
+            radius: 1.5
+        }
+    }]
+});
 
     }
+
     </script>
+
+<svelte:head>
+        
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+</svelte:head>
+
+<main> 
+    <Nav>
+        <NavItem>
+        <NavLink href="/">Página Principal</NavLink>
+        </NavItem>
+        <NavItem>
+        <NavLink href="#/integrations">Integraciones</NavLink>
+        </NavItem>
+        </Nav>          
+        
+    <h3>Uso de la API Interna Desempleo</h3>
+    
+  
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description">    </p>
+    </figure>
+  
+  
+    {#if errorMsg}
+    <p>{errorMsg}</p>
+    {/if}
+  </main>
+
+      
+  <style>
+    main {
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
+    }
+    .highcharts-figure, .highcharts-data-table table {
+  min-width: 310px; 
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+font-family: Verdana, sans-serif;
+border-collapse: collapse;
+border: 1px solid #EBEBEB;
+margin: 10px auto;
+text-align: center;
+width: 100%;
+max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+</style>
+
