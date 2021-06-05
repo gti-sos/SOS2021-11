@@ -88,7 +88,7 @@
             smoking.forEach((data) => {               
                 if(data.date=="Spain"){
                     anyo.push(d.year);
-                    gramosdiario.push(d.dailygram);
+                    gramosdiario.push(parseInt(d.dailygram));
                     smoking_pop.push(data.smoking_population);
                 }
             })
