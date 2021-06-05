@@ -5,9 +5,9 @@
     var datos = [];
     var stress = [];
     const BASE_API_URL_STRESS = "/api/v2/stress_stats";
-    const BASE_API_URL_DESEMPLEO = "/api/v1/evictions";
+    const BASE_API_URL_DESEMPLEO = "/api/v2/unemployment-stats";
     
-    //INTEGRACION GRUPO 25
+    //INTEGRACION GRUPO 23
   async function loadDesempleo() {
     console.log("Loading data...");
     const res = await fetch(

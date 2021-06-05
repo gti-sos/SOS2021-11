@@ -5,9 +5,9 @@
     var datos = [];
     var stress = [];
     const BASE_API_URL_STRESS = "/api/v2/stress_stats";
-    const BASE_API_URL_INVERSION = "/api/v1/evictions";
+    const BASE_API_URL_INVERSION = "/api/v2/province-budget-and-investment-in-social-promotion";
     
-    //INTEGRACION GRUPO 25
+    //INTEGRACION GRUPO 27
   async function loadInversion() {
     console.log("Loading data...");
     const res = await fetch(
