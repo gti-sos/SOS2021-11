@@ -87,7 +87,7 @@
            
             stress.forEach((data) => {               
                 if(data.date=="Spain"){
-                    presupuestos.push(d.budget);
+                    presupuestos.push(parseInt(d.budget));
                     porcentaje.push(d.percentage);
                     stress_pop.push(data.stress_population);
                 }

@@ -88,7 +88,7 @@
             stress.forEach((data) => {               
                 if(data.date=="Spain"){
                     localizacion.push(d.location);
-                    totalDesalojos.push(d.total);
+                    totalDesalojos.push(parseInt(d.total));
                     stress_pop.push(data.stress_population);
                 }
             })
