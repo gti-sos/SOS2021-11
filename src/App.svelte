@@ -93,7 +93,7 @@
 		"/integrations/Life":Life,
 		"/integrations/Grammys":Grammys,
 		"/integrations/Food":Food,
-		"/integrations/Food":Pollution,
+		"/integrations/Pollution":Pollution,
 
 		"*": NotFound,
 	};
