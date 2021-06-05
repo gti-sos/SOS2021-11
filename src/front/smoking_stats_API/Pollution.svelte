@@ -89,9 +89,9 @@
             smoking.forEach((data) => {  
                 if(data.date==2017 ){
             
-                    muertesPolucion.push(d.deaths_air_pollution);
-                    muertesCombustible.push(d.deaths_household_air_pollution_from_solid_fuels);
-                    smoking_pop.push(data.smoking_population);
+                    muertesPolucion.push(parseFloat(d.deaths_air_pollution));
+                    muertesCombustible.push(parseFloat(d.deaths_household_air_pollution_from_solid_fuels));
+                    smoking_pop.push(parseFloat(data.smoking_population));
                    
                 }
             })
