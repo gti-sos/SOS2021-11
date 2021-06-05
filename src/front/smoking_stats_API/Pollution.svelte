@@ -4,8 +4,8 @@
     let correctMsg = "";
     var datos = [];
     var smoking = [];
-    const BASE_API_URL_SMOKING = "/api/v2/smoking_stats";
-    const BASE_API_URL_POLLUTION = "/api/integrations/air-pollution";
+    const BASE_API_URL_SMOKING = "https://sos2021-11.herokuapp.com/api/v2/smoking_stats";
+    const BASE_API_URL_POLLUTION = "https://sos2021-03.herokuapp.com/api/integrations/air-pollution";
     
     //INTEGRACION GRUPO 10
   async function loadPollution() {
