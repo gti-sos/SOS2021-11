@@ -86,7 +86,7 @@
         datos.filter(datos => datos.year == 2017 ).forEach(d => { 
            
             stress.forEach((data) => {               
-                if(data.date=="Spain"){
+                if(data.date==2017){
                     pais.push((d.country));
                     porcentaje.push(d.gfperc);
                     stress_pop.push(data.stress_population);

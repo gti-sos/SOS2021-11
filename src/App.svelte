@@ -33,6 +33,8 @@
 	import smoking_stats_graph from "./front/Analytics/smoking/SmokingStatsGraph.svelte"
 	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
 
+
+	//INTEGRACIONES ANA ROMERO CÁCERES
 	import COVID_19 from "./front/stress_stats_API/Covid.svelte"
 	import Bicicletas from "./front/stress_stats_API/Bicicleta.svelte"
 	import Unemployment from "./front/stress_stats_API/Unemployment.svelte"
@@ -41,12 +43,12 @@
 	import Education from "./front/stress_stats_API/Education.svelte"
 
 
+	//INTEGRACIONES MIRIAM CAMPANO CRESPO
 	import Sport from "./front/smoking_stats_API/Sport.svelte"
 	import Enfermo from "./front/smoking_stats_API/Enfermo.svelte"
-
 	import Food from "./front/smoking_stats_API/Food.svelte"
 	import Life from "./front/smoking_stats_API/Life.svelte"
-
+	import Pollution from "./front/smoking_stats_API/Pollution.svelte"
 	import Grammys from "./front/smoking_stats_API/Grammys.svelte"
 	
 
@@ -77,18 +79,21 @@
 
 		"/analytics": analytics,
 		
+		//INTEGRACIONES ANA ROMERO CÁCERES
 		"/integrations/Covid":COVID_19,
 		"/integrations/Bicicletas":Bicicletas,
 		"/integrations/Unemployment":Unemployment,
 		"/integrations/Evictions":Evictions,
 		"/integrations/Inversion":Inversion,
 		"/integrations/Education":Education,
+
+		//INTEGRACIONES MIRIAM CAMPANO CRESPO
 		"/integrations/Sport":Sport,
 		"/integrations/Enfermo":Enfermo,
 		"/integrations/Life":Life,
 		"/integrations/Grammys":Grammys,
 		"/integrations/Food":Food,
-
+		"/integrations/Food":Pollution,
 
 		"*": NotFound,
 	};
