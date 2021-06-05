@@ -141,7 +141,7 @@ app.use(pathGrammystats, function(req, res) {
 });
 
 //GRUPO 3 POLLUTION
-var pathPollutionstats='api/integrations/air-pollution/';
+var pathPollutionstats='/api/integrations/air-pollution';
 var apiServerHostPollutionstats = 'https://sos2021-03.herokuapp.com/';
 
 app.use(pathPollutionstats, function(req, res) {

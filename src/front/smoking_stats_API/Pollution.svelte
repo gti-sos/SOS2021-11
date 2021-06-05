@@ -1,11 +1,12 @@
 <script>
+  import ApexCharts from 'apexcharts';
     import { Nav, NavItem, NavLink } from "sveltestrap";
     var errorMsg = "";    
     let correctMsg = "";
     var datos = [];
     var smoking = [];
-    const BASE_API_URL_SMOKING = "/api/v2/smoking_stats";
-    const BASE_API_URL_POLLUTION = "/api/integrations/air-pollution";
+    const BASE_API_URL_SMOKING = "https://sos2021-11.herokuapp.com/api/v2/smoking_stats";
+    const BASE_API_URL_POLLUTION = "https://sos2021-03.herokuapp.com/api/integrations/air-pollution";
     
     //INTEGRACION GRUPO 10
   async function loadPollution() {
@@ -89,9 +90,9 @@
             smoking.forEach((data) => {  
                 if(data.date==2017 ){
             
-                    muertesPolucion.push(d.deaths_air_pollution);
-                    muertesCombustible.push(d.deaths_household_air_pollution_from_solid_fuels);
-                    smoking_pop.push(data.smoking_population);
+                    muertesPolucion.push(parseFloat(d.deaths_air_pollution));
+                    muertesCombustible.push(parseFloat(d.deaths_household_air_pollution_from_solid_fuels));
+                    smoking_pop.push(parseFloat(data.smoking_population));
                    
                 }
             })
@@ -111,11 +112,11 @@
   series: [
     {
       name: 'Muertes por polución',
-      data: deaths_air_pollution
+      data: muertesPolucion
     },
     {
       name: 'Muertes por combustible',
-      data: deaths_household_air_pollution_from_solid_fuels
+      data: muertesCombustible
     }
   ],
   xaxis: {

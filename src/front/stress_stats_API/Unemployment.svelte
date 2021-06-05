@@ -88,13 +88,12 @@
             stress.forEach((data) => {               
                 if(data.date==2017){
                     pais.push((d.country));
-                    porcentaje.push(d.gfperc);
-                    stress_pop.push(data.stress_population);
+                    porcentaje.push(parseFloat(d.gfperc));
+                    stress_pop.push(parseFloat(data.stress_population));
                 }
             })
         });
 
-        var data =pais;
 
 Highcharts.chart('container', {
     title: {
@@ -142,7 +141,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Data',
         type: 'histogram',
-        data: data,
+        data: pais,
         id: 's1',
         marker: {
             radius: 1.5
