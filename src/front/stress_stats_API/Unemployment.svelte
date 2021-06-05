@@ -142,7 +142,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Data',
         type: 'histogram',
-        data: porcentaje,
+        data: data,
         id: 's1',
         marker: {
             radius: 1.5
