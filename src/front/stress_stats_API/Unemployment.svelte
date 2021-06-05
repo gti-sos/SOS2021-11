@@ -94,7 +94,6 @@
             })
         });
 
-        var data =pais;
 
 Highcharts.chart('container', {
     title: {
@@ -142,7 +141,7 @@ Highcharts.chart('container', {
     }, {
         name: 'Data',
         type: 'histogram',
-        data: data,
+        data: pais,
         id: 's1',
         marker: {
             radius: 1.5
