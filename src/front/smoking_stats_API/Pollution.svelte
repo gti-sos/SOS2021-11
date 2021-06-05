@@ -98,5 +98,72 @@
         });
 
 
+        var options = {
+  chart: {
+    width: 900,
+    height: 600,
+    type: 'bar'
+  },
+  title: {
+    text: "Polución en comparativa con la población fumadora",
+    align: 'center',
+        },
+  series: [
+    {
+      name: 'Muertes por polución',
+      data: deaths_air_pollution
+    },
+    {
+      name: 'Muertes por combustible',
+      data: deaths_household_air_pollution_from_solid_fuels
     }
-    </script>
+  ],
+  xaxis: {
+    categories: smoking_pop
+  }
+}
+var chart = new ApexCharts(document.querySelector('#chart'), options)
+chart.render()
+ 
+    
+  }
+</script>
+
+<svelte:head>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"
+  on:load={loadChart}></script>
+</svelte:head>
+
+<main>
+
+  <Nav>
+    <NavItem>
+    <NavLink href="/">Página Principal</NavLink>
+    </NavItem>
+    <NavItem>
+    <NavLink href="#/integrations">Integraciones</NavLink>
+    </NavItem>
+    </Nav>  
+
+  
+
+  {#if errorMsg}
+      <p>{errorMsg}</p>
+      {/if}
+</main>
+
+<style>
+  main {
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto;
+  }
+  div {
+    margin-bottom: 15px;
+  }
+  #container{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  }
+</style>
