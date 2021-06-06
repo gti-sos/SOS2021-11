@@ -40,9 +40,9 @@
 	import Natality from "./front/anxiety_stats_API/Natality.svelte"
 		
 	//INTEGRACIONES Juan Díez Blanco
-	import children_out from "./front/Analytics/depression/children_out.svelte"
-	import suicide from "./front/Analytics/depression/suicide.svelte"
-	import obesity from "./front/Analytics/depression/obesity.svelte"
+	import children_out from "./front/depression_stats_API/children_out.svelte"
+	import suicide from "./front/depression_stats_API/suicide.svelte"
+	import obesity from "./front/depression_stats_API/obesity.svelte"
 
 
 	//INTEGRACIONES ANA ROMERO CÁCERES
