@@ -38,6 +38,11 @@
 	import Sanity from "./front/anxiety_stats_API/Sanity.svelte"
 	import Illiteracy from "./front/anxiety_stats_API/Illiteracy.svelte"
 	import Natality from "./front/anxiety_stats_API/Natality.svelte"
+		
+	//INTEGRACIONES Juan Díez Blanco
+	import children_out from "./front/Analytics/depression/children_out.svelte"
+	import suicide from "./front/Analytics/depression/suicide.svelte"
+	import obesity from "./front/Analytics/depression/obesity.svelte"
 
 
 	//INTEGRACIONES ANA ROMERO CÁCERES
@@ -91,6 +96,11 @@
 		"/integrations/Sanity": Sanity,
 		"/integrations/Illiteracy": Illiteracy,
 		"/integrations/Natality": Natality,
+
+		//INTEGRACIONES Juan Díez Blanco
+		"/analytics/children_out": children_out,
+		"/analytics/suicide": suicide,
+		"/analytics/obesity": obesity,
 		
 		//INTEGRACIONES ANA ROMERO CÁCERES
 		"/integrations/Covid":COVID_19,

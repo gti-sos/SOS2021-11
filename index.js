@@ -28,6 +28,40 @@ app.use(cors());
 
 //-------------------------------- INTEGRACIONES -----------------------------------------------------
 
+
+
+//Integracion interna Juan Díez Blanco
+var pathUnemployment='/api/v2/children-out-school/';
+var apiServerHostUnemployment= 'http://sos2021-24.herokuapp.com';
+
+app.use(pathUnemployment, function(req, res) {
+  var url = apiServerHostUnemployment + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+var pathUnemployment='api/integration/suicide-records';
+var apiServerHostUnemployment= 'http://sos2021-27.herokuapp.com';
+
+app.use(pathUnemployment, function(req, res) {
+  var url = apiServerHostUnemployment + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
+var pathUnemployment='/api/integration/obesity-stats';
+var apiServerHostUnemployment= 'http://sos2021-10.herokuapp.com';
+
+app.use(pathUnemployment, function(req, res) {
+  var url = apiServerHostUnemployment + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
+
+
 //Integración Ana Romero Cáceres
 
 var pathCovid='/v2/countries?yesterday=false&sort=deaths&allowNull=true';
