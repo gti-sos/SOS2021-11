@@ -7,7 +7,7 @@
         let smokingData = [];
 
         await fetch(
-            "https://sos2021-03.herokuapp.com/api/integrations/air-pollution/loadInitialData"
+            "https://sos2021-03.herokuapp.com/api/integrations/air-pollution"
         );
 
         await fetch("/api/v2/smoking_stats/loadInitialData");
