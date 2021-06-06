@@ -24,19 +24,19 @@
         </NavItem>
 
         <NavItem>
-            <NavLink href="/">Info</NavLink>
+            <NavLink href="/#/info">Info</NavLink>
         </NavItem>
 
         <NavItem>
-            <NavLink href="/">Analíticas</NavLink>
+            <NavLink href="/#/analytics">Analíticas</NavLink>
         </NavItem>
 
         <NavItem>
-            <NavLink href="/">Integraciones</NavLink>
+            <NavLink href="/#/integrations">Integraciones</NavLink>
         </NavItem>
 
         <NavItem>
-            <NavLink href="/">Vídeos</NavLink>
+            <NavLink href="/#/about">Vídeos</NavLink>
         </NavItem>
     </Nav>
 
@@ -51,20 +51,19 @@
                 <CardBody>
                     <CardSubtitle />
                     <CardText
-                        >Estadísticas acerca de los datos recogidos por ansiedad
-                        en las comunidades autónomas de España.</CardText
+                        >Integraciones y Gráficos base de anxiety_stats</CardText
                     >
-                    <a
-                        href="https://sos2021-11.herokuapp.com/api/v2/anxiety_stats"
+                    <a href="/#/integrations/AnxietyHC">
+                        <Button type="button" class="btn btn-info">-</Button></a
                     >
-                        <Button color="primary">API (v2)</Button></a
+                    <a href="/#/integrations/AnxietyAC">
+                        <Button type="button" class="btn btn-info">-</Button></a
                     >
-                    <a href="/#/anxiety_stats">
-                        <Button color="primary">Interfaz de Ansiedad</Button>
-                    </a>
-                    <a
-                        href="https://documenter.getpostman.com/view/14948159/TzRXA6TK"
-                        ><Button color="info">Documentación v2</Button></a
+                    <a href="/#/integrations/-">
+                        <Button type="button" class="btn btn-warning">-</Button></a
+                    >
+                    <a href="/#/integrations/NBA">
+                        <Button type="button" class="btn btn-warning">NBA</Button></a
                     >
                     <a href="/#/integrations/India">
                         <Button type="button" class="btn btn-success">India</Button></a

@@ -31,52 +31,71 @@ app.use(cors());
 
 
 //Integracion interna Juan Díez Blanco
-var pathUnemployment='/api/v2/children-out-school/';
-var apiServerHostUnemployment= 'http://sos2021-24.herokuapp.com';
+var pathUnemployment = '/api/v2/children-out-school/';
+var apiServerHostUnemployment = 'http://sos2021-24.herokuapp.com';
 
-app.use(pathUnemployment, function(req, res) {
+app.use(pathUnemployment, function (req, res) {
   var url = apiServerHostUnemployment + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
-var pathUnemployment='api/integration/suicide-records';
-var apiServerHostUnemployment= 'http://sos2021-27.herokuapp.com';
+var pathUnemployment = 'api/integration/suicide-records';
+var apiServerHostUnemployment = 'http://sos2021-27.herokuapp.com';
 
-app.use(pathUnemployment, function(req, res) {
-  var url = apiServerHostUnemployment + req.url;
-  console.log('piped: ' + req.url);
-  req.pipe(request(url)).pipe(res);
-});
-
-
-var pathUnemployment='/api/integration/obesity-stats';
-var apiServerHostUnemployment= 'http://sos2021-10.herokuapp.com';
-
-app.use(pathUnemployment, function(req, res) {
+app.use(pathUnemployment, function (req, res) {
   var url = apiServerHostUnemployment + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
 
+var pathUnemployment = '/api/integration/obesity-stats';
+var apiServerHostUnemployment = 'http://sos2021-10.herokuapp.com';
+
+app.use(pathUnemployment, function (req, res) {
+  var url = apiServerHostUnemployment + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
 
 
+//INTEGRACIONES - PROXYS - JOSE PABLO CARRASCO COBOS
+//Api Compañero SOS - G04 - illiteracy_stats
+var pathIlliteracy = 'api/v1/illiteracy';
+var apiServerHostIlliteracy = 'https://sos2021-04.herokuapp.com/';
+
+app.use(pathIlliteracy, function (req, res) {
+  var url = apiServerHostIlliteracy + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+//Apis Externas
+//Bitcoins (proviene de Github)
+var pathIlliteracy = '/games?per_page=25&page=0';
+var apiServerHostIlliteracy = "https://free-nba.p.rapidapi.com";
+
+app.use(pathIlliteracy, function (req, res) {
+  var url = apiServerHostIlliteracy + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+http://api.bitcoincharts.com/v1/weighted_prices.json
 //Integración Ana Romero Cáceres
 
-var pathCovid='/v2/countries?yesterday=false&sort=deaths&allowNull=true';
+var pathCovid = '/v2/countries?yesterday=false&sort=deaths&allowNull=true';
 var apiServerHostCovid = 'https://disease.sh/';
 
-app.use(pathCovid, function(req, res) {
+app.use(pathCovid, function (req, res) {
   var url = apiServerHostCovid + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
-var pathBicicletas='/vls/v1/stations/?contract=Seville&apiKey=6fa39265431480ca0b5f3393cd78f29e2d436882';
+var pathBicicletas = '/vls/v1/stations/?contract=Seville&apiKey=6fa39265431480ca0b5f3393cd78f29e2d436882';
 var apiServerHostBicicletas = 'https://api.jcdecaux.com/';
 
-app.use(pathBicicletas, function(req, res) {
+app.use(pathBicicletas, function (req, res) {
   var url = apiServerHostBicicletas + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
@@ -84,59 +103,59 @@ app.use(pathBicicletas, function(req, res) {
 
 //Integración Interna Ana Romero Cáceres
 
-var pathUnemployment='/api/v2/unemployment-stats';
-var apiServerHostUnemployment= 'https://sos2021-23.herokuapp.com/';
+var pathUnemployment = '/api/v2/unemployment-stats';
+var apiServerHostUnemployment = 'https://sos2021-23.herokuapp.com/';
 
-app.use(pathUnemployment, function(req, res) {
+app.use(pathUnemployment, function (req, res) {
   var url = apiServerHostUnemployment + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
-var pathEvictions='/api/v1/evictions';
+var pathEvictions = '/api/v1/evictions';
 var apiServerHostEvictions = 'https://sos2021-25.herokuapp.com/';
 
-app.use(pathEvictions, function(req, res) {
+app.use(pathEvictions, function (req, res) {
   var url = apiServerHostEvictions + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
-var pathInversion='api/v2/province-budget-and-investment-in-social-promotion';
+var pathInversion = 'api/v2/province-budget-and-investment-in-social-promotion';
 var apiServerHostInversion = 'https://sos2021-27.herokuapp.com/';
 
-app.use(pathInversion, function(req, res) {
+app.use(pathInversion, function (req, res) {
   var url = apiServerHostInversion + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
-var pathEducacion='/api/v1/';
+var pathEducacion = '/api/v1/';
 var apiServerHostEducacion = 'https://education-expenditures.herokuapp.com/';
 
-app.use(pathEducacion, function(req, res) {
+app.use(pathEducacion, function (req, res) {
   var url = apiServerHostEducacion + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
-  
-  
+
+
 
 //Integración Miriam Campano Crespo
-var pathEnfermostats='/v2/gov/Germany';
+var pathEnfermostats = '/v2/gov/Germany';
 var apiServerHostEnfermostats = 'https://disease.sh/';
 
-app.use(pathEnfermostats, function(req, res) {
+app.use(pathEnfermostats, function (req, res) {
   var url = apiServerHostEnfermostats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
 
-var pathSportVigostats='/data/deportes/ins-complejos.json';
+var pathSportVigostats = '/data/deportes/ins-complejos.json';
 var apiServerHostSportVigostats = 'https://datos.vigo.org/';
 
-app.use(pathSportVigostats, function(req, res) {
+app.use(pathSportVigostats, function (req, res) {
   var url = apiServerHostSportVigostats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
@@ -145,40 +164,40 @@ app.use(pathSportVigostats, function(req, res) {
 ////////////INTEGRACIONES INTERNA MIRIAM CAMPANO CRESPO
 
 //GRUPO 10 FOOD
-var pathFoodstats='/api/integration/foodconsumption-stats';
+var pathFoodstats = '/api/integration/foodconsumption-stats';
 var apiServerHostFoodstats = 'https://sos2021-10.herokuapp.com/';
 
-app.use(pathFoodstats, function(req, res) {
+app.use(pathFoodstats, function (req, res) {
   var url = apiServerHostFoodstats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
 //GRUPO 01 LIFE
-var pathLifestats='/api/v2/life-stats';
+var pathLifestats = '/api/v2/life-stats';
 var apiServerHostLifestats = 'https://sos2021-01-life-stats.herokuapp.com/';
 
-app.use(pathLifestats, function(req, res) {
+app.use(pathLifestats, function (req, res) {
   var url = apiServerHostLifestats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
 //GRUPO 22 GRAMMYS
-var pathGrammystats='/api/v2/grmys';
+var pathGrammystats = '/api/v2/grmys';
 var apiServerHostGrammystats = 'https://sos2021-22.herokuapp.com/';
 
-app.use(pathGrammystats, function(req, res) {
+app.use(pathGrammystats, function (req, res) {
   var url = apiServerHostGrammystats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
 });
 
 //GRUPO 3 POLLUTION
-var pathPollutionstats='/api/integrations/air-pollution';
+var pathPollutionstats = '/api/integrations/air-pollution';
 var apiServerHostPollutionstats = 'https://sos2021-03.herokuapp.com/';
 
-app.use(pathPollutionstats, function(req, res) {
+app.use(pathPollutionstats, function (req, res) {
   var url = apiServerHostPollutionstats + req.url;
   console.log('piped: ' + req.url);
   req.pipe(request(url)).pipe(res);
@@ -242,7 +261,7 @@ smoking_stats_api.register(app, BASE_API_PATH_v2); // M I L E S T O N E Nº 5
 console.log("iniciando servidor");
 
 app.listen(port, () => {
-	console.log("Server ready listening on port " + port);
+  console.log("Server ready listening on port " + port);
 })
 
 
@@ -253,30 +272,30 @@ app.listen(port, () => {
 
 /*
 app.get("/info/anxiety_stats", (request, response) => {
-	anxiety = anxiety_stats_data.slice();
-	response.send(anxiety);
+  anxiety = anxiety_stats_data.slice();
+  response.send(anxiety);
 });
 */
 
 //Petición para depression_stats
 /*
 app.get("/info/depression_stats", (request, response) => {
-	depression = depression_stats_data.slice();
-	response.send(depression);
+  depression = depression_stats_data.slice();
+  response.send(depression);
 });
 */
 //Petición para stress_stats
 
 /*app.get("/info/stress_stats", (request, response) => {
-	stress = stress_stats_data.slice();
-	response.send(stress);
+  stress = stress_stats_data.slice();
+  response.send(stress);
 });
 */
 //Petición para smoking_stats	
 
 /*app.get("/info/smoking_stats", (request, response) => {
-	smoking = smoking_stats_data.slice();
-	response.send(smoking);
+  smoking = smoking_stats_data.slice();
+  response.send(smoking);
 });*/
 
 //--------------------------------- M I L E S T O N E Nº 2 (F02) ------------------------------------------------
@@ -284,10 +303,10 @@ app.get("/info/depression_stats", (request, response) => {
 //var cool = require("cool-ascii-faces"); 
 
 /*app.get("/cool", (request, response) => {
-		response.send(cool());
-		console.log("New request to /cool has arrived");
-		});
+    response.send(cool());
+    console.log("New request to /cool has arrived");
+    });
 */
 
 
-  
+

@@ -110,13 +110,13 @@
             },
             series: [
                 {
-                    text: "Health Data (%)",
+                    text: "Datos de salud(%)",
                     values: healthExData,
                     backgroundColor: "orange red",
                     tooltipText: "Ages %t: %v",
                 },
                 {
-                    text: "Doctor Per Habitant",
+                    text: "Doctor por habitantes(%)",
                     values: DoctorPHb,
                     backgroundColor: "yellow orange",
                 },

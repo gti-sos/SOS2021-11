@@ -38,6 +38,7 @@
 	import Sanity from "./front/anxiety_stats_API/Sanity.svelte"
 	import Illiteracy from "./front/anxiety_stats_API/Illiteracy.svelte"
 	import Natality from "./front/anxiety_stats_API/Natality.svelte"
+	import NBA from "./front/anxiety_stats_API/NBA.svelte"
 		
 	//INTEGRACIONES Juan Díez Blanco
 	import children_out from "./front/depression_stats_API/children_out.svelte"
@@ -96,6 +97,8 @@
 		"/integrations/Sanity": Sanity,
 		"/integrations/Illiteracy": Illiteracy,
 		"/integrations/Natality": Natality,
+		//APIs Externas
+		"/integrations/NBA": NBA,
 
 		//INTEGRACIONES Juan Díez Blanco
 		"/analytics/children_out": children_out,
