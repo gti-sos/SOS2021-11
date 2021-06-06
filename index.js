@@ -31,6 +31,7 @@ app.use(cors());
 
 
 //Integracion interna Juan Díez Blanco
+
 var pathUnemployment = '/api/v2/children-out-school/';
 var apiServerHostUnemployment = 'http://sos2021-24.herokuapp.com';
 

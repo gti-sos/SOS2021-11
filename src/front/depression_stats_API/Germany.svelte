@@ -16,66 +16,56 @@
         depressionData = await resData.json();
         obesityData = await resData2.json();
 
-        var suma1 = 0;
-        var suma2 = 0;
-        var suma3 = 0;
-        var suma4 = 0;
+       
         
-        
-        depressionData.forEach((campo) => {
-            suma3 = campo.depression_men ;
-                
-        });
-        
+        var coordenadasDepresion=[];
+        var coordenadasObesity=[];
         
         depressionData.forEach((campo) => {
-            suma2 = campo.depression_women ;
+           coordenadasDepresion.push({x:campo.year,y:campo.depression_men});
                 
         });
         obesityData.forEach((campo) => {
-            suma4 = campo.woman_percent ;
-           
-                
-        });
-        obesityData.forEach((campo) => {
-            suma1 = campo.man_percent ;
-           
+           coordenadasObesity.push({x:campo.year,y:campo.man_percent});
                 
         });
 
         
-        var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	title:{
-		text: "Comparacion de datos de obesidad y depresion "
-	},
-	axisY: {
-		title: "casos"
-	},
-	data: [{        
-		type: "column",  
-		showInLegend: true, 
-		legendMarkerColor: "grey",
-		legendText: " pobacion afectada",
-		dataPoints:[ { y: suma1, label: "obesidad hombre" },
-        {
-                            y: suma2,
-                            label: "depresion mujer",
-                        }, {
-                            y: suma3,
-                            label: "depresion hombre",
-                        },
-                        {
-                            y: suma4,
-                            label: "obesidad mujer",
-                        },
-		]
-	}]
-});
-chart.render();
-
-}
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Depresion y obesidad por año",
+                },
+                axisY: {
+                    includeZero: false,
+                  
+                },
+                toolTip: {
+                    shared: true,
+                },
+                legend: {
+                    fontSize: 13,
+                },
+                data: [
+                    {
+                        type: "splineArea",
+                        showInLegend: true,
+                        name: "obesity",
+                    
+                        dataPoints: coordenadasObesity,
+                    },
+                    {
+                        type: "splineArea",
+                        showInLegend: true,
+                        name: "depression",
+                        dataPoints: coordenadasDepresion,
+                    },
+                   
+                ],
+            });
+            chart.render();
+        
+    }
 </script>
 
 <main>

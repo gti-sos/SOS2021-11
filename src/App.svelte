@@ -42,7 +42,7 @@
 		
 	//INTEGRACIONES Juan Díez Blanco
 	import children_out from "./front/depression_stats_API/children_out.svelte"
-	import suicide from "./front/depression_stats_API/suicide.svelte"
+	import suicides from "./front/depression_stats_API/suicides.svelte"
 	import obesity from "./front/depression_stats_API/obesity.svelte"
 
 
@@ -101,9 +101,9 @@
 		"/integrations/NBA": NBA,
 
 		//INTEGRACIONES Juan Díez Blanco
-		"/analytics/children_out": children_out,
-		"/analytics/suicide": suicide,
-		"/analytics/obesity": obesity,
+		"/integrations/children_out": children_out,
+		"/integrations/suicides": suicides,
+		"/integrations/obesity": obesity,
 		
 		//INTEGRACIONES ANA ROMERO CÁCERES
 		"/integrations/Covid":COVID_19,

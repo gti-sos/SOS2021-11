@@ -4,29 +4,29 @@
 
     async function loadGraph() {
         let depressionData = [];
-        let suicideData = [];
+        let obesityData = [];
         
         const resData = await fetch(
             "/api/v2/depression_stats"
         );
 
         const resData2 = await fetch(
-            "http://sos2021-27.herokuapp.com/api/integration/suicide-records"
+            "http://sos2021-10.herokuapp.com/api/integration/obesity-stats"
         );
         depressionData = await resData.json();
-        suicideData = await resData2.json();
+        obesityData = await resData2.json();
 
-
+       
         
         var coordenadasDepresion=[];
-        var coordenadassuicide=[];
+        var coordenadasObesity=[];
         
         depressionData.forEach((campo) => {
            coordenadasDepresion.push({x:campo.year,y:campo.depression_men});
                 
         });
-        suicideData.forEach((campo) => {
-           coordenadassuicide.push({x:campo.year,y:campo.suic_woman});
+        obesityData.forEach((campo) => {
+           coordenadasObesity.push({x:campo.year,y:campo.man_percent});
                 
         });
 
@@ -34,7 +34,7 @@
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 title: {
-                    text: "Depresion y suicidio por año",
+                    text: "Depresion y obesidad por año",
                 },
                 axisY: {
                     includeZero: false,
@@ -50,9 +50,9 @@
                     {
                         type: "splineArea",
                         showInLegend: true,
-                        name: "suicide",
+                        name: "obesity",
                     
-                        dataPoints: coordenadassuicide,
+                        dataPoints: coordenadasObesity,
                     },
                     {
                         type: "splineArea",
