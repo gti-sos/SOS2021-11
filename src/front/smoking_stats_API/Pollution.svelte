@@ -1,103 +1,42 @@
-<script>
- 
+
+  <script>
     import { Nav, NavItem, NavLink } from "sveltestrap";
-    var errorMsg = "";    
-    let correctMsg = "";
-    var datos = [];
-    var smoking = [];
-    const BASE_API_URL_SMOKING = "https://sos2021-11.herokuapp.com/api/v2/smoking_stats";
-    const BASE_API_URL_POLLUTION = "https://sos2021-03.herokuapp.com/api/integrations/air-pollution";
-    
-    //INTEGRACION GRUPO 10
-  async function loadPollution() {
-    console.log("Loading data...");
-    const res = await fetch(
-      BASE_API_URL_SMOKING + "/loadInitialData"
-    ).then(function (res) {
-      if (res.ok) {
-        errorMsg = "";
-        correctMsg = "Datos cargados correctamente";
-        console.log("OK");
-      } else {
-        if (res.status === 500) {
-          errorMsg = "No se ha podido acceder a la base de datos";
-        }
-        correctMsg = "";
-        console.log("ERROR!" + errorMsg);
-      }
-    });
-  }
-  async function getPollution() {
-    console.log("Fetching data...");
-    await loadPollution();
-    const res = await fetch(BASE_API_URL_SMOKING);
-    if (res.ok) {
-      console.log("OK");
-      smoking = await res.json();
-      correctMsg = "";
-      console.log(`We have received ${smoking.length} smoking-stats.`);
-    } else {
-      console.log("Error");
-      errorMsg = "Error al cargar los datos de la API";
-    }
-  }
-    async function LoadAPIPollution() {
-        console.log("Loading data...");
-        const res = await fetch(BASE_API_URL_POLLUTION).then(
-          function (res) {
-            if (res.ok) {
-              errorMsg = "";
-              console.log("OK");
-            } else {
-              if (res.status === 500) {
-                errorMsg = "No se ha podido acceder a la base de datos";
-              }
-              console.log("ERROR!" + errorMsg);
-            }
-          }
+    import { onMount } from "svelte";
+    async function loadGraph() {
+        let pollutionData = [];
+        let smokingData = [];
+
+        await fetch(
+            "https://sos2021-03.herokuapp.com/api/integrations/air-pollution/loadInitialData"
         );
-      }
-    
-      
-      async function getDatos() {
-        console.log("Fetching data...");
-        await LoadAPIPollution();
-        const res = await fetch(BASE_API_URL_POLLUTION);
-    
-        if (res.ok) {
-          const json = await res.json();
-          datos = json;
-          console.log(`We have received ${datos.length} stats.`);    
-          console.log("Ok");
-        } else {
-          errorMsg = "Error recuperando datos";
-          console.log("ERROR!" + errorMsg);
-        }
-      }
-    
-      async function loadChart(){
-        await getPollution();
-        await getDatos();
-    
-       
+
+        await fetch("/api/v2/smoking_stats/loadInitialData");
+
+        const data = await fetch(
+            "https://sos2021-03.herokuapp.com/api/integrations/air-pollution"
+        );
+
+        const datos = await fetch("/api/v2/smoking_stats");
+
+        pollutionData = await data.json();
+        smokingData = await datos.json();
+
         var muertesPolucion =[];
         var muertesCombustible =[];
         var smoking_pop=[];
-       
+      
 
-        datos.filter(datos => datos.year == 2017 ).forEach(d => { 
-
-            smoking.forEach((data) => {  
-                if(data.date==2017 ){
-            
-                    muertesPolucion.push(parseFloat(d.deaths_air_pollution));
-                    muertesCombustible.push(parseFloat(d.deaths_household_air_pollution_from_solid_fuels));
-                    smoking_pop.push(parseFloat(data.smoking_population));
-                   
-                }
-            })
+        pollutionData.forEach((dato) => {
+          muertesPolucion.push(dato.deaths_air_pollution);
+          muertesCombustible.push(dato.deaths_household_air_pollution_from_solid_fuels);
         });
 
+        smokingData.forEach((dato) => {
+          smoking_pop.push(dato.smoking_population);
+           
+        });
+
+        
 
         var options = {
   chart: {
@@ -126,13 +65,13 @@
 var chart = new ApexCharts(document.querySelector('#chart'), options)
 chart.render()
  
-    
+onMount(loadGraph);
   }
 </script>
 
 <svelte:head>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"
-  on:load={loadChart}></script>
+  on:load={loadGraph}></script>
 </svelte:head>
 
 <main>
@@ -146,11 +85,7 @@ chart.render()
     </NavItem>
     </Nav>  
 
-  
 
-  {#if errorMsg}
-      <p>{errorMsg}</p>
-      {/if}
 </main>
 
 <style>
