@@ -2,32 +2,41 @@
     import { onMount } from "svelte";
     async function loadGraph() {
         let indiaData = [];
-        let indiaGraph = [];
-        let indiaState = [];
+        let anxietyData = [];
+
+        await fetch(
+            "https://sos2021-08.herokuapp.com/api/v1/statewisetestingdetails/loadInitialData"
+        );
+
+        await fetch("/api/v2/anxiety_stats/loadInitialData");
 
         const data = await fetch(
             "https://sos2021-08.herokuapp.com/api/v1/statewisetestingdetails"
         );
-        if (data.ok) {
-            indiaData = await data.json();
-            indiaData.forEach((x) => {
-                indiaGraph.push({
-                    text: x.name,
-                    values: [
-                        parseInt(x.totalsamples),
-                        parseInt(x.negative),
-                        parseInt(x.positivos),
-                    ],
-                });
-                indiaState.push(x.state);
-            });
-        }
-        if (data.status == 404) {
-            console.log("Cargando datos iniciales al no encontrarlos");
-            const data = await fetch(
-                "https://sos2021-08.herokuapp.com/api/v1/statewisetestingdetails/loadInitialData"
-            );
-        }
+
+        const datos = await fetch("/api/v2/anxiety_stats");
+
+        indiaData = await data.json();
+        anxietyData = await datos.json();
+
+        var xyindiaP = [];
+        var xyindiaN = [];
+
+        var xyanxietAM = [];
+        var xyanxietWM = [];
+
+        indiaData.forEach((campo) => {
+            xyindiaN.push(campo.negative);
+            xyindiaP.push(campo.positive);
+        });
+
+        anxietyData.forEach((campo) => {
+            xyanxietAM.push(campo.anxiety_men);
+            xyanxietWM.push(campo.anxiety_women);
+        });
+
+        console.log(anxietyData);
+        console.log(indiaData);
 
         var myConfig = {
             type: "bubble-pie",
@@ -43,10 +52,8 @@
             },
             plot: {
                 values: [
-                    [2020, 2003, 2003],
-                    [2021, 2500, 2500],
-                    [2021, 3500, 3500],
-                    [2021, 4500, 4500],
+                    [2017, 1500, 1500],
+                    [2020, 4500, 4500],
                     [2021, 5500, 5500],
                 ],
                 tooltip: {
@@ -58,22 +65,36 @@
                     fontWeight: "normal",
                     placement: "bottom",
                 },
-                dataBubble: ["2021"],
+                dataBubble: ["2017", "2018", "2019", "2020", "2021"],
             },
             scaleX: {
-                values: "2020:2021:1",
+                values: "2017:2021",
             },
             series: [
                 {
+                    dataPie: "anxiety_men",
+                    dataV: xyanxietWM,
+                    marker: {
+                        backgroundColor: "#D564323",
+                    },
+                },
+                {
+                    dataPie: "anxiety_women",
+                    dataV: xyanxietWM,
+                    marker: {
+                        backgroundColor: "#D60404",
+                    },
+                },
+                {
                     dataPie: "positive",
-                    dataV: [1250, 819, 1175, 2299, 185],
+                    dataV: xyindiaP,
                     marker: {
                         backgroundColor: "#D60404",
                     },
                 },
                 {
                     dataPie: "negative",
-                    dataV: [12, 16, 132, 32, 1],
+                    dataV: xyindiaN,
                     marker: {
                         backgroundColor: "#04D607",
                     },
@@ -103,7 +124,7 @@
         text-align: center;
     }
     div {
-        color: rgb(116, 121, 9); /* Blue text color */
+        color: rgb(116, 121, 9);
         border: 10px dotted currentcolor;
     }
 </style>

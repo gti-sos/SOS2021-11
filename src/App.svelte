@@ -35,6 +35,9 @@
 
 	//INTEGRACIONES JOSE PABLO CARRASCO COBOS
 	import India from "./front/anxiety_stats_API/India.svelte"
+	import Sanity from "./front/anxiety_stats_API/Sanity.svelte"
+	import Illiteracy from "./front/anxiety_stats_API/Illiteracy.svelte"
+	import Natality from "./front/anxiety_stats_API/Natality.svelte"
 
 
 	//INTEGRACIONES ANA ROMERO CÁCERES
@@ -83,7 +86,11 @@
 		"/analytics": analytics,
 
 		//INTEGRACIONES JOSE PABLO CARRASCO COBOS
+		//Compañeros SOS
 		"/integrations/India": India,
+		"/integrations/Sanity": Sanity,
+		"/integrations/Illiteracy": Illiteracy,
+		"/integrations/Natality": Natality,
 		
 		//INTEGRACIONES ANA ROMERO CÁCERES
 		"/integrations/Covid":COVID_19,

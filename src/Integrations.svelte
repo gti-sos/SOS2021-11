@@ -24,20 +24,20 @@
         </NavItem>
 
         <NavItem>
-                <NavLink href="/">Info</NavLink>
+            <NavLink href="/">Info</NavLink>
         </NavItem>
 
         <NavItem>
-                <NavLink href="/">Analíticas</NavLink>
+            <NavLink href="/">Analíticas</NavLink>
         </NavItem>
 
         <NavItem>
-                <NavLink href="/">Integraciones</NavLink>
+            <NavLink href="/">Integraciones</NavLink>
         </NavItem>
 
         <NavItem>
             <NavLink href="/">Vídeos</NavLink>
-    </NavItem>
+        </NavItem>
     </Nav>
 
     <h1>Integraciones</h1>
@@ -67,7 +67,16 @@
                         ><Button color="info">Documentación v2</Button></a
                     >
                     <a href="/#/integrations/India">
-                        <Button color="primary">India</Button></a>
+                        <Button type="button" class="btn btn-success">India</Button></a
+                    >
+                    <a href="/#/integrations/Sanity">
+                        <Button type="button" class="btn btn-success">Sanity</Button></a
+                    >
+                    <a href="/#/integrations/Illiteracy">
+                        <Button type="button" class="btn btn-success">Illiteracy</Button></a
+                    >
+                    <a href="/#/integrations/Natality">
+                        <Button type="button" class="btn btn-success">Natality</Button></a>
                 </CardBody>
                 <CardFooter
                     >realizado por
@@ -86,8 +95,8 @@
                 <CardBody>
                     <CardSubtitle />
                     <CardText
-                        >Estadísticas acerca de los datos recogidos por depresion
-                        en las comunidades autónomas de España.</CardText
+                        >Estadísticas acerca de los datos recogidos por
+                        depresion en las comunidades autónomas de España.</CardText
                     >
                     <a
                         href="https://sos2021-11.herokuapp.com/api/v2/depression_stats"
@@ -100,15 +109,15 @@
                     <a
                         href="https://documenter.getpostman.com/view/14948118/TzJu8ccc"
                         ><Button color="info">Documentación v1</Button></a
-                    > <a
-                    href="https://documenter.getpostman.com/view/14948118/TzRXAS6B"
-                    ><Button color="info">Documentación v2</Button></a
-                >
+                    >
+                    <a
+                        href="https://documenter.getpostman.com/view/14948118/TzRXAS6B"
+                        ><Button color="info">Documentación v2</Button></a
+                    >
                 </CardBody>
                 <CardFooter
                     >realizado por
-                    <a href="https://github.com/jdblanco"
-                        >Juan Diez Blanco</a
+                    <a href="https://github.com/jdblanco">Juan Diez Blanco</a
                     ></CardFooter
                 >
             </Card>
@@ -138,14 +147,15 @@
                     </a>
                     <a href="/#/integrations/Inversion">
                         <Button color="info">Inversion</Button>
-                    </a>    
+                    </a>
                     <a href="/#/integrations/Education">
                         <Button color="info">Education</Button>
                     </a>
                 </CardBody>
                 <CardFooter
                     >desarrollado por
-                    <a href="https://github.com/anaromero99">Ana Romero Cáceres</a
+                    <a href="https://github.com/anaromero99"
+                        >Ana Romero Cáceres</a
                     >
                 </CardFooter>
             </Card>
@@ -158,33 +168,28 @@
                 <CardBody>
                     <CardSubtitle />
                     <CardText>
-                        Estadísticas acerca de los datos recogidos por tabaquismo
-                        en los países Europeos.
+                        Estadísticas acerca de los datos recogidos por
+                        tabaquismo en los países Europeos.
                     </CardText>
-                    
+
                     <a href="/#/integrations/Sport"
                         ><Button color="primary">Sports</Button></a
                     >
                     <a href="/#/integrations/Enfermo"
                         ><Button color="primary">Enfermo</Button></a
                     >
-                    <a
-                        href="/#/integrations/Life"
+                    <a href="/#/integrations/Life"
                         ><Button color="info">Life</Button></a
                     >
-                    <a
-                        href="/#/integrations/Grammys"
+                    <a href="/#/integrations/Grammys"
                         ><Button color="info">Grammys</Button></a
                     >
-                    <a
-                    href="/#/integrations/Pollution"
-                    ><Button color="info">Pollution</Button></a
-                >
-                    <a
-                    href="/#/integrations/Food"
-                    ><Button color="info">Food</Button></a
-                >
-
+                    <a href="/#/integrations/Pollution"
+                        ><Button color="info">Pollution</Button></a
+                    >
+                    <a href="/#/integrations/Food"
+                        ><Button color="info">Food</Button></a
+                    >
                 </CardBody>
                 <CardFooter
                     >desarrollado por
