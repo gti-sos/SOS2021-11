@@ -97,22 +97,26 @@
                         >Estadísticas acerca de los datos recogidos por
                         depresion en las comunidades autónomas de España.</CardText
                     >
-                    <a
-                        href="https://sos2021-11.herokuapp.com/api/v2/depression_stats"
+                    <a href="/#/analytics/depression_stats_graph">
+                        <Button type="button" class="btn btn-info">Depression_1</Button></a
                     >
-                        <Button color="primary">API (v2)</Button></a
+                    <a href="/#/analytics/depression_stats_chart">
+                        <Button type="button" class="btn btn-info">Depression_2</Button></a
                     >
-                    <a href="/#/depression_stats">
-                        <Button color="primary">Interfaz de Depresion</Button>
-                    </a>
-                    <a
-                        href="https://documenter.getpostman.com/view/14948118/TzJu8ccc"
-                        ><Button color="info">Documentación v1</Button></a
+                    <a href="/#/integrations/children_out">
+                        <Button type="button" class="btn btn-success">Niños</Button></a
                     >
-                    <a
-                        href="https://documenter.getpostman.com/view/14948118/TzRXAS6B"
-                        ><Button color="info">Documentación v2</Button></a
+                    <a href="/#/integrations/suicides">
+                        <Button type="button" class="btn btn-success">Suicidios</Button></a
                     >
+                    <a href="/#/integrations/obesity">
+                        <Button type="button" class="btn btn-success">Obesidad</Button></a
+                    >
+                    <a href="/#/integrations/futbol">
+                        <Button type="button" class="btn btn-warning">Futbol</Button></a
+                    >
+                    <a href="/#/integrations/bad">
+                        <Button type="button" class="btn btn-warning">Breaking bad</Button></a>
                 </CardBody>
                 <CardFooter
                     >realizado por
