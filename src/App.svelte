@@ -106,7 +106,6 @@
 		"/integrations/children_out": children_out,
 		"/integrations/suicides": suicides,
 		"/integrations/obesity": obesity,
-
 		"/integrations/futbol": futbol,
 		"/integrations/bad": bad,
 

@@ -61,8 +61,8 @@ app.use(pathUnemployment, function (req, res) {
 });
 
 //integraciones externas
-var pathUnemployment = '/api/integration/obesity-stats';
-var apiServerHostUnemployment = '/?action=get_standings&league_id=302&APIkey=238fa8f2f748e83ca2569474a8f848897110a90bb6837bd17d6cdc66a02eb14a';
+var pathUnemployment= '/?action=get_standings&league_id=302&APIkey=238fa8f2f748e83ca2569474a8f848897110a90bb6837bd17d6cdc66a02eb14a';
+var apiServerHostUnemployment  = 'https://apiv3.apifootball.com';
 
 app.use(pathUnemployment, function (req, res) {
   var url = apiServerHostUnemployment + req.url;

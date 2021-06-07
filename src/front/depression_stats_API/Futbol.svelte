@@ -3,17 +3,11 @@
     import { pop, push } from "svelte-spa-router";
 
     async function loadGraph() {
-        let depressionData = [];
         let futbolData = [];
         
-        const resData = await fetch(
-            "/api/v2/depression_stats"
-        );
-
         const resData2 = await fetch(
             "https://apiv3.apifootball.com/?action=get_standings&league_id=302&APIkey=238fa8f2f748e83ca2569474a8f848897110a90bb6837bd17d6cdc66a02eb14a"
         );
-        depressionData = await resData.json();
         futbolData = await resData2.json();
 
        
