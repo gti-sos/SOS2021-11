@@ -46,7 +46,7 @@
 	import children_out from "./front/depression_stats_API/children_out.svelte";
 	import suicides from "./front/depression_stats_API/suicides.svelte";
 	import obesity from "./front/depression_stats_API/obesity.svelte";
-	import futbol from "./front/depression_stats_API/futbol.svelte";
+	import Futbol from "./front/depression_stats_API/Futbol.svelte";
 	import bad from "./front/depression_stats_API/bad.svelte";
 
 	//INTEGRACIONES ANA ROMERO CÁCERES
@@ -106,7 +106,7 @@
 		"/integrations/children_out": children_out,
 		"/integrations/suicides": suicides,
 		"/integrations/obesity": obesity,
-		"/integrations/futbol": futbol,
+		"/integrations/Futbol": Futbol,
 		"/integrations/bad": bad,
 
 		//INTEGRACIONES ANA ROMERO CÁCERES
