@@ -19,50 +19,48 @@
 	import edit_smoking_stats from "./front/smoking_stats_API/SmokingStatsEdit.svelte";
 
 	import analytics from "./front/Analytics/MedicalIssues.svelte";
-	
 
-	import anxiety_stats_graph from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte"
-	import anxiety_stats_chart from "./front/Analytics/anxiety/AnxietyStatsChart.svelte"
+	import anxiety_stats_graph from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte";
+	import anxiety_stats_chart from "./front/Analytics/anxiety/AnxietyStatsChart.svelte";
 
-	import depression_stats_graph from "./front/Analytics/depression/DepressionStatsGraph.svelte"
-	import depression_stats_chart from "./front/Analytics/depression/DepressionStatsChart.svelte"
+	import depression_stats_graph from "./front/Analytics/depression/DepressionStatsGraph.svelte";
+	import depression_stats_chart from "./front/Analytics/depression/DepressionStatsChart.svelte";
 
-	import stress_stats_graph from "./front/Analytics/stress/StressStatsGraph.svelte"
-	import stress_stats_chart from "./front/Analytics/stress/StressStatsChart.svelte"
+	import stress_stats_graph from "./front/Analytics/stress/StressStatsGraph.svelte";
+	import stress_stats_chart from "./front/Analytics/stress/StressStatsChart.svelte";
 
-	import smoking_stats_graph from "./front/Analytics/smoking/SmokingStatsGraph.svelte"
-	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte"
+	import smoking_stats_graph from "./front/Analytics/smoking/SmokingStatsGraph.svelte";
+	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte";
 
 	//INTEGRACIONES JOSE PABLO CARRASCO COBOS
-	import India from "./front/anxiety_stats_API/India.svelte"
-	import Sanity from "./front/anxiety_stats_API/Sanity.svelte"
-	import Illiteracy from "./front/anxiety_stats_API/Illiteracy.svelte"
-	import Natality from "./front/anxiety_stats_API/Natality.svelte"
-	import NBA from "./front/anxiety_stats_API/NBA.svelte"
-		
-	//INTEGRACIONES Juan Díez Blanco
-	import children_out from "./front/depression_stats_API/children_out.svelte"
-	import suicides from "./front/depression_stats_API/suicides.svelte"
-	import obesity from "./front/depression_stats_API/obesity.svelte"
+	import India from "./front/anxiety_stats_API/India.svelte";
+	import Sanity from "./front/anxiety_stats_API/Sanity.svelte";
+	import Illiteracy from "./front/anxiety_stats_API/Illiteracy.svelte";
+	import Natality from "./front/anxiety_stats_API/Natality.svelte";
+	import NBA from "./front/anxiety_stats_API/NBA.svelte";
 
+	//INTEGRACIONES Juan Díez Blanco
+	import children_out from "./front/depression_stats_API/children_out.svelte";
+	import suicides from "./front/depression_stats_API/suicides.svelte";
+	import obesity from "./front/depression_stats_API/obesity.svelte";
+	import futbol from "./front/depression_stats_API/futbol.svelte";
+	import bad from "./front/depression_stats_API/bad.svelte";
 
 	//INTEGRACIONES ANA ROMERO CÁCERES
-	import COVID_19 from "./front/stress_stats_API/Covid.svelte"
-	import Bicicletas from "./front/stress_stats_API/Bicicleta.svelte"
-	import Unemployment from "./front/stress_stats_API/Unemployment.svelte"
-	import Evictions from "./front/stress_stats_API/Evictions.svelte"
-	import Inversion from "./front/stress_stats_API/Inversion.svelte"
-	import Education from "./front/stress_stats_API/Education.svelte"
-
+	import COVID_19 from "./front/stress_stats_API/Covid.svelte";
+	import Bicicletas from "./front/stress_stats_API/Bicicleta.svelte";
+	import Unemployment from "./front/stress_stats_API/Unemployment.svelte";
+	import Evictions from "./front/stress_stats_API/Evictions.svelte";
+	import Inversion from "./front/stress_stats_API/Inversion.svelte";
+	import Education from "./front/stress_stats_API/Education.svelte";
 
 	//INTEGRACIONES MIRIAM CAMPANO CRESPO
-	import Sport from "./front/smoking_stats_API/Sport.svelte"
-	import Enfermo from "./front/smoking_stats_API/Enfermo.svelte"
-	import Food from "./front/smoking_stats_API/Food.svelte"
-	import Life from "./front/smoking_stats_API/Life.svelte"
-	import Pollution from "./front/smoking_stats_API/Pollution.svelte"
-	import Grammys from "./front/smoking_stats_API/Grammys.svelte"
-	
+	import Sport from "./front/smoking_stats_API/Sport.svelte";
+	import Enfermo from "./front/smoking_stats_API/Enfermo.svelte";
+	import Food from "./front/smoking_stats_API/Food.svelte";
+	import Life from "./front/smoking_stats_API/Life.svelte";
+	import Pollution from "./front/smoking_stats_API/Pollution.svelte";
+	import Grammys from "./front/smoking_stats_API/Grammys.svelte";
 
 	const routes = {
 		"/": Home,
@@ -104,22 +102,25 @@
 		"/integrations/children_out": children_out,
 		"/integrations/suicides": suicides,
 		"/integrations/obesity": obesity,
-		
+
+		"/integrations/futbol": futbol,
+		"/integrations/bad": bad,
+
 		//INTEGRACIONES ANA ROMERO CÁCERES
-		"/integrations/Covid":COVID_19,
-		"/integrations/Bicicletas":Bicicletas,
-		"/integrations/Unemployment":Unemployment,
-		"/integrations/Evictions":Evictions,
-		"/integrations/Inversion":Inversion,
-		"/integrations/Education":Education,
+		"/integrations/Covid": COVID_19,
+		"/integrations/Bicicletas": Bicicletas,
+		"/integrations/Unemployment": Unemployment,
+		"/integrations/Evictions": Evictions,
+		"/integrations/Inversion": Inversion,
+		"/integrations/Education": Education,
 
 		//INTEGRACIONES MIRIAM CAMPANO CRESPO
-		"/integrations/Sport":Sport,
-		"/integrations/Enfermo":Enfermo,
-		"/integrations/Life":Life,
-		"/integrations/Grammys":Grammys,
-		"/integrations/Food":Food,
-		"/integrations/Pollution":Pollution,
+		"/integrations/Sport": Sport,
+		"/integrations/Enfermo": Enfermo,
+		"/integrations/Life": Life,
+		"/integrations/Grammys": Grammys,
+		"/integrations/Food": Food,
+		"/integrations/Pollution": Pollution,
 
 		"*": NotFound,
 	};

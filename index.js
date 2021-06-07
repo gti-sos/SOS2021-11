@@ -60,6 +60,25 @@ app.use(pathUnemployment, function (req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//integraciones externas
+var pathUnemployment = '/api/integration/obesity-stats';
+var apiServerHostUnemployment = '/?action=get_standings&league_id=302&APIkey=238fa8f2f748e83ca2569474a8f848897110a90bb6837bd17d6cdc66a02eb14a';
+
+app.use(pathUnemployment, function (req, res) {
+  var url = apiServerHostUnemployment + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+var pathUnemployment = '/api/episodes';
+var apiServerHostUnemployment = 'https://breakingbadapi.com';
+
+app.use(pathUnemployment, function (req, res) {
+  var url = apiServerHostUnemployment + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
 
 //INTEGRACIONES - PROXYS - JOSE PABLO CARRASCO COBOS
 //Api Compañero SOS - G04 - illiteracy_stats
