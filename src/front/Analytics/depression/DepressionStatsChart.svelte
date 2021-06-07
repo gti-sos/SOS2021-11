@@ -33,7 +33,7 @@
                 inverted: true,
             },
             title: {
-                text: "Average fruit consumption during one week",
+                text: "Depresion por provincias",
             },
             accessibility: {
                 keyboardNavigation: {
@@ -87,10 +87,8 @@
     <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
-            This chart demonstrates an inverted area chart with a floating
-            legend. Inverted charts can often be a good choice on smaller
-            screens, as most users find it easier to scroll vertically to see
-            more data compared to scrolling horizontally.
+            En este grafico podemos ver las estadisticas de la depresion de los
+            hombres ,mujeres y poblacion total por provincias de españa.
         </p>
     </figure>
 
