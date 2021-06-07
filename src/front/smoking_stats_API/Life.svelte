@@ -1,103 +1,98 @@
 <script>
-    import { Nav, NavItem, NavLink } from "sveltestrap";
-    var errorMsg = "";    
-    let correctMsg = "";
-    var datos = [];
-    var smoking = [];
-    const BASE_API_URL_SMOKING = "/api/v2/smoking_stats";
-    const BASE_API_URL_LIFE = "/api/v2/life-stats";
-    
-    //INTEGRACION GRUPO 10
-  async function loadLife() {
-    console.log("Loading data...");
-    const res = await fetch(
-      BASE_API_URL_SMOKING + "/loadInitialData"
-    ).then(function (res) {
-      if (res.ok) {
-        errorMsg = "";
-        correctMsg = "Datos cargados correctamente";
-        console.log("OK");
-      } else {
-        if (res.status === 500) {
-          errorMsg = "No se ha podido acceder a la base de datos";
-        }
-        correctMsg = "";
-        console.log("ERROR!" + errorMsg);
-      }
-    });
-  }
-  async function getLife() {
-    console.log("Fetching data...");
-    await loadLife();
-    const res = await fetch(BASE_API_URL_SMOKING);
-    if (res.ok) {
-      console.log("OK");
-      smoking = await res.json();
-      correctMsg = "";
-      console.log(`We have received ${smoking.length} smoking-stats.`);
-    } else {
-      console.log("Error");
-      errorMsg = "Error al cargar los datos de la API";
-    }
-  }
-    async function loadAPILife() {
-        console.log("Loading data...");
-        const res = await fetch(BASE_API_URL_LIFE).then(
-          function (res) {
-            if (res.ok) {
-              errorMsg = "";
-              console.log("OK");
-            } else {
-              if (res.status === 500) {
-                errorMsg = "No se ha podido acceder a la base de datos";
-              }
-              console.log("ERROR!" + errorMsg);
-            }
-          }
-        );
-      }
-    
-      
-      async function getDatos() {
-        console.log("Fetching data...");
-        await loadAPILife();
-        const res = await fetch(BASE_API_URL_LIFE);
-    
-        if (res.ok) {
-          const json = await res.json();
-          datos = json;
-          console.log(`We have received ${datos.length} stats.`);    
-          console.log("Ok");
-        } else {
-          errorMsg = "Error recuperando datos";
-          console.log("ERROR!" + errorMsg);
-        }
-      }
-    
-      async function loadChart(){
-        await getLife();
-        await getDatos();
-    
-        var pais=[];
-        var indiceSeguridad =[];
-        var smoking_pop=[];
+  import { select_multiple_value } from "svelte/internal";
+  
+  
+    var miAPI = "https://sos2021-01.herokuapp.com/api/v2/life-stats/?country=spain";
+    var API2 = "https://sos2021-11.herokuapp.com/api/v2/smoking_stats/?country=Spain";
+    async function loadGraph(){
+        let dataG2 = [];
+        let myData = [];
+               
+        const resDataG2 = await fetch(API2);
+        const resData = await fetch(miAPI);
+  
+        myData = await resData.json();
+        dataG2 = await resDataG2.json();
+  
+        let array1 = [];
+        let array2 =[];
+        let sum = [];
+  
+        dataG2.forEach(( x) =>{
+       sum +=parseFloat(x.smoking_population)
+  
+       console.log(dataG2)
+       console.log((x.gfperc))
        
-        datos.filter(datos => datos.country == "spain" && datos.country == "ireland"&&
-         datos.country == "germany" && datos.country == "netherlands" &&
-          datos.country == "norway").forEach(d => { 
-           
-            smoking.forEach((data) => {  
-                
-                let country_minuscula = data.country.toLowerCase();
-                if(data.date=="spain" && data.date=="germany" && data.date=="norway" && 
-                data.date=="netherlands" && data.date=="ireland" ){
-                    indiceSeguridad.push(d.safety_index);
-                    smoking_pop.push(data.smoking_population);
-                    pais.push(country_minuscula);
-                }
-            })
+        });
+  
+        array1.push({x:"spain".toString(), y:parseFloat(sum) })
+  
+        
+  
+    myData.forEach(( x) =>{
+       array2.push({x:x.country.toString(), y:parseFloat( x.safety_index)})
+       console.log(myData)
+      });
+  
+      console.log(array1)
+      console.log(array2)
+      
+  
+        console.log("OK, BIEN")
+
+        const data = {
+        labels: country,
+        datasets: [
+            {
+            label: 'Esperanza de vida media',
+            data: array1,
+            borderColor: "#FF000080",
+            backgroundColor: "#FF4B4B80",
+            },
+            {
+            label: '% Dependencia de uso de drogas',
+            data: array2,
+            borderColor: "#0023FF80",
+            backgroundColor: "#3F59FF80",
+            }
+        ]
+        };
+    var ctx = document.getElementById('myChart');
+      new Chart(ctx, {
+                type: 'radar',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+            title: {
+                display: true,
+                text: 'Chart.js Radar Chart'
+            }
+            }
+        },
         });
 
-
+  }
+</script>
+  
+  <svelte:head>
+    <script src="https://github.com/chartjs/Chart.js/blob/master/docs/scripts/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" on:load={loadGraph}></script>
+  </svelte:head>
+  
+  <style>
+    main {
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
     }
-    </script>
+    div {
+      margin-bottom: 15px;
+    }
+    #container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
