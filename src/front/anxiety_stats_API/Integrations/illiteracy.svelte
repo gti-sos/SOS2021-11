@@ -1,12 +1,12 @@
 <script>
-    async function patata() {
+    async function graphINT() {
         let illiteracyData = [];
         let anxietyData = [];
 
-        await fetch('/api/v1/illiteracy/loadInitialData');
-        const data = await fetch('/api/v1/illiteracy');
-        await fetch('/api/v2/anxiety_stats/loadInitialData');
-        const datos = await fetch('/api/v2/anxiety_stats');
+        await fetch("/api/v1/illiteracy/loadInitialData");
+        const data = await fetch("/api/v1/illiteracy");
+        await fetch("/api/v2/anxiety_stats/loadInitialData");
+        const datos = await fetch("/api/v2/anxiety_stats");
 
         illiteracyData = await data.json();
         anxietyData = await datos.json();
@@ -66,7 +66,7 @@
             },
             title: {
                 fontColor: "#8e99a9",
-                text: "Global Browser Usage",
+                text: "Integración Illiteracy - Anxiety_stats",
                 align: "left",
                 offsetX: 10,
                 fontFamily: "Open Sans",
@@ -111,13 +111,13 @@
 <svelte:head>
     <script
         src="https://cdn.zingchart.com/zingchart.min.js"
-        on:load={patata}></script>
+        on:load={graphINT}></script>
 </svelte:head>
 
 <main>
     <div id="myChart">
         <a class="zc-ref" href="https://www.zingchart.com/"
-            >Charts by ZingChart</a
+            >Integracion Grupo 04</a
         >
     </div>
 </main>

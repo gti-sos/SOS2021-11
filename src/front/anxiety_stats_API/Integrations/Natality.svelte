@@ -1,5 +1,4 @@
 <script>
-    import { onMount } from "svelte";
     async function loadGraph() {
         let natalityData = [];
         let anxietyData = [];

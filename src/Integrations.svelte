@@ -53,14 +53,14 @@
                     <CardText
                         >Integraciones y Gráficos base de anxiety_stats</CardText
                     >
-                    <a href="/#/integrations/AnxietyHC">
-                        <Button type="button" class="btn btn-info">-</Button></a
+                    <a href="/#/integrations/anxiety_1">
+                        <Button type="button" class="btn btn-info">Anxiety_1</Button></a
                     >
-                    <a href="/#/integrations/AnxietyAC">
-                        <Button type="button" class="btn btn-info">-</Button></a
+                    <a href="/#/integrations/anxiety_2">
+                        <Button type="button" class="btn btn-info">Anxiety_2</Button></a
                     >
-                    <a href="/#/integrations/-">
-                        <Button type="button" class="btn btn-warning">-</Button></a
+                    <a href="/#/integrations/Games">
+                        <Button type="button" class="btn btn-warning">Games</Button></a
                     >
                     <a href="/#/integrations/NBA">
                         <Button type="button" class="btn btn-warning">NBA</Button></a

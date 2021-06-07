@@ -20,8 +20,6 @@
 
 	import analytics from "./front/Analytics/MedicalIssues.svelte";
 
-	import anxiety_stats_graph from "./front/Analytics/anxiety/AnxietyStatsGraph.svelte";
-	import anxiety_stats_chart from "./front/Analytics/anxiety/AnxietyStatsChart.svelte";
 
 	import depression_stats_graph from "./front/Analytics/depression/DepressionStatsGraph.svelte";
 	import depression_stats_chart from "./front/Analytics/depression/DepressionStatsChart.svelte";
@@ -33,11 +31,16 @@
 	import smoking_stats_chart from "./front/Analytics/smoking/SmokingStatsChart.svelte";
 
 	//INTEGRACIONES JOSE PABLO CARRASCO COBOS
-	import India from "./front/anxiety_stats_API/India.svelte";
-	import Sanity from "./front/anxiety_stats_API/Sanity.svelte";
-	import Illiteracy from "./front/anxiety_stats_API/Illiteracy.svelte";
-	import Natality from "./front/anxiety_stats_API/Natality.svelte";
-	import NBA from "./front/anxiety_stats_API/NBA.svelte";
+	import India from "./front/anxiety_stats_API/Integrations/India.svelte";
+	import Sanity from "./front/anxiety_stats_API/Integrations/Sanity.svelte";
+	import Illiteracy from "./front/anxiety_stats_API/Integrations/Illiteracy.svelte";
+	import Natality from "./front/anxiety_stats_API/Integrations/Natality.svelte";
+
+	import NBA from "./front/anxiety_stats_API/Integrations/NBA.svelte";
+	import Games from "./front/anxiety_stats_API/Integrations/Games.svelte"
+
+	import anxiety_1 from "./front/anxiety_stats_API/anxiety/anxiety_1.svelte";
+	import anxiety_2 from "./front/anxiety_stats_API/anxiety/anxiety_2.svelte";
 
 	//INTEGRACIONES Juan Díez Blanco
 	import children_out from "./front/depression_stats_API/children_out.svelte";
@@ -75,9 +78,6 @@
 		"/smoking_stats": smoking_stats,
 		"/smoking_stats/:country/:year": edit_smoking_stats,
 
-		"/analytics/anxiety_stats_graph": anxiety_stats_graph,
-		"/analytics/anxiety_stats_chart": anxiety_stats_chart,
-
 		"/analytics/depression_stats_graph": depression_stats_graph,
 		"/analytics/depression_stats_chart": depression_stats_chart,
 
@@ -90,6 +90,9 @@
 		"/analytics": analytics,
 
 		//INTEGRACIONES JOSE PABLO CARRASCO COBOS
+		//APIs personales
+		"/integrations/anxiety_1": anxiety_1,
+		"/integrations/anxiety_2": anxiety_2,
 		//Compañeros SOS
 		"/integrations/India": India,
 		"/integrations/Sanity": Sanity,
@@ -97,7 +100,8 @@
 		"/integrations/Natality": Natality,
 		//APIs Externas
 		"/integrations/NBA": NBA,
-
+		"/integrations/Games": NBA,
+		
 		//INTEGRACIONES Juan Díez Blanco
 		"/integrations/children_out": children_out,
 		"/integrations/suicides": suicides,
