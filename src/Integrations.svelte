@@ -71,7 +71,7 @@
                     <a href="/#/integrations/Sanity">
                         <Button type="button" class="btn btn-success">Sanity</Button></a
                     >
-                    <a href="/#/integrations/Illiteracy">
+                    <a href="/#/integrations/illiteracy">
                         <Button type="button" class="btn btn-success">Illiteracy</Button></a
                     >
                     <a href="/#/integrations/Natality">
@@ -94,8 +94,7 @@
                 <CardBody>
                     <CardSubtitle />
                     <CardText
-                        >Estadísticas acerca de los datos recogidos por
-                        depresion en las comunidades autónomas de España.</CardText
+                        >Integraciones y Gráficos base de depression_svelte</CardText
                     >
                     <a href="/#/analytics/depression_stats_graph">
                         <Button type="button" class="btn btn-info">Depression_1</Button></a
@@ -133,8 +132,7 @@
                 <CardBody>
                     <CardSubtitle />
                     <CardText
-                        >Estadísticas acerca de los datos recogidos por estrés
-                        en las comunidades autónomas de España.</CardText
+                        >Integraciones y Gráficos base de stress_stats</CardText
                     >
                     <a href="/#/integrations/Covid">
                         <Button color="primary">COVID-19</Button>
@@ -171,8 +169,7 @@
                 <CardBody>
                     <CardSubtitle />
                     <CardText>
-                        Estadísticas acerca de los datos recogidos por
-                        tabaquismo en los países Europeos.
+                        Integraciones y Gráficos base de smoking_stats.
                     </CardText>
 
                     <a href="/#/integrations/Sport"

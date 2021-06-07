@@ -1,4 +1,5 @@
 <script>
+    import { Nav, NavItem, NavLink } from "sveltestrap";
     async function loadGraph() {
         let natalityData = [];
         let anxietyData = [];
@@ -101,6 +102,15 @@
 </svelte:head>
 
 <main>
+
+    <Nav>
+        <NavItem>
+        <NavLink href="/">Página Principal</NavLink>
+        </NavItem>
+        <NavItem>
+        <NavLink href="#/integrations">Integraciones</NavLink>
+        </NavItem>
+        </Nav> 
     <div id="myChart">
         <a class="zc-ref" href="https://www.zingchart.com/"
             >Charts by ZingChart</a

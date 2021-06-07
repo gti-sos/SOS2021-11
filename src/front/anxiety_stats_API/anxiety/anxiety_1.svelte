@@ -1,4 +1,5 @@
 <script>
+    import { Nav, NavItem, NavLink } from "sveltestrap";
     import Button from "sveltestrap/src/Button.svelte";
     import { pop } from "svelte-spa-router";
 
@@ -93,6 +94,15 @@
 </svelte:head>
 
 <main>
+
+    <Nav>
+        <NavItem>
+        <NavLink href="/">Página Principal</NavLink>
+        </NavItem>
+        <NavItem>
+        <NavLink href="#/integrations">Integraciones</NavLink>
+        </NavItem>
+        </Nav> 
     <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
@@ -102,9 +112,6 @@
             >
         </p>
     </figure>
-    <Button outline color="secondary" on:click={pop}>
-        <i class="fas fa-arrow-circle-left" /> Volver
-    </Button>
 </main>
 
 <style>

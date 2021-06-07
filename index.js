@@ -82,24 +82,45 @@ app.use(pathUnemployment, function (req, res) {
 
 //INTEGRACIONES - PROXYS - JOSE PABLO CARRASCO COBOS
 //Api Compañero SOS - G04 - illiteracy_stats
-var pathIlliteracy = 'api/v1/illiteracy';
-var apiServerHostIlliteracy = 'https://sos2021-04.herokuapp.com/';
-
-app.use(pathIlliteracy, function (req, res) {
+var pathIlliteracy='/api/v1/illiteracy';
+var apiServerHostIlliteracy = "https://sos2021-04.herokuapp.com";
+ 
+app.use(pathIlliteracy, function(req, res) {
   var url = apiServerHostIlliteracy + req.baseUrl + req.url;
   console.log('piped: ' + req.baseUrl + req.url);
   req.pipe(request(url)).pipe(res);
 });
+
+var pathIlliteracyLID='/api/v1/illiteracy/loadInitialData';
+var apiServerHostIlliteracyLID = "https://sos2021-04.herokuapp.com";
+ 
+app.use(pathIlliteracyLID, function(req, res) {
+  var url = apiServerHostIlliteracyLID + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 //Apis Externas
-//Bitcoins (proviene de Github)
-var pathIlliteracy = '/games?per_page=25&page=0';
-var apiServerHostIlliteracy = "https://free-nba.p.rapidapi.com";
+//NBA (proviene de RapidApis)
+var pathNba = '/games?per_page=25&page=0';
+var apiServerHostNba = "https://free-nba.p.rapidapi.com";
 
-app.use(pathIlliteracy, function (req, res) {
-  var url = apiServerHostIlliteracy + req.baseUrl + req.url;
+app.use(pathNba, function (req, res) {
+  var url = apiServerHostNba + req.baseUrl + req.url;
   console.log('piped: ' + req.baseUrl + req.url);
   req.pipe(request(url)).pipe(res);
 });
+
+//Games (proviene de RapidApis)
+var pathGames = '/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc';
+var apiServerHostGames = "https://free-to-play-games-database.p.rapidapi.com";
+
+app.use(pathGames, function (req, res) {
+  var url = apiServerHostGames + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 http://api.bitcoincharts.com/v1/weighted_prices.json
 //Integración Ana Romero Cáceres
 

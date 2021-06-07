@@ -1,4 +1,5 @@
 <script>
+import { Nav, NavItem, NavLink } from "sveltestrap";
     async function graphINT() {
         let illiteracyData = [];
         let anxietyData = [];
@@ -78,7 +79,7 @@
                 fontColor: "#8e99a9",
                 fontFamily: "Open Sans",
                 fontSize: "16",
-                text: "May 2016",
+                text: "June 2021",
                 align: "left",
             },
             plotarea: {
@@ -115,6 +116,16 @@
 </svelte:head>
 
 <main>
+
+    <Nav>
+        <NavItem>
+            <NavLink href="/">Página Principal</NavLink>
+            </NavItem>
+            <NavItem>
+            <NavLink href="#/integrations">Integraciones</NavLink>
+            </NavItem>
+            </Nav> 
+
     <div id="myChart">
         <a class="zc-ref" href="https://www.zingchart.com/"
             >Integracion Grupo 04</a

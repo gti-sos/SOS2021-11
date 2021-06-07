@@ -1,6 +1,7 @@
 <script>
     import Button from "sveltestrap/src/Button.svelte";
     import { pop, push } from "svelte-spa-router";
+    import { Nav, NavItem, NavLink } from "sveltestrap";
 
     async function loadGraph() {
         let anxietyData = [];
@@ -55,6 +56,15 @@
 </script>
 
 <main>
+    <Nav>
+    <NavItem>
+        <NavLink href="/">Página Principal</NavLink>
+        </NavItem>
+        <NavItem>
+        <NavLink href="#/integrations">Integraciones</NavLink>
+        </NavItem>
+        </Nav> 
+
     <div id="chartContainer" style="height: 370px; width: 100%;" />
     <script
         type="text/javascript"
@@ -71,7 +81,4 @@
             >https://canvasjs.com/javascript-charts/multi-series-spline-area-chart/</a
         >
     </div>
-    <Button outline color="secondary" on:click={pop}>
-        <i class="fas fa-arrow-circle-left" /> Volver
-    </Button>
 </main>

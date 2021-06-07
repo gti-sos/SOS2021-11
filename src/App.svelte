@@ -5,6 +5,7 @@
 	import Home from "./Home.svelte";
 	import Info from "./Info.svelte";
 	import Integrations from "./Integrations.svelte";
+	import About from "./About.svelte";
 
 	import anxiety_stats from "./front/anxiety_stats_API/AnxietyStatsAPI.svelte";
 	import edit_anxiety_stats from "./front/anxiety_stats_API/AnxietyStatsEdit.svelte";
@@ -33,7 +34,7 @@
 	//INTEGRACIONES JOSE PABLO CARRASCO COBOS
 	import India from "./front/anxiety_stats_API/Integrations/India.svelte";
 	import Sanity from "./front/anxiety_stats_API/Integrations/Sanity.svelte";
-	import Illiteracy from "./front/anxiety_stats_API/Integrations/Illiteracy.svelte";
+	import illiteracy from "./front/anxiety_stats_API/Integrations/illiteracy.svelte";
 	import Natality from "./front/anxiety_stats_API/Integrations/Natality.svelte";
 
 	import NBA from "./front/anxiety_stats_API/Integrations/NBA.svelte";
@@ -69,6 +70,7 @@
 		"/": Home,
 		"/info": Info,
 		"/integrations": Integrations,
+		"/about": About,
 		"/anxiety_stats": anxiety_stats,
 		"/anxiety_stats/:country/:year": edit_anxiety_stats,
 		"/depression_stats": depression_stats,
@@ -96,7 +98,7 @@
 		//Compañeros SOS
 		"/integrations/India": India,
 		"/integrations/Sanity": Sanity,
-		"/integrations/Illiteracy": Illiteracy,
+		"/integrations/illiteracy": illiteracy,
 		"/integrations/Natality": Natality,
 		//APIs Externas
 		"/integrations/NBA": NBA,

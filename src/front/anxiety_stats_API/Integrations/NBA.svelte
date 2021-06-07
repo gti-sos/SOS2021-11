@@ -1,4 +1,5 @@
 <script>
+  import { Nav, NavItem, NavLink } from "sveltestrap";
   async function loadGraph() {
     const resData = await fetch("/api/v2/anxiety_stats");
     let dataAnxiety = await resData.json();
@@ -78,6 +79,15 @@
 </script>
 
 <main>
+
+  <Nav>
+    <NavItem>
+    <NavLink href="/">Página Principal</NavLink>
+    </NavItem>
+    <NavItem>
+    <NavLink href="#/integrations">Integraciones</NavLink>
+    </NavItem>
+    </Nav> 
   <div id="container6" />
 </main>
 

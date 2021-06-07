@@ -1,4 +1,5 @@
 <script>
+    import { Nav, NavItem, NavLink } from "sveltestrap";
     import { onMount } from "svelte";
     async function loadGraph() {
         let sanityData = [];
@@ -148,6 +149,16 @@
 </svelte:head>
 
 <main>
+
+    <Nav>
+        <NavItem>
+        <NavLink href="/">Página Principal</NavLink>
+        </NavItem>
+        <NavItem>
+        <NavLink href="#/integrations">Integraciones</NavLink>
+        </NavItem>
+        </Nav> 
+        
     <h1><div id="myChart">Integración SOS: Sanity Stats</div></h1>
 </main>
 

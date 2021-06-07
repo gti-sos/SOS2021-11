@@ -1,4 +1,5 @@
 <script>
+    import { Nav, NavItem, NavLink } from "sveltestrap";
     import { onMount } from "svelte";
     async function loadGraph() {
         let indiaData = [];
@@ -116,13 +117,10 @@
 </svelte:head>
 
 <main>
-    <h1><div id="myChart">Integración SOS: Covid India</div></h1>
+    <div id="myChart">Integración SOS: Covid India</div>
 </main>
 
 <style>
-    h1 {
-        text-align: center;
-    }
     div {
         color: rgb(116, 121, 9);
         border: 10px dotted currentcolor;
