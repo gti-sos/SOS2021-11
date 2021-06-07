@@ -100,7 +100,7 @@
 		"/integrations/Natality": Natality,
 		//APIs Externas
 		"/integrations/NBA": NBA,
-		"/integrations/Games": NBA,
+		"/integrations/Games": Games,
 		
 		//INTEGRACIONES Juan Díez Blanco
 		"/integrations/children_out": children_out,
